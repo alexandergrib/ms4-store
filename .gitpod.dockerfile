@@ -50,11 +50,11 @@ ENV PATH="/usr/lib/postgresql/12/bin:/home/gitpod/.nvm/versions/node/v${NODE_VER
 
 # Create our own config files
 
-COPY .vscode/mysql.cnf /etc/mysql/mysql.conf.d/mysqld.cnf
+COPY ./.vscode/mysql.cnf /etc/mysql/mysql.conf.d/mysqld.cnf
 
-COPY .vscode/client.cnf /etc/mysql/mysql.conf.d/client.cnf
+COPY ./.vscode/client.cnf /etc/mysql/mysql.conf.d/client.cnf
 
-COPY .vscode/start_mysql.sh /etc/mysql/mysql-bashrc-launch.sh
+COPY ./.vscode/start_mysql.sh /etc/mysql/mysql-bashrc-launch.sh
 
 # Start MySQL when we log in
 # Add aliases
