@@ -1,6 +1,6 @@
 # Fixes the font issue on Brave browser
 # Matt Rudge
-# June 2021
+# August 2021
 
 import json
 import os
@@ -11,11 +11,11 @@ with open(f"{BASE_PATH}/.vscode/settings.json", "r+") as f:
     content = json.loads(f.read())
 
     if "terminal.integrated.fontFamily" not in content:
-        print("Terminal Font Fix: adding Menlo font")
-        content["terminal.integrated.fontFamily"] = "Menlo"
+        print("Adding wider and higher font settings")
+        content["terminal.integrated.lineHeight"] = 1.2
+        content["terminal.integrated.letterSpacing"] = 2
     else:
-        print("Terminal Font Fix: removing Menlo font")
-        content.pop("terminal.integrated.fontFamily")
+        print("Wider and higher font settings already added!")
 
     f.seek(0, os.SEEK_SET)
     f.write(json.dumps(content))
