@@ -50,11 +50,11 @@ ENV PATH="/usr/lib/postgresql/12/bin:/home/gitpod/.nvm/versions/node/v${NODE_VER
 
 # Create our own config files
 
-COPY ./.vscode/mysql.cnf /etc/mysql/mysql.conf.d/mysqld.cnf
+COPY .vscode/mysql.cnf /etc/mysql/mysql.conf.d/mysqld.cnf
 
-COPY ./.vscode/client.cnf /etc/mysql/mysql.conf.d/client.cnf
+COPY .vscode/client.cnf /etc/mysql/mysql.conf.d/client.cnf
 
-COPY ./.vscode/start_mysql.sh /etc/mysql/mysql-bashrc-launch.sh
+COPY .vscode/start_mysql.sh /etc/mysql/mysql-bashrc-launch.sh
 
 # Start MySQL when we log in
 # Add aliases
@@ -67,6 +67,7 @@ RUN echo 'alias run="python3 $GITPOD_REPO_ROOT/manage.py runserver 0.0.0.0:8000"
     echo 'alias font_fix="python3 $GITPOD_REPO_ROOT/.vscode/font_fix.py"' >> ~/.bashrc && \
     echo 'alias set_pg="export PGHOSTADDR=127.0.0.1"' >> ~/.bashrc && \
     echo 'alias mongosh=mongo' >> ~/.bashrc && \
+    echo 'alias make_url="python3 $GITPOD_REPO_ROOT/.vscode/make_url.py "' >> ~/.bashrc && \
     echo ". /etc/mysql/mysql-bashrc-launch.sh" >> ~/.bashrc && \
     echo 'FILE="$GITPOD_REPO_ROOT/.vscode/post_upgrade.sh"' >> ~/.bashrc && \
     echo 'if [ -z "$POST_UPGRADE_RUN" ]; then' >> ~/.bashrc && \
