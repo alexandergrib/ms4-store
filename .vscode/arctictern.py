@@ -65,6 +65,9 @@ UPGRADE_FILE_LIST = [{"filename": ".vscode/client.cnf",
                      {"filename": ".vscode/uptime.sh",
                       "url": ".vscode/uptime.sh"
                       },
+                     {"filename": ".vscode/make_url.py",
+                      "url": ".vscode/make_url.py"
+                     },
                      {"filename": ".vscode/arctictern.py",
                       "url": ".vscode/arctictern.py"
                       }]
@@ -86,7 +89,7 @@ def needs_upgrade():
         THIS_VERSION = 1.0
         with open(".vscode/version.txt", "w") as f:
             f.write(str(THIS_VERSION))
-    
+
     r = requests.get(BASE_URL + ".vscode/version.txt")
     CURRENT_VERSION = float(r.content)
     print(f"Upstream version: {CURRENT_VERSION}")
@@ -110,7 +113,7 @@ def build_post_upgrade():
         content += FINAL_LINES
         with open(".vscode/post_upgrade.sh", "w") as f:
             f.writelines(content)
-    
+
     print("Built post_upgrade.sh. Restart your workspace for it to take effect")
 
 
@@ -161,7 +164,7 @@ def start_migration():
     if MIGRATE and not os.path.isdir(".vscode"):
         print("Renaming directory")
         os.rename(".theia", ".vscode")
-    
+
     if not MIGRATE and needs_upgrade():
         build_post_upgrade()
 

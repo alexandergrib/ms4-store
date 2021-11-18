@@ -20,3 +20,4 @@ with open(f"{BASE_PATH}/.vscode/settings.json", "r+") as f:
     f.seek(0, os.SEEK_SET)
     f.write(json.dumps(content))
     f.truncate()
+    
