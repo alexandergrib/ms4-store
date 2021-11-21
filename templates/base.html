@@ -74,20 +74,21 @@
         </div>
     </div>
     <div class="row bg-white pt-lg-2 d-none d-lg-flex" id="topnav">
-        <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
+        <div class="col-12 col-lg-3 my-auto py-1 py-lg-0 text-center text-lg-left">
             <a href="{% url 'home' %}" class="nav-link main-logo-link">
                 <h2 class="logo-font text-black my-0">Shop easy</h2>
             </a>
         </div>
-        <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
+        <div class="col-12 col-lg-6 my-auto py-1 py-lg-0">
             <form action="" method="get">
                 <div class="input-group w-100">
                     <label>
-                        <input class="form-control border border-black rounded-1" type="text" name="q"
+                        <input class="form-control border border-black rounded-0" type="text" name="q"
                                placeholder="Search our site">
                     </label>
                     <div class="input-group-prepend">
-                        <button class="form-control btn btn-black border border-black rounded-1" type="submit">
+                        <button class="form-control btn btn-black border border-black rounded-0"
+                                type="submit" aria-label="Search">
                             <span class="icon">
                                 <i class="fas fa-search"></i>
                             </span>
@@ -96,7 +97,7 @@
                 </div>
             </form>
         </div>
-        <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
+        <div class="col-12 col-lg-3 my-auto py-1 py-lg-0">
             <ul class="list-inline list-unstyled text-center text-lg-right my-0">
                 <li class="list-inline-item dropdown">
                     <a href="#" class="text-black nav-link" id="user-options" data-bs-toggle="dropdown"

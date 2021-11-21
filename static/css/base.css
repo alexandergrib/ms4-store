@@ -7,8 +7,10 @@ html {
     overflow: hidden;
     height: calc(100vh - 188px);
     color: #555;
-    font-family: "Lato";
+    font-family: "Lato", sans-serif;
 }
+
+.row{ margin-left: 0; margin-right: 0;}
 
 .nav-header {
     border-bottom: 1px solid grey;
@@ -34,14 +36,14 @@ html {
     right: 5%;
 }
 
+
 .homepage {
     height: 400px;
     background: #FCFAEB url('/media/robot.webp') no-repeat center;
     background-size: contain ;
 }
-
-
 /*from Bulma*/
+
 .icon {
     align-items: center;
     display: inline-flex;
@@ -54,10 +56,10 @@ html {
     text-transform: uppercase;
 }
 
+
 .main-logo-link {
     width: fit-content;
 }
-
 
 .shop-now-button {
     background: black;
@@ -84,11 +86,15 @@ html {
     color: #000 !important;
 }
 
+
 .border-black {
     border: 1px solid black !important;
 }
 
-
+.home-inner-category-image {
+    width: 100px;
+    height: 100px;
+}
 
 
 
