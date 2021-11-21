@@ -5,6 +5,7 @@
 .nav-header {
     border-bottom: 1px solid grey;
     position: relative;
+    height: 24px;
 }
 
 .nav-header ul {
@@ -21,7 +22,7 @@
 }
 
 .nav-header--section_right {
-    position: absolute;
+    position: relative;
     right: 5%;
 
 }
