@@ -34,6 +34,13 @@ html {
     right: 5%;
 }
 
+.homepage {
+    height: 400px;
+    background: #FCFAEB url('/media/robot.webp') no-repeat center;
+    background-size: contain ;
+}
+
+
 /*from Bulma*/
 .icon {
     align-items: center;
