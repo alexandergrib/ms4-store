@@ -1,7 +1,28 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
 
 {% block content %}
-<H1>hello world</H1>
-<p>from template</p>
+    <div class="container h-100">
+        <div class="row h-100">
+            <div class="col-8 col-md-7 my-auto">
+                <h2 class="display-6 text-black-50 text-muted">Everything is possible</h2>
+                <h1 class="display-4 logo-font text-black">SLOGAN TO CATCH ATTENTION</h1>
+                <h2 class="display-6 logo-font text-black">Sale up to 50% OFF</h2>
+                <div class="my5">
+                    <h4>
+                        <a href="" class="shop-now-button btn btn-lg rounded-1 text-uppercase py-3">Shop now</a>
+                    </h4>
+                </div>
+            </div>
+        </div>
+    </div>
 
 {% endblock %}
