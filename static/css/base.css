@@ -2,12 +2,15 @@ html {
     height: 100%;
 }
 
-
+nav li {
+    list-style: none;
+    list-style-position: outside;
+}
 .body {
     overflow: hidden;
     height: calc(100vh - 188px);
     color: #555;
-    font-family: "Lato", sans-serif;
+    font-family: "Lato", sans-serif !important;
 }
 
 .row{ margin-left: 0; margin-right: 0;}
@@ -78,7 +81,8 @@ a:active - a link the moment it is clicked
 .shop-now-button {
     background: black;
     color: white;
-    min-width: 260px;
+    min-width: 140px;
+    /*width: 260px;*/
 }
 
 .btn-black {
@@ -110,8 +114,9 @@ a:active - a link the moment it is clicked
 }
 
 .home-inner-category-image {
-    width: 100px;
-    height: 100px;
+    width: 100%;
+    margin: auto;
+    display: block;
 }
 
 
@@ -139,3 +144,43 @@ a:active - a link the moment it is clicked
         padding-top: 164px;
     }
 }
+
+@media (max-width: 991px) {
+     .header-container {
+        padding-top: 156px;
+    }
+    .nav-link {
+        padding: 0.15rem;
+    }
+     .nav-link i.fa-lg {
+        font-size: 1rem;
+    }
+
+    .navbar-toggler {
+        padding: .6rem .6rem;
+        font-size: 1rem;
+    }
+
+    #delivery-banner h4 {
+        font-size: .9rem;
+    }
+
+    .btn.btn-outline-black.rounded-0,
+    .btn.btn-black.rounded-0 {
+        padding: .375rem .375rem;
+    }
+
+    .btn.btn-outline-black.rounded-0.btn-lg,
+    .btn.btn-black.rounded-0.btn-lg {
+        padding: .375rem .375rem;
+        font-size: .75rem;
+    }
+
+}
+
+@media (max-width: 767px) {
+     .header-container {
+        padding-top: 130px;
+    }
+}
+
