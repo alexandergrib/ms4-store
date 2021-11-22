@@ -12,6 +12,22 @@ html {
 
 .row{ margin-left: 0; margin-right: 0;}
 
+.url-style:link,
+.url-style:visited,
+.url-style:active {
+    text-decoration: none;
+}
+
+.url-style:hover {
+    background-color: #ffbfe7;
+}
+
+/*a:link - a normal, unvisited link
+a:visited - a link the user has visited
+a:hover - a link when the user mouses over it
+a:active - a link the moment it is clicked
+*/
+
 .nav-header {
     border-bottom: 1px solid grey;
     position: relative;
@@ -36,14 +52,13 @@ html {
     right: 5%;
 }
 
-
 .homepage {
     height: 400px;
     background: #FCFAEB url('/media/robot.webp') no-repeat center;
     background-size: contain ;
 }
-/*from Bulma*/
 
+/*from Bulma*/
 .icon {
     align-items: center;
     display: inline-flex;
@@ -55,7 +70,6 @@ html {
 .logo-font {
     text-transform: uppercase;
 }
-
 
 .main-logo-link {
     width: fit-content;
@@ -89,6 +103,10 @@ html {
 
 .border-black {
     border: 1px solid black !important;
+}
+
+.bg-black {
+    background: #000 !important;
 }
 
 .home-inner-category-image {
