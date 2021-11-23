@@ -6,6 +6,7 @@ nav li {
     list-style: none;
     list-style-position: outside;
 }
+
 .body {
     overflow: hidden;
     height: calc(100vh - 188px);
@@ -13,7 +14,10 @@ nav li {
     font-family: "Lato", sans-serif !important;
 }
 
-.row{ margin-left: 0; margin-right: 0;}
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}
 
 .url-style:link,
 .url-style:visited,
@@ -58,7 +62,7 @@ a:active - a link the moment it is clicked
 .homepage {
     height: 400px;
     background: #FCFAEB url('/media/robot.webp') no-repeat center;
-    background-size: contain ;
+    background-size: contain;
 }
 
 /*from Bulma*/
@@ -120,14 +124,13 @@ a:active - a link the moment it is clicked
 }
 
 
-
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
 @media (min-width: 1200px) {
-  .container {
-    max-width: 80%;
-  }
+    .container {
+        max-width: 80%;
+    }
 }
 
 /* fixed top navbar only on medium and up */
@@ -146,13 +149,15 @@ a:active - a link the moment it is clicked
 }
 
 @media (max-width: 991px) {
-     .header-container {
+    .header-container {
         padding-top: 156px;
     }
+
     .nav-link {
         padding: 0.15rem;
     }
-     .nav-link i.fa-lg {
+
+    .nav-link i.fa-lg {
         font-size: 1rem;
     }
 
@@ -178,8 +183,9 @@ a:active - a link the moment it is clicked
 
 }
 
+
 @media (max-width: 767px) {
-     .header-container {
+    .header-container {
         padding-top: 130px;
     }
 }
