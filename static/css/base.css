@@ -150,7 +150,7 @@ a:active - a link the moment it is clicked
 
 @media (max-width: 991px) {
     .header-container {
-        padding-top: 156px;
+        padding-top: 130px;
     }
 
     .nav-link {
@@ -186,7 +186,7 @@ a:active - a link the moment it is clicked
 
 @media (max-width: 767px) {
     .header-container {
-        padding-top: 130px;
+        padding-top: 103px;
     }
 }
 
