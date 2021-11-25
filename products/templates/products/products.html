@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'home/css/carousel.css' %}">
+{% endblock %}
+
+{% block page_header %}
+    <div class="container-fluid header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+
+                show
+                {{ products }}
+
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}
+
+
+{% block post_loadjs %}
+{% endblock %}

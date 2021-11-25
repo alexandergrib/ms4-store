@@ -4,6 +4,10 @@ from profiles.models import UserProfile
 
 
 class Category(models.Model):
+
+    class Meta:
+        verbose_name_plural = 'Categories'
+
     name = models.CharField(max_length=254)
     friendly_name = models.CharField(max_length=254)
 
@@ -32,9 +36,14 @@ class Product(models.Model):
 
 
 class ProductReviews(models.Model):
+
+    class Meta:
+        verbose_name_plural = 'Product Reviews'
+
     product = models.ForeignKey(Product, null=True, blank=True, on_delete=models.SET_NULL)
     # order = models.ForeignKey('Order', on_delete=models.SET_NULL)
     user = models.ForeignKey(UserProfile, null=True, blank=True, on_delete=models.SET_NULL)
+    review_title = models.CharField(max_length=254, null=True, blank=True)
     review_text = models.CharField(max_length=1024, null=True, blank=True)
     review_image = models.ImageField(null=True, blank=True)
     review_score = models.PositiveIntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)])
@@ -44,6 +53,10 @@ class ProductReviews(models.Model):
 
 
 class ProductImages(models.Model):
+
+    class Meta:
+        verbose_name_plural = 'Product Images'
+
     product = models.ForeignKey(Product, null=True, blank=True, on_delete=models.SET_NULL)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
