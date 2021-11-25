@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% get_media_prefix %}
 
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'home/css/carousel.css' %}">
@@ -14,14 +15,52 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container">
+    <div class="overlay"></div>
+    <div class="container-fluid">
         <div class="row">
-            <div class="col">
-
-                show
-                {{ products }}
-
+            <div class="col text-center mt-3">
+                <h2 class="logo-font">Products</h2>
+                <hr class="w-50 mb-1">
             </div>
+        </div>
+        <div class="row mt-1 mb-2">
+            {% for product in products %}
+                <div class="col">
+                    <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+
+                        <div class="card h-100 border-0">
+                            {% if product.productimages_set.all.0.image %}
+                                <a href="">
+                                    <img src="{{ product.productimages_set.all.0.image_url }}" alt="{{ product.name }}"
+                                         class="card-img-top img-fluid">
+                                </a>
+                            {% else %}
+                                <a href="">
+                                    <img src="/media/200x200.webp" alt="{{ product.name }}"
+                                         class="card-img-top img-fluid">
+                                </a>
+                            {% endif %}
+                            <div class="card-body pb-0">
+                                <p class="mb-0">{{ product.name }}</p>
+                            </div>
+                            <div class="card-footer bg-white pt-0 border-0 text-left">
+                                <div class="row">
+                                    <div class="col">
+                                        <p class="lead mb-0 text-left font-weight-bold">£{{ product.price }}</p>
+                                        {% if product.product_rating %}
+                                            <small class="text-muted"><i
+                                                    class="fas fa-star mr-1"></i>{{ product.product_rating }}</small>
+                                        {% else %}
+                                            <small class="text-muted"> No rating</small>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+
         </div>
 
     </div>
