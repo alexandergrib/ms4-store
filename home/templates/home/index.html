@@ -5,13 +5,6 @@
     <link rel="stylesheet" href="{% static 'home/css/carousel.css' %}">
 {% endblock %}
 
-{% block page_header %}
-    <div class="container-fluid header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
-    </div>
-{% endblock %}
 
 {% block content %}
     <div class="container-fluid w-100 homepage">
@@ -22,7 +15,7 @@
                 <h2 class="display-6 logo-font text-black">Sale up to 50% OFF</h2>
                 <div class="my5">
                     <h3>
-                        <a href="" class="shop-now-button btn btn-lg rounded-1 text-uppercase py-3"
+                        <a href="{% url 'products' %}" class="shop-now-button btn btn-lg rounded-1 text-uppercase py-3"
                            aria-label="Shop now">Shop now</a>
                     </h3>
                 </div>
@@ -133,7 +126,7 @@
                 <div class="MultiCarousel-inner">
                     <div class="item">
                         <div class="pad15">
-                            <img class="lead" src="/media/200x200.webp" alt="blank" width="100">
+                            <img class="lead img-fluid" src="/media/200x200.webp" alt="blank" width="200">
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet, corporis culpa deserunt fugiat fugit ipsum maiores nemo.</p>
                             <p>Rating ********</p>
                             <p>price 50% off</p>
@@ -142,7 +135,7 @@
                     </div>
                     <div class="item">
                         <div class="pad15">
-                            <img class="lead" src="/media/200x200.webp" alt="blank" width="100">
+                            <img class="lead img-fluid" src="/media/200x200.webp" alt="blank" width="200">
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet, corporis culpa deserunt fugiat fugit ipsum maiores nemo.</p>
                             <p>Rating ********</p>
                             <p>price 50% off</p>
@@ -151,7 +144,7 @@
                     </div>
                     <div class="item">
                         <div class="pad15">
-                            <img class="lead" src="/media/200x200.webp" alt="blank" width="100">
+                            <img class="lead img-fluid" src="/media/200x200.webp" alt="blank" width="200">
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet, corporis culpa deserunt fugiat fugit ipsum maiores nemo.</p>
                             <p>Rating ********</p>
                             <p>price 50% off</p>
@@ -160,7 +153,7 @@
                     </div>
                     <div class="item">
                         <div class="pad15">
-                            <img class="lead" src="/media/200x200.webp" alt="blank" width="100">
+                            <img class="lead img-fluid" src="/media/200x200.webp" alt="blank" width="200">
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet, corporis culpa deserunt fugiat fugit ipsum maiores nemo.</p>
                             <p>Rating ********</p>
                             <p>price 50% off</p>
@@ -169,7 +162,7 @@
                     </div>
                     <div class="item">
                         <div class="pad15">
-                            <img class="lead" src="/media/200x200.webp" alt="blank" width="100">
+                            <img class="lead img-fluid" src="/media/200x200.webp" alt="blank" width="200">
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet, corporis culpa deserunt fugiat fugit ipsum maiores nemo.</p>
                             <p>Rating ********</p>
                             <p>price 50% off</p>
@@ -178,7 +171,7 @@
                     </div>
                     <div class="item">
                         <div class="pad15">
-                            <img class="lead" src="/media/200x200.webp" alt="blank" width="100">
+                            <img class="lead img-fluid" src="/media/200x200.webp" alt="blank" width="200">
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet, corporis culpa deserunt fugiat fugit ipsum maiores nemo.</p>
                             <p>Rating ********</p>
                             <p>price 50% off</p>
@@ -187,7 +180,7 @@
                     </div>
                     <div class="item">
                         <div class="pad15">
-                            <img class="lead" src="/media/200x200.webp" alt="blank" width="100">
+                            <img class="lead img-fluid" src="/media/200x200.webp" alt="blank" width="200">
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet, corporis culpa deserunt fugiat fugit ipsum maiores nemo.</p>
                             <p>Rating ********</p>
                             <p>price 50% off</p>
@@ -196,7 +189,7 @@
                     </div>
                     <div class="item">
                         <div class="pad15">
-                            <img class="lead" src="/media/200x200.webp" alt="blank" width="100">
+                            <img class="lead img-fluid" src="/media/200x200.webp" alt="blank" width="200">
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet, corporis culpa deserunt fugiat fugit ipsum maiores nemo.</p>
                             <p>Rating ********</p>
                             <p>price 50% off</p>
@@ -205,7 +198,7 @@
                     </div>
                     <div class="item">
                         <div class="pad15">
-                            <img class="lead" src="/media/200x200.webp" alt="blank" width="100">
+                            <img class="lead img-fluid" src="/media/200x200.webp" alt="blank" width="200">
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet, corporis culpa deserunt fugiat fugit ipsum maiores nemo.</p>
                             <p>Rating ********</p>
                             <p>price 50% off</p>
@@ -214,7 +207,7 @@
                     </div>
                     <div class="item">
                         <div class="pad15">
-                            <img class="lead" src="/media/200x200.webp" alt="blank" width="100">
+                            <img class="lead img-fluid" src="/media/200x200.webp" alt="blank" width="200">
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet, corporis culpa deserunt fugiat fugit ipsum maiores nemo.</p>
                             <p>Rating ********</p>
                             <p>price 50% off</p>
@@ -223,7 +216,7 @@
                     </div>
                     <div class="item">
                         <div class="pad15">
-                            <img class="lead" src="/media/200x200.webp" alt="blank" width="100">
+                            <img class="lead img-fluid" src="/media/200x200.webp" alt="blank" width="200">
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet, corporis culpa deserunt fugiat fugit ipsum maiores nemo.</p>
                             <p>Rating ********</p>
                             <p>price 50% off</p>
@@ -232,7 +225,7 @@
                     </div>
                     <div class="item">
                         <div class="pad15">
-                            <img class="lead" src="/media/200x200.webp" alt="blank" width="100">
+                            <img class="lead img-fluid" src="/media/200x200.webp" alt="blank" width="200">
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet, corporis culpa deserunt fugiat fugit ipsum maiores nemo.</p>
                             <p>Rating ********</p>
                             <p>price 50% off</p>
@@ -241,7 +234,7 @@
                     </div>
                     <div class="item">
                         <div class="pad15">
-                            <img class="lead" src="/media/200x200.webp" alt="blank" width="100">
+                            <img class="lead img-fluid" src="/media/200x200.webp" alt="blank" width="200">
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet, corporis culpa deserunt fugiat fugit ipsum maiores nemo.</p>
                             <p>Rating ********</p>
                             <p>price 50% off</p>
@@ -250,7 +243,7 @@
                     </div>
                     <div class="item">
                         <div class="pad15">
-                           <img class="lead" src="/media/200x200.webp" alt="blank" width="100">
+                           <img class="lead img-fluid" src="/media/200x200.webp" alt="blank" width="200">
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet, corporis culpa deserunt fugiat fugit ipsum maiores nemo.</p>
                             <p>Rating ********</p>
                             <p>price 50% off</p>
@@ -259,7 +252,7 @@
                     </div>
                     <div class="item">
                         <div class="pad15">
-                            <img class="lead" src="/media/200x200.webp" alt="blank" width="100">
+                            <img class="lead img-fluid" src="/media/200x200.webp" alt="blank" width="200">
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet, corporis culpa deserunt fugiat fugit ipsum maiores nemo.</p>
                             <p>Rating ********</p>
                             <p>price 50% off</p>
@@ -268,7 +261,7 @@
                     </div>
                     <div class="item">
                         <div class="pad15">
-                            <img class="lead" src="/media/200x200.webp" alt="blank" width="100">
+                            <img class="lead img-fluid" src="/media/200x200.webp" alt="blank" width="200">
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet, corporis culpa deserunt fugiat fugit ipsum maiores nemo.</p>
                             <p>Rating ********</p>
                             <p>price 50% off</p>
@@ -280,7 +273,6 @@
                 <button class="btn btn-primary rightLst">></button>
             </div>
         </div>
-
     </div>
 
 {% endblock %}

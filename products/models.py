@@ -40,7 +40,7 @@ class ProductReviews(models.Model):
     class Meta:
         verbose_name_plural = 'Product Reviews'
 
-    product = models.ForeignKey(Product, null=True, blank=True, on_delete=models.SET_NULL)
+    product = models.ForeignKey(Product, null=True, blank=True, on_delete=models.SET_NULL, related_name="product_reviews")
     # order = models.ForeignKey('Order', on_delete=models.SET_NULL)
     user = models.ForeignKey(UserProfile, null=True, blank=True, on_delete=models.SET_NULL)
     review_title = models.CharField(max_length=254, null=True, blank=True)
@@ -57,6 +57,6 @@ class ProductImages(models.Model):
     class Meta:
         verbose_name_plural = 'Product Images'
 
-    product = models.ForeignKey(Product, null=True, blank=True, on_delete=models.SET_NULL)
+    product = models.ForeignKey(Product, null=True, blank=True, on_delete=models.SET_NULL, related_name="product_image")
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)

@@ -13,7 +13,9 @@ nav li {
     color: #555;
     font-family: "Lato", sans-serif !important;
 }
-
+.search-label {
+    width: 90%;
+}
 .row {
     margin-left: 0;
     margin-right: 0;
@@ -133,7 +135,9 @@ a:active - a link the moment it is clicked
     z-index: -1;
 }
 
-
+.product-images {
+    width: 70px;
+}
 
 
 
@@ -185,13 +189,13 @@ a:active - a link the moment it is clicked
     }
 
     .header-container {
-        padding-top: 164px;
+        /*padding-top: 164px;*/
     }
 }
 
 @media (max-width: 991px) {
     .header-container {
-        padding-top: 130px;
+        /*padding-top: 130px;*/
     }
 
     .nav-link {
@@ -230,7 +234,7 @@ a:active - a link the moment it is clicked
 
 @media (max-width: 767px) {
     .header-container {
-        padding-top: 103px;
+        /*padding-top: 103px;*/
     }
 }
 
