@@ -80,9 +80,9 @@
             </a>
         </div>
         <div class="col-12 col-lg-6 my-auto py-1 py-lg-0">
-            <form action="" method="get">
+            <form action="{% url 'products' %}" method="get">
                 <div class="input-group w-100">
-                    <label>
+                    <label class="search-label">
                         <input class="form-control border border-black rounded-0" type="text" name="q"
                                placeholder="Search our site">
                     </label>
@@ -160,6 +160,11 @@
 
 
 {% block page_header %}
+        <div class="container-fluid header-container" id="header-spacer">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
 {% endblock %}
 
 {% block content %}
@@ -171,6 +176,7 @@
 
 
 {% block post_loadjs %}
+     <script src="{% static 'js/main.js' %}"></script>
 {% endblock %}
 </body>
 </html>
