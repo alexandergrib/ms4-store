@@ -41,7 +41,7 @@ class ProductReviews(models.Model):
         verbose_name_plural = 'Product Reviews'
 
     product = models.ForeignKey(Product, null=True, blank=True, on_delete=models.SET_NULL, related_name="product_reviews")
-    # order = models.ForeignKey('Order', on_delete=models.SET_NULL)
+    order = models.CharField(max_length=254, null=True, blank=True)
     user = models.ForeignKey(UserProfile, null=True, blank=True, on_delete=models.SET_NULL)
     review_title = models.CharField(max_length=254, null=True, blank=True)
     review_text = models.CharField(max_length=1024, null=True, blank=True)
@@ -60,3 +60,13 @@ class ProductImages(models.Model):
     product = models.ForeignKey(Product, null=True, blank=True, on_delete=models.SET_NULL, related_name="product_image")
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
+
+
+class ProductSpecifications(models.Model):
+
+    class Meta:
+        verbose_name_plural = 'Product Specifications'
+
+    product = models.ForeignKey(Product, null=True, blank=True, on_delete=models.CASCADE, related_name="product_specifications")
+    name = models.CharField(max_length=254, blank=False, null=False)
+    description = models.CharField(max_length=254, blank=False, null=False)
