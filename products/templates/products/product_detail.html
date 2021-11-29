@@ -36,8 +36,8 @@
                     <div class="row">
                         <div class="col">
                             <h3 class="mb-0">{{ product.name }}</h3>
-                            {% if product.product_rating %}
-                                <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.product_rating }}/5</small><span class="text-muted">Read 10 customer reviews</span>
+                            {% if product.rating %}
+                                <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5 </small><a href="" class="text-muted">Read {{ product.product_reviews.count }} customer reviews</a>
                             {% else %}
                                 <small class="text-muted">Not rated yet.</small><span class="text-muted">Leave your review</span>
                             {% endif %}

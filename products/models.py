@@ -1,10 +1,10 @@
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
 from profiles.models import UserProfile
+from django.db.models import Avg
 
 
 class Category(models.Model):
-
     class Meta:
         verbose_name_plural = 'Categories'
 
@@ -19,54 +19,92 @@ class Category(models.Model):
 
 
 class Product(models.Model):
-    category = models.ForeignKey(Category, null=True, blank=True, on_delete=models.SET_NULL)
+    category = models.ForeignKey(Category, null=True, blank=True,
+                                 on_delete=models.SET_NULL)
     sku = models.CharField(max_length=254, null=True, blank=True)
     name = models.CharField(max_length=254)
     description = models.TextField()
     price = models.DecimalField(max_digits=6, decimal_places=2)
-    product_rating = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
     discount = models.IntegerField()
     created_at = models.DateField(auto_now=False, auto_now_add=True)
     modified_at = models.DateField(auto_now=True)
-    created_by = models.ForeignKey(UserProfile, null=True, blank=True, on_delete=models.SET_NULL)
-    specifications = models.CharField(max_length=254, null=True, blank=True)
+    created_by = models.ForeignKey(UserProfile, null=True, blank=True,
+                                   on_delete=models.SET_NULL)
+
+    @property
+    def rating(self):
+        return self.product_reviews.aggregate(avg_score=Avg('review_score'))[
+            'avg_score']  # https://stackoverflow.com/questions/59479908/how-to-make-an-average-from-values-of-a-foreign-key-in-django
 
     def __str__(self):
         return self.name
 
 
 class ProductReviews(models.Model):
-
     class Meta:
         verbose_name_plural = 'Product Reviews'
 
-    product = models.ForeignKey(Product, null=True, blank=True, on_delete=models.SET_NULL, related_name="product_reviews")
+    REVIEW_CHOICES = [
+        (1, 'Poor'),
+        (2, 'Average'),
+        (3, 'Good'),
+        (4, 'Very Good'),
+        (5, 'Excellent')
+    ]
+
+    product = models.ForeignKey(Product, null=True, blank=True,
+                                on_delete=models.SET_NULL,
+                                related_name="product_reviews")
     order = models.CharField(max_length=254, null=True, blank=True)
-    user = models.ForeignKey(UserProfile, null=True, blank=True, on_delete=models.SET_NULL)
+    user = models.ForeignKey(UserProfile, null=True, blank=True,
+                             on_delete=models.SET_NULL)
     review_title = models.CharField(max_length=254, null=True, blank=True)
     review_text = models.CharField(max_length=1024, null=True, blank=True)
     review_image = models.ImageField(null=True, blank=True)
-    review_score = models.PositiveIntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)])
+    review_score = models.PositiveIntegerField(choices=REVIEW_CHOICES,
+                                               validators=[
+                                                   MinValueValidator(1),
+                                                   MaxValueValidator(5)])
 
     def __str__(self):
         return self.product.name + "_" + str(self.review_score)
 
 
 class ProductImages(models.Model):
-
     class Meta:
         verbose_name_plural = 'Product Images'
 
-    product = models.ForeignKey(Product, null=True, blank=True, on_delete=models.SET_NULL, related_name="product_image")
+    product = models.ForeignKey(Product, null=True, blank=True,
+                                on_delete=models.SET_NULL,
+                                related_name="product_image")
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
 
 
 class ProductSpecifications(models.Model):
-
     class Meta:
         verbose_name_plural = 'Product Specifications'
 
-    product = models.ForeignKey(Product, null=True, blank=True, on_delete=models.CASCADE, related_name="product_specifications")
+    product = models.ForeignKey(Product,
+                                null=True,
+                                blank=True,
+                                on_delete=models.CASCADE,
+                                related_name="product_specifications")
     name = models.CharField(max_length=254, blank=False, null=False)
     description = models.CharField(max_length=254, blank=False, null=False)
+
+
+class Cartridges(models.Model):
+    compatible_printer = models.ManyToManyField(Product,
+                                                related_name='compatible_printer')
+    model_number = models.CharField(max_length=254)
+    title = models.CharField(max_length=254)
+    price = models.DecimalField(max_digits=6, decimal_places=2)
+    discount = models.IntegerField()
+    description = models.TextField()
+    created_at = models.DateField(auto_now=False, auto_now_add=True)
+    modified_at = models.DateField(auto_now=True)
+    created_by = models.ForeignKey(UserProfile, null=True, blank=True,
+                                   on_delete=models.SET_NULL)
+    image_url = models.URLField(max_length=1024, null=True, blank=True)
+    image = models.ImageField(null=True, blank=True)
