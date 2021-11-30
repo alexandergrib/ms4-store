@@ -39,7 +39,7 @@
                             </a>
                         {% endif %}
                         <div class="card-body pb-0">
-                            <p class="mb-0">{{ product.name }}</p>
+                            <p class="mb-0">{{ product.brand.brand_name }} {{ product.model }} {{ product.name }}</p>
                         </div>
                         <div class="card-footer bg-white pt-0 border-0 text-left">
                             <div class="row pt-2 pb-2">
@@ -47,7 +47,7 @@
                                     <p class="lead mb-0 text-left font-weight-bold">£{{ product.price }}</p>
                                     {% if product.rating %}
                                         <small class="text-muted"><i
-                                                class="fas fa-star mr-1"></i>{{ product.rating }}</small>
+                                                class="fas fa-star mr-1"></i>{{ product.rating | floatformat:2 }} / 5 </small><a href="" class="text-muted">Read {{ product.product_reviews.count }} customer reviews</a>
                                     {% else %}
                                         <small class="text-muted"> No rating</small>
                                     {% endif %}
