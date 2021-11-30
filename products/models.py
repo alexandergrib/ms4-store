@@ -18,11 +18,21 @@ class Category(models.Model):
         return self.friendly_name
 
 
+class ProductBrand(models.Model):
+    brand_name = models.CharField(max_length=254)
+
+    def __str__(self):
+        return self.brand_name
+
+
 class Product(models.Model):
     category = models.ForeignKey(Category, null=True, blank=True,
                                  on_delete=models.SET_NULL)
     sku = models.CharField(max_length=254, null=True, blank=True)
     name = models.CharField(max_length=254)
+    brand = models.ForeignKey(ProductBrand, null=True, blank=True,
+                                   on_delete=models.SET_NULL)
+    model = models.CharField(max_length=254)
     description = models.TextField()
     price = models.DecimalField(max_digits=6, decimal_places=2)
     discount = models.IntegerField()
@@ -37,7 +47,7 @@ class Product(models.Model):
             'avg_score']  # https://stackoverflow.com/questions/59479908/how-to-make-an-average-from-values-of-a-foreign-key-in-django
 
     def __str__(self):
-        return self.name
+        return "{} {} {}".format(self.brand, self.model,  self.name)
 
 
 class ProductReviews(models.Model):
@@ -82,6 +92,8 @@ class ProductImages(models.Model):
 
 
 class ProductSpecifications(models.Model):
+    """To display extra specifications product may have(key features)"""
+
     class Meta:
         verbose_name_plural = 'Product Specifications'
 
@@ -95,10 +107,16 @@ class ProductSpecifications(models.Model):
 
 
 class Cartridges(models.Model):
+    """ Cartridges used in printers"""
+
+    class Meta:
+        verbose_name_plural = 'Cartridges'
+
     compatible_printer = models.ManyToManyField(Product,
-                                                related_name='compatible_printer')
+                                                related_name='cartridges')
+    brand = models.ForeignKey(ProductBrand, null=True, blank=True,
+                                   on_delete=models.SET_NULL)
     model_number = models.CharField(max_length=254)
-    title = models.CharField(max_length=254)
     price = models.DecimalField(max_digits=6, decimal_places=2)
     discount = models.IntegerField()
     description = models.TextField()
@@ -108,3 +126,6 @@ class Cartridges(models.Model):
                                    on_delete=models.SET_NULL)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
+
+    def __str__(self):
+        return self.model_number
