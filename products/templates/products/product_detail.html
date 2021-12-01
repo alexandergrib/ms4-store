@@ -76,7 +76,13 @@
                         <div class="col-6">
                             <a href="" class="btn btn-info w-100">Looking for cartridges?</a>
                         </div>
-                        <div class="col-6"><a href="" class="btn btn-info w-100" target="_blank">View brochure</a></div>
+                        <div class="col-6">{% if product.brochure %}
+                            <a href="{{ product.brochure }}" class="btn btn-info w-100" target="_blank">View
+                                brochure</a>
+                        {% else %}
+                            &nbsp;
+                        {% endif %}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -100,9 +106,9 @@
             <div class="row">
                 <div class="col-8 offset-2">
 
-                        {% if product.cartridges.all %}
-                            {% for cartridge in product.cartridges.all %}
-                                <div class="row mt-2">
+                    {% if product.cartridges.all %}
+                        {% for cartridge in product.cartridges.all %}
+                            <div class="row mt-2">
                                 <div class="col-3">
                                     {% if cartridge.image_url %}
                                         <img class="img-thumbnail" src="{{ cartridge.image_url }}"
@@ -122,9 +128,9 @@
                                 <div class="col-6 col-md-2">£{{ cartridge.price }} <small>inc. VAT</small></div>
                                 <div class="col-6 col-md-1"><a href="#" class="btn btn-success" id="{{ cartridge.id }}">BUY</a>
                                 </div>
-                                </div>
-                            {% endfor %}
-                        {% endif %}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
 
                 </div>
             </div>
