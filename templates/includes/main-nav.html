@@ -28,13 +28,14 @@
                 Brands
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="cartridges-link">
-                <a href="{%  url 'products' %}?brand=brother" class="dropdown-item">Brother</a>
-                <a href="{%  url 'products' %}?brand=epson" class="dropdown-item">Epson</a>
-                <a href="{%  url 'products' %}?brand=hp" class="dropdown-item">HP</a>
-                <a href="{%  url 'products' %}?brand=canon" class="dropdown-item">Canon</a>
-{#                <a href="{%  url 'products' %}?category=brother" class="dropdown-item">Brother cartridges</a>#}
-{#                <a href="{%  url 'products' %}?category=brother,canon,hp,epson" class="dropdown-item">All cartridges</a>#}
-                <a href="#" class="dropdown-item">All cartridges</a>
+                {% if brands %}
+                    {% for brand in brands %}
+                        <a href="{%  url 'products' %}?brand={{ brand.brand_name }}" class="dropdown-item">{{ brand.friendly_brand_name }}</a>
+                    {% endfor %}
+                {% else %}
+                    <a href="{%  url 'products' %}" class="dropdown-item">All brands</a>
+                {% endif %}
+
             </div>
         </li>
 

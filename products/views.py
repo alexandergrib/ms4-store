@@ -11,7 +11,7 @@ def all_products(request):
     products = Product.objects.all()
     query = None
     categories = None
-    brands = None
+    brands = ProductBrand.objects.all()
 
     if request.GET:
         if 'category' in request.GET:
@@ -20,8 +20,9 @@ def all_products(request):
             categories = Category.objects.filter(name__in=categories)
         if 'brand' in request.GET:
             brands = request.GET['brand'].split(',')
-            products = Product.objects.all().filter(brand__brand_name__icontains=brands)
-            brands = ProductBrand.objects.filter(brand_name__in=brands)
+            products = Product.objects.all().filter(
+                brand__brand_name__in=brands)
+            brands = ProductBrand.objects.all()
 
 
         if 'q' in request.GET:
@@ -41,7 +42,7 @@ def all_products(request):
         'products': products,
         'search_term': query,
         'current_categories': categories,
-        'current_brands': brands,
+        'brands': brands,
     }
 
     return render(request, 'products/products.html', context)
