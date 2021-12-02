@@ -13,24 +13,27 @@
         </li>
 
         <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="clothing-link" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="printers-link" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Printers
             </a>
-            <div class="dropdown-menu border-0" aria-labelledby="clothing-link">
-                <a href="" class="dropdown-item">Laser Printers</a>
-                <a href="" class="dropdown-item">Ink Printers</a>
-                <a href="" class="dropdown-item">All Printers</a>
+            <div class="dropdown-menu border-0" aria-labelledby="printers-link">
+                <a href="{%  url 'products' %}?category=laser_printers" class="dropdown-item">Laser Printers</a>
+                <a href="{%  url 'products' %}?category=inkjet_printers" class="dropdown-item">Ink Printers</a>
+                <a href="{%  url 'products' %}?category=laser_printers,inkjet_printers" class="dropdown-item">All Printers</a>
             </div>
         </li>
 
         <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="homeware-link" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="cartridges-link" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Cartridges
             </a>
-            <div class="dropdown-menu border-0" aria-labelledby="homeware-link">
-                <a href="" class="dropdown-item">Laser cartridges</a>
-                <a href="" class="dropdown-item">Ink cartridges</a>
-                <a href="" class="dropdown-item">All cartridges</a>
+            <div class="dropdown-menu border-0" aria-labelledby="cartridges-link">
+                <a href="{%  url 'products' %}?category=brother" class="dropdown-item">Brother cartridges</a>
+                <a href="{%  url 'products' %}?category=epson" class="dropdown-item">Epson cartridges</a>
+                <a href="{%  url 'products' %}?category=hp" class="dropdown-item">HP cartridges</a>
+                <a href="{%  url 'products' %}?category=canon" class="dropdown-item">Canon cartridges</a>
+                <a href="{%  url 'products' %}?category=brother" class="dropdown-item">Brother cartridges</a>
+                <a href="{%  url 'products' %}?category=brother,canon,hp,epson" class="dropdown-item">All cartridges</a>
             </div>
         </li>
 
@@ -39,10 +42,10 @@
                 Special Offers
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="specials-link">
-                <a href="" class="dropdown-item">New Arrivals</a>
-                <a href="" class="dropdown-item">Deals</a>
-                <a href="" class="dropdown-item">Clearance</a>
-                <a href="" class="dropdown-item">All Specials</a>
+                <a href="{%  url 'products' %}?category=new_arrivals" class="dropdown-item">New Arrivals</a>
+                <a href="{%  url 'products' %}?category=deals" class="dropdown-item">Deals</a>
+                <a href="{%  url 'products' %}?category=clearance" class="dropdown-item">Clearance</a>
+                <a href="{%  url 'products' %}?category=new_arrivals,deals,clearance" class="dropdown-item">All Specials</a>
             </div>
         </li>
     </ul>

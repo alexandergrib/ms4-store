@@ -1,30 +1,40 @@
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
-from django.shortcuts import render, get_object_or_404, redirect
-from django.urls import reverse
 from django.db.models import Q
-
-from .models import Product
+from .models import Product, Category, Cartridges
 
 
 # Create your views here.
 
 def all_products(request):
     """ A view to show all products, including sorting and search queries """
-
+    cartridges = Cartridges.objects.all()
     products = Product.objects.all()
     query = None
+    categories = None
+
     if request.GET:
+        if 'category' in request.GET:
+            categories = request.GET['category'].split(',')
+            products = products.filter(category__name__in=categories)
+            cartridges = Cartridges.objects.filter(brand__brand_name__icontains=categories)
+            categories = Category.objects.filter(name__in=categories)
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
-                messages.error(request, "You didn't enter any search criteria")
+                messages.error(request,
+                               "You didn't enter any search criteria!")
                 return redirect(reverse('products'))
 
-            queries = Q(name__icontains=query) | Q(description__icontains=query)
+            queries = Q(name__icontains=query) | Q(
+                description__icontains=query)
             products = products.filter(queries)
+
     context = {
         'products': products,
-        'search_term': query
+        'search_term': query,
+        'current_categories': categories,
+        'cartridges': cartridges,
     }
 
     return render(request, 'products/products.html', context)

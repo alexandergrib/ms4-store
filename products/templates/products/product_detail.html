@@ -26,7 +26,8 @@
                         </ul>
 
                     {% else %}
-                        <img src="/media/200x200.webp" alt="{{ product.brand_name }} {{ product.model }} {{ product.name }}"
+                        <img src="/media/200x200.webp"
+                             alt="{{ product.brand_name }} {{ product.model }} {{ product.name }}"
                              class="card-img-top img-fluid">
                     {% endif %}
                 </div>
@@ -37,9 +38,13 @@
                         <div class="col">
                             <h3 class="mb-0">{{ product.brand.brand_name }} {{ product.model }} {{ product.name }}</h3>
                             {% if product.rating %}
-                                <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating | floatformat:2 }} / 5 </small><a href="" class="text-muted">Read {{ product.product_reviews.count }} customer reviews</a>
+                                <small class="text-muted"><i
+                                        class="fas fa-star mr-1"></i>{{ product.rating | floatformat:2 }} / 5 </small>
+                                <a href="" class="text-muted">Read {{ product.product_reviews.count }} customer
+                                    reviews</a>
                             {% else %}
-                                <small class="text-muted">Not rated yet.</small><span class="text-muted">Leave your review</span>
+                                <small class="text-muted">Not rated yet.</small>
+                                <span class="text-muted">Leave your review</span>
                             {% endif %}
                         </div>
                     </div>
@@ -67,12 +72,18 @@
                             <span class="btn btn-success">ADD TO BASKET</span>
                         </div>
                     </div>
-                <div class="row pt-5">
-                    <div class="col-6">
-                        <a href="" class="btn btn-info w-100">Looking for cartridges?</a>
+                    <div class="row pt-5">
+                        <div class="col-6">
+                            <a href="" class="btn btn-info w-100">Looking for cartridges?</a>
+                        </div>
+                        <div class="col-6">{% if product.brochure %}
+                            <a href="{{ product.brochure }}" class="btn btn-info w-100" target="_blank">View
+                                brochure</a>
+                        {% else %}
+                            &nbsp;
+                        {% endif %}
+                        </div>
                     </div>
-                    <div class="col-6"><a href="" class="btn btn-info w-100" target="_blank">View brochure</a></div>
-                </div>
                 </div>
             </div>
         </div>
@@ -88,28 +99,42 @@
         </div>
     </div>
     <div class="container-fluid">
-    <div class="row">
-        <div class="col text-center">
-            <h3>{{ product.brand.brand_name }} {{ product.model }} Consumables</h3>
-        </div>
         <div class="row">
-            {% if product.cartridges.all %}
-                {% for cartridge in product.cartridges.all %}
-                    <div class="col-3">
-                        {% if cartridge.image_url  %}
-                            <img class="img-thumbnail" src="{{ cartridge.image_url }}" alt="{{ cartridge.brand.brand_name }}-{{ cartridge.model_number }}-cartridge">
-                        {% else %}
-                            <img class="img-thumbnail" src="/media/200x200.webp" alt="{{ cartridge.brand.brand_name }}-{{ cartridge.model_number }}-cartridge">
-                        {% endif %}
-                    </div>
-                    <div class="col-6">{{ cartridge.description }}<br><small>{{ cartridge.model_number }}</small></div>
-                    <div class="col-2">£{{ cartridge.price }} <small>inc. VAT</small></div>
-                    <div class="col-1"><a href="" class="btn btn-success">BUY</a></div>
-                {% endfor %}
-            {% endif %}
+            <div class="col text-center">
+                <h3>{{ product.brand.brand_name }} {{ product.model }} Consumables</h3>
+            </div>
+            <div class="row">
+                <div class="col-8 offset-2">
 
+                    {% if product.cartridges.all %}
+                        {% for cartridge in product.cartridges.all %}
+                            <div class="row mt-2">
+                                <div class="col-3">
+                                    {% if cartridge.image_url %}
+                                        <img class="img-thumbnail" src="{{ cartridge.image_url }}"
+                                             alt="{{ cartridge.brand.brand_name }}-{{ cartridge.model_number }}-cartridge">
+                                    {% else %}
+                                        <img class="img-thumbnail" src="/media/200x200.webp"
+                                             alt="{{ cartridge.brand.brand_name }}-{{ cartridge.model_number }}-cartridge">
+                                    {% endif %}
+                                </div>
+                                <div class="col-9 col-md-6">
+                                    <div class="row">
+                                        <div class="col-12">{{ cartridge.description }}</div>
+                                        <div class="col-12"><small>{{ cartridge.model_number }}</small></div>
+                                    </div>
+
+                                </div>
+                                <div class="col-6 col-md-2">£{{ cartridge.price }} <small>inc. VAT</small></div>
+                                <div class="col-6 col-md-1"><a href="#" class="btn btn-success" id="{{ cartridge.id }}">BUY</a>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+
+                </div>
+            </div>
         </div>
-    </div>
     </div>
 {% endblock %}
 

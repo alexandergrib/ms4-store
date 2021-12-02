@@ -2,6 +2,7 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
 from profiles.models import UserProfile
 from django.db.models import Avg
+from tinymce import models as tinymce_models
 
 
 class Category(models.Model):
@@ -33,13 +34,15 @@ class Product(models.Model):
     brand = models.ForeignKey(ProductBrand, null=True, blank=True,
                                    on_delete=models.SET_NULL)
     model = models.CharField(max_length=254)
-    description = models.TextField()
+    # description = models.TextField()
+    description = tinymce_models.HTMLField()
     price = models.DecimalField(max_digits=6, decimal_places=2)
     discount = models.IntegerField()
     created_at = models.DateField(auto_now=False, auto_now_add=True)
     modified_at = models.DateField(auto_now=True)
     created_by = models.ForeignKey(UserProfile, null=True, blank=True,
                                    on_delete=models.SET_NULL)
+    brochure = models.URLField(null=True, blank=True)
 
     @property
     def rating(self):
