@@ -21,9 +21,10 @@ class Category(models.Model):
 
 class ProductBrand(models.Model):
     brand_name = models.CharField(max_length=254)
+    friendly_brand_name = models.CharField(max_length=254)
 
     def __str__(self):
-        return self.brand_name
+        return self.friendly_brand_name
 
 
 class Product(models.Model):
@@ -32,9 +33,8 @@ class Product(models.Model):
     sku = models.CharField(max_length=254, null=True, blank=True)
     name = models.CharField(max_length=254)
     brand = models.ForeignKey(ProductBrand, null=True, blank=True,
-                                   on_delete=models.SET_NULL)
+                              on_delete=models.SET_NULL)
     model = models.CharField(max_length=254)
-    # description = models.TextField()
     description = tinymce_models.HTMLField()
     price = models.DecimalField(max_digits=6, decimal_places=2)
     discount = models.IntegerField()
@@ -50,7 +50,7 @@ class Product(models.Model):
             'avg_score']  # https://stackoverflow.com/questions/59479908/how-to-make-an-average-from-values-of-a-foreign-key-in-django
 
     def __str__(self):
-        return "{} {} {}".format(self.brand, self.model,  self.name)
+        return "{} {} {}".format(self.brand, self.model, self.name)
 
 
 class ProductReviews(models.Model):
@@ -95,7 +95,7 @@ class ProductImages(models.Model):
 
 
 class ProductSpecifications(models.Model):
-    """To display extra specifications product may have(key features)"""
+    """To display extra specifications' product may have(key features)"""
 
     class Meta:
         verbose_name_plural = 'Product Specifications'
@@ -118,7 +118,7 @@ class Cartridges(models.Model):
     compatible_printer = models.ManyToManyField(Product,
                                                 related_name='cartridges')
     brand = models.ForeignKey(ProductBrand, null=True, blank=True,
-                                   on_delete=models.SET_NULL)
+                              on_delete=models.SET_NULL)
     model_number = models.CharField(max_length=254)
     price = models.DecimalField(max_digits=6, decimal_places=2)
     discount = models.IntegerField()
