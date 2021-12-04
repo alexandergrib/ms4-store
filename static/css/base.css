@@ -135,6 +135,15 @@ a:active - a link the moment it is clicked
     z-index: -1;
 }
 
+a.category-badge > span.badge {
+    color: #212529 !important;
+}
+
+a.category-badge > span.badge:hover {
+    background: #212529 !important;
+    color: #fff !important;
+}
+
 .product-images {
     width: 70px;
 }
