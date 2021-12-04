@@ -13,6 +13,8 @@ nav li {
     color: #555;
     font-family: "Lato", sans-serif !important;
 }
+
+
 .search-label {
     width: 90%;
 }
@@ -106,7 +108,7 @@ a:active - a link the moment it is clicked
     color: white;
 }
 
-.tex-black {
+.text-black {
     color: #000 !important;
 }
 
@@ -149,14 +151,30 @@ a.category-badge > span.badge:hover {
 }
 
 
+.btt-button {
+    height: 42px;
+    width: 42px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+
+.btt-link {
+    cursor: pointer;
+}
+
+a,
+a:link,
+a:visited,
+
+a:active {
+  text-decoration: none;
+}
 
 
-
-
-
-
-
-
+a:hover {
+    color: chocolate !important;
+}
 
 
 

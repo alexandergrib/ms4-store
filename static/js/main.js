@@ -5,3 +5,5 @@ function handleChange() {
     document.getElementById("header-spacer").style.height = (headerSpacerHeight + "px");
 }
 handleChange()
+
+
