@@ -166,14 +166,13 @@ a.category-badge > span.badge:hover {
 a,
 a:link,
 a:visited,
-
 a:active {
   text-decoration: none;
 }
 
 
 a:hover {
-    color: chocolate !important;
+    text-decoration: underline !important;
 }
 
 
