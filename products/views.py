@@ -2,8 +2,8 @@ from django.db.models.functions import Lower
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
-from .models import Product, Category, Cartridges, ProductBrand
-
+from .models import Product, Category, Cartridges, ProductBrand, ProductReviews
+from django.db.models import Avg
 
 # Create your views here.
 
@@ -14,6 +14,7 @@ def all_products(request):
     categories = None
     sort = None
     direction = None
+    reviews = ProductReviews.objects.all()
 
 
 
@@ -26,8 +27,7 @@ def all_products(request):
                 products = products.annotate(lower_name=Lower('name'))
             if sortkey == 'category':
                 sortkey = 'category__name'
-            if sortkey == 'product_reviews':
-                sortkey = 'product_reviews__review_score'
+
             if 'direction' in request.GET:
                 direction = request.GET['direction']
                 if direction == 'desc':
