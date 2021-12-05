@@ -1,3 +1,5 @@
+import uuid
+
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
 from profiles.models import UserProfile
@@ -115,6 +117,7 @@ class Cartridges(models.Model):
     class Meta:
         verbose_name_plural = 'Cartridges'
 
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False) #custom id generation
     compatible_printer = models.ManyToManyField(Product,
                                                 related_name='cartridges')
     brand = models.ForeignKey(ProductBrand, null=True, blank=True,
@@ -129,6 +132,11 @@ class Cartridges(models.Model):
                                    on_delete=models.SET_NULL)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
+    category = models.ForeignKey(Category,
+                                 null=True,
+                                 blank=True,
+                                 default='cartridges',
+                                 on_delete=models.SET_NULL)
 
     def __str__(self):
         return self.model_number

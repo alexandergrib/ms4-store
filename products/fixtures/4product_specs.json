@@ -1,0 +1,272 @@
+[
+  {
+    "id": 1,
+    "model": "products.ProductSpecifications",
+    "fields": {
+      "name": "Speed Monochrome",
+      "description": "Up to 33ppm Mono Print",
+      "product_id": 3
+    }
+  },
+  {
+    "id": 2,
+    "model": "products.ProductSpecifications",
+    "fields": {
+      "name": "Printer Resolution",
+      "description": "Up to 4,800 x 1,200 dpi Print",
+      "product_id": 3
+    }
+  },
+  {
+    "id": 3,
+    "model": "products.ProductSpecifications",
+    "fields": {
+      "name": "Speed Colour",
+      "description": "Up to 20ppm Colour Print",
+      "product_id": 3
+    }
+  },
+  {
+    "id": 4,
+    "model": "products.ProductSpecifications",
+    "fields": {
+      "name": "Double Sided Printing Unit (Duplex)",
+      "description": "Yes",
+      "product_id": 3
+    }
+  },
+  {
+    "id": 5,
+    "model": "products.ProductSpecifications",
+    "fields": {
+      "name": "Double Sided Printing",
+      "description": "Automatic Double Sided Printing",
+      "product_id": 3
+    }
+  },
+  {
+    "id": 6,
+    "model": "products.ProductSpecifications",
+    "fields": {
+      "name": "First Page",
+      "description": "As Fast as 9 Seconds First page",
+      "product_id": 3
+    }
+  },
+  {
+    "id": 7,
+    "model": "products.ProductSpecifications",
+    "fields": {
+      "name": "Product Group Output",
+      "description": "A4",
+      "product_id": 3
+    }
+  },
+  {
+    "id": 8,
+    "model": "products.ProductSpecifications",
+    "fields": {
+      "name": "Print Margins",
+      "description": "0 mm Top, 0 mm Right, 0 mm Bottom, 0 mm Left (Wherever Margin is Defined. Otherwise 3mm Top, Left, Right, Bottom.)",
+      "product_id": 3
+    }
+  },
+  {
+    "id": 9,
+    "model": "products.ProductSpecifications",
+    "fields": {
+      "name": "Speed Colour (Duplex)",
+      "description": "Up to 4.5ppm Colour Print",
+      "product_id": 3
+    }
+  },
+  {
+    "id": 10,
+    "model": "products.ProductSpecifications",
+    "fields": {
+      "name": "Speed Monochrome (Duplex)",
+      "description": "Up to 6.5ppm Mono Print",
+      "product_id": 3
+    }
+  },
+  {
+    "id": 11,
+    "model": "products.ProductSpecifications",
+    "fields": {
+      "name": "Speed Monochrome",
+      "description": "Up to 33ppm Mono Print",
+      "product_id": 1
+    }
+  },
+  {
+    "id": 12,
+    "model": "products.ProductSpecifications",
+    "fields": {
+      "name": "Printer Resolution",
+      "description": "Up to 4,800 x 1,200 dpi Print",
+      "product_id": 1
+    }
+  },
+  {
+    "id": 13,
+    "model": "products.ProductSpecifications",
+    "fields": {
+      "name": "Speed Colour",
+      "description": "Up to 20ppm Colour Print",
+      "product_id": 1
+    }
+  },
+  {
+    "id": 14,
+    "model": "products.ProductSpecifications",
+    "fields": {
+      "name": "Double Sided Printing Unit (Duplex)",
+      "description": "Yes",
+      "product_id": 1
+    }
+  },
+  {
+    "id": 15,
+    "model": "products.ProductSpecifications",
+    "fields": {
+      "name": "Double Sided Printing",
+      "description": "Automatic Double Sided Printing",
+      "product_id": 3
+    }
+  },
+  {
+    "id": 16,
+    "model": "products.ProductSpecifications",
+    "fields": {
+      "name": "First Page",
+      "description": "As Fast as 9 Seconds First page",
+      "product_id": 3
+    }
+  },
+  {
+    "id": 17,
+    "model": "products.ProductSpecifications",
+    "fields": {
+      "name": "Product Group Output",
+      "description": "A4",
+      "product_id": 1
+    }
+  },
+  {
+    "id": 18,
+    "model": "products.ProductSpecifications",
+    "fields": {
+      "name": "Print Margins",
+      "description": "0 mm Top, 0 mm Right, 0 mm Bottom, 0 mm Left (Wherever Margin is Defined. Otherwise 3mm Top, Left, Right, Bottom.)",
+      "product_id": 1
+    }
+  },
+  {
+    "id": 19,
+    "model": "products.ProductSpecifications",
+    "fields": {
+      "name": "Speed Colour (Duplex)",
+      "description": "Up to 4.5ppm Colour Print",
+      "product_id": 1
+    }
+  },
+  {
+    "id": 20,
+    "model": "products.ProductSpecifications",
+    "fields": {
+      "name": "Speed Monochrome (Duplex)",
+      "description": "Up to 6.5ppm Mono Print",
+      "product_id": 1
+    }
+  },
+  {
+    "id": 21,
+    "model": "products.ProductSpecifications",
+    "fields": {
+      "name": "Speed Monochrome",
+      "description": "Up to 33ppm Mono Print",
+      "product_id": 2
+    }
+  },
+  {
+    "id": 22,
+    "model": "products.ProductSpecifications",
+    "fields": {
+      "name": "Printer Resolution",
+      "description": "Up to 4,800 x 1,200 dpi Print",
+      "product_id": 2
+    }
+  },
+  {
+    "id": 23,
+    "model": "products.ProductSpecifications",
+    "fields": {
+      "name": "Speed Colour",
+      "description": "Up to 20ppm Colour Print",
+      "product_id": 2
+    }
+  },
+  {
+    "id": 24,
+    "model": "products.ProductSpecifications",
+    "fields": {
+      "name": "Double Sided Printing Unit (Duplex)",
+      "description": "Yes",
+      "product_id": 2
+    }
+  },
+  {
+    "id": 25,
+    "model": "products.ProductSpecifications",
+    "fields": {
+      "name": "Double Sided Printing",
+      "description": "Automatic Double Sided Printing",
+      "product_id": 2
+    }
+  },
+  {
+    "id": 26,
+    "model": "products.ProductSpecifications",
+    "fields": {
+      "name": "First Page",
+      "description": "As Fast as 9 Seconds First page",
+      "product_id": 2
+    }
+  },
+  {
+    "id": 27,
+    "model": "products.ProductSpecifications",
+    "fields": {
+      "name": "Product Group Output",
+      "description": "A4",
+      "product_id": 2
+    }
+  },
+  {
+    "id": 28,
+    "model": "products.ProductSpecifications",
+    "fields": {
+      "name": "Print Margins",
+      "description": "0 mm Top, 0 mm Right, 0 mm Bottom, 0 mm Left (Wherever Margin is Defined. Otherwise 3mm Top, Left, Right, Bottom.)",
+      "product_id": 2
+    }
+  },
+  {
+    "id": 29,
+    "model": "products.ProductSpecifications",
+    "fields": {
+      "name": "Speed Colour (Duplex)",
+      "description": "Up to 4.5ppm Colour Print",
+      "product_id": 2
+    }
+  },
+  {
+    "id": 30,
+    "model": "products.ProductSpecifications",
+    "fields": {
+      "name": "Speed Monochrome (Duplex)",
+      "description": "Up to 6.5ppm Mono Print",
+      "product_id": 2
+    }
+  }
+]

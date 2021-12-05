@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "model": "products.ProductImages",
+    "fields": {
+      "image_url": "https://www.printerland.co.uk/images/Product_LargeImages/Brother-DCP-L3510CDW-Front-Large.jpg",
+      "image": "Brother-DCP-L3510CDW-Front-Large_5GzYkGK.jpg",
+      "product_id": 1
+    }
+  },
+  {
+    "id": 2,
+    "model": "products.ProductImages",
+    "fields": {
+      "image_url": "https://www.printerland.co.uk/images/Product_LargeImages/Xerox-C230-Front-Main-Large.jpg",
+      "image": "Xerox-C230-Front-Main-Large_0rkC5Hd.jpg",
+      "product_id": 2
+    }
+  },
+  {
+    "id": 3,
+    "model": "products.ProductImages",
+    "fields": {
+      "image_url": "https://www.printerland.co.uk/images/Product_LargeImages/Xerox-C230-Front-Main-Large.jpg",
+      "image": "Xerox-C230-Front-Main-Large_0rkC5Hd_8EVQoJz.jpg",
+      "product_id": 3
+    }
+  }
+]
