@@ -14,12 +14,16 @@
 
         <li class="nav-item dropdown">
             <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="printers-link" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Printers
+                Category
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="printers-link">
-                <a href="{%  url 'products' %}?category=laser_printers" class="dropdown-item">Laser Printers</a>
-                <a href="{%  url 'products' %}?category=inkjet_printers" class="dropdown-item">Ink Printers</a>
-                <a href="{%  url 'products' %}?category=laser_printers,inkjet_printers" class="dropdown-item">All Printers</a>
+                {% if categories %}
+                    {% for category in categories %}
+                        <a href="{%  url 'products' %}?category={{ category.name }}" class="dropdown-item">{{ category.friendly_name }}</a>
+                    {% endfor %}
+
+                {% endif %}
+                <a href="{%  url 'products' %}" class="dropdown-item">All Printers</a>
             </div>
         </li>
 

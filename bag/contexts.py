@@ -1,6 +1,9 @@
 from decimal import Decimal
 from django.conf import settings
-from products.models import ProductBrand
+from django.http import Http404
+from django.shortcuts import get_object_or_404
+
+from products.models import ProductBrand, Category, Product, Cartridges
 
 
 def bag_contents(request):
@@ -8,7 +11,28 @@ def bag_contents(request):
     total = 0
     product_count = 0
     brands = ProductBrand.objects.all()
+    categories = Category.objects.all()
     bag = request.session.get('bag', {})
+
+    for item_id, quantity in bag.items():
+        try:
+            product = get_object_or_404(Product, pk=item_id)
+            total += quantity * product.price
+            product_count += quantity
+            bag_items.append({
+                "item_id": item_id,
+                'quantity': quantity,
+                'product': product
+            })
+        except Http404:  # if not product then it's a cartridge
+            product = get_object_or_404(Cartridges, pk=item_id)
+            total += quantity * product.price
+            product_count += quantity
+            bag_items.append({
+                "item_id": item_id,
+                'quantity': quantity,
+                'product': product
+            })
 
     if total < settings.FREE_DELIVERY_THRESHOLD:
         delivery = total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE / 100)
@@ -28,5 +52,6 @@ def bag_contents(request):
         'free_delivery_threshold': settings.FREE_DELIVERY_THRESHOLD,
         'grand_total': grand_total,
         'brands': brands,
+        'categories': categories
     }
     return context
