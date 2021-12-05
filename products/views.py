@@ -1,4 +1,5 @@
 from django.db.models.functions import Lower
+from django.http import Http404
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
@@ -70,9 +71,10 @@ def all_products(request):
 
 def product_detail(request, product_id):
     """ A view to show individual product details """
-
-    product = get_object_or_404(Product, pk=product_id)
-
+    try:
+        product = get_object_or_404(Product, pk=product_id)
+    except Http404:  # if not product then it's a cartridge
+        product = get_object_or_404(Cartridges, pk=product_id)
     context = {
         'product': product,
     }

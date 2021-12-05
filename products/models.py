@@ -50,10 +50,7 @@ class BaseProduct(models.Model):
                                    on_delete=models.SET_NULL)
     brochure = models.URLField(null=True, blank=True)
 
-    @property
-    def rating(self):
-        return self.product_reviews.aggregate(avg_score=Avg('review_score'))[
-            'avg_score']  # https://stackoverflow.com/questions/59479908/how-to-make-an-average-from-values-of-a-foreign-key-in-django
+
 
     def __str__(self):
         return "{} {} {}".format(self.brand, self.model, self.name)
@@ -62,6 +59,11 @@ class BaseProduct(models.Model):
 class Product(BaseProduct):
     class Meta:
         verbose_name_plural = 'Products'
+
+    @property
+    def rating(self):
+        return self.product_reviews.aggregate(avg_score=Avg('review_score'))[
+            'avg_score']  # https://stackoverflow.com/questions/59479908/how-to-make-an-average-from-values-of-a-foreign-key-in-django
 
 
 class ProductReviews(models.Model):
