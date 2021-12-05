@@ -62,6 +62,7 @@ class Product(BaseProduct):
 
     brochure = models.URLField(null=True, blank=True)
     featured = models.BooleanField(default=False)
+    featured_description = tinymce_models.HTMLField(max_length=400, default="", blank=True)
 
     @property
     def rating(self):

@@ -18,7 +18,7 @@ list_display = (
 
 
 class ProductAdmin(admin.ModelAdmin):
-    ordering = ('sku',)
+    ordering = ('-id',)
 
 
 class CategoryAdmin(admin.ModelAdmin):
