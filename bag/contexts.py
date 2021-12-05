@@ -54,4 +54,5 @@ def bag_contents(request):
         'brands': brands,
         'categories': categories
     }
+    # print(context)
     return context

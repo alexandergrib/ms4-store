@@ -48,7 +48,7 @@ class BaseProduct(models.Model):
     modified_at = models.DateField(auto_now=True)
     created_by = models.ForeignKey(UserProfile, null=True, blank=True,
                                    on_delete=models.SET_NULL)
-    brochure = models.URLField(null=True, blank=True)
+
 
 
 
@@ -59,6 +59,9 @@ class BaseProduct(models.Model):
 class Product(BaseProduct):
     class Meta:
         verbose_name_plural = 'Products'
+
+    brochure = models.URLField(null=True, blank=True)
+    featured = models.BooleanField(default=False)
 
     @property
     def rating(self):
