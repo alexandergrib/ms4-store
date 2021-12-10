@@ -8,6 +8,67 @@
         </button>
     </div>
     <div class="toast-body bg-white">
-        {{ message }}
+        <div class="row">
+            <div class="col">
+                {{ message }}
+                <hr class="mt-1 mb-3">
+            </div>
+        </div>
+        {% if grand_total %}
+            <p class="logo-font bg-white text-black py-1">Your Bag ({{ product_count }})</p>
+            <div class="bag-notification-wrapper">
+                {% for item in bag_items %}
+                    <div class="row">
+                        <div class="col-3 my-1">
+                            {% if product.image_url %}
+                                <img class="w-100 img-thumbnail" src="{{ item.product.image_url }}" width="80"
+                                     height="80"
+                                     alt="{{ item.product.brand.friendly_brand_name }}-{{ item.product.model }}">
+                            {% else %}
+                                <img class="w-100 img-thumbnail" src="/media/200x200.webp" width="80" height="80"
+                                     alt="{{ item.product.brand.friendly_brand_name }}-{{ item.product.model }}">
+                            {% endif %}
+
+                        </div>
+                        <div class="col-9">
+                            <p class="my-0"><strong>{{ item.product.name }}</strong></p>
+                            <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
+
+                            {% if item.product.cartridge_product %}
+                                <p><a class="remove-item text-danger float-end"
+                                  id="remove_{{ item.item_id }}" data-parent="cartridge"><small>Remove</small></a></p>
+                            {% else %}
+                                <p><a class="remove-item text-danger float-end"
+                                  id="remove_{{ item.item_id }}"><small>Remove</small></a></p>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="row">
+                <div class="col">
+                    <strong><p class="mt-3 mb-1 text-black">
+                        Total{% if free_delivery_delta > 0 %} (Exc. delivery){% endif %}:
+                        <span class="float-right">${{ total|floatformat:2 }}</span>
+                    </p></strong>
+                    {% if free_delivery_delta > 0 %}
+                        <p class="mb-0 p-2 bg-warning shadow-sm text-black text-center">
+                            Spend <strong>${{ free_delivery_delta }}</strong> more to get free next day delivery!
+                        </p>
+                    {% endif %}
+                    <a href="{% url 'view_bag' %}" class="btn btn-black btn-block rounded-0">
+                        <span class="text-uppercase">Go To Secure Checkout</span>
+                        <span class="icon">
+                            <i class="fas fa-lock"></i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        {% endif %}
     </div>
 </div>
+
+
+
+
+
