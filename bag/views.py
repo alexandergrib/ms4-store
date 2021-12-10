@@ -47,12 +47,23 @@ def adjust_bag(request, item_id):
     """ Adjust a quantity of the shopping bag """
 
     quantity = int(request.POST.get('quantity'))
+    cartridge = None
+    if 'cartridge' in request.POST:
+        cartridge = request.POST['cartridge']
     bag = request.session.get('bag', {})
 
-    if quantity > 0:
-        bag[item_id] = quantity
+    if cartridge:
+        if quantity > 0:
+            bag[item_id]['cartridge'][cartridge] = quantity
+        else:
+            del bag[item_id]['cartridge'][cartridge]
+            if not bag[item_id]['cartridge']:
+                bag.pop(item_id)
     else:
-        bag.pop(item_id)
+        if quantity > 0:
+            bag[item_id] = quantity
+        else:
+            bag.pop(item_id)
 
     request.session['bag'] = bag
     print(request.session['bag'])
@@ -62,8 +73,17 @@ def adjust_bag(request, item_id):
 def remove_from_bag(request, item_id):
     """ Remove an item from the shopping bag """
     try:
+        cartridge = None
+        if 'cartridge' in request.POST:
+            size = request.POST['cartridge']
         bag = request.session.get('bag', {})
-        bag.pop(item_id)
+
+        if cartridge:
+            del bag[item_id]['cartridge'][cartridge]
+            if not bag[item_id]['cartridge']:
+                bag.pop(item_id)
+        else:
+            bag.pop(item_id)
 
         request.session['bag'] = bag
         print(request.session['bag'])
