@@ -11,20 +11,32 @@ def view_bag(request):
 
 def add_to_bag(request, item_id):
     """ Add a quantity of the specified product to the shopping bag """
-    try:
-        product = get_object_or_404(Product, pk=item_id)
-    except Http404:  # if not product then it's a cartridge
-        product = get_object_or_404(Cartridges, pk=item_id)
+    cartridge = None
+    if 'cartridge' in request.POST:
+        product = Cartridges.objects.get(pk=item_id)
+        cartridge = request.POST['cartridge']
+    else:
+        product = Product.objects.get(pk=item_id)
+
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
     bag = request.session.get('bag', {})
 
-    if item_id in list(bag.keys()):
-        bag[item_id] += quantity
-        messages.success(request, f'Added {product.name} to your bag')
+    if cartridge:
+
+        if item_id in list(bag.keys()):
+            if cartridge in bag[item_id]['cartridge'].keys():
+                bag[item_id]['cartridge'][cartridge] += quantity
+            else:
+                bag[item_id]['cartridge'][cartridge] = quantity
+        else:
+            bag[item_id] = {'cartridge': {cartridge: quantity}}
     else:
-        bag[item_id] = quantity
-        messages.error(request, f'Added {product.name} to your bag')
+        if item_id in list(bag.keys()):
+            bag[item_id] += quantity
+        else:
+            bag[item_id] = quantity
+            messages.success(request, f'Added {product.name} to your bag')
 
     request.session['bag'] = bag
     print(request.session['bag'])
@@ -35,12 +47,23 @@ def adjust_bag(request, item_id):
     """ Adjust a quantity of the shopping bag """
 
     quantity = int(request.POST.get('quantity'))
+    cartridge = None
+    if 'cartridge' in request.POST:
+        cartridge = request.POST['cartridge']
     bag = request.session.get('bag', {})
 
-    if quantity > 0:
-        bag[item_id] = quantity
+    if cartridge:
+        if quantity > 0:
+            bag[item_id]['cartridge'][cartridge] = quantity
+        else:
+            del bag[item_id]['cartridge'][cartridge]
+            if not bag[item_id]['cartridge']:
+                bag.pop(item_id)
     else:
-        bag.pop(item_id)
+        if quantity > 0:
+            bag[item_id] = quantity
+        else:
+            bag.pop(item_id)
 
     request.session['bag'] = bag
     print(request.session['bag'])
@@ -50,8 +73,17 @@ def adjust_bag(request, item_id):
 def remove_from_bag(request, item_id):
     """ Remove an item from the shopping bag """
     try:
+        cartridge = None
+        if 'cartridge' in request.POST:
+            size = request.POST['cartridge']
         bag = request.session.get('bag', {})
-        bag.pop(item_id)
+
+        if cartridge:
+            del bag[item_id]['cartridge'][cartridge]
+            if not bag[item_id]['cartridge']:
+                bag.pop(item_id)
+        else:
+            bag.pop(item_id)
 
         request.session['bag'] = bag
         print(request.session['bag'])
