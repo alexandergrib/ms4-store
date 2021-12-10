@@ -195,7 +195,7 @@ a:hover {
 .message-container {
     position: fixed;
     top: 100px;
-    right: 15px;
+    right: 7%;
     z-index: 99999999999;
 }
 
@@ -206,8 +206,6 @@ a:hover {
 .toast-capper {
     height: 2px;
 }
-
-
 
 /* from CSS-tricks.com: https://css-tricks.com/snippets/css/css-triangle/ */
 .arrow-up {
@@ -327,10 +325,6 @@ a:hover {
     }
 
 }
-
-
-
-
 
 @media (max-width: 767px) {
     .header-container {
