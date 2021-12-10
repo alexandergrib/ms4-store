@@ -99,8 +99,8 @@ def adjust_bag(request, item_id):
 
 def remove_from_bag(request, item_id):
     """ Remove an item from the shopping bag """
+    cartridge = None
     try:
-        cartridge = None
         if 'cartridge' in request.POST:
             size = request.POST['cartridge']
             product = get_object_or_404(Cartridges, pk=item_id)
@@ -126,5 +126,4 @@ def remove_from_bag(request, item_id):
     except Exception as e:
         messages.error(request,
                        f'Error removing item {e}')
-
         return HttpResponse(status=500)
