@@ -1,6 +1,6 @@
 [
   {
-    "pk": 1,
+    "pk": "e4a293a7-a263-4f9e-bf18-9b88c378f00b",
     "model": "products.product",
     "fields": {
       "category": 1,
