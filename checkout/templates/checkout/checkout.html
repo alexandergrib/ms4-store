@@ -32,10 +32,14 @@
                     <div class="row">
                         <div class="col-2 mb-1">
                             <a href="{% url 'product_detail' item.product.id %}">
-                                {% if item.product.image.all.0 %}
-                                    <img class="w-100" src="{{ item.product.image.all.0.url }}" alt="{{ item.product.name }}">
+                                {% if item.product.product_image.all.0.image %}
+                                    <img class="w-100" src="{{ item.product.product_image.all.0.image_url }}" alt="{{ item.product.name }}">
                                 {% else %}
-                                    <img class="w-100" src="{{ MEDIA_URL }}200x200.webp" alt="{{ item.product.name}}">
+                                    {% if item.product.image %}
+                                        <img class="img-fluid rounded" src="{{ item.product.image_url }}" width="100" height="100" alt="{{ item.product.brand }} {{ item.product.model }}">
+                                    {% else %}
+                                        <img class="img-fluid rounded" src="{{ MEDIA_URL }}200x200.webp" width="100" height="100" alt="{{ item.product.brand }} {{ item.product.model }}">
+                                    {% endif %}
                                 {% endif %}
                             </a>
                         </div>
@@ -108,10 +112,10 @@
 							<span class="icon">
 								<i class="fas fa-chevron-left"></i>
 							</span>
-							<span class="font-weight-bold">Adjust Bag</span>
+							<span class="font-weight-bold">MODIFY BAG</span>
 						</a>
 						<button id="submit-button" class="btn btn-black rounded-0">
-							<span class="font-weight-bold">Complete Order</span>
+							<span class="font-weight-bold">COMPLETE ORDER</span>
 							<span class="icon">
 								<i class="fas fa-lock"></i>
 							</span>

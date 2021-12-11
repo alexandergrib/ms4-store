@@ -60,6 +60,7 @@ class Product(BaseProduct):
     class Meta:
         verbose_name_plural = 'Products'
 
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, unique=True)
     brochure = models.URLField(null=True, blank=True)
     featured = models.BooleanField(default=False)
     featured_description = tinymce_models.HTMLField(max_length=400, default="", blank=True)
@@ -132,6 +133,9 @@ class Cartridges(BaseProduct):
     class Meta:
         verbose_name_plural = 'Cartridges'
 
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, unique=True)
+    image_url = models.URLField(max_length=1024, null=True, blank=True)
+    image = models.ImageField(null=True, blank=True)
     compatible_printer = models.ManyToManyField(Product,
                                                 related_name='cartridges')
     cartridge_product = models.BooleanField(default=True, editable=False)
