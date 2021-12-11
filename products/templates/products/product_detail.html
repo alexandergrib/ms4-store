@@ -222,15 +222,15 @@
                                             </td>
                                         </tr>
                                     </table>
-                                    <a href="{% url 'products' %}"
-                                       class="btn btn-outline-black rounded-0 mt-5 mb-3 text-end">
+                                </div>
+                            {% endfor %}
+                            <a href="{% url 'products' %}"
+                               class="btn btn-outline-black rounded-0 mt-5 mb-3 text-end">
                                                     <span class="icon">
                                                         <i class="fas fa-chevron-left"></i>
                                                     </span>
-                                        <span class="text-uppercase">Keep Shopping</span>
-                                    </a>
-                                </div>
-                            {% endfor %}
+                                <span class="text-uppercase">Keep Shopping</span>
+                            </a>
                         {% else %}
                             <p class="text-center mt-4">No consumables added yet</p>
                             <a href="{% url 'products' %}"
