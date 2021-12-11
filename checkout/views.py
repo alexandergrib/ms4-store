@@ -59,8 +59,8 @@ def checkout(request):
             order.save()
             for item_id, item_data in bag.items():
                 try:
-                    product = get_object_or_404(Product, pk=item_id)
                     if isinstance(item_data, int):
+                        product = get_object_or_404(Product, pk=item_id)
                         order_line_item = OrderLineItem(
                             order=order,
                             product=product,
@@ -68,10 +68,8 @@ def checkout(request):
                         )
                         order_line_item.save()
                     else:
-
-                        for cartridge, quantity in item_data['cartridge'].items():
-
-                            product = get_object_or_404(Cartridges, pk=cartridge)
+                        for cartridge_id, quantity in item_data['cartridge'].items():
+                            product = get_object_or_404(Cartridges, pk=cartridge_id)
                             order_line_item = OrderLineItem(
                                 order=order,
                                 cartridge=product,
