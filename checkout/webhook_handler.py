@@ -1,10 +1,11 @@
 from django.http import HttpResponse
 from django.core.mail import send_mail
+from django.shortcuts import get_object_or_404
 from django.template.loader import render_to_string
 from django.conf import settings
 
 from .models import Order, OrderLineItem
-from products.models import Product
+from products.models import Product, Cartridges
 from profiles.models import UserProfile
 
 import json
@@ -121,8 +122,8 @@ class StripeWH_Handler:
                     stripe_pid=pid,
                 )
                 for item_id, item_data in json.loads(bag).items():
-                    product = Product.objects.get(id=item_id)
                     if isinstance(item_data, int):
+                        product = get_object_or_404(Product, pk=item_id)
                         order_line_item = OrderLineItem(
                             order=order,
                             product=product,
@@ -130,13 +131,13 @@ class StripeWH_Handler:
                         )
                         order_line_item.save()
                     else:
-                        for size, quantity in item_data[
-                                                    'items_by_size'].items():
+                        for cartridge_id, quantity in item_data['cartridge'].items():
+                            product = get_object_or_404(Cartridges,
+                                                        pk=cartridge_id)
                             order_line_item = OrderLineItem(
                                 order=order,
-                                product=product,
+                                cartridge=product,
                                 quantity=quantity,
-                                product_size=size,
                             )
                             order_line_item.save()
             except Exception as e:
