@@ -51,7 +51,6 @@ def add_to_bag(request, item_id):
                              f'Added {product.brand} {product.model} {product.name} to your bag')
 
     request.session['bag'] = bag
-    print(request.session['bag'])
     return redirect(redirect_url)
 
 
@@ -92,7 +91,6 @@ def adjust_bag(request, item_id):
                              f'Removed {product.brand} {product.model} {product.name} from your bag')
 
     request.session['bag'] = bag
-    print(request.session['bag'])
     return redirect(reverse('view_bag'))
 
 

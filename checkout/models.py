@@ -76,7 +76,6 @@ class OrderLineItem(models.Model):
         """
         if not self.product:
             self.lineitem_total = self.cartridge.price * self.quantity
-            print(self.cartridge.price)
         else:
             self.lineitem_total = self.product.price * self.quantity
         super().save(*args, **kwargs)
