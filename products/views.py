@@ -40,6 +40,11 @@ def all_products(request):
             brands_list = request.GET['brand'].split(',')
             products = Product.objects.all().filter(
                 brand__brand_name__in=brands_list)
+        if 'special' in request.GET:
+            special_list = request.GET['special'].split(',')
+            products = Product.objects.all().filter(
+                special__name__in=special_list
+            )
 
         if 'q' in request.GET:
             query = request.GET['q']
