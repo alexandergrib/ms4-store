@@ -76,17 +76,9 @@
                                 <img src="{{ product.product_image.all.0.image_url }}" alt="{{ product.name }}"
                                      class="card-img-top img-fluid">
                             </a>
-
-                            <ul class="row p-0">
-                                {% for image in product.product_image.all %}
-                                    <li class="list-inline col gx-0"><img class="img-fluid product-images"
-                                                                          src="{{ image.image_url }}"
-                                                                          alt="{{ product.name }}"></li>
-                                {% endfor %}
-                            </ul>
                         {% else %}
                             <a href="{% url 'product_detail' product.id %}">
-                                <img src="/media/200x200.webp" alt="{{ product.name }}"
+                                <img src="{{ MEDIA_URL }}200x200.webp" alt="{{ product.name }}"
                                      class="card-img-top img-fluid">
                             </a>
                         {% endif %}
