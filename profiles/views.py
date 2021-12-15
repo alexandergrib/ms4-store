@@ -30,9 +30,7 @@ def profile(request):
         'orders': orders,
         'on_profile_page': True
     }
-
     return render(request, template, context)
-
 
 
 def order_history(request, order_number):

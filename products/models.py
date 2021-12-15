@@ -21,6 +21,17 @@ class Category(models.Model):
         return self.friendly_name
 
 
+class Special(models.Model):
+    class Meta:
+        verbose_name_plural = 'Specials'
+
+    name = models.CharField(max_length=254)
+    friendly_name = models.CharField(max_length=254)
+
+    def __str__(self):
+        return self.name
+
+
 class ProductBrand(models.Model):
     brand_name = models.CharField(max_length=254)
     friendly_brand_name = models.CharField(max_length=254)
@@ -64,6 +75,8 @@ class Product(BaseProduct):
     brochure = models.URLField(null=True, blank=True)
     featured = models.BooleanField(default=False)
     featured_description = tinymce_models.HTMLField(max_length=400, default="", blank=True)
+    special = models.ForeignKey(Special, null=True, blank=True,
+                                 on_delete=models.SET_NULL)
 
     @property
     def rating(self):

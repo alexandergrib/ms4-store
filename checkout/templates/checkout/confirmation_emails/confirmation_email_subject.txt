@@ -1,1 +1,1 @@
-Boutique Ado Confirmation for Order Number {{ order.order_number }}
+Shop Easy Confirmation for Order Number {{ order.order_number }}

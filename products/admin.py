@@ -2,7 +2,7 @@ from django.contrib import admin
 from .models import (Product, Category,
                      ProductImages, ProductReviews,
                      ProductSpecifications, ProductBrand,
-                     Cartridges)
+                     Cartridges, Special)
 
 list_display = (
     'sku',
@@ -15,6 +15,12 @@ list_display = (
     'created_by',
     'modified_by'
 )
+
+
+class SpecialAdmin(admin.ModelAdmin):
+    list_display = (
+        'name',
+    )
 
 
 class ImagesAdminInline(admin.TabularInline):
@@ -90,3 +96,4 @@ admin.site.register(ProductImages, ProductImagesAdmin)
 # admin.site.register(ProductSpecifications, ProductSpecificationsAdmin)
 admin.site.register(ProductBrand, ProductBrandAdmin)
 admin.site.register(Cartridges, CartridgesAdmin)
+admin.site.register(Special, SpecialAdmin)
