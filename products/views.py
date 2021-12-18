@@ -205,10 +205,15 @@ def edit_product(request, product_id):
         return redirect(reverse('home'))
 
     product = get_object_or_404(Product, pk=product_id)
+    product_images = ProductImages.objects.filter(product=product.id)
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES, instance=product)
         if form.is_valid():
             form.save()
+            if form.cleaned_data['images']:
+                images = request.FILES.getlist('images')
+                for image in images:
+                    ProductImages.objects.create(image=image, product=product, image_url=settings.MEDIA_URL+image.name)
             messages.success(request, 'Successfully updated product!')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
@@ -222,6 +227,7 @@ def edit_product(request, product_id):
     context = {
         'form': form,
         'product': product,
+        'product_images': product_images
     }
 
     return render(request, template, context)
@@ -264,3 +270,16 @@ def delete_category(request, category_id):
     category.delete()
     messages.success(request, f'Category {category.friendly_name} deleted!')
     return redirect(reverse('all_categories'))
+
+
+@login_required
+def delete_image(request, image_id):
+    """ Delete a product from the store """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
+    image = get_object_or_404(ProductImages, pk=image_id)
+    image.delete()
+    messages.success(request, f'Image deleted!')
+    return redirect(reverse('products'))

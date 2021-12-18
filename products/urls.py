@@ -20,4 +20,6 @@ urlpatterns = [
          name='delete_brand'),
     path('delete/category/<category_id>/', views.delete_category,
          name='delete_category'),
+    path('delete/image/<image_id>/', views.delete_image,
+         name='delete_image'),
 ]
