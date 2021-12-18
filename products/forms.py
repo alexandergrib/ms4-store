@@ -1,18 +1,13 @@
 import requests
 from django import forms
-
 from .widgets import CustomClearableFileInput, RelatedFieldWidgetCanAdd
 from .models import Product, Category, ProductImages, ProductSpecifications, \
     Special, ProductBrand
 
 
-
-
-
 class ProductForm(forms.ModelForm):
-    image = forms.ImageField(label='Image',
-                             required=False,
-                             widget=CustomClearableFileInput)
+    images = forms.ImageField(
+        widget=forms.ClearableFileInput(attrs={'multiple': True}))
 
     category = forms.ModelChoiceField(
         required=False,
