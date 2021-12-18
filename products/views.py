@@ -5,9 +5,11 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
 
+# from config import settings
 from profiles.models import UserProfile
 from .forms import ProductForm, CategoryForm, BrandForm
-from .models import Product, Category, Cartridges, ProductBrand, ProductReviews
+from .models import Product, Category, Cartridges, ProductBrand, \
+    ProductReviews, ProductImages
 from django.db.models import Avg
 
 # Create your views here.
@@ -153,6 +155,10 @@ def add_product(request):
             user = form.save(commit=False)
             user.created_by = UserProfile.objects.get(user=request.user)
             product = form.save()
+            if form.cleaned_data['images']:
+                images = request.FILES.getlist('images')
+                for image in images:
+                    ProductImages.objects.create(image=image, product=product, image_url="/media/"+image.name)
             messages.success(request, 'Successfully added product!')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
