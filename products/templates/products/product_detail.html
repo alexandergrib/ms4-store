@@ -59,29 +59,28 @@
                                     {% endif %}
                                 {% endfor %}
                             </div>
-                            {% for image in product.product_image.all %}
-                                {% if forloop.counter < 5 %}
-                                    {% if forloop.first %}
-                                        <!-- Indicators -->
-                                        <ol class="carousel-indicators list-inline">
-                                            <li class="list-inline-item active">
-                                                <a id="carousel-selector-{{ forloop.counter0 }}" class="selected"
-                                                   data-bs-slide-to="{{ forloop.counter0 }}"
-                                                   data-bs-target="#myCarousel">
-                                                    <img src="{{ image.image_url }}" class="img-fluid" alt="{{ product.friendly_brand_name }} {{ product.model }} {{ product.name }}">
-                                                </a>
-                                            </li>
-                                    {% else %}
-                                            <li class="list-inline-item">
-                                                <a id="carousel-selector-{{ forloop.counter0 }}"
-                                                   data-bs-slide-to="{{ forloop.counter0 }}" data-bs-target="#myCarousel">
-                                                    <img src="{{ image.image_url }}" class="img-fluid" alt="{{ product.friendly_brand_name }} {{ product.model }} {{ product.name }}">
-                                                </a>
-                                            </li>
+                            <ol class="carousel-indicators list-inline">
+                                {% for image in product.product_image.all %}
+                                    {% if forloop.counter < 5 %}
+                                        {% if forloop.first %}
+                                            <!-- Indicators -->
+                                                <li class="list-inline-item active">
+                                                    <a id="carousel-selector-{{ forloop.counter0 }}" class="selected"
+                                                       data-bs-slide-to="{{ forloop.counter0 }}"
+                                                       data-bs-target="#myCarousel">
+                                                        <img src="{{ image.image_url }}" class="img-fluid" alt="{{ product.friendly_brand_name }} {{ product.model }} {{ product.name }}">
+                                                    </a>
+                                                </li>
+                                        {% else %}
+                                                <li class="list-inline-item">
+                                                    <a id="carousel-selector-{{ forloop.counter0 }}"
+                                                       data-bs-slide-to="{{ forloop.counter0 }}" data-bs-target="#myCarousel">
+                                                        <img src="{{ image.image_url }}" class="img-fluid" alt="{{ product.friendly_brand_name }} {{ product.model }} {{ product.name }}">
+                                                    </a>
+                                                </li>
+                                        {% endif %}
                                     {% endif %}
-
-                                {% endif %}
-                            {% endfor %}
+                                {% endfor %}
                             </ol>
                         </div>
                         {% else %}

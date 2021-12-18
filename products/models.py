@@ -31,12 +31,18 @@ class Special(models.Model):
     def __str__(self):
         return self.name
 
+    def get_friendly_name(self):
+        return self.friendly_name
+
 
 class ProductBrand(models.Model):
     brand_name = models.CharField(max_length=254)
     friendly_brand_name = models.CharField(max_length=254)
 
     def __str__(self):
+        return self.friendly_brand_name
+
+    def get_friendly_name(self):
         return self.friendly_brand_name
 
 
@@ -47,10 +53,10 @@ class BaseProduct(models.Model):
 
     category = models.ForeignKey(Category, null=True, blank=True,
                                  on_delete=models.SET_NULL)
-    sku = models.CharField(max_length=254, null=True, blank=True)
-    name = models.CharField(max_length=254)
     brand = models.ForeignKey(ProductBrand, null=True, blank=True,
                               on_delete=models.SET_NULL)
+    sku = models.CharField(max_length=254, null=True, blank=True)
+    name = models.CharField(max_length=254)
     model = models.CharField(max_length=254)
     description = tinymce_models.HTMLField()
     price = models.DecimalField(max_digits=6, decimal_places=2)
@@ -72,11 +78,11 @@ class Product(BaseProduct):
         verbose_name_plural = 'Products'
 
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, unique=True)
-    brochure = models.URLField(null=True, blank=True)
-    featured = models.BooleanField(default=False)
-    featured_description = tinymce_models.HTMLField(max_length=400, default="", blank=True)
     special = models.ForeignKey(Special, null=True, blank=True,
                                  on_delete=models.SET_NULL)
+    brochure = models.URLField(null=True, blank=True)
+    featured = models.BooleanField(default=False)
+    featured_description = tinymce_models.HTMLField(max_length=400, default="", blank=True, verbose_name="Featured description max length 400")
 
     @property
     def rating(self):
