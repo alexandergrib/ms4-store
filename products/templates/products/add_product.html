@@ -18,6 +18,22 @@
             <div class="col-12 col-md-6">
                 <form method="POST" action="{% url 'add_product' %}" class="form mb-2" enctype="multipart/form-data">
                     {% csrf_token %}
+{##}
+{#                    {{ form.category | as_crispy_field }}#}
+{#                    {{ form.brand | as_crispy_field }}#}
+{#                    {{ form.name | as_crispy_field }}#}
+{#                    {{ form.sku | as_crispy_field }}#}
+{#                    {{ form.model | as_crispy_field }}#}
+{#                    {{ form.description | as_crispy_field }}#}
+{#                    {{ form.price | as_crispy_field }}#}
+{#                    {{ form.special | as_crispy_field }}#}
+{#                    {{ form.brochure | as_crispy_field }}#}
+{#                    {{ form.featured | as_crispy_field }}#}
+{#                    {{ form.featured_description | as_crispy_field }}#}
+
+
+
+
                     {% for field in form %}
                         {% if field.name != 'image' %}
                             {{ field | as_crispy_field }}
