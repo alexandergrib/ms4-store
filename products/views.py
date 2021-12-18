@@ -15,6 +15,7 @@ from .models import Product, Category, Cartridges, ProductBrand, \
     ProductReviews, ProductImages
 from django.db.models import Avg
 
+
 # Create your views here.
 
 def all_products(request):
@@ -183,15 +184,9 @@ def add_product(request):
             product = form.save()
             if form.cleaned_data['images']:
                 images = request.FILES.getlist('images')
-                s3_client = boto3.client('s3')
                 for image in images:
-                    # Upload the file
-                    object_name = image.name
-                    if object_name is None:
-                        object_name = os.path.basename(image)
-                    response = s3_client.upload_file(image, settings.AWS_STORAGE_BUCKET_NAME,
-                                                     object_name)
-                    ProductImages.objects.create(image=image, product=product, image_url=settings.MEDIA_URL+image.name)
+                    ProductImages.objects.create(image=image, product=product,
+                                                 image_url=settings.MEDIA_URL+image.name)
             messages.success(request, 'Successfully added product!')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
@@ -223,15 +218,9 @@ def edit_product(request, product_id):
             form.save()
             if form.cleaned_data['images']:
                 images = request.FILES.getlist('images')
-                s3_client = boto3.client('s3')
                 for image in images:
-                    object_name = image.name
-                    if object_name is None:
-                        object_name = os.path.basename(image)
-                    response = s3_client.upload_file(image,
-                                                     settings.AWS_STORAGE_BUCKET_NAME,
-                                                     object_name)
-                    ProductImages.objects.create(image=image, product=product, image_url=settings.MEDIA_URL+image.name)
+                    ProductImages.objects.create(image=image, product=product,
+                                                 image_url=settings.MEDIA_URL + image.name)
             messages.success(request, 'Successfully updated product!')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
