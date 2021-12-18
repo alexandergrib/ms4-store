@@ -49,8 +49,6 @@ class CategoryAdmin(admin.ModelAdmin):
     )
 
 
-
-
 class ProductImagesAdmin(admin.ModelAdmin):
     list_display = (
         'product',
@@ -82,11 +80,6 @@ class ProductBrandAdmin(admin.ModelAdmin):
 
 class CartridgesAdmin(admin.ModelAdmin):
     ordering = ('brand',)
-
-
-
-
-
 
 
 admin.site.register(Product, ProductAdmin)
