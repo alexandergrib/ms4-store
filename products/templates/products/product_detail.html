@@ -32,6 +32,11 @@
         #myCarousel .carousel-indicators li:hover img {
             opacity: 0.75;
         }
+
+        #myCarousel .carousel-control-next, #myCarousel .carousel-control-prev {
+            top: unset;
+            bottom: 10%;
+        }
     </style>
 {% endblock %}
 
@@ -42,48 +47,63 @@
             <div class="col-12 col-md-6 col-lg-4 offset-lg-1">
                 <div class="image-container my-5">
                     {% if product.product_image.all.0.image %}
-                        <div id="myCarousel" class="carousel" align="center">
+                        <div id="myCarousel" class="carousel carousel-dark" align="center">
                             <!-- Wrapper for slides -->
                             <div class="carousel-inner">
                                 {% for image in product.product_image.all %}
                                     {% if forloop.first %}
                                         <div class="carousel-item active">
-                                            <img src="{{ image.image_url }}" alt="{{ product.friendly_brand_name }} {{ product.model }} {{ product.name }}"
+                                            <img src="{{ image.image_url }}"
+                                                 alt="{{ product.friendly_brand_name }} {{ product.model }} {{ product.name }}"
                                                  style="width:80%;">
                                         </div>
                                     {% else %}
                                         <div class="carousel-item">
-                                            <img src="{{ image.image_url }}" alt="{{ product.friendly_brand_name }} {{ product.model }} {{ product.name }}"
+                                            <img src="{{ image.image_url }}"
+                                                 alt="{{ product.friendly_brand_name }} {{ product.model }} {{ product.name }}"
                                                  style="width:80%;">
                                         </div>
                                     {% endif %}
                                 {% endfor %}
                             </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel"
+                                    data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#myCarousel"
+                                    data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
                             <ol class="carousel-indicators list-inline">
                                 {% for image in product.product_image.all %}
                                     {% if forloop.counter < 5 %}
                                         {% if forloop.first %}
                                             <!-- Indicators -->
-                                                <li class="list-inline-item active">
-                                                    <a id="carousel-selector-{{ forloop.counter0 }}" class="selected"
-                                                       data-bs-slide-to="{{ forloop.counter0 }}"
-                                                       data-bs-target="#myCarousel">
-                                                        <img src="{{ image.image_url }}" class="img-fluid" alt="{{ product.friendly_brand_name }} {{ product.model }} {{ product.name }}">
-                                                    </a>
-                                                </li>
+                                            <li class="list-inline-item active">
+                                                <a id="carousel-selector-{{ forloop.counter0 }}" class="selected"
+                                                   data-bs-slide-to="{{ forloop.counter0 }}"
+                                                   data-bs-target="#myCarousel">
+                                                    <img src="{{ image.image_url }}" class="img-fluid"
+                                                         alt="{{ product.friendly_brand_name }} {{ product.model }} {{ product.name }}">
+                                                </a>
+                                            </li>
                                         {% else %}
-                                                <li class="list-inline-item">
-                                                    <a id="carousel-selector-{{ forloop.counter0 }}"
-                                                       data-bs-slide-to="{{ forloop.counter0 }}" data-bs-target="#myCarousel">
-                                                        <img src="{{ image.image_url }}" class="img-fluid" alt="{{ product.friendly_brand_name }} {{ product.model }} {{ product.name }}">
-                                                    </a>
-                                                </li>
+                                            <li class="list-inline-item">
+                                                <a id="carousel-selector-{{ forloop.counter0 }}"
+                                                   data-bs-slide-to="{{ forloop.counter0 }}"
+                                                   data-bs-target="#myCarousel">
+                                                    <img src="{{ image.image_url }}" class="img-fluid"
+                                                         alt="{{ product.friendly_brand_name }} {{ product.model }} {{ product.name }}">
+                                                </a>
+                                            </li>
                                         {% endif %}
                                     {% endif %}
                                 {% endfor %}
                             </ol>
                         </div>
-                        {% else %}
+                    {% else %}
                         <div class="carousel-item active">
                             <img src="{{ MEDIA_URL }}200x200.webp"
                                  alt="{{ product.friendly_brand_name }} {{ product.model }} {{ product.name }}"
@@ -94,7 +114,8 @@
                                 <a id="carousel-selector-0" class="selected"
                                    data-bs-slide-to="0"
                                    data-bs-target="#myCarousel">
-                                    <img src="{{ MEDIA_URL }}200x200.webp" class="img-fluid" alt="{{ product.friendly_brand_name }} {{ product.model }} {{ product.name }}">
+                                    <img src="{{ MEDIA_URL }}200x200.webp" class="img-fluid"
+                                         alt="{{ product.friendly_brand_name }} {{ product.model }} {{ product.name }}">
                                 </a>
                             </li>
                         </ol>
@@ -120,6 +141,13 @@
                                 {% endif %}
                             {% else %}
 
+                            {% endif %}
+                            {% if request.user.is_superuser %}
+                                <br>
+                                <small class="ml-3">
+                                    <a href="{% url 'edit_product' product.id %}">Edit</a> |
+                                    <a href="#" class="delete-product text-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</a>
+                                </small>
                             {% endif %}
                         </div>
                     </div>
@@ -318,6 +346,7 @@
             </div>
         </div>
     {% endif %}
+    {% include 'products/includes/delete_confirmation_modal.html' %}
 {% endblock %}
 
 {% block postloadjs %}

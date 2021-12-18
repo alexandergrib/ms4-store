@@ -248,7 +248,7 @@ def delete_product(request, product_id):
 
 @login_required
 def delete_brand(request, brand_id):
-    """ Delete a product from the store """
+    """ Delete a Brand from the DB """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
@@ -261,7 +261,7 @@ def delete_brand(request, brand_id):
 
 @login_required
 def delete_category(request, category_id):
-    """ Delete a product from the store """
+    """ Delete a category from the DB """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
@@ -274,7 +274,7 @@ def delete_category(request, category_id):
 
 @login_required
 def delete_image(request, image_id):
-    """ Delete a product from the store """
+    """ Delete a image from the DB """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
