@@ -104,21 +104,15 @@
                             </ol>
                         </div>
                     {% else %}
-                        <div class="carousel-item active">
-                            <img src="{{ MEDIA_URL }}200x200.webp"
-                                 alt="{{ product.friendly_brand_name }} {{ product.model }} {{ product.name }}"
-                                 class="card-img-top img-fluid">
+                        <div id="myCarousel" class="carousel carousel-dark" align="center">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                <img src="{{ MEDIA_URL }}200x200.webp"
+                                     alt="{{ product.friendly_brand_name }} {{ product.model }} {{ product.name }}"
+                                     class="card-img-top img-fluid">
+                            </div>
+                            </div>
                         </div>
-                        <ol class="carousel-indicators list-inline">
-                            <li class="list-inline-item active">
-                                <a id="carousel-selector-0" class="selected"
-                                   data-bs-slide-to="0"
-                                   data-bs-target="#myCarousel">
-                                    <img src="{{ MEDIA_URL }}200x200.webp" class="img-fluid"
-                                         alt="{{ product.friendly_brand_name }} {{ product.model }} {{ product.name }}">
-                                </a>
-                            </li>
-                        </ol>
                     {% endif %}
                 </div>
             </div>
