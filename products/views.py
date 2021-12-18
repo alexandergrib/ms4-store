@@ -5,7 +5,7 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
 
-# from config import settings
+from config import settings
 from profiles.models import UserProfile
 from .forms import ProductForm, CategoryForm, BrandForm
 from .models import Product, Category, Cartridges, ProductBrand, \
@@ -91,6 +91,28 @@ def product_detail(request, product_id):
 
 
 @login_required
+def all_categories(request):
+    categories = Category.objects.all()
+    form = CategoryForm()
+    context = {
+        "categories": categories,
+        'form': form
+    }
+    return render(request, 'products/categories.html', context)
+
+
+@login_required
+def all_brands(request):
+    brands = ProductBrand.objects.all()
+    form = BrandForm()
+    context = {
+        "brands": brands,
+        'form': form
+    }
+    return render(request, 'products/brand.html', context)
+
+
+@login_required
 def add_brand(request):
     """Add new product category"""
     if not request.user.is_superuser:
@@ -158,7 +180,7 @@ def add_product(request):
             if form.cleaned_data['images']:
                 images = request.FILES.getlist('images')
                 for image in images:
-                    ProductImages.objects.create(image=image, product=product, image_url="/media/"+image.name)
+                    ProductImages.objects.create(image=image, product=product, image_url=settings.MEDIA_URL+image.name)
             messages.success(request, 'Successfully added product!')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
@@ -216,3 +238,29 @@ def delete_product(request, product_id):
     product.delete()
     messages.success(request, 'Product deleted!')
     return redirect(reverse('products'))
+
+
+@login_required
+def delete_brand(request, brand_id):
+    """ Delete a product from the store """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
+    brand = get_object_or_404(ProductBrand, pk=brand_id)
+    brand.delete()
+    messages.success(request, f'Brand {brand.friendly_brand_name} deleted!')
+    return redirect(reverse('all_brands'))
+
+
+@login_required
+def delete_category(request, category_id):
+    """ Delete a product from the store """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
+    category = get_object_or_404(Category, pk=category_id)
+    category.delete()
+    messages.success(request, f'Category {category.friendly_name} deleted!')
+    return redirect(reverse('all_categories'))
