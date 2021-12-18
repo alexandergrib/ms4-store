@@ -37,7 +37,7 @@
                                             {% if item.product.image %}
                                                 <img class="img-fluid rounded" src="{{ item.product.image_url }}" width="100" height="100" alt="{{ item.product.brand }} {{ item.product.model }}">
                                             {% else %}
-                                                <img class="img-fluid rounded" src="/media/200x200.webp" width="100" height="100" alt="{{ item.product.brand }} {{ item.product.model }}">
+                                                <img class="img-fluid rounded" src="{{MEDIA_URL}}200x200.webp" width="100" height="100" alt="{{ item.product.brand }} {{ item.product.model }}">
                                             {% endif %}
                                         {% endif %}
                                     </td>
