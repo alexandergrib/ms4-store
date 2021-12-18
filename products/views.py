@@ -1,3 +1,6 @@
+import os
+
+import boto3
 from django.contrib.auth.decorators import login_required
 from django.db.models.functions import Lower
 from django.http import Http404
@@ -5,7 +8,7 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
 
-# from config import settings
+from config import settings
 from profiles.models import UserProfile
 from .forms import ProductForm, CategoryForm, BrandForm
 from .models import Product, Category, Cartridges, ProductBrand, \
@@ -91,11 +94,34 @@ def product_detail(request, product_id):
 
 
 @login_required
+def all_categories(request):
+    categories = Category.objects.all()
+    form = CategoryForm()
+    context = {
+        "categories": categories,
+        'form': form
+    }
+    return render(request, 'products/categories.html', context)
+
+
+@login_required
+def all_brands(request):
+    brands = ProductBrand.objects.all()
+    form = BrandForm()
+    context = {
+        "brands": brands,
+        'form': form
+    }
+    return render(request, 'products/brand.html', context)
+
+
+@login_required
 def add_brand(request):
     """Add new product category"""
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
+
     if request.method == 'POST':
         form = BrandForm(request.POST)
         if form.is_valid():
@@ -157,8 +183,15 @@ def add_product(request):
             product = form.save()
             if form.cleaned_data['images']:
                 images = request.FILES.getlist('images')
+                s3_client = boto3.client('s3')
                 for image in images:
-                    ProductImages.objects.create(image=image, product=product, image_url="/media/"+image.name)
+                    # Upload the file
+                    object_name = image.name
+                    if object_name is None:
+                        object_name = os.path.basename(image)
+                    response = s3_client.upload_file(image, settings.AWS_STORAGE_BUCKET_NAME,
+                                                     object_name)
+                    ProductImages.objects.create(image=image, product=product, image_url=settings.MEDIA_URL+image.name)
             messages.success(request, 'Successfully added product!')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
@@ -183,10 +216,22 @@ def edit_product(request, product_id):
         return redirect(reverse('home'))
 
     product = get_object_or_404(Product, pk=product_id)
+    product_images = ProductImages.objects.filter(product=product.id)
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES, instance=product)
         if form.is_valid():
             form.save()
+            if form.cleaned_data['images']:
+                images = request.FILES.getlist('images')
+                s3_client = boto3.client('s3')
+                for image in images:
+                    object_name = image.name
+                    if object_name is None:
+                        object_name = os.path.basename(image)
+                    response = s3_client.upload_file(image,
+                                                     settings.AWS_STORAGE_BUCKET_NAME,
+                                                     object_name)
+                    ProductImages.objects.create(image=image, product=product, image_url=settings.MEDIA_URL+image.name)
             messages.success(request, 'Successfully updated product!')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
@@ -200,6 +245,7 @@ def edit_product(request, product_id):
     context = {
         'form': form,
         'product': product,
+        'product_images': product_images
     }
 
     return render(request, template, context)
@@ -215,4 +261,43 @@ def delete_product(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     product.delete()
     messages.success(request, 'Product deleted!')
+    return redirect(reverse('products'))
+
+
+@login_required
+def delete_brand(request, brand_id):
+    """ Delete a Brand from the DB """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
+    brand = get_object_or_404(ProductBrand, pk=brand_id)
+    brand.delete()
+    messages.success(request, f'Brand {brand.friendly_brand_name} deleted!')
+    return redirect(reverse('all_brands'))
+
+
+@login_required
+def delete_category(request, category_id):
+    """ Delete a category from the DB """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
+    category = get_object_or_404(Category, pk=category_id)
+    category.delete()
+    messages.success(request, f'Category {category.friendly_name} deleted!')
+    return redirect(reverse('all_categories'))
+
+
+@login_required
+def delete_image(request, image_id):
+    """ Delete a image from the DB """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
+    image = get_object_or_404(ProductImages, pk=image_id)
+    image.delete()
+    messages.success(request, f'Image deleted!')
     return redirect(reverse('products'))

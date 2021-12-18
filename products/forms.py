@@ -6,7 +6,8 @@ from .models import Product, Category, ProductImages, ProductSpecifications, \
 
 
 class ProductForm(forms.ModelForm):
-    images = forms.ImageField(
+
+    images = forms.ImageField(required=False,
         widget=forms.ClearableFileInput(attrs={'multiple': True}))
 
     category = forms.ModelChoiceField(
@@ -45,6 +46,13 @@ class ProductForm(forms.ModelForm):
         self.fields['brand'].choices = brand_friendly_names
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'border-black rounded-0'
+
+        # create 3 new fields for product specs
+        # for index in range(int(3)):
+        #     # generate extra fields in the number specified via extra_fields
+        #     self.fields['product_specs_{index}'.format(index=index)] = \
+        #         forms.CharField(required=False)
+        # self.fields["product_specs"] = forms.CharField(required=False)
 
 
 class CategoryForm(forms.ModelForm):
