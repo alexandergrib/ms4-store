@@ -66,9 +66,6 @@ class BaseProduct(models.Model):
     created_by = models.ForeignKey(UserProfile, null=True, blank=True,
                                    on_delete=models.SET_NULL)
 
-
-
-
     def __str__(self):
         return "{} {} {}".format(self.brand, self.model, self.name)
 
@@ -77,17 +74,24 @@ class Product(BaseProduct):
     class Meta:
         verbose_name_plural = 'Products'
 
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, unique=True)
+    id = models.UUIDField(primary_key=True,
+                          default=uuid.uuid4,
+                          editable=False, unique=True)
     special = models.ForeignKey(Special, null=True, blank=True,
-                                 on_delete=models.SET_NULL)
+                                on_delete=models.SET_NULL)
     brochure = models.URLField(null=True, blank=True)
     featured = models.BooleanField(default=False)
-    featured_description = tinymce_models.HTMLField(max_length=400, default="", blank=True, verbose_name="Featured description max length 400")
+    featured_description = tinymce_models.HTMLField(
+        max_length=400,
+        default="",
+        blank=True,
+        verbose_name="Featured description max length 400")
 
     @property
     def rating(self):
         return self.product_reviews.aggregate(avg_score=Avg('review_score'))[
-            'avg_score']  # https://stackoverflow.com/questions/59479908/how-to-make-an-average-from-values-of-a-foreign-key-in-django
+            'avg_score']
+        # https://stackoverflow.com/questions/59479908/how-to-make-an-average-from-values-of-a-foreign-key-in-django
 
 
 class ProductReviews(models.Model):
@@ -152,7 +156,9 @@ class Cartridges(BaseProduct):
     class Meta:
         verbose_name_plural = 'Cartridges'
 
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, unique=True)
+    id = models.UUIDField(primary_key=True,
+                          default=uuid.uuid4,
+                          editable=False, unique=True)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
     compatible_printer = models.ManyToManyField(Product,
