@@ -75,3 +75,9 @@ class BrandForm(forms.ModelForm):
         name = forms.CharField(label='brand_name', max_length=254)
         friendly_brand_name = forms.CharField(label='Friendly brand name',
                                               max_length=254)
+
+
+class ProductSpecsForm(forms.ModelForm):
+    class Meta:
+        model = ProductSpecifications
+        fields = '__all__'

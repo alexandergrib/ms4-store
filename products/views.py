@@ -7,12 +7,12 @@ from django.db.models import Q
 
 from config import settings
 from profiles.models import UserProfile
-from .forms import ProductForm, CategoryForm, BrandForm
+from .forms import ProductForm, CategoryForm, BrandForm, ProductSpecsForm
 from .models import (Product,
                      Category,
                      Cartridges,
                      ProductBrand,
-                     ProductReviews, ProductImages)
+                     ProductReviews, ProductImages, ProductSpecifications)
 
 
 def all_products(request):
@@ -114,6 +114,19 @@ def all_brands(request):
 
 
 @login_required
+def all_specs(request, product_id):
+    product = get_object_or_404(Product, pk=product_id)
+    specs = ProductSpecifications.objects.filter(product__id__exact=product_id)
+    form = ProductSpecsForm()
+    context = {
+        "specs": specs,
+        'form': form,
+        'product': product
+    }
+    return render(request, 'products/all_product_specs.html', context)
+
+
+@login_required
 def add_brand(request):
     """Add new product category"""
     if not request.user.is_superuser:
@@ -197,6 +210,35 @@ def add_product(request):
         form = ProductForm()
 
     template = 'products/add_product.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
+
+
+@login_required
+def add_specs(request, product_id):
+    """Add new product category"""
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
+    if request.method == 'POST':
+        form = ProductSpecsForm(request.POST)
+        print(form)
+        if form.is_valid():
+            specs = form.save()
+            messages.success(request, 'Successfully added new specs!')
+            return redirect('product_detail', product_id=product_id)
+        else:
+            messages.error(
+                request,
+                'Failed to add category. Please ensure the form is valid.')
+    else:
+        form = ProductSpecsForm()
+
+    template = 'products/add_product_specifications.html'
     context = {
         'form': form,
     }
@@ -293,3 +335,16 @@ def delete_image(request, image_id):
     image.delete()
     messages.success(request, 'Image deleted!')
     return redirect(reverse('products'))
+
+
+@login_required
+def delete_spec(request, spec_id):
+    """ Delete Brand from the DB """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
+    spec = get_object_or_404(ProductSpecifications, pk=spec_id)
+    spec.delete()
+    messages.success(request, f'Specification {spec.name} deleted!')
+    return redirect('products')
