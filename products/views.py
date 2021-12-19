@@ -1,6 +1,3 @@
-import os
-
-import boto3
 from django.contrib.auth.decorators import login_required
 from django.db.models.functions import Lower
 from django.http import Http404
@@ -11,12 +8,12 @@ from django.db.models import Q
 from config import settings
 from profiles.models import UserProfile
 from .forms import ProductForm, CategoryForm, BrandForm
-from .models import Product, Category, Cartridges, ProductBrand, \
-    ProductReviews, ProductImages
-from django.db.models import Avg
+from .models import (Product,
+                     Category,
+                     Cartridges,
+                     ProductBrand,
+                     ProductReviews, ProductImages)
 
-
-# Create your views here.
 
 def all_products(request):
     """ A view to show all products, including sorting and search queries """
@@ -130,8 +127,9 @@ def add_brand(request):
             messages.success(request, 'Successfully added new category!')
             return redirect(reverse('add_product'))
         else:
-            messages.error(request,
-                           'Failed to add category. Please ensure the form is valid.')
+            messages.error(
+                request,
+                'Failed to add category. Please ensure the form is valid.')
     else:
         form = BrandForm()
 
@@ -156,8 +154,9 @@ def add_category(request):
             messages.success(request, 'Successfully added new category!')
             return redirect(reverse('add_product'))
         else:
-            messages.error(request,
-                           'Failed to add category. Please ensure the form is valid.')
+            messages.error(
+                request,
+                'Failed to add category. Please ensure the form is valid.')
     else:
         form = CategoryForm()
 
@@ -185,13 +184,15 @@ def add_product(request):
             if form.cleaned_data['images']:
                 images = request.FILES.getlist('images')
                 for image in images:
-                    ProductImages.objects.create(image=image, product=product,
-                                                 image_url=settings.MEDIA_URL+image.name)
+                    ProductImages.objects.create(
+                        image=image, product=product,
+                        image_url=settings.MEDIA_URL + image.name)
             messages.success(request, 'Successfully added product!')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
-            messages.error(request,
-                           'Failed to add product. Please ensure the form is valid.')
+            messages.error(
+                request,
+                'Failed to add product. Please ensure the form is valid.')
     else:
         form = ProductForm()
 
@@ -219,13 +220,15 @@ def edit_product(request, product_id):
             if form.cleaned_data['images']:
                 images = request.FILES.getlist('images')
                 for image in images:
-                    ProductImages.objects.create(image=image, product=product,
-                                                 image_url=settings.MEDIA_URL + image.name)
+                    ProductImages.objects.create(
+                        image=image, product=product,
+                        image_url=settings.MEDIA_URL + image.name)
             messages.success(request, 'Successfully updated product!')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
-            messages.error(request,
-                           'Failed to update product. Please ensure the form is valid.')
+            messages.error(
+                request,
+                'Failed to update product. Please ensure the form is valid.')
     else:
         form = ProductForm(instance=product)
         messages.info(request, f'You are editing {product.name}')
@@ -242,7 +245,7 @@ def edit_product(request, product_id):
 
 @login_required
 def delete_product(request, product_id):
-    """ Delete a product from the store """
+    """ Delete product from the store """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
@@ -255,7 +258,7 @@ def delete_product(request, product_id):
 
 @login_required
 def delete_brand(request, brand_id):
-    """ Delete a Brand from the DB """
+    """ Delete Brand from the DB """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
@@ -268,7 +271,7 @@ def delete_brand(request, brand_id):
 
 @login_required
 def delete_category(request, category_id):
-    """ Delete a category from the DB """
+    """ Delete category from the DB """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
@@ -281,12 +284,12 @@ def delete_category(request, category_id):
 
 @login_required
 def delete_image(request, image_id):
-    """ Delete a image from the DB """
+    """ Delete image from the DB """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
 
     image = get_object_or_404(ProductImages, pk=image_id)
     image.delete()
-    messages.success(request, f'Image deleted!')
+    messages.success(request, 'Image deleted!')
     return redirect(reverse('products'))

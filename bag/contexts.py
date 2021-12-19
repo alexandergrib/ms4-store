@@ -1,6 +1,6 @@
 from decimal import Decimal
 from django.conf import settings
-from django.http import Http404
+
 from django.shortcuts import get_object_or_404
 
 from products.models import ProductBrand, Category, Product, Cartridges
@@ -36,7 +36,6 @@ def bag_contents(request):
                     'product': product,
                     'cartridge': cartridge,
                 })
-
 
     if total < settings.FREE_DELIVERY_THRESHOLD:
         delivery = total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE / 100)

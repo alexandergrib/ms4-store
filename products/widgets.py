@@ -33,8 +33,10 @@ class RelatedFieldWidgetCanAdd(widgets.Select):
         output = [
             super(RelatedFieldWidgetCanAdd, self).render(name, value, *args,
                                                          **kwargs),
-            '<a href="%s" class="add-another" id="add_id_%s" onclick="return showAddAnotherPopup(this);"> ' % \
-            (self.related_url, name),
+            '<a href="%s" class="add-another" id="add_id_%s" \
+             onclick="return showAddAnotherPopup(this);"> ' % (
+                self.related_url, name),
+
             '<i class="fas fa-plus"></i>%s</a>' % (
                 'Add Another')]
         return mark_safe(''.join(output))
