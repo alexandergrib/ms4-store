@@ -139,7 +139,11 @@
                             {% if request.user.is_superuser %}
                                 <br>
                                 <small class="ml-3">
-                                    <a href="{% url 'edit_product' product.id %}">Edit</a> |
+                                    {% if from_page == "product" %}
+                                        <a href="{% url 'edit_product' product.id %}">Edit</a> |
+                                    {% else %}
+                                        <a href="{% url 'edit_cartridge' product.id %}">Edit</a> |
+                                    {% endif %}
                                     <a href="#" class="delete-product text-danger" data-bs-toggle="modal"
                                        data-bs-target="#deleteModal">Delete</a>
                                 </small>
@@ -258,14 +262,16 @@
         </div>
     </div>
 
+
     {# <!-- Cartridges container hidden if viewing cartridge product-->#}
-    {% if product.category.name !=  'cartridges' %}
+    {% if from_page == "product" %}
         <div class="container-fluid">
             <div class="row mt-3">
                 <div class="col text-center">
                     <h3>{{ product.brand.friendly_brand_name }} {{ product.model }} Consumables</h3>
                     {% if request.user.is_superuser %}
-                        <a href="">Add cartridges</a>
+                        <span id="add-cartridge" class="btn btn-success text-uppercase mt-3 mb-3" onclick="document.getElementById('cartridge-form').classList.toggle('hide');">Add cartridges</span>
+                        {% include 'products/add_cartridge.html' %}
                     {% endif %}
                 </div>
                 <div class="row">
@@ -297,8 +303,10 @@
                                                 {% endif %}
                                             </td>
                                             <td class="py-3 w-50">
-                                                <p class="my-0">{{ cartridge.description|safe }}</p>
-                                                <p class="my-0 small text-muted">Model: {{ cartridge.model }}</p>
+                                                <a href="{% url 'product_detail' product_id=cartridge.id %}">
+                                                    <p class="my-0">{{ cartridge.description|safe }}</p>
+                                                    <p class="my-0 small text-muted">Model: {{ cartridge.model }}</p>
+                                                </a>
                                             </td>
                                             <td class="py-3">
                                                 <p class="my-0">£{{ cartridge.price }}</p>
@@ -316,6 +324,10 @@
 
                                                         <input type="submit" class="btn btn-success text-uppercase"
                                                                value="Add to Bag">
+                                                        {% if request.user.is_superuser %}
+                                                            <a href="#" class="btn btn-warning mx-1"
+                                                                >EDIT</a>
+                                                        {% endif %}
                                                         <input type="hidden" name="redirect_url"
                                                                value="{{ request.path }}">
                                                         <input type="hidden" name="cartridge"
@@ -349,7 +361,9 @@
             </div>
         </div>
     {% endif %}
+
     {% include 'products/includes/delete_confirmation_modal.html' %}
+
 {% endblock %}
 
 {% block postloadjs %}

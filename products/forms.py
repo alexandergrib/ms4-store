@@ -5,7 +5,8 @@ from .models import (Product,
                      Category,
                      ProductImages,
                      ProductSpecifications,
-                     Special, ProductBrand)
+                     Special, ProductBrand,
+                     Cartridges)
 
 
 class ProductForm(forms.ModelForm):
@@ -81,3 +82,10 @@ class ProductSpecsForm(forms.ModelForm):
     class Meta:
         model = ProductSpecifications
         fields = '__all__'
+
+
+class CartrigesForm(forms.ModelForm):
+    class Meta:
+        model = Cartridges
+        fields = '__all__'
+        exclude = ('created_by',)

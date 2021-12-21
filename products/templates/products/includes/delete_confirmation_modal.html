@@ -10,7 +10,11 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-          <a href="{% url 'delete_product' product_id=product.id %}" class="btn btn-danger">Delete</a>
+          {% if from_page == 'product' %}
+              <a href="{% url 'delete_product' product_id=product.id %}" class="btn btn-danger">Delete</a>
+          {% else %}
+              <a href="{% url 'delete_cartridge' cartridge_id=product.id %}" class="btn btn-danger">Delete</a>
+          {% endif %}
       </div>
     </div>
   </div>
