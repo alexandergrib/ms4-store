@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block content %}
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <hr>
+                <h2 class="logo-font mb-4">Product Management</h2>
+                <h5 class="text-muted">Edit a Cartridge</h5>
+                <hr>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <form method="POST" action="{% url 'edit_cartridge' cartridge.id %}" class="form mb-2"
+                      enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {% for field in form %}
+                        {% if field.name == 'compatible_printer' %}
+                     <div id="div_id_category" class="mb-3">
+                            <label for="id_compatible_printer" class="form-label requiredField">Compatible printer {% for x, y in form.fields.compatible_printer.choices %}{% if x == compatible_printer.id %}<strong>{{ y }}</strong>{% endif %}{% endfor %}</label>
+                            <select id="id_compatible_printer" name="compatible_printer" class="selectmultiple form-select" multiple>
+                                {% for x, y in form.fields.compatible_printer.choices %}
+                                    <option value="{{ x }}"{% for printer in cartridge.compatible_printer.all %}
+                                            {% if x == printer.id %}
+                                            selected{% endif %}{% endfor %}>{{ y }}</option>
+                                {% endfor %}
+                            </select>
+                    </div>
+                {% elif field.name == 'category' %}
+                    <div id="div_id_category" class="mb-3">
+                        <label for="id_category" class="form-label">Category {% for x, y in form.fields.category.choices %}{% if x == category.id %}<strong>{{ y }}</strong>{% endif %}{% endfor %}</label>
+                        <select id="id_category" name="category" class="select form-select">
+                            {% for x, y in form.fields.category.choices %}
+                                <option  value="{{ x }}"{% if x == cartridge.category.id %}
+                                        selected{% endif %}>{{ y }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                {% elif field.name == 'brand' %}
+                <div id="div_id_brand" class="mb-3">
+                    <label for="id_brand" class="form-label">Brand {% for x, y in form.fields.brand.choices %}{% if x == brand.id %}<strong>{{ y }}</strong>{% endif %}{% endfor %}</label>
+                    <select id="id_brand" name="brand" class="select form-select">
+                        {% for x, y in form.fields.brand.choices %}
+                            <option  value="{{ x }}"{% if x == cartridge.brand.id %}
+                                    selected{% endif %}>{{ y }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                {% else %}
+                    {{ field | as_crispy_field }}
+                {% endif %}
+                    {% endfor %}
+                {% if product_images %}
+                    <div class="images row">
+                    <ul class="col-12 list-group list-group-horizontal">
+                        <li class="list-group-item">
+                            {% for image in product_images %}
+                                <img src="{{ image.image_url }}" alt="image" width="100" height="100">
+                                <a href="{% url 'delete_image' image_id=image.id %} ">remove</a>
+                            {% endfor %}
+
+                        </li>
+                    </ul>
+                {% endif %}
+                </div>
+                    <div class="text-right mb-5">
+                        <a class="btn btn-outline-black rounded-0" href="{% url 'products' %}">Cancel</a>
+                        <button class="btn btn-black rounded-0" type="submit">Update Cartridge</button>
+                        <a class="btn btn-outline-danger rounded-0" href="#" data-bs-toggle="modal"
+                                       data-bs-target="#deleteModal">DELETE</a>
+
+
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+    {% include 'products/includes/delete_confirmation_modal.html' %}
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    <script type="text/javascript">
+        $('#new-image').change(function () {
+            var file = $('#new-image')[0].files[0];
+            $('#filename').text(`Image will be set to: ${file.name}`);
+        });
+    </script>
+{% endblock %}

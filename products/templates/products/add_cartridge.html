@@ -1,0 +1,46 @@
+<div class="cartridge-form hide mb-3" id="cartridge-form">
+    <form method="POST" action="{% url 'add_cartridge' product_id=product.id %}" class="form mb-2" enctype="multipart/form-data">
+        {% csrf_token %}
+            {% for field in form %}
+{#                {{ field | as_crispy_field }}#}
+                {% if field.name == 'compatible_printer' %}
+                     <div id="div_id_category" class="mb-3">
+                            <label for="id_compatible_printer" class="form-label requiredField">Compatible printer {% for x, y in form.fields.compatible_printer.choices %}{% if x == compatible_printer.id %}<strong>{{ y }}</strong>{% endif %}{% endfor %}</label>
+                            <select id="id_compatible_printer" name="compatible_printer" class="selectmultiple form-select" multiple>
+                                {% for x, y in form.fields.compatible_printer.choices %}
+                                    <option value="{{ x }}"{% if x == product.id %}
+                                            selected{% endif %}>{{ y }}</option>
+                                {% endfor %}
+                            </select>
+                    </div>
+                {% elif field.name == 'category' %}
+                    <div id="div_id_category" class="mb-3">
+                        <label for="id_category" class="form-label">Category {% for x, y in form.fields.category.choices %}{% if x == category.id %}<strong>{{ y }}</strong>{% endif %}{% endfor %}</label>
+                        <select id="id_category" name="category" class="select form-select">
+                            {% for x, y in form.fields.category.choices %}
+                                <option  value="{{ x }}"{% if x == product.category.id %}
+                                        selected{% endif %}>{{ y }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                {% elif field.name == 'brand' %}
+                <div id="div_id_brand" class="mb-3">
+                    <label for="id_brand" class="form-label">Brand {% for x, y in form.fields.brand.choices %}{% if x == brand.id %}<strong>{{ y }}</strong>{% endif %}{% endfor %}</label>
+                    <select id="id_brand" name="brand" class="select form-select">
+                        {% for x, y in form.fields.brand.choices %}
+                            <option  value="{{ x }}"{% if x == product.brand.id %}
+                                    selected{% endif %}>{{ y }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                {% else %}
+                    {{ field | as_crispy_field }}
+                {% endif %}
+        {% endfor %}
+        <div class="text-right">
+            <a class="btn btn-outline-black rounded-0" href="{% url 'add_product' %}">Cancel</a>
+            <button class="btn btn-black rounded-0" type="submit">Add New</button>
+        </div>
+    </form>
+</div>
+<hr style="width: 30%; margin: 0 auto; ">

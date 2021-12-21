@@ -11,8 +11,8 @@
         <div class="row h-100 px-3">
             <div class="col-8 col-md-7 my-auto">
                 <span class="display-6 text-black-50 text-muted">Everything is possible</span>
-                <h1 class="display-4 logo-font text-black">SLOGAN TO CATCH ATTENTION</h1>
-                <h2 class="display-6 logo-font text-black">Sale up to 50% OFF</h2>
+{#                <h1 class="display-4 logo-font text-black">Save big on all printers</h1>#}
+                <h1 class="display-6 logo-font text-black">Sale up to 50% OFF</h1>
                 <div class="my5">
                     <h3>
                         <a href="{% url 'products' %}" class="shop-now-button btn btn-lg rounded-1 text-uppercase py-3"
@@ -27,12 +27,12 @@
         <div class="row h-100 px-3">
             <div class="col col-6 col-md-3 my-auto mt-1 p-1">
                 <div class="home-inner-category border-black p-0 rounded-1 w-100">
-                    <a href="{%  url 'products' %}?category=laser_printers" class="row w-100  url-style">
+                    <a href="{%  url 'products' %}?category=laser_printers" class="row w-100  url-style link-info">
                         <div class="col-12 col-sm-6 my-auto">
-                            <img src="{{MEDIA_URL}}200x200.webp" class="home-inner-category-image " alt="blank" width="100">
+                            <img src="{{MEDIA_URL}}laser-printer.png" class="home-inner-category-image img-fluid" alt="blank" height="200">
                         </div>
                         <div class="col-12 col-sm-6 my-auto">
-                            <p>Deals on Laser Printers</p>
+                            <p class="text-uppercase">Laser Printers</p>
                         </div>
                     </a>
                 </div>
@@ -40,37 +40,36 @@
             </div>
             <div class="col col-6 col-md-3 my-auto mt-1 p-1">
                 <div class="home-inner-category border-black p-0 rounded-1 w-100">
-                    <a href="{%  url 'products' %}?category=inkjet_printers" class="row w-100 url-style">
+                    <a href="{%  url 'products' %}?category=inkjet_printers" class="row w-100 url-style  link-info">
                         <div class="col-12 col-sm-6 my-auto">
-                            <img src="{{MEDIA_URL}}200x200.webp" class="home-inner-category-image " alt="blank" width="100">
+                            <img src="{{MEDIA_URL}}Epson-WF-4820-Front-RP-Large.jpg" class="home-inner-category-image img-fluid" alt="blank" height="200">
                         </div>
                         <div class="col-12 col-sm-6 my-auto">
-                            <p>Deals on Inkjet Printers</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col col-6 col-md-3 my-auto mt-1 p-1">
-                <div class="home-inner-category border-black p-0 rounded-1 w-100">
-                    <a href="{%  url 'products' %}?category=cartridges" class="row w-100 url-style">
-                        <div class="col-12 col-sm-6 my-auto">
-                            <img src="{{MEDIA_URL}}200x200.webp" class="home-inner-category-image " alt="blank" width="100">
-                        </div>
-                        <div class="col-12 col-sm-6 my-auto">
-
-                            <p>Deals on Cartridges</p>
+                            <p class="text-uppercase">Inkjet Printers</p>
                         </div>
                     </a>
                 </div>
             </div>
             <div class="col col-6 col-md-3 my-auto mt-1 p-1">
                 <div class="home-inner-category border-black p-0 rounded-1 w-100">
-                    <a href="{%  url 'products' %}?category=clearance" class="row w-100 url-style">
+                    <a href="{%  url 'products' %}?special=deals" class="row w-100 url-style link-info">
                         <div class="col-12 col-sm-6 my-auto">
-                            <img src="{{MEDIA_URL}}200x200.webp" class="home-inner-category-image " alt="blank" width="100">
+                            <img src="{{MEDIA_URL}}special_deals.jpg" class="home-inner-category-image img-fluid" alt="blank" height="200">
                         </div>
                         <div class="col-12 col-sm-6 my-auto">
-                            <p>Clearance Sale</p>
+                            <p class="text-uppercase">Special Deals</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col col-6 col-md-3 my-auto mt-1 p-1">
+                <div class="home-inner-category border-black p-0 rounded-1 w-100">
+                    <a href="{%  url 'products' %}?special=clearance" class="row w-100 url-style link-info">
+                        <div class="col-12 col-sm-6 my-auto">
+                            <img src="{{MEDIA_URL}}clearance.jpg" class="home-inner-category-image img-fluid" alt="blank" height="200">
+                        </div>
+                        <div class="col-12 col-sm-6 my-auto">
+                            <p class="text-uppercase">Clearance Sale</p>
                         </div>
                     </a>
                 </div>

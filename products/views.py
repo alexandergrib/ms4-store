@@ -7,12 +7,13 @@ from django.db.models import Q
 
 from config import settings
 from profiles.models import UserProfile
-from .forms import ProductForm, CategoryForm, BrandForm
+from .forms import ProductForm, CategoryForm, BrandForm, ProductSpecsForm, \
+    CartrigesForm
 from .models import (Product,
                      Category,
                      Cartridges,
                      ProductBrand,
-                     ProductReviews, ProductImages)
+                     ProductReviews, ProductImages, ProductSpecifications)
 
 
 def all_products(request):
@@ -80,12 +81,18 @@ def all_products(request):
 
 def product_detail(request, product_id):
     """ A view to show individual product details """
+    cartridge_form = CartrigesForm()
     try:
         product = get_object_or_404(Product, pk=product_id)
+        from_page = 'product'
     except Http404:  # if not product then it's a cartridge
         product = get_object_or_404(Cartridges, pk=product_id)
+        from_page = 'cartridge'
+
     context = {
         'product': product,
+        'form': cartridge_form,
+        'from_page': from_page
     }
 
     return render(request, 'products/product_detail.html', context)
@@ -111,6 +118,19 @@ def all_brands(request):
         'form': form
     }
     return render(request, 'products/brand.html', context)
+
+
+@login_required
+def all_specs(request, product_id):
+    product = get_object_or_404(Product, pk=product_id)
+    specs = ProductSpecifications.objects.filter(product__id__exact=product_id)
+    form = ProductSpecsForm()
+    context = {
+        "specs": specs,
+        'form': form,
+        'product': product
+    }
+    return render(request, 'products/all_product_specs.html', context)
 
 
 @login_required
@@ -205,6 +225,68 @@ def add_product(request):
 
 
 @login_required
+def add_specs(request, product_id):
+    """Add new product category"""
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
+    if request.method == 'POST':
+        form = ProductSpecsForm(request.POST)
+        if form.is_valid():
+            specs = form.save()
+            messages.success(request, 'Successfully added new specs!')
+            return redirect('product_detail', product_id=product_id)
+        else:
+            messages.error(
+                request,
+                'Failed to add specs. Please ensure the form is valid.')
+    else:
+        form = ProductSpecsForm()
+
+    template = 'products/add_product_specifications.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
+
+
+@login_required
+def add_cartridge(request, product_id):
+    """Add new product category"""
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
+    if request.method == 'POST':
+        form = CartrigesForm(request.POST)
+
+        if form.is_valid():
+            user = form.save(commit=False)
+            user.created_by = UserProfile.objects.get(user=request.user)
+            cartridge = form.save()
+            messages.success(request, 'Successfully added new cartridge!')
+            return redirect('product_detail', product_id=product_id)
+        else:
+            messages.error(
+                request,
+                'Failed to add cartridge. Please ensure the form is valid.')
+    else:
+        form = ProductSpecsForm()
+
+    template = 'products/add_cartridge.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
+
+
+# ---------------------edit  functions
+
+
+@login_required
 def edit_product(request, product_id):
     """ Edit a product in the store """
     if not request.user.is_superuser:
@@ -241,6 +323,22 @@ def edit_product(request, product_id):
     }
 
     return render(request, template, context)
+
+
+@login_required
+def edit_cartridge(request, product_id):
+    cartridge = get_object_or_404(Cartridges, pk=product_id)
+    form = CartrigesForm(instance=cartridge)
+    template = 'products/edit_cartridge.html'
+    context = {
+        'form': form,
+        'cartridge': cartridge,
+
+    }
+    return render(request, template, context)
+
+
+# --------------------Delete functions
 
 
 @login_required
@@ -293,3 +391,33 @@ def delete_image(request, image_id):
     image.delete()
     messages.success(request, 'Image deleted!')
     return redirect(reverse('products'))
+
+
+@login_required
+def delete_spec(request, spec_id):
+    """ Delete Brand from the DB """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
+    spec = get_object_or_404(ProductSpecifications, pk=spec_id)
+    spec.delete()
+    messages.success(request, f'Specification {spec.name} deleted!')
+    return redirect('products')
+
+
+@login_required
+def delete_cartridge(request, cartridge_id):
+    """ Delete Brand from the DB """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
+    try:
+        cartridge = get_object_or_404(Cartridges, pk=cartridge_id)
+    except Http404:
+        messages.success(request, f'No cartridge with id {cartridge_id} found')
+        return redirect('products')
+    cartridge.delete()
+    messages.success(request, f'Cartridge {cartridge.model} deleted!')
+    return redirect('products')
