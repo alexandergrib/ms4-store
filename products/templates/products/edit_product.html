@@ -26,19 +26,19 @@
                             {{ field }}
                         {% endif %}
                     {% endfor %}
-                {% if product_images %}
-                    <div class="images row">
-                    <ul class="col-12 list-group list-group-horizontal">
-                        <li class="list-group-item">
-                            {% for image in product_images %}
-                                <img src="{{ image.image_url }}" alt="image" width="100" height="100">
-                                <a href="{% url 'delete_image' image_id=image.id %} ">remove</a>
-                            {% endfor %}
+                    {% if product_images %}
+                        <div class="images row">
+                        <ul class="col-12 list-group list-group-horizontal">
+                            <li class="list-group-item">
+                                {% for image in product_images %}
+                                    <img src="{{ image.image_url }}" alt="image" width="100" height="100">
+                                    <a href="{% url 'delete_image' image_id=image.id %} ">remove</a>
+                                {% endfor %}
 
-                        </li>
-                    </ul>
-                {% endif %}
-                </div>
+                            </li>
+                        </ul>
+                    {% endif %}
+                    </div>
                     <div class="text-right">
                         <a class="btn btn-outline-black rounded-0" href="{% url 'products' %}">Cancel</a>
                         <button class="btn btn-black rounded-0" type="submit">Update Product</button>
@@ -58,4 +58,6 @@
             $('#filename').text(`Image will be set to: ${file.name}`);
         });
     </script>
+    <script src="{% static 'js/tinyMceSettings.js' %}"></script>
+
 {% endblock %}
