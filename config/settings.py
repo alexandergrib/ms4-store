@@ -147,6 +147,9 @@ DATABASES = {
         'PASSWORD': os.environ.get('PG_PASSWORD'),
         'HOST': os.environ.get('PG_SERVER'),
         'PORT': os.environ.get('PG_PORT'),
+        'TEST': {
+            'MIRROR': 'default',
+        },
     }
 
 }
