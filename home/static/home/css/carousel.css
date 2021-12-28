@@ -40,3 +40,14 @@
 }
 
 /*    end carousel styles */
+
+/*Bootstrap carousel*/
+.carousel-indicators {
+    position: relative;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    top: unset;
+    bottom: 2%;
+}

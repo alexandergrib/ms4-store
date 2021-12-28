@@ -3,7 +3,8 @@ html {
 }
 
 nav li {
-    list-style: none outside none;
+    list-style: none;
+    list-style-position: outside;
 }
 
 .hide {
@@ -381,6 +382,7 @@ a:hover {
 .add-cartridge {
     cursor: pointer;
 }
+
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
