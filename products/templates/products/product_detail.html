@@ -13,7 +13,7 @@
             <div class="col-12 col-md-6 col-lg-4 offset-lg-1">
                 <div class="image-container my-5">
                     {% if product.product_image.all.0.image %}
-                        <div id="myCarousel" class="carousel carousel-dark" align="center">
+                        <div id="myCarousel" class="carousel carousel-multi-item slide carousel-dark" align="center" data-bs-interval="false">
                             <!-- Wrapper for slides -->
                             <div class="carousel-inner">
                                 {% for image in product.product_image.all %}
