@@ -3,7 +3,8 @@ html {
 }
 
 nav li {
-  list-style: none outside none;
+  list-style: none;
+  list-style-position: outside;
 }
 
 .hide {

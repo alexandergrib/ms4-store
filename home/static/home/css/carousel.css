@@ -46,8 +46,24 @@
     position: relative;
 }
 
+.carousel-indicators > .list-inline-item {
+    filter: grayscale(0.8);
+    opacity: 0.5;
+    max-width: 100px;
+}
+
+.carousel-indicators > .active {
+    filter: grayscale(0);
+    opacity: 1;
+}
+.carousel-indicators > .list-inline-item:hover {
+        opacity: 1;
+        filter: grayscale(0);
+}
+
 .carousel-control-prev,
 .carousel-control-next {
     top: unset;
-    bottom: 2%;
+    bottom: 0;
+    height: 100px;
 }
