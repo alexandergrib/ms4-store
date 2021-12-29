@@ -1,5 +1,5 @@
 
-/* Carousel styles */
+/* ------------------------------------------ homepage Carousel styles */
 .MultiCarousel {
     float: left;
     overflow: hidden;
@@ -21,14 +21,20 @@
     text-align: center;
     padding: 10px;
     margin: 10px;
-    background: #f1f1f1;
     color: #666;
 }
 
 .MultiCarousel .leftLst, .MultiCarousel .rightLst {
+    height: 40px;
+    width: 40px;
     position: absolute;
     border-radius: 50%;
     top: calc(50% - 20px);
+}
+
+.leftLst, .rightLst {
+    border: unset;
+    background-color: unset;
 }
 
 .MultiCarousel .leftLst {
@@ -39,9 +45,27 @@
     right: 0;
 }
 
+.carousel-image-container {
+    height: 180px;
+    position: relative;
+
+}
+
+.pad15 {
+    height: inherit;
+}
+.carousel-image-container > img {
+    position: relative;
+    max-width: 100%;
+    display: block;
+    margin: auto;
+    overflow:hidden;
+    bottom: 0;
+
+}
 /*    end carousel styles */
 
-/*Bootstrap carousel*/
+/* -----------------------------------------------------------------Bootstrap carousel*/
 .carousel-indicators {
     position: relative;
 }

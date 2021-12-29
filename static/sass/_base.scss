@@ -1,10 +1,12 @@
+@import 'variables';
+
 html {
     height: 100%;
 }
 
+
 nav li {
-    list-style: none;
-    list-style-position: outside;
+    list-style: none outside none;
 }
 
 .hide {
@@ -14,7 +16,7 @@ nav li {
 .body {
     overflow: hidden;
     height: calc(100vh - 188px);
-    color: #555;
+    color: $base-color;
     font-family: "Lato", sans-serif !important;
 }
 
@@ -34,112 +36,12 @@ nav li {
 .url-style:visited,
 .url-style:active {
     text-decoration: none;
+    color: $base-color;
+    cursor: pointer;
 }
 
 .url-style:hover {
-    background-color: #ffbfe7;
-}
-
-/*a:link - a normal, unvisited link
-a:visited - a link the user has visited
-a:hover - a link when the user mouses over it
-a:active - a link the moment it is clicked
-*/
-
-.nav-header {
-    border-bottom: 1px solid grey;
-    position: relative;
-    height: 24px;
-}
-
-.nav-header ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.nav-header li {
-    display: inline;
-    min-width: 100px;
-    padding: 5px;
-    word-break: keep-all;
-}
-
-.nav-header--section_right {
-    position: relative;
-    right: 5%;
-}
-
-.homepage {
-    height: 400px;
-    background: #FCFAEB url('/media/robot.webp') no-repeat center;
-    background-size: contain;
-}
-
-/*from Bulma*/
-.icon {
-    align-items: center;
-    display: inline-flex;
-    justify-content: center;
-    height: 1.5rem;
-    width: 1.5rem;
-}
-
-.logo-font {
-    text-transform: uppercase;
-}
-
-.main-logo-link {
-    width: fit-content;
-}
-
-.shop-now-button {
-    background: black;
-    color: white;
-    min-width: 140px;
-    /*width: 260px;*/
-}
-
-.btn-black {
-    background: black;
-    color: white;
-}
-
-.btn-outline-green {
-    background: white;
-    color: black !important; /* use important to override link colors for <a> elements */
-    border: 1px solid green;
-}
-
-
-.btn-outline-green:hover,
-.btn-outline-green:active,
-.btn-outline-green:focus {
-    background: #009927;
-    color: white !important;
-}
-
-.btn-outline-black {
-    background: white;
-    color: black !important; /* use important to override link colors for <a> elements */
-    border: 1px solid black;
-}
-
-.btn-outline-black:hover,
-.btn-outline-black:active,
-.btn-outline-black:focus {
-    background: black;
-    color: white !important;
-}
-
-.shop-now-button:hover,
-.shop-now-button:active,
-.shop-now-button:focus,
-.btn-black:hover,
-.btn-black:active,
-.btn-black:focus {
-    background: #222;
-    color: white;
+    background-color: $background-color;
 }
 
 .text-black {
@@ -149,6 +51,10 @@ a:active - a link the moment it is clicked
 
 .border-black {
     border: 1px solid black !important;
+}
+
+.border-silver {
+    border: 1px solid rgba(243, 243, 243, 0.56) !important;
 }
 
 .bg-black {
@@ -185,38 +91,12 @@ a.category-badge > span.badge:hover {
 }
 
 
-.btt-button {
-    height: 42px;
-    width: 42px;
-    position: fixed;
-    bottom: 10px;
-    right: 10px;
-}
-
-.btt-link,
-.update-link,
-.remove-item {
-    cursor: pointer;
-}
-
-a,
-a:link,
-a:visited,
-a:active {
-  text-decoration: none;
-}
-
-
-a:hover {
-    text-decoration: underline !important;
-}
-
 /* ------------------------------- bootstrap toasts */
 
 .message-container {
     position: fixed;
     top: 100px;
-    right: 7%;
+    left: 650px;
     z-index: 99999999999;
 }
 
@@ -237,7 +117,7 @@ a:hover {
     border-bottom: 10px solid black;
     position: absolute;
     top: -10px;
-    right: 36px;
+    right: 25px;
 }
 
 /* Convenience classes - colors copied from Bootstrap */
@@ -381,58 +261,4 @@ a:hover {
 
 .add-cartridge {
     cursor: pointer;
-}
-
-/* -------------------------------- Media Queries */
-
-/* Slightly larger container on xl screens */
-@media (min-width: 1200px) {
-    .container {
-        max-width: 80%;
-    }
-}
-
-/* fixed top navbar only on medium and up */
-@media (min-width: 992px) {
-    .fixed-top-desktop-only {
-        position: fixed;
-        top: 0;
-        right: 0;
-        left: 0;
-        z-index: 1030;
-    }
-
-}
-
-@media (max-width: 991px) {
-
-
-    .nav-link {
-        padding: 0.15rem;
-    }
-
-    .nav-link i.fa-lg {
-        font-size: 1rem;
-    }
-
-    .navbar-toggler {
-        padding: .6rem .6rem;
-        font-size: 1rem;
-    }
-
-    #delivery-banner h4 {
-        font-size: .9rem;
-    }
-
-    .btn.btn-outline-black.rounded-0,
-    .btn.btn-black.rounded-0 {
-        padding: .375rem .375rem;
-    }
-
-    .btn.btn-outline-black.rounded-0.btn-lg,
-    .btn.btn-black.rounded-0.btn-lg {
-        padding: .375rem .375rem;
-        font-size: .75rem;
-    }
-
 }

@@ -28,7 +28,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
 
         <!-- Local CSS -->
-        <link rel="stylesheet" href="{% static 'css/base.css' %}">
+        <link rel="stylesheet" href="{% static 'css/main.css' %}">
     {% endblock %}
 
     {% block extra_css %}
@@ -242,7 +242,12 @@
         })
     </script>
 
-
+    <script type="text/javascript">
+        basketPosition = window.scrollX + document.querySelector('.fa-shopping-bag').getBoundingClientRect().left
+        console.log(basketPosition)
+        toast = document.querySelector('.message-container').style.left = Math.round(basketPosition)-315+'px'
+        toast.style.width = '350px'
+    </script>
 
 {% endblock %}
 </body>
