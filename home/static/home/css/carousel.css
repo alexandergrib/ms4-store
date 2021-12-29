@@ -1,5 +1,5 @@
 
-/* Carousel styles */
+/* ------------------------------------------ homepage Carousel styles */
 .MultiCarousel {
     float: left;
     overflow: hidden;
@@ -39,9 +39,16 @@
     right: 0;
 }
 
+.pad15 > img {
+    height: 150px;
+    max-width: 100%;
+    display: block;
+    margin: auto;
+    overflow:hidden
+}
 /*    end carousel styles */
 
-/*Bootstrap carousel*/
+/* -----------------------------------------------------------------Bootstrap carousel*/
 .carousel-indicators {
     position: relative;
 }

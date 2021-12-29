@@ -1,0 +1,24 @@
+
+.nav-header {
+    border-bottom: 1px solid grey;
+    position: relative;
+    height: 24px;
+}
+
+.nav-header ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-header li {
+    display: inline;
+    min-width: 100px;
+    padding: 5px;
+    word-break: keep-all;
+}
+
+.nav-header--section_right {
+    position: relative;
+    right: 5%;
+}
