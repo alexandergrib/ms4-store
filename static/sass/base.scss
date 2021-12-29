@@ -2,6 +2,8 @@ html {
     height: 100%;
 }
 
+
+
 nav li {
     list-style: none;
     list-style-position: outside;
@@ -203,12 +205,15 @@ a,
 a:link,
 a:visited,
 a:active {
-  text-decoration: none;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 
 a:hover {
-    text-decoration: underline !important;
+    //text-decoration: underline !important;
+    //background-color: #e9ecef;
+    font-weight: 900;
 }
 
 /* ------------------------------- bootstrap toasts */

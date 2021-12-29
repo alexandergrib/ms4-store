@@ -203,10 +203,11 @@ a:link,
 a:visited,
 a:active {
   text-decoration: none;
+  cursor: pointer;
 }
 
 a:hover {
-  text-decoration: underline !important;
+  font-weight: 900;
 }
 
 /* ------------------------------- bootstrap toasts */
