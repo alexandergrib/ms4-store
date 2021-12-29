@@ -242,7 +242,12 @@
         })
     </script>
 
-
+    <script type="text/javascript">
+        basketPosition = window.scrollX + document.querySelector('.fa-shopping-bag').getBoundingClientRect().left
+        console.log(basketPosition)
+        toast = document.querySelector('.message-container').style.left = Math.round(basketPosition)-315+'px'
+        toast.style.width = '350px'
+    </script>
 
 {% endblock %}
 </body>

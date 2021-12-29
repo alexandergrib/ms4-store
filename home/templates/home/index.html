@@ -122,7 +122,7 @@
                     {% for product in products %}
                         {% if product.featured %}
                             <div class="item">
-                                <div class="pad15">
+                                <div class="pad15 ">
                                 <div class="carousel-image-container">
                                     {% if product.product_image.all.0.image %}
                                         <img src="{{ product.product_image.all.0.image_url }}"
@@ -133,7 +133,7 @@
                                              class="">
                                     {% endif %}
                                 </div>
-                                    <div class="mt-3 description">{{ product.featured_description|safe | truncatechars:350 }}</div>
+                                    <div class="mt-1 description">{{ product.featured_description | safe | truncatechars:350 }}</div>
                                     {% if product.rating %}
                                         {% if product.category.name !=  'cartridges' %}
                                             <p class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating | floatformat:2 }} /
@@ -171,4 +171,6 @@
 {% block postloadjs %}
     {{ block.super }}
     <script src="{% static 'home/js/carousel.js' %}"></script>
+
+
 {% endblock %}

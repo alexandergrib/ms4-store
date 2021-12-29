@@ -46,7 +46,7 @@
 }
 
 .carousel-image-container {
-    height: 150px;
+    height: 180px;
     position: relative;
 
 }
@@ -55,12 +55,13 @@
     height: inherit;
 }
 .carousel-image-container > img {
-    position: absolute;
+    position: relative;
     max-width: 100%;
     display: block;
     margin: auto;
     overflow:hidden;
     bottom: 0;
+
 }
 /*    end carousel styles */
 
