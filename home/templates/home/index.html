@@ -123,19 +123,21 @@
                         {% if product.featured %}
                             <div class="item">
                                 <div class="pad15 ">
-                                <div class="carousel-image-container">
-                                    {% if product.product_image.all.0.image %}
-                                        <img src="{{ product.product_image.all.0.image_url }}"
-                                             alt="{{ product.name }}"
-                                             class="">
-                                    {% else %}
-                                        <img src="{{MEDIA_URL}}200x200.webp" alt="{{ product.name }}"
-                                             class="">
-                                    {% endif %}
-                                </div>
-                                    <div class="mt-1 description">{{ product.featured_description | safe | truncatechars:350 }}</div>
-                                    {% if product.rating %}
-                                        {% if product.category.name !=  'cartridges' %}
+                                    <div class="carousel-image-container">
+                                        {% if product.product_image.all.0.image %}
+                                            <img src="{{ product.product_image.all.0.image_url }}"
+                                                 alt="{{ product.name }}"
+                                                 class="">
+                                        {% else %}
+                                            <img src="{{MEDIA_URL}}200x200.webp" alt="{{ product.name }}"
+                                                 class="">
+                                        {% endif %}
+                                    </div>
+
+                                    <div class="product_name"><a class="url-style_classic h5"  href="{% url 'product_detail' product.id %}"><span>{{ product.brand }} {{ product.model }}</span></a></div>
+                                    <div class="mt-1">{{ product.featured_description | safe | truncatechars:350 }}</div>
+                                    {% if not product.cartridge_product %}
+                                        {% if product.rating %}
                                             <p class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating | floatformat:2 }} /
                                                 5
                                             </p>
@@ -144,7 +146,8 @@
                                                 reviews</a>
                                         {% else %}
                                             <small class="text-muted">Not rated yet.</small>
-                                            <span class="text-muted">Leave your review</span>
+                                            <br>
+                                            <a href="#"><span class="text-muted">Leave your review</span></a>
                                         {% endif %}
                                     {% else %}
 

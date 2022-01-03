@@ -44,6 +44,40 @@ nav li {
     background-color: $background-color;
 }
 
+.url-style_classic:link,
+.url-style_classic:visited,
+.url-style_classic:active,{
+    text-decoration: none;
+    color: $base-color;
+    cursor: pointer;
+}
+.url-style_classic:hover {
+    color: #007bff;
+}
+
+.h1 {
+    font-size: 2rem;
+}
+
+.h2{
+    font-size: 1.8rem;
+}
+.h3 {
+    font-size: 1.6rem;
+}
+
+.h4 {
+    font-size: 1.4rem;
+}
+
+.h5 {
+    font-size: 1.2rem;
+}
+
+.h6 {
+    font-size: 1rem;
+}
+
 .text-black {
     color: #000 !important;
 }

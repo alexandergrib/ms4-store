@@ -45,27 +45,29 @@
     right: 0;
 }
 
-.carousel-image-container {
-    height: 180px;
-    position: relative;
 
-}
-
-.pad15 {
-    height: inherit;
-}
 .carousel-image-container > img {
-    position: relative;
     max-width: 100%;
     display: block;
-    margin: auto;
-    overflow:hidden;
-    bottom: 0;
-
 }
+
+
+/*.MultiCarousel-inner {*/
+/*    display: flex;*/
+/*    height: 100%;*/
+/*    !*flex-direction: column;*!*/
+/*    !*align-content: space-evenly;*!*/
+/*    !*align-items: stretch;*!*/
+/*}*/
+
+/*.pad15 {*/
+/*    display: inline-block;*/
+/*    align-self: flex-end;*/
+/*}*/
+
 /*    end carousel styles */
 
-/* -----------------------------------------------------------------Bootstrap carousel*/
+/* --------------------------------------------Product detail---Bootstrap carousel*/
 .carousel-indicators {
     position: relative;
 }
