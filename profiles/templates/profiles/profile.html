@@ -54,9 +54,9 @@
                                             {% for item in order.lineitems.all %}
                                                 <li class="small">
                                                     {% if item.product %}
-                                                        {{ item.product.name }} x{{ item.quantity }}
+                                                        {{ item.product.brand }} {{ item.product.model }} {{ item.product.name }} x {{ item.quantity }}
                                                     {% else %}
-                                                        {{ item.cartridge.name }} x{{ item.quantity }}
+                                                        {{ item.cartridge.name }} x {{ item.quantity }}
                                                     {% endif %}
                                                 </li>
                                             {% endfor %}

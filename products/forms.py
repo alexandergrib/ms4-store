@@ -6,7 +6,7 @@ from .models import (Product,
                      ProductImages,
                      ProductSpecifications,
                      Special, ProductBrand,
-                     Cartridges)
+                     Cartridges, ProductReviews)
 
 
 class ProductForm(forms.ModelForm):
@@ -89,3 +89,34 @@ class CartrigesForm(forms.ModelForm):
         model = Cartridges
         fields = '__all__'
         exclude = ('created_by',)
+
+
+class RatingForm(forms.ModelForm):
+    class Meta:
+        exclude = ('user', 'product', 'date_posted', 'review_image')
+        model = ProductReviews
+        fields = '__all__' #['review_title', 'review_text', 'review_score']
+        labels = {
+            'review_score': 'Select Your Rating',
+        }
+
+    def __init__(self, *args, **kwargs):
+        """
+        Add placeholders and classes, remove auto-generated
+        labels and set autofocus on first field
+        """
+        super().__init__(*args, **kwargs)
+        placeholders = {
+            'review_title': 'Review Headline',
+            'review_text': 'Your Comments',
+        }
+
+        self.fields['review_title'].widget.attrs['autofocus'] = True
+
+        for field in self.fields:
+            if field != 'review_score':
+                placeholder = f'{placeholders[field]} *'
+                self.fields[field].widget.attrs['placeholder'] = placeholder
+                self.fields[field].label = False
+
+            self.fields[field].widget.attrs['class'] = 'border-black rounded-0'

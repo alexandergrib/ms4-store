@@ -13,7 +13,8 @@
             <div class="col-12 col-md-6 col-lg-4 offset-lg-1">
                 <div class="image-container my-5">
                     {% if product.product_image.all.0.image %}
-                        <div id="myCarousel" class="carousel carousel-multi-item slide carousel-dark" align="center" data-bs-interval="false">
+                        <div id="myCarousel" class="carousel carousel-multi-item slide carousel-dark" align="center"
+                             data-bs-interval="false">
                             <!-- Wrapper for slides -->
                             <div class="carousel-inner">
                                 {% for image in product.product_image.all %}
@@ -87,23 +88,8 @@
                     <div class="row">
                         <div class="col">
                             <h3 class="mb-0">{{ product.brand.friendly_brand_name }} {{ product.model }} {{ product.name }}</h3>
-
-                            {% if product.rating %}
-                                {% if product.category.name !=  'cartridges' %}
-                                    <small class="text-muted"><i
-                                            class="fas fa-star mr-1"></i>{{ product.rating | floatformat:2 }} / 5
-                                    </small>
-                                    <a href="" class="text-muted">Read {{ product.product_reviews.count }} customer
-                                        reviews</a>
-                                {% else %}
-                                    <small class="text-muted">Not rated yet.</small>
-                                    <span class="text-muted">Leave your review</span>
-                                {% endif %}
-                            {% else %}
-
-                            {% endif %}
                             {% if request.user.is_superuser %}
-                                <br>
+
                                 <small class="ml-3">
                                     {% if from_page == "product" %}
                                         <a href="{% url 'edit_product' product.id %}">Edit</a> |
@@ -113,6 +99,24 @@
                                     <a href="#" class="delete-product text-danger" data-bs-toggle="modal"
                                        data-bs-target="#deleteModal">Delete</a>
                                 </small>
+                            {% endif %}
+                            <br>
+                            {% if not product.cartridge_product %}
+                                {% if product.rating %}
+                                    <small class="text-muted"><i
+                                            class="fas fa-star mr-1"></i>{{ product.rating | floatformat:2 }} / 5
+                                    </small>
+                                    <a href="{% url 'all_reviews' product_id=product.id %}" class="text-muted">Read {{ product.product_reviews.count }} customer
+                                        reviews</a>
+                                    {% if can_rate %}
+                                        <a href="#" class="text-muted url-style">Leave your review</a>
+                                    {% endif %}
+                                {% else %}
+                                    <small class="text-muted">Not rated yet.</small>
+                                    {% if can_rate %}
+                                        <a href="{% url 'add_review' product_id=product.id %}" class="text-muted url-style">Leave your review</a>
+                                    {% endif %}
+                                {% endif %}
                             {% endif %}
                         </div>
                     </div>
@@ -236,7 +240,8 @@
                 <div class="col text-center">
                     <h3>{{ product.brand.friendly_brand_name }} {{ product.model }} Consumables</h3>
                     {% if request.user.is_superuser %}
-                        <span id="add-cartridge" class="btn btn-success text-uppercase mt-3 mb-3" onclick="document.getElementById('cartridge-form').classList.toggle('hide');">Add cartridges</span>
+                        <span id="add-cartridge" class="btn btn-success text-uppercase mt-3 mb-3"
+                              onclick="document.getElementById('cartridge-form').classList.toggle('hide');">Add cartridges</span>
                         {% include 'products/add_cartridge.html' %}
                     {% endif %}
                 </div>
@@ -292,7 +297,7 @@
                                                                value="Add to Bag">
                                                         {% if request.user.is_superuser %}
                                                             <a href="#" class="btn btn-warning mx-1"
-                                                                >EDIT</a>
+                                                            >EDIT</a>
                                                         {% endif %}
                                                         <input type="hidden" name="redirect_url"
                                                                value="{{ request.path }}">
