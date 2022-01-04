@@ -102,10 +102,39 @@
                         {% if request.user == review.user.user or request.user.is_superuser %}
                             <div class="row">
                                 <div class="col">
-                                    <a href="#" class="btn btn-outline-green">EDIT</a>
+                                    <a href="{% url 'edit_review' review.pk %}" class="btn btn-outline-green">EDIT</a>
                                 </div>
                                 <div class="col">
-                                    <a href="#" class="btn btn-outline-black">DELETE</a>
+                                    <a class="btn btn-outline-black" data-bs-toggle="modal"
+                                       data-bs-target="#delete-review-modal">
+                                        Delete
+                                    </a>
+                                    <!-- Delete review modal -->
+                                    <div class="modal fade" id="delete-review-modal" tabindex="-1" role="dialog"
+                                         aria-labelledby="deleteReviewModal" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title text-black logo-font" id="deleteReviewModal">
+                                                        Delete Review</h5>
+                                                    <button type="button" class="close" data-bs-dismiss="modal"
+                                                            aria-label="Close">
+                                                        <span aria-hidden="true"><i class="fas fa-times"></i></span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body text-black text-left">
+                                                    <p>Are you sure you want to permanently delete this review?</p>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-outline-black rounded-0"
+                                                            data-bs-dismiss="modal">Cancel
+                                                    </button>
+                                                    <a class="btn btn-black rounded-0"
+                                                       href="{% url 'delete_review' review.pk %}">Delete</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         {% endif %}

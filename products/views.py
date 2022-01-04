@@ -313,7 +313,6 @@ def add_cartridge(request, product_id):
     return render(request, template, context)
 
 
-
 @login_required
 def add_review(request, product_id):
     """ Add a product review """
@@ -409,6 +408,38 @@ def edit_cartridge(request, product_id):
     return render(request, template, context)
 
 
+@login_required
+def edit_review(request, review_id):
+    """ Save edited product review """
+
+    review = get_object_or_404(ProductReviews, pk=review_id)
+    if request.user.is_superuser or request.user == review.user.user:
+        if request.method == 'POST':
+            review_form = RatingForm(request.POST, instance=review)
+            if review_form.is_valid():
+                review_form.save()
+                messages.info(request, 'Your review has been updated!')
+                return redirect(reverse('product_detail',
+                                args=[review.product.id]))
+            else:
+                messages.error(request, 'Failed to update the review. \
+                                        Please ensure the form is valid.')
+        else:
+            review_form = RatingForm(instance=review)
+
+        template = 'products/edit_review.html',
+        context = {
+            'form': review_form,
+            'review': review,
+            'product_id': review.product.id
+        }
+        return render(request, template, context)
+    else:
+        messages.error(
+            request, 'Sorry, only the reviewer can edit this review!')
+        return redirect(reverse('product_detail', args=[review.product.id]))
+
+
 # --------------------Delete functions
 
 
@@ -492,3 +523,17 @@ def delete_cartridge(request, cartridge_id):
     cartridge.delete()
     messages.success(request, f'Cartridge {cartridge.model} deleted!')
     return redirect('products')
+
+
+@login_required
+def delete_review(request, review_id):
+    """ Delete user's existing review """
+
+    review = get_object_or_404(ProductReviews, pk=review_id)
+    if request.user.is_superuser or request.user == review.user.user:
+        review.delete()
+        messages.info(request, 'Your review has been deleted!')
+        return redirect(reverse('products'))
+    else:
+        messages.error(request, 'Sorry, only the reviewer can do that.')
+        return redirect(reverse('products'))
