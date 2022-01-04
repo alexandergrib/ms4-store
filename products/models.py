@@ -109,7 +109,6 @@ class ProductReviews(models.Model):
     product = models.ForeignKey(Product, null=True, blank=True,
                                 on_delete=models.SET_NULL,
                                 related_name="product_reviews")
-    order = models.CharField(max_length=254, null=True, blank=True)
     user = models.ForeignKey(UserProfile, null=True, blank=True,
                              on_delete=models.SET_NULL)
     review_title = models.CharField(max_length=254, null=True, blank=True)
@@ -119,6 +118,7 @@ class ProductReviews(models.Model):
                                                validators=[
                                                    MinValueValidator(1),
                                                    MaxValueValidator(5)])
+    date_posted = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.product.name + "_" + str(self.review_score)

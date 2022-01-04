@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <div class="overlay"></div>
+    <div class="row mt-2">
+        <div class="col-sm-12 col-md-8 offset-md-2 text-center">
+            <h2 class="logo-font mb-4 text-center mt-sm-4 mt-lg-5">Reviews</h2>
+            <h4 class="strong mt-5">{{ product.brand.friendly_brand_name }} {{ product.model }} {{ product.name }}</h4>
+        </div>
+    </div>
+    <hr class="w-50 mx-auto">
+    <div class="row mx-auto">
+        <div class="col-xs-10 offset-xs-1 col-sm-4 col-lg-4 offset-lg-1 text-center px-lg-5">
+            <div class="image-container mt-5">
+                {% if product.product_image.all.0.image %}
+                    <div id="myCarousel" class="carousel carousel-multi-item slide carousel-dark" align="center"
+                         data-bs-interval="false">
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner">
+                            {% for image in product.product_image.all %}
+                                {% if forloop.first %}
+                                    <div class="carousel-item active">
+                                        <img src="{{ image.image_url }}"
+                                             alt="{{ product.friendly_brand_name }} {{ product.model }} {{ product.name }}"
+                                             style="width:80%;">
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% else %}
+                    <div id="myCarousel" class="carousel carousel-dark" align="center">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="{{ MEDIA_URL }}200x200.webp"
+                                     alt="{{ product.friendly_brand_name }} {{ product.model }} {{ product.name }}"
+                                     class="card-img-top img-fluid">
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="col-xs-10 offset-xs-1 col-sm-6 col-lg-4 text-left mr-3">
+            <ul>
+                {% for review in reviews %}
+                    <li class="list-unstyled">
+                        <div class="row">
+                            <div class="col">
+                                <div class="stars">
+                                    {% if review.review_score == 1 %}
+                                        <i class="fa fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    {% elif review.review_score == 2 %}
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    {% elif review.review_score == 3 %}
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    {% elif review.review_score == 4 %}
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    {% elif review.review_score == 5 %}
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    {% endif %} / 5
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <span class="h4">{{ review.review_title }}</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <p>
+                                    {{ review.review_text }}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <p class="col text-right text-muted">Submitted
+                                <strong>{{ review.date_posted|date:"d-M-y" }}</strong></p>
+                        </div>
+                        {% if request.user == review.user.user or request.user.is_superuser %}
+                            <div class="row">
+                                <div class="col">
+                                    <a href="#" class="btn btn-outline-green">EDIT</a>
+                                </div>
+                                <div class="col">
+                                    <a href="#" class="btn btn-outline-black">DELETE</a>
+                                </div>
+                            </div>
+                        {% endif %}
+
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endblock %}

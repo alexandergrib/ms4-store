@@ -8,7 +8,7 @@ from django.db.models import Q
 from config import settings
 from profiles.models import UserProfile
 from .forms import ProductForm, CategoryForm, BrandForm, ProductSpecsForm, \
-    CartrigesForm
+    CartrigesForm, RatingForm
 from .models import (Product,
                      Category,
                      Cartridges,
@@ -84,6 +84,7 @@ def product_detail(request, product_id):
     """ A view to show individual product details """
     cartridge_form = CartrigesForm()
     order = OrderLineItem.objects.all()
+    reviews = ProductReviews.objects.all()
     try:
         product = get_object_or_404(Product, pk=product_id)
         from_page = 'product'
@@ -95,8 +96,15 @@ def product_detail(request, product_id):
         order__user_profile__id__icontains=request.user.id
     ).filter(
         product__id=product_id)
+
     if can_rate_query.exists():
-        can_rate = True
+        #user purchased product and can rate
+        review_filtered = reviews.filter(user__id__icontains=request.user.id).filter(product__id__icontains=product_id)
+        if review_filtered.exists():
+            #  if rated already
+            can_rate = False
+        else:
+            can_rate = True
     else:
         can_rate = False
 
@@ -143,6 +151,16 @@ def all_specs(request, product_id):
         'product': product
     }
     return render(request, 'products/all_product_specs.html', context)
+
+
+def all_reviews(request, product_id):
+    product = get_object_or_404(Product, pk=product_id)
+    reviews = ProductReviews.objects.filter(product__id__exact=product_id)
+    context = {
+        'product': product,
+        'reviews': reviews,
+    }
+    return render(request, 'products/reviews.html', context)
 
 
 @login_required
@@ -290,6 +308,47 @@ def add_cartridge(request, product_id):
     template = 'products/add_cartridge.html'
     context = {
         'form': form,
+    }
+
+    return render(request, template, context)
+
+
+
+@login_required
+def add_review(request, product_id):
+    """ Add a product review """
+
+    product = get_object_or_404(Product, pk=product_id)
+    user = UserProfile.objects.get(user=request.user)
+    user_review = ProductReviews.objects.filter(product=product, user=user)
+    review_form = RatingForm(request.POST)
+
+    if request.method == 'POST':
+        if user_review:
+            messages.error(request, "You have reviewed this product already.")
+            return redirect(reverse('product_detail', args=[product.id]))
+
+        else:
+            if review_form.is_valid():
+                # in future review image will be uploaded to S3
+                # image field not used at this moment
+                review = review_form.save(commit=False)
+                review.user = user
+                review.product = product
+                review.save()
+                messages.info(request, 'Thank you for your review!')
+                return redirect(reverse('product_detail', args=[product.id]))
+            else:
+                messages.error(request, "Ensure the form is valid. \
+                                    Please try again!")
+
+    else:
+        review_form = RatingForm(instance=product)
+
+    template = 'products/add_review.html'
+    context = {
+        'form': review_form,
+        'product': product,
     }
 
     return render(request, template, context)
