@@ -88,18 +88,22 @@
                         <div class="col">
                             <h3 class="mb-0">{{ product.brand.friendly_brand_name }} {{ product.model }} {{ product.name }}</h3>
 
-                            {% if product.rating %}
-                                {% if product.category.name !=  'cartridges' %}
+                            {% if not product.cartridge_product %}
+                                {% if product.rating %}
                                     <small class="text-muted"><i
                                             class="fas fa-star mr-1"></i>{{ product.rating | floatformat:2 }} / 5
                                     </small>
                                     <a href="" class="text-muted">Read {{ product.product_reviews.count }} customer
                                         reviews</a>
+                                    {% if can_rate %}
+                                        <a href="#" class="text-muted url-style">Leave your review</a>
+                                    {% endif %}
                                 {% else %}
-                                    <small class="text-muted">Not rated yet.</small>
-                                    <span class="text-muted">Leave your review</span>
+                                     <small class="text-muted">Not rated yet.</small>
+                                    {% if can_rate %}
+                                        <a href="#" class="text-muted url-style">Leave your review</a>
+                                    {% endif %}
                                 {% endif %}
-                            {% else %}
 
                             {% endif %}
                             {% if request.user.is_superuser %}

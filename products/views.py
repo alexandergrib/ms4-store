@@ -14,6 +14,7 @@ from .models import (Product,
                      Cartridges,
                      ProductBrand,
                      ProductReviews, ProductImages, ProductSpecifications)
+from checkout.models import OrderLineItem
 
 
 def all_products(request):
@@ -82,17 +83,28 @@ def all_products(request):
 def product_detail(request, product_id):
     """ A view to show individual product details """
     cartridge_form = CartrigesForm()
+    order = OrderLineItem.objects.all()
     try:
         product = get_object_or_404(Product, pk=product_id)
         from_page = 'product'
     except Http404:  # if not product then it's a cartridge
         product = get_object_or_404(Cartridges, pk=product_id)
         from_page = 'cartridge'
+    # find if user purchased this product
+    can_rate_query = order.filter(
+        order__user_profile__id__icontains=request.user.id
+    ).filter(
+        product__id=product_id)
+    if can_rate_query.exists():
+        can_rate = True
+    else:
+        can_rate = False
 
     context = {
         'product': product,
         'form': cartridge_form,
-        'from_page': from_page
+        'from_page': from_page,
+        'can_rate': can_rate
     }
 
     return render(request, 'products/product_detail.html', context)
