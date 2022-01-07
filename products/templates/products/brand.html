@@ -17,8 +17,8 @@
             <div class="col-12 col-md-6">
                 <form method="POST" action="{% url 'add_brand' %}" class="form mb-2" enctype="multipart/form-data">
                     {% csrf_token %}
-                        {% for field in form %}
-                            {{ field | as_crispy_field }}
+                    {% for field in form %}
+                        {{ field | as_crispy_field }}
                     {% endfor %}
 
                     <div class="text-right">
@@ -28,15 +28,62 @@
                 </form>
             </div>
         </div>
-    <div class="row">
-        <div class="col-12 col-md-6">
-        <h5>Brands List</h5>
-            <ul>
-                {% for brand in brands %}
-                    <li class="list-unstyled mt-3 mb-3">{{ brand.friendly_brand_name }} <a href="{% url 'delete_brand' brand_id=brand.id %}">delete</a></li>
-                {% endfor %}
-            </ul>
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <h5>Brands List</h5>
+                <ul>
+                    {% for brand in brands %}
+                        <li class="list-unstyled mt-3 mb-3">{{ brand.friendly_brand_name }}
+                            <a class="url-style_classic" data-bs-toggle="modal" data-bs-target="#deleteBrand" data-brand="{{ brand.friendly_brand_name }}"
+                            data-brandid="{% url 'delete_brand' brand_id=brand.id %}">
+                            delete
+                        </a></li>
+                    {% endfor %}
+                </ul>
+            </div>
         </div>
     </div>
+
+
+
+
+
+
+{#----------------------Modal----------------------------------------#}
+    <div class="modal fade" id="deleteBrand" tabindex="-1" aria-labelledby="deleteBrand" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteBrand"></h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <span></span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <a href="#"  class="btn btn-primary delete-btn">Delete</a>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <script type="text/javascript">
+        $('#deleteBrand').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget) // Button that triggered the modal
+            var dataI = button.data() // Extract info from data-* attributes
+
+            // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+            // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+            var modal = $(this)
+            modal.find('.modal-title').text('Are you sure you want to delete?')
+            modal.find('.modal-body span').text(dataI.brand)
+            modal.find('.modal-footer a').attr("href", dataI.brandid)
+
+        })
+    </script>
+
 {% endblock %}
+
