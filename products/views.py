@@ -92,21 +92,25 @@ def product_detail(request, product_id):
         product = get_object_or_404(Cartridges, pk=product_id)
         from_page = 'cartridge'
     # find if user purchased this product
-    can_rate_query = order.filter(
-        order__user_profile__id__icontains=request.user.id
-    ).filter(
-        product__id=product_id)
 
-    if can_rate_query.exists():
-        #user purchased product and can rate
-        review_filtered = reviews.filter(user__id__icontains=request.user.id).filter(product__id__icontains=product_id)
-        if review_filtered.exists():
-            #  if rated already
-            can_rate = False
-        else:
-            can_rate = True
-    else:
+    if not request.user.id:
         can_rate = False
+    else:
+        can_rate_query = order.filter(
+            order__user_profile__id__icontains=request.user.id
+        ).filter(
+            product__id=product_id)
+
+        if can_rate_query.exists():
+            #user purchased product and can rate
+            review_filtered = reviews.filter(user__id__icontains=request.user.id).filter(product__id__icontains=product_id)
+            if review_filtered.exists():
+                #  if rated already
+                can_rate = False
+            else:
+                can_rate = True
+        else:
+            can_rate = False
 
     context = {
         'product': product,
