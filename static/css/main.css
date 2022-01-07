@@ -54,6 +54,10 @@ nav li {
   color: #007bff;
 }
 
+.url-style_danger:hover {
+  color: #ff003b;
+}
+
 .h1 {
   font-size: 2rem;
 }
@@ -127,7 +131,6 @@ a.category-badge > span.badge:hover {
 .message-container {
   position: fixed;
   top: 100px;
-  left: 650px;
   z-index: 99999999999;
 }
 

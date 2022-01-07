@@ -138,7 +138,7 @@
                     <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link"
                        href="{% url 'view_bag' %}">
                         <div class="text-center">
-                            <div><i class="fas fa-shopping-bag fa-lg"></i></div>
+                            <div><i class="fas fa-shopping-bag fa-lg" id="bag"></i></div>
                             <p class="my-0">
                                 {% if grand_total %}
                                     £{{ grand_total|floatformat:2 }}
@@ -184,6 +184,9 @@
                 {% endif %}
             {% endwith %}
         {% endfor %}
+    </div>
+    {% else %}
+    <div class="message-container">
     </div>
 {% endif %}
 
@@ -243,10 +246,15 @@
     </script>
 
     <script type="text/javascript">
-        basketPosition = window.scrollX + document.querySelector('.fa-shopping-bag').getBoundingClientRect().left
-        console.log(basketPosition)
-        toast = document.querySelector('.message-container').style.left = Math.round(basketPosition)-315+'px'
-        toast.style.width = '350px'
+        basketPosition = window.scrollX + document.querySelector('#bag').getBoundingClientRect().left;
+
+        if (basketPosition === 0) {
+            document.querySelector('.message-container').style.right = 1 + 'px';
+            document.querySelector('.message-container').style.width = '250px';
+        }else {
+           document.querySelector('.message-container').style.left = Math.round(basketPosition) - 320 + 'px';
+            document.querySelector('.message-container').style.width = '350px';
+        }
     </script>
 
 {% endblock %}

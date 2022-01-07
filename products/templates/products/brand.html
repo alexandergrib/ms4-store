@@ -34,7 +34,7 @@
                 <ul>
                     {% for brand in brands %}
                         <li class="list-unstyled mt-3 mb-3">{{ brand.friendly_brand_name }}
-                            <a class="url-style_classic" data-bs-toggle="modal" data-bs-target="#deleteBrand" data-brand="{{ brand.friendly_brand_name }}"
+                            <a class="url-style_danger" data-bs-toggle="modal" data-bs-target="#deleteBrand" data-brand="{{ brand.friendly_brand_name }}"
                             data-brandid="{% url 'delete_brand' brand_id=brand.id %}">
                             delete
                         </a></li>
@@ -70,20 +70,26 @@
         </div>
     </div>
 
+
+
+{% endblock %}
+
+
+
+
+{% block postloadjs %}
+    {{ block.super }}
+
     <script type="text/javascript">
         $('#deleteBrand').on('show.bs.modal', function (event) {
             var button = $(event.relatedTarget) // Button that triggered the modal
-            var dataI = button.data() // Extract info from data-* attributes
-
-            // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-            // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+            var data = button.data() // Extract info from data-* attributes
             var modal = $(this)
             modal.find('.modal-title').text('Are you sure you want to delete?')
-            modal.find('.modal-body span').text(dataI.brand)
-            modal.find('.modal-footer a').attr("href", dataI.brandid)
+            modal.find('.modal-body span').text(data.brand)
+            modal.find('.modal-footer a').attr("href", data.brandid)
 
         })
     </script>
 
 {% endblock %}
-

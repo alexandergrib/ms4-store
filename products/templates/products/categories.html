@@ -35,10 +35,60 @@
             <h5 class="mt-4">Categories List</h5>
                 <ul>
                     {% for category in categories %}
-                        <li class="list-unstyled mt-3 mb-3">{{ category.friendly_name }} <a href="{% url 'delete_category' category_id=category.id %}">delete</a></li>
+                        <li class="list-unstyled mt-3 mb-3">{{ category.friendly_name }}
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#deleteBrand" data-brand="{{ category.friendly_name }}"
+                            data-brandid="{% url 'delete_category' category_id=category.id %}">
+                            delete
+                        </a>
+
+                        </li>
                     {% endfor %}
                 </ul>
             </div>
         </div>
     </div>
+
+
+
+
+{#----------------------Modal----------------------------------------#}
+    <div class="modal fade" id="deleteBrand" tabindex="-1" aria-labelledby="deleteBrand" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteBrand"></h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <span></span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <a href="#"  class="btn btn-primary delete-btn">Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+
+
+{% block postloadjs %}
+    {{ block.super }}
+
+    <script type="text/javascript">
+        $('#deleteBrand').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget) // Button that triggered the modal
+            var data = button.data() // Extract info from data-* attributes
+            var modal = $(this)
+            modal.find('.modal-title').text('Are you sure you want to delete?')
+            modal.find('.modal-body span').text(data.brand)
+            modal.find('.modal-footer a').attr("href", data.brandid)
+
+        })
+    </script>
+
 {% endblock %}
