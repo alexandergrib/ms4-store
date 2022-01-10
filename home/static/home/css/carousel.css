@@ -1,5 +1,5 @@
 
-/* Carousel styles */
+/* ------------------------------------------ homepage Carousel styles */
 .MultiCarousel {
     float: left;
     overflow: hidden;
@@ -21,14 +21,20 @@
     text-align: center;
     padding: 10px;
     margin: 10px;
-    background: #f1f1f1;
     color: #666;
 }
 
 .MultiCarousel .leftLst, .MultiCarousel .rightLst {
+    height: 40px;
+    width: 40px;
     position: absolute;
     border-radius: 50%;
     top: calc(50% - 20px);
+}
+
+.leftLst, .rightLst {
+    border: unset;
+    background-color: unset;
 }
 
 .MultiCarousel .leftLst {
@@ -39,4 +45,51 @@
     right: 0;
 }
 
+
+.carousel-image-container > img {
+    max-width: 100%;
+    display: block;
+}
+
+
+/*.MultiCarousel-inner {*/
+/*    display: flex;*/
+/*    height: 100%;*/
+/*    !*flex-direction: column;*!*/
+/*    !*align-content: space-evenly;*!*/
+/*    !*align-items: stretch;*!*/
+/*}*/
+
+/*.pad15 {*/
+/*    display: inline-block;*/
+/*    align-self: flex-end;*/
+/*}*/
+
 /*    end carousel styles */
+
+/* --------------------------------------------Product detail---Bootstrap carousel*/
+.carousel-indicators {
+    position: relative;
+}
+
+.carousel-indicators > .list-inline-item {
+    filter: grayscale(0.8);
+    opacity: 0.5;
+    max-width: 100px;
+}
+
+.carousel-indicators > .active {
+    filter: grayscale(0);
+    opacity: 1;
+}
+.carousel-indicators > .list-inline-item:hover {
+        opacity: 1;
+        filter: grayscale(0);
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    top: unset;
+    bottom: 0;
+    height: 100px;
+}

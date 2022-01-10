@@ -1,0 +1,17 @@
+
+language: python
+python:
+    - "3.9"
+install:
+    - pip install -r requirements.txt
+
+# Command to run tests
+script:
+  - SECRET_KEY="whatever" python manage.py test
+
+notifications:
+    email:
+        recipients:
+            - alexgrib@hotmail.com
+        on_success: never
+        on_failure: always
