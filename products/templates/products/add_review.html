@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block content %}
+    <div class="overlay"></div>
+    <div class="row mt-2">
+        <div class="col-sm-12 col-md-8 offset-md-2 text-center">
+            <h2 class="logo-font mb-4 text-center mt-sm-4 mt-lg-5">Write a Review</h2>
+            <h4 class="strong mt-5">{{ product.brand }} {{ product.model }} {{ product.name }}</h4>
+        </div>
+    </div>
+    <hr class="w-50 mx-auto">
+    <div class="row mx-auto">
+        <div class="col-xs-10 offset-xs-1 col-sm-4 col-lg-4 offset-lg-1 text-center px-lg-5">
+            <div class="image-container mt-5">
+                {% if product.product_image.all.0.image %}
+                    <div id="myCarousel" class="carousel carousel-multi-item slide carousel-dark" align="center"
+                         data-bs-interval="false">
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner">
+                            {% for image in product.product_image.all %}
+                                {% if forloop.first %}
+                                    <div class="carousel-item active">
+                                        <img src="{{ image.image_url }}"
+                                             alt="{{ product.friendly_brand_name }} {{ product.model }} {{ product.name }}"
+                                             style="width:80%;">
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+
+
+                    </div>
+                {% else %}
+                    <div id="myCarousel" class="carousel carousel-dark" align="center">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="{{ MEDIA_URL }}200x200.webp"
+                                     alt="{{ product.friendly_brand_name }} {{ product.model }} {{ product.name }}"
+                                     class="card-img-top img-fluid">
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="col-xs-10 offset-xs-1 col-sm-6 col-lg-4 text-left mr-3">
+            {% if request.user.is_authenticated %}
+                <form method="POST" action="{% url 'add_review' product.id %}" class="form mb-2 mt-5"
+                      enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form | crispy }}
+                    <div class="text-right">
+                        <a class="btn btn-outline-black rounded-0" href="{% url 'product_detail' product_id=product.id %}">Cancel</a>
+                        <button class="btn btn-black rounded-0" type="submit">Submit Review</button>
+                    </div>
+                </form>
+            {% else %}
+                <p>Please sign in to add a review!</p>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
