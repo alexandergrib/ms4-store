@@ -39,10 +39,37 @@ This site was built using HTML, CSS, Bootstrap, JavaScript, jQuery, Python, Djan
 
 ---
 
+
 ## User Experience
 
-### Initial Discussion
+## Initial Discussion
 
 * I wanted to create a website linked to a database, which allows users to log in, search for, and find printers and cartridges for them.
-* I have a basic one-page website, and I think it's a time to upgrade to bring more customers in, and be able to manage production more easily
-* I wanted to be able to add, edit and delete items of merchandise for sale.
+* Currently, I have a basic one-page website, and I think it's a time to upgrade to bring more customers in, and be able to manage production more easily
+* I wanted to be able to add, edit and delete items of products for sale.
+
+## Site Owner's Goals
+ - As a site owner, I want to be able to add new or edit existing products.
+ - As a site owner, I want to be able to remove existing products.
+ - As a site owner, I want to be able to add new/existing products to "special offers/sale".
+ - As a site owner, I want to be able to add new, edit or remove existing categories and brands.
+
+## First Time Visitor Goals
+ - As a Shopper, I want to be able to view a list of products, so that I can select some to purchase.
+ - As a Shopper, I want to be able to view individual product details, product Image, the price, the product description and the compatible cartridges.
+ - As a Shopper, I want to look for testimonials to understand what other users think of the site and the service it renders.
+ - As a First Time Visitor, I want to sign up to the site to enable me full access to it's service and also to receive email newsletter and latest updates.
+
+## Returning Visitor Goals
+
+  - As a Returning Visitor, I want to see new products and deals.
+  - As a Returning Visitor, I want to find the best way to get in contact with the site owner with any questions I may have.
+  - As a Frequent User, I want to be able to login to the site view my profile and add items to wishlist.
+
+## Frequent User Goals
+ - As a Frequent User, I want to browse the site to see if there are any changes, new deals and/or clearance items.
+ - As a Frequent User, I want to see information about the most new arrivals and sales.
+ - As a Frequent User, I want to be able to sort products by price, category, or brand
+
+
+
