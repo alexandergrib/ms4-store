@@ -13,7 +13,7 @@
           {% if from_page == 'product' %}
               <a href="{% url 'delete_product' product_id=product.id %}" class="btn btn-danger">Delete</a>
           {% else %}
-              <a href="{% url 'delete_cartridge' product_id=product.id %}" class="btn btn-danger">Delete</a>
+              <a href="{% url 'delete_cartridge' product_id=cartridge.id %}" class="btn btn-danger">Delete</a>
           {% endif %}
       </div>
     </div>

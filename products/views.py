@@ -294,12 +294,18 @@ def add_cartridge(request, product_id):
         return redirect(reverse('home'))
 
     if request.method == 'POST':
-        form = CartrigesForm(request.POST)
+        form = CartrigesForm(request.POST, request.FILES)
 
         if form.is_valid():
             user = form.save(commit=False)
             user.created_by = UserProfile.objects.get(user=request.user)
-            cartridge = form.save()
+            if form.cleaned_data['image']:
+                image = request.FILES.get('image')
+                cartridge_form = form.save(commit=False)
+                cartridge_form.image_url = settings.MEDIA_URL + image.name
+                cartridge_form.save()
+            else:
+                form.save()
             messages.success(request, 'Successfully added new cartridge!')
             return redirect('product_detail', product_id=product_id)
         else:
@@ -307,7 +313,7 @@ def add_cartridge(request, product_id):
                 request,
                 'Failed to add cartridge. Please ensure the form is valid.')
     else:
-        form = ProductSpecsForm()
+        form = CartrigesForm()
 
     template = 'products/add_cartridge.html'
     context = {
@@ -387,7 +393,7 @@ def edit_product(request, product_id):
                 'Failed to update product. Please ensure the form is valid.')
     else:
         form = ProductForm(instance=product)
-        messages.info(request, f'You are editing {product.name}')
+        messages.info(request, f'You are editing {product.brand.friendly_brand_name} {product.model} {product.name}')
 
     template = 'products/edit_product.html'
     context = {
@@ -401,8 +407,27 @@ def edit_product(request, product_id):
 
 @login_required
 def edit_cartridge(request, product_id):
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
     cartridge = get_object_or_404(Cartridges, pk=product_id)
-    form = CartrigesForm(instance=cartridge)
+    if request.method == 'POST':
+        form = CartrigesForm(request.POST, request.FILES, instance=cartridge)
+        if form.is_valid():
+            user = form.save(commit=False)
+            user.created_by = UserProfile.objects.get(user=request.user)
+            if form.cleaned_data['image']:
+                image = request.FILES.get('image')
+                cartridge_form = form.save(commit=False)
+                cartridge_form.image_url = settings.MEDIA_URL + image.name
+                cartridge_form.save()
+            else:
+                form.save()
+    else:
+        form = CartrigesForm(instance=cartridge)
+        messages.info(request, f'You are editing {cartridge.brand.friendly_brand_name} {cartridge.model} {cartridge.name}')
+
     template = 'products/edit_cartridge.html'
     context = {
         'form': form,
@@ -513,16 +538,16 @@ def delete_spec(request, spec_id):
 
 
 @login_required
-def delete_cartridge(request, cartridge_id):
+def delete_cartridge(request, product_id):
     """ Delete Brand from the DB """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
 
     try:
-        cartridge = get_object_or_404(Cartridges, pk=cartridge_id)
+        cartridge = get_object_or_404(Cartridges, pk=product_id)
     except Http404:
-        messages.success(request, f'No cartridge with id {cartridge_id} found')
+        messages.success(request, f'No cartridge with id {product_id} found')
         return redirect('products')
     cartridge.delete()
     messages.success(request, f'Cartridge {cartridge.model} deleted!')

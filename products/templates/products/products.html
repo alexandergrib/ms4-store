@@ -70,39 +70,50 @@
             {% for product in products %}
                 <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 p-4">
                     <div class="card h-100 border-0">
-                        {% if product.product_image.all.0.image %}
-
-                            <a href="{% url 'product_detail' product.id %}">
-                                <img src="{{ product.product_image.all.0.image_url }}" alt="{{ product.name }}"
-                                     class="card-img-top img-fluid">
-                            </a>
-                        {% else %}
-                            <a href="{% url 'product_detail' product.id %}">
-                                <img src="{{ MEDIA_URL }}200x200.webp" alt="{{ product.name }}"
-                                     class="card-img-top img-fluid">
-                            </a>
-                        {% endif %}
                         <div class="card-body pb-0">
-                            <p class="mb-0">{{ product.brand.friendly_brand_name }} {{ product.model }} {{ product.name }}</p>
+                            {% if product.product_image.all.0.image %}
+                                <a href="{% url 'product_detail' product.id %}">
+                                    <img src="{{ product.product_image.all.0.image_url }}" alt="{{ product.name }}"
+                                         class="card-img-top img-fluid">
+                                </a>
+                            {% else %}
+                                <a href="{% url 'product_detail' product.id %}">
+                                        <img src="{{ MEDIA_URL }}200x200.webp" alt="{{ product.name }}"
+                                             class="card-img-top img-fluid">
+                                </a>
+                            {% endif %}
                         </div>
+
                         <div class="card-footer bg-white pt-0 border-0 text-left">
+                            <div class="row">
+                                <div class="col">
+                                    <p class="mb-0">{{ product.brand.friendly_brand_name }} {{ product.model }} {{ product.name }}</p>
+                                </div>
+                            </div>
                             <div class="row pt-2 pb-2">
                                 <div class="col">
                                     <p class="lead mb-0 text-left font-weight-bold">£{{ product.price }}</p>
                                     {% if product.category %}
                                         <p class="small mt-1 mb-0">
+                                            <i class="fas fa-tag mr-1 text-muted"></i>
                                             <a class="text-muted"
                                                href="{% url 'products' %}?category={{ product.category.name }}">
-                                                <i class="fas fa-tag mr-1"></i>{{ product.category.friendly_name }}
+                                                {{ product.category.friendly_name }}
                                             </a>
                                         </p>
                                     {% endif %}
                                     {% if product.rating %}
                                         <small class="text-muted"><i
-                                                class="fas fa-star mr-1"></i>{{ product.rating | floatformat:2 }} / 5
+                                                class="fas fa-star mr-1"></i> {{ product.rating | floatformat:2 }} |
                                         </small>
-                                        <a href="{% url 'all_reviews' product_id=product.id %}" class="text-muted">Read {{ product.product_reviews.count }} customer
-                                            reviews</a>
+                                        <a href="{% url 'all_reviews' product_id=product.id %}"
+                                           class="text-muted"> {{ product.product_reviews.count }}
+                                            {% if product.product_reviews.count < 2 %}
+                                                review
+                                            {% else %}
+                                                reviews
+                                            {% endif %}
+                                        </a>
                                     {% else %}
                                         <small class="text-muted"> No rating</small>
                                     {% endif %}

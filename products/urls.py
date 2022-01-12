@@ -36,7 +36,7 @@ urlpatterns = [
          name='delete_image'),
     path('delete/spec/<spec_id>/', views.delete_spec,
          name='delete_spec'),
-    path('delete/cartridge/<uuid:cartridge_id>/', views.delete_cartridge,
+    path('delete/cartridge/<uuid:product_id>/', views.delete_cartridge,
          name='delete_cartridge'),
     path('delete/review/<int:review_id>/', views.delete_review,
          name="delete_review"),
