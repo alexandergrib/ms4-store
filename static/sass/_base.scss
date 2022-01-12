@@ -55,6 +55,20 @@ nav li {
     color: #007bff;
 }
 
+
+.url-style_danger:link,
+.url-style_danger:visited,
+.url-style_danger:active,{
+    text-decoration: none;
+    color: $base-color;
+
+}
+.url-style_danger:hover {
+    color: #dc3545;
+    cursor: pointer;
+}
+
+
 .h1 {
     font-size: 2.2rem;
 }
