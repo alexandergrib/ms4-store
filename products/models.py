@@ -73,6 +73,7 @@ class BaseProduct(models.Model):
 class Product(BaseProduct):
     class Meta:
         verbose_name_plural = 'Products'
+        #     ordering
 
     id = models.UUIDField(primary_key=True,
                           default=uuid.uuid4,
@@ -97,6 +98,7 @@ class Product(BaseProduct):
 class ProductReviews(models.Model):
     class Meta:
         verbose_name_plural = 'Product Reviews'
+        #     ordering
 
     REVIEW_CHOICES = [
         (1, 'Poor'),
@@ -127,6 +129,7 @@ class ProductReviews(models.Model):
 class ProductImages(models.Model):
     class Meta:
         verbose_name_plural = 'Product Images'
+    #     ordering
 
     product = models.ForeignKey(Product, null=True, blank=True,
                                 on_delete=models.SET_NULL,

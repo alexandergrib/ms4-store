@@ -117,7 +117,7 @@
                                     <a href="{% url 'all_reviews' product_id=product.id %}" class="text-muted">Read {{ product.product_reviews.count }} customer
                                         reviews</a>
                                     {% if can_rate %}
-                                        <a href="#" class="text-muted url-style">Leave your review</a>
+                                        <a href="{% url 'add_review' product_id=product.id %}" class="text-muted url-style">Leave your review</a>
                                     {% endif %}
                                 {% else %}
                                     <small class="text-muted">Not rated yet.</small>
