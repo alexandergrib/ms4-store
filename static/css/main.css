@@ -1,5 +1,13 @@
 html {
   height: 100%;
+  font-size: 62.5%;
+}
+
+body {
+  height: calc(100vh - 188px);
+  color: #1e2125;
+  font-family: "Lato", sans-serif !important;
+  font-size: 1.6rem;
 }
 
 nav li {
@@ -8,13 +16,6 @@ nav li {
 
 .hide {
   display: none;
-}
-
-.body {
-  overflow: hidden;
-  height: calc(100vh - 188px);
-  color: #1e2125;
-  font-family: "Lato", sans-serif !important;
 }
 
 .body-container {
@@ -38,7 +39,8 @@ nav li {
   cursor: pointer;
 }
 
-.url-style:hover {
+.url-style:hover,
+.url-style:focus {
   background-color: #e9ecef;
 }
 
@@ -50,7 +52,8 @@ nav li {
   cursor: pointer;
 }
 
-.url-style_classic:hover {
+.url-style_classic:hover,
+.url-style_classic:focus {
   color: #007bff;
 }
 
@@ -61,33 +64,34 @@ nav li {
   color: #1e2125;
 }
 
-.url-style_danger:hover {
+.url-style_danger:hover,
+.url-style_danger:focus {
   color: #dc3545;
   cursor: pointer;
 }
 
 .h1 {
-  font-size: 2.2rem;
+  font-size: 2.6rem;
 }
 
 .h2 {
-  font-size: 2rem;
+  font-size: 2.4rem;
 }
 
 .h3 {
-  font-size: 1.8rem;
+  font-size: 2.2rem;
 }
 
 .h4 {
-  font-size: 1.6rem;
+  font-size: 2rem;
 }
 
 .h5 {
-  font-size: 1.4rem;
+  font-size: 1.8rem;
 }
 
 .h6 {
-  font-size: 1.2rem;
+  font-size: 1.6rem;
 }
 
 .display-block {
@@ -309,6 +313,25 @@ a.category-badge > span.badge:hover {
 
 .empty-block {
   height: 50px;
+}
+
+.card-body__center-images {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.carousel-image-container {
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+}
+
+.product_name {
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .nav-header {

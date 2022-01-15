@@ -2,8 +2,16 @@
 
 html {
     height: 100%;
+    font-size: 62.5%;// resets to 10px
 }
 
+body {
+    //overflow: hidden;
+    height: calc(100vh - 188px);
+    color: $base-color;
+    font-family: "Lato", sans-serif !important;
+    font-size: 1.6rem;
+}
 
 nav li {
     list-style: none outside none;
@@ -13,12 +21,6 @@ nav li {
     display: none;
 }
 
-.body {
-    overflow: hidden;
-    height: calc(100vh - 188px);
-    color: $base-color;
-    font-family: "Lato", sans-serif !important;
-}
 
 .body-container {
         min-height: 60vh;
@@ -40,7 +42,8 @@ nav li {
     cursor: pointer;
 }
 
-.url-style:hover {
+.url-style:hover,
+.url-style:focus {
     background-color: $background-color;
 }
 
@@ -51,7 +54,8 @@ nav li {
     color: $base-color;
     cursor: pointer;
 }
-.url-style_classic:hover {
+.url-style_classic:hover,
+.url-style_classic:focus {
     color: #007bff;
 }
 
@@ -63,33 +67,35 @@ nav li {
     color: $base-color;
 
 }
-.url-style_danger:hover {
-    color: #dc3545;
+.url-style_danger:hover,
+.url-style_danger:focus {
+    color: $danger-color;
     cursor: pointer;
 }
 
 
 .h1 {
-    font-size: 2.2rem;
+    font-size: $base-font-size + 1.2rem; //26px
 }
 
-.h2{
-    font-size: 2rem;
+.h2 {
+    font-size: $base-font-size + 1.0rem; //24px
 }
+
 .h3 {
-    font-size: 1.8rem;
+    font-size: $base-font-size + 0.8rem; //22px
 }
 
 .h4 {
-    font-size: 1.6rem;
+    font-size: $base-font-size + 0.6rem; //20px
 }
 
 .h5 {
-    font-size: 1.4rem;
+    font-size: $base-font-size + 0.4rem;  //18px
 }
 
 .h6 {
-    font-size: 1.2rem;
+    font-size: $base-font-size + 0.2rem; //16px
 }
 
 .display-block {
@@ -317,4 +323,24 @@ a.category-badge > span.badge:hover {
 
 .empty-block {
     height: 50px;
+}
+
+
+.card-body__center-images {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.carousel-image-container {
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+}
+
+.product_name {
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
