@@ -23,11 +23,15 @@ nav li {
 }
 
 .body-container {
-  min-height: 60vh;
+  min-height: 75vh;
 }
 
 .search-label {
   width: 90%;
+}
+
+.search-label-icon {
+  margin-top: -2px;
 }
 
 .row {
@@ -362,7 +366,7 @@ a.category-badge > span.badge:hover {
 
 .homepage {
   height: 400px;
-  background: #FCFAEB url("/media/robot.webp") no-repeat center;
+  background: #FCFAEB url("/media/robot.webp") no-repeat 90% 50%;
   background-size: contain;
 }
 
@@ -378,6 +382,10 @@ a.category-badge > span.badge:hover {
 }
 .home-inner-category a:hover img {
   opacity: 1;
+}
+
+.home-categories .category-icon {
+  float: right;
 }
 
 /*from Bulma*/

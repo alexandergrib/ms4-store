@@ -101,10 +101,10 @@
                         </div>
                         {% if request.user == review.user.user or request.user.is_superuser %}
                             <div class="row">
-                                <div class="col">
+                                <div class="col-1">
                                     <a href="{% url 'edit_review' review.pk %}" class="btn btn-outline-green">EDIT</a>
                                 </div>
-                                <div class="col">
+                                <div class="col-1">
                                     <a class="btn btn-outline-black" data-bs-toggle="modal"
                                        data-bs-target="#delete-review-modal">
                                         Delete
