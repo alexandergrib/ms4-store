@@ -27,9 +27,10 @@
         <div class="row px-3">
             <div class="col col-6 col-md-3 my-auto mt-1 p-1">
                 <div class="home-inner-category p-0 rounded-1 w-100">
-                    <a href="{%  url 'products' %}?category=laser_printers" class="row w-100  url-style">
+                    <a href="{% url 'products' %}?category=laser_printers" class="row w-100  url-style">
                         <div class="col-12 col-sm-6 my-auto">
-                            <img src="{{MEDIA_URL}}laser-printer.png" class="home-inner-category-image img-fluid" alt="blank" height="200">
+                            <img src="{{ MEDIA_URL }}laser-printer.png" class="home-inner-category-image img-fluid"
+                                 alt="blank" height="200">
                         </div>
                         <div class="col-12 col-sm-6 my-auto">
                             <p class="text-uppercase text-center">Laser Printers</p>
@@ -40,9 +41,10 @@
             </div>
             <div class="col col-6 col-md-3 my-auto mt-1 p-1">
                 <div class="home-inner-category p-0 rounded-1 w-100">
-                    <a href="{%  url 'products' %}?category=inkjet_printers" class="row w-100 url-style ">
+                    <a href="{% url 'products' %}?category=inkjet_printers" class="row w-100 url-style ">
                         <div class="col-12 col-sm-6 my-auto">
-                            <img src="{{MEDIA_URL}}Epson-WF-4820-Front-RP-Large.jpg" class="home-inner-category-image img-fluid" alt="blank" height="200">
+                            <img src="{{ MEDIA_URL }}Epson-WF-4820-Front-RP-Large.jpg"
+                                 class="home-inner-category-image img-fluid" alt="blank" height="200">
                         </div>
                         <div class="col-12 col-sm-6 my-auto">
                             <p class="text-uppercase text-center">Inkjet Printers</p>
@@ -52,9 +54,10 @@
             </div>
             <div class="col col-6 col-md-3 my-auto mt-1 p-1">
                 <div class="home-inner-category p-0 rounded-1 w-100">
-                    <a href="{%  url 'products' %}?special=deals" class="row w-100 url-style">
+                    <a href="{% url 'products' %}?special=deals" class="row w-100 url-style">
                         <div class="col-12 col-sm-6 my-auto">
-                            <img src="{{MEDIA_URL}}special_deals.jpg" class="home-inner-category-image img-fluid" alt="blank" height="200">
+                            <img src="{{ MEDIA_URL }}special_deals.jpg" class="home-inner-category-image img-fluid"
+                                 alt="blank" height="200">
                         </div>
                         <div class="col-12 col-sm-6 my-auto">
                             <p class="text-uppercase text-center">Special Deals</p>
@@ -64,9 +67,10 @@
             </div>
             <div class="col col-6 col-md-3 my-auto mt-1 p-1">
                 <div class="home-inner-category p-0 rounded-1 w-100">
-                    <a href="{%  url 'products' %}?special=clearance" class="row w-100 url-style">
+                    <a href="{% url 'products' %}?special=clearance" class="row w-100 url-style">
                         <div class="col-12 col-sm-6 my-auto">
-                            <img src="{{MEDIA_URL}}clearance.jpg" class="home-inner-category-image img-fluid" alt="blank" height="200">
+                            <img src="{{ MEDIA_URL }}clearance.jpg" class="home-inner-category-image img-fluid"
+                                 alt="blank" height="200">
                         </div>
                         <div class="col-12 col-sm-6 my-auto">
                             <p class="text-uppercase text-center">Clearance Sale</p>
@@ -82,19 +86,22 @@
             <div class="col-12 col-sm-2 offset-sm-1 border-silver">
                 <div class="row">
                     <div class="col-3 p-0 my-auto"><i class="fas fa-truck"></i></div>
-                    <div class="col-9 p-0 my-auto text-center"><span>Free Delivery</span> <br><span>From £50</span></div>
+                    <div class="col-9 p-0 my-auto text-center"><span>Free Delivery</span> <br><span>From £50</span>
+                    </div>
                 </div>
             </div>
             <div class="col-12 col-sm-2 border-silver">
                 <div class="row">
                     <div class="col-3 p-0 my-auto"><i class="fas fa-thumbs-up"></i></div>
-                    <div class="col-9 p-0 my-auto text-center"><span>99% satisfied</span><br><span>customers</span></div>
+                    <div class="col-9 p-0 my-auto text-center"><span>99% satisfied</span><br><span>customers</span>
+                    </div>
                 </div>
             </div>
             <div class="col-12 col-sm-2 border-silver">
                 <div class="row">
                     <div class="col-3 p-0 my-auto"><i class="fas fa-circle-notch"></i></div>
-                    <div class="col-9 p-0 my-auto text-center"><span>365 days</span><br><span>for free return</span></div>
+                    <div class="col-9 p-0 my-auto text-center"><span>365 days</span><br><span>for free return</span>
+                    </div>
                 </div>
             </div>
             <div class="col-12 col-sm-2 border-silver">
@@ -123,36 +130,44 @@
                         {% if product.featured %}
                             <div class="item">
                                 <div class="pad15 ">
+
                                     <div class="carousel-image-container">
                                         {% if product.product_image.all.0.image %}
-                                            <img src="{{ product.product_image.all.0.image_url }}"
-                                                 alt="{{ product.name }}"
-                                                 class="">
+                                            <a href="{% url 'product_detail' product.id %}">
+                                                <img src="{{ product.product_image.all.0.image_url }}"
+                                                     alt="{{ product.name }}"
+                                                >
+                                            </a>
                                         {% else %}
-                                            <img src="{{MEDIA_URL}}200x200.webp" alt="{{ product.name }}"
+                                            <img src="{{ MEDIA_URL }}200x200.webp" alt="{{ product.name }}"
                                                  class="">
                                         {% endif %}
                                     </div>
-
-                                    <div class="product_name"><a class="url-style_classic h5"  href="{% url 'product_detail' product.id %}"><span>{{ product.brand }} {{ product.model }}</span></a></div>
-                                    <div class="mt-1">{{ product.featured_description | safe | truncatechars:350 }}</div>
-                                    {% if not product.cartridge_product %}
-                                        {% if product.rating %}
-                                            <p class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating | floatformat:2 }} /
-                                                5
-                                            </p>
-                                            <a href="{% url 'all_reviews' product.id %}" class="text-muted">Read {{ product.product_reviews.count }}
-                                                customer
-                                                reviews</a>
-                                        {% else %}
-                                            <small class="text-muted">Not rated yet.</small>
-
-                                        {% endif %}
-                                    {% else %}
-
-                                    {% endif %}
-                                    <p class="lead mb-0 text-left font-weight-bold mt-2">£{{ product.price }}</p>
-                                    <a class="btn btn-outline-black mt-3" href="{% url 'product_detail' product.id %}">View more</a>
+                                    {##}
+                                    {#                                    <p class="product_name"><a class="url-style_classic h5"#}
+                                    {#                                                                 href="{% url 'product_detail' product.id %}"><span>{{ product.brand }} {{ product.model }}</span></a>#}
+                                    {#                                    </p>#}
+                                    {#                                    <div class="mt-1">{{ product.featured_description | safe | truncatechars:350 }}</div>#}
+                                    {#                                    {% if not product.cartridge_product %}#}
+                                    {#                                        {% if product.rating %}#}
+                                    {#                                            <p class="text-muted"><i#}
+                                    {#                                                    class="fas fa-star mr-1"></i>{{ product.rating | floatformat:2 }} /#}
+                                    {#                                                5#}
+                                    {#                                            </p>#}
+                                    {#                                            <a href="{% url 'all_reviews' product.id %}"#}
+                                    {#                                               class="text-muted">Read {{ product.product_reviews.count }}#}
+                                    {#                                                customer#}
+                                    {#                                                reviews</a>#}
+                                    {#                                        {% else %}#}
+                                    {#                                            <small class="text-muted">Not rated yet.</small>#}
+                                    {##}
+                                    {#                                        {% endif %}#}
+                                    {#                                    {% else %}#}
+                                    {##}
+                                    {#                                    {% endif %}#}
+                                    {#                                    <p class="lead mb-0 text-left font-weight-bold mt-2">£{{ product.price }}</p>#}
+                                    {#                                    <a class="btn btn-outline-black mt-3" href="{% url 'product_detail' product.id %}">View#}
+                                    {#                                        more</a>#}
                                 </div>
 
                             </div>
@@ -166,6 +181,7 @@
             </div>
         </div>
     </div>
+
 
 {% endblock %}
 

@@ -21,7 +21,9 @@ nav li {
     display: none;
 }
 
-
+.dropdown-menu {
+    font-size: 1.4rem;
+}
 .body-container {
         min-height: 60vh;
     }
@@ -332,11 +334,7 @@ a.category-badge > span.badge:hover {
     height: 100%;
 }
 
-.carousel-image-container {
-    min-height: 200px;
-    display: flex;
-    align-items: center;
-}
+
 
 .product_name {
     min-height: 50px;
