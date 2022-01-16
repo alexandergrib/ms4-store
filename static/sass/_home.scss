@@ -6,7 +6,7 @@
 
 .homepage {
     height: 400px;
-    background: #FCFAEB url('/media/robot.webp') no-repeat center;
+    background: #FCFAEB url('/media/robot.webp') no-repeat 90% 50%;
     background-size: contain;
 }
 
@@ -26,7 +26,11 @@
         }
     }
 }
-
+.home-categories {
+    .category-icon {
+        float: right;
+    }
+}
 /*from Bulma*/
 .icon {
     align-items: center;

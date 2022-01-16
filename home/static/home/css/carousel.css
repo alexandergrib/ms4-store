@@ -1,3 +1,7 @@
+.home-categories span {
+    font-size: 1.3rem;
+}
+
 
 /* ------------------------------------------ homepage Carousel styles */
 .MultiCarousel {
@@ -45,28 +49,24 @@
     right: 0;
 }
 
+.carousel-image-container {
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    height: 200px;
+}
+
+.carousel-image-container > a > img {
+    max-width: 100%;
+    display: block;
+    width: 200px;
+}
 
 .carousel-image-container > img {
     max-width: 100%;
-    display: block;
+    max-height: 100%;
 }
 
-
-/*.MultiCarousel-inner {*/
-/*    display: flex;*/
-/*    height: 100%;*/
-/*    !*flex-direction: column;*!*/
-/*    !*align-content: space-evenly;*!*/
-/*    !*align-items: stretch;*!*/
-/*}*/
-
-/*.pad15 {*/
-/*    display: inline-block;*/
-/*    align-self: flex-end;*/
-/*}*/
-
-/*    end carousel styles */
- /* Make the image fully responsive */
 .carousel-inner img {
     width: 100%;
     height: 100%;

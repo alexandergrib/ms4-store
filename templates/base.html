@@ -64,6 +64,7 @@
     <title>Shop Easy |{% block extra_title %}{% endblock %}</title>
 
 </head>
+
 <body>
 
 <header class="container-fluid fixed-top w-100 p-0">
@@ -98,7 +99,7 @@
                         <input class="form-control border border-black rounded-0" type="text" name="q"
                                placeholder="Search our site">
                     </label>
-                    <div class="input-group-prepend">
+                    <div class="input-group-prepend search-label-icon">
                         <button class="form-control btn btn-black border border-black rounded-0"
                                 type="submit" aria-label="Search">
                             <span class="icon">
@@ -191,13 +192,13 @@
 {% endif %}
 
 
-{% block page_header %}
+{#{% block page_header %}#}
     <div class="container-fluid header-container" id="header-spacer">
         <div class="row">
             <div class="col"></div>
         </div>
     </div>
-{% endblock %}
+{#{% endblock %}#}
 
 <div class="body-container">
 {% block content %}
