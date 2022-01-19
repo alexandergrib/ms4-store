@@ -336,6 +336,14 @@ a.category-badge > span.badge:hover {
   justify-content: center;
 }
 
+.form-select {
+  border-radius: 0 !important;
+}
+
+select option {
+  border-radius: 0 !important;
+}
+
 .nav-header {
   border-bottom: 1px solid grey;
   position: relative;

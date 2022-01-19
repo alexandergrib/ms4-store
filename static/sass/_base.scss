@@ -345,3 +345,13 @@ a.category-badge > span.badge:hover {
     align-items: center;
     justify-content: center;
 }
+
+.form-select {
+    border-radius: 0 !important;
+}
+
+select {
+    option {
+        border-radius: 0 !important;
+    }
+}
