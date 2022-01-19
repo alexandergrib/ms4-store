@@ -414,14 +414,17 @@ def edit_cartridge(request, product_id):
     cartridge = get_object_or_404(Cartridges, pk=product_id)
     if request.method == 'POST':
         form = CartrigesForm(request.POST, request.FILES, instance=cartridge)
+        print(form)
         if form.is_valid():
             user = form.save(commit=False)
             user.created_by = UserProfile.objects.get(user=request.user)
             if form.cleaned_data['image']:
                 image = request.FILES.get('image')
-                cartridge_form = form.save(commit=False)
-                cartridge_form.image_url = settings.MEDIA_URL + image.name
-                cartridge_form.save()
+                print(image)
+                if image:
+                    cartridge_form = form.save(commit=False)
+                    cartridge_form.image_url = settings.MEDIA_URL + image.name
+                    cartridge_form.save()
             else:
                 form.save()
     else:
