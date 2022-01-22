@@ -19,28 +19,7 @@ This site was built using HTML, CSS, Bootstrap, JavaScript, jQuery, Python, Djan
 
 ---
 
-
-
----
-
-## Icon key
-
-&#128272; <-- Superuser only access
-
-&#128100; <-- Logged In Only
-
-&#128683; <-- Logged Out only
-
-&#9989; <-- Yes / Visible
-
-&#10060; <-- No / Not visible
-
-[Back to the top](#SHOP EASY)
-
----
-
-
-## User Experience
+# User Experience
 
 ## Initial Discussion
 
@@ -74,16 +53,40 @@ This site was built using HTML, CSS, Bootstrap, JavaScript, jQuery, Python, Djan
 
 ---
 
-## Technologies Used
+# UI
+- A responsive Navbar
+- A search function for users to find available products
+- A registration/login form for the first time and returning users
+- A loading page was implemented to stop poor impressions from data loading slowly
+- A footer to provide some information and social links
+- Forms for the admin to add new or modify existing products
 
-### Languages Used
+# Wireframes
+Wireframes are my initial design, so you may notice that the final website design does not contain everything that was planned at the start of the project. Some missing features are possible future improvements for the project. They may be implemented at a later stage.
+ - [Wireframes.pdf](./readme_media/wireframes.pdf)
+
+# Database Schema
+I started planning the database after I have done my wireframes to justify which fields I would require and what collections I would have to use. After the initial discussion with my mentor, I have settled with the current database schema.
+ - [Database.pdf](./readme_media/database_diagram.png)
+ - [View diagram on dbdiagram.io](https://dbdiagram.io/d/6186a3a8d5d522682dfb80c9)
+
+# Database Model
+- [Database model](./readme_media/database_model.pdf)
+
+
+
+---
+
+# Technologies Used
+
+## Languages Used
 
 -   [HTML5](https://en.wikipedia.org/wiki/HTML5)
 -   [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
 -   [Jquery](https://en.wikipedia.org/wiki/Jquery)
 -   [Python3](https://en.wikipedia.org/wiki/Python_Programming_Language)
 
-### Frameworks, Libraries & Programs Used
+## Frameworks, Libraries & Programs Used
 
 1. [Bootstrap 5.x:](https://getbootstrap.com/)
     - Bootstrap 5.x was used to assist with the responsiveness and styling of the website.
