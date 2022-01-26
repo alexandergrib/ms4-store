@@ -64,6 +64,7 @@ This site was built using HTML, CSS, Bootstrap, JavaScript, jQuery, Python, Djan
 # Wireframes
 Wireframes are my initial design, so you may notice that the final website design does not contain everything that was planned at the start of the project. Some missing features are possible future improvements for the project. They may be implemented at a later stage.
  - [Wireframes.pdf](./readme_media/wireframes.pdf)
+ - [Wireframe-mobile](./readme_media/mobile.png)
 
 # Database Schema
 I started planning the database after I have done my wireframes to justify which fields I would require and what collections I would have to use. After the initial discussion with my mentor, I have settled with the current database schema.
@@ -173,8 +174,8 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 
 ### Known Issues
 
--
-
+- Windows 11 affecting styles of the dropdown menu's, forcing them to have rounded corners ![img](./readme_media/dropdown_menu_issue.png)
+    * I was unable to fix this issue. This issue only occurs on Windows 11. 
 
 ---
 

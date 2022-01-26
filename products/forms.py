@@ -95,7 +95,7 @@ class RatingForm(forms.ModelForm):
     class Meta:
         exclude = ('user', 'product', 'date_posted', 'review_image')
         model = ProductReviews
-        fields = '__all__' #['review_title', 'review_text', 'review_score']
+        fields = '__all__'  # ['review_title', 'review_text', 'review_score']
         labels = {
             'review_score': 'Select Your Rating',
         }
