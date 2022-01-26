@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import os
+import sys
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -44,7 +45,6 @@ INSTALLED_APPS = [
     'crispy_forms',
     'crispy_bootstrap5',
     'storages',
-
 
     'home',
     'products',
@@ -111,6 +111,11 @@ ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
 ACCOUNT_USERNAME_MIN_LENGTH = 4
 LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/'
+ACCOUNT_USERNAME_BLACKLIST = [
+    'admin',
+    'superuser',
+    'staff',
+    ]
 
 # Provider specific settings
 SOCIALACCOUNT_PROVIDERS = {
@@ -147,12 +152,23 @@ DATABASES = {
         'PASSWORD': os.environ.get('PG_PASSWORD'),
         'HOST': os.environ.get('PG_SERVER'),
         'PORT': os.environ.get('PG_PORT'),
-        'TEST': {
-            'MIRROR': 'default',
-        },
-    }
+
+    },
+    # 'test_db': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME':  ':memory:',
+    # 'TEST': {
+    #     'MIRROR': 'default',
+    # },
+    # }
 
 }
+
+# Covers regular testing and django-coverage
+# solution found here https://tutorials.technology/solved_errors/django_unit_test_execution_error_TEST_DATABASE_PREFIX.html
+if 'test' in sys.argv or 'test\_coverage' in sys.argv:
+    DATABASES['default']['ENGINE'] = 'django.db.backends.sqlite3'
+    DATABASES['default']['NAME'] = ':memory:'
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -230,13 +246,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 FREE_DELIVERY_THRESHOLD = 50
 STANDARD_DELIVERY_PERCENTAGE = 10
 
-
 # Stripe
 STRIPE_CURRENCY = 'gbp'
 STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
 STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
-
 
 if 'DEVELOPMENT' in os.environ:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

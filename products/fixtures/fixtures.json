@@ -1,0 +1,1202 @@
+[
+   {
+      "model":"products.category",
+      "pk":1,
+      "fields":{
+         "name":"laser_printers",
+         "friendly_name":"Laser printers"
+      }
+   },
+   {
+      "model":"products.category",
+      "pk":2,
+      "fields":{
+         "name":"inkjet_printers",
+         "friendly_name":"Inkjet Printers"
+      }
+   },
+   {
+      "model":"products.special",
+      "pk":1,
+      "fields":{
+         "name":"deals",
+         "friendly_name":"Deals"
+      }
+   },
+   {
+      "model":"products.special",
+      "pk":2,
+      "fields":{
+         "name":"clearance",
+         "friendly_name":"Clearance"
+      }
+   },
+   {
+      "model":"products.special",
+      "pk":3,
+      "fields":{
+         "name":"new_arrivals",
+         "friendly_name":"New Arrivals"
+      }
+   },
+   {
+      "model":"products.productbrand",
+      "pk":1,
+      "fields":{
+         "brand_name":"brother",
+         "friendly_brand_name":"Brother"
+      }
+   },
+   {
+      "model":"products.productbrand",
+      "pk":3,
+      "fields":{
+         "brand_name":"xerox",
+         "friendly_brand_name":"Xerox"
+      }
+   },
+   {
+      "model":"products.productbrand",
+      "pk":4,
+      "fields":{
+         "brand_name":"epson",
+         "friendly_brand_name":"Epson"
+      }
+   },
+   {
+      "model":"products.productbrand",
+      "pk":5,
+      "fields":{
+         "brand_name":"hp",
+         "friendly_brand_name":"HP"
+      }
+   },
+   {
+      "model":"products.productbrand",
+      "pk":49,
+      "fields":{
+         "brand_name":"canon",
+         "friendly_brand_name":"Canon"
+      }
+   },
+   {
+      "model":"products.product",
+      "pk":"1b6622c4-3fde-4afe-b3bd-673a038454b6",
+      "fields":{
+         "category":1,
+         "brand":3,
+         "sku":"D235V_DNIUK",
+         "name":"Colour Multifunction Laser Printer",
+         "model":"C235",
+         "description":"<h3 class=\"container__title container__title--dark\" style=\"text-align: center;\">Xerox C235 in More Detail</h3>\r\n<div class=\"container__body\">\r\n<p style=\"text-align: center;\">Powerful and compact, the Xerox C235 A4 Colour Multifunction Laser Printer is a welcome addition to any home or office workspace.</p>\r\n<p style=\"text-align: center;\">Offering print/scan/copy &amp; fax capability the Xerox C235 is an all-in-one solution in a quiet and compact package. With a print resolution of up to 600 x 600dpi and a first page print speed as fast as 11 seconds, the Xerox C235 delivers top performance when you need it.</p>\r\n<h3 style=\"text-align: center;\">Print On Your Terms</h3>\r\n<p style=\"text-align: center;\">With USB, Network, Wireless &amp; Wi-Fi Direct and support for AirPrint, Mopria and Chromebook printing, the Xerox C235 allows users to work from anywhere in the home or office.</p>\r\n<p style=\"text-align: center;\">The Xerox C235 offers the latest comprehensive security features including safeguarding access and protecting sensitive data to ensure protection against sophisticated cyber threats both at home and in the office.</p>\r\n<h3 style=\"text-align: center;\">Effortless Set-Up and Full Control</h3>\r\n<p style=\"text-align: center;\">Set-up is made easy via the 2.8&rdquo; colour touch screen combined with automated driver installation and Xerox Smart Start Installer delivering a stress-free experience without the need for IT assistance.</p>\r\n<h3 style=\"text-align: center;\">Maximum Performance, Minimum Fuss</h3>\r\n<p style=\"text-align: center;\">The Xerox Print &amp; Scan Experience App allows users to get the most from the Xerox C235 with features such as one-touch convenience which allows you to configure print settings and set up common print jobs in a single click.</p>\r\n</div>",
+         "price":"225.00",
+         "discount":0,
+         "created_at":"2022-01-11",
+         "modified_at":"2022-01-19",
+         "created_by":1,
+         "special":1,
+         "brochure":null,
+         "featured":true,
+         "featured_description":"<p style=\"text-align: center;\">Print On Your Terms</p>\r\n<p style=\"text-align: center;\">With USB, Network, Wireless &amp; Wi-Fi Direct, and support for AirPrint, Mopria, and Chromebook printing, the Xerox C235 allows users to work from anywhere in the home or office.</p>"
+      }
+   },
+   {
+      "model":"products.product",
+      "pk":"1d9519ee-b18a-46f7-b78c-8cf23152100a",
+      "fields":{
+         "category":2,
+         "brand":5,
+         "sku":"HP002",
+         "name":"A4 Colour Multifunction Inkjet Printer",
+         "model":"9022e",
+         "description":"<p class=\"container__title container__title--dark\" style=\"text-align: center;\"><strong>HP OfficeJet Pro 9022e in More Detail</strong></p>\r\n<div class=\"container__body\">\r\n<p style=\"text-align: center;\">The HP OfficeJet Pro 9022e A4 Colour Multifunction Inkjet Printer features the latest solutions to make printing, scanning and copying a breeze. It is an all-in-one wireless printer suited for home or office use that seamlessly connects to your smartphone or other Wi-Fi enabled devices for printing on the go. It also features two-sided printing, copying of two-sided documents and automatic scanning, as well as a 35-page document feeder to automate the entire printing process. The HP OfficeJet Pro 9022e comes with HP+, an intuitive solution that includes HP Smart App solutions, a 6 month trial of Instant Ink and an additional 1 year warranty.</p>\r\n<p class=\"imageleft\" style=\"text-align: center;\">&nbsp;</p>\r\n<p style=\"text-align: center;\"><strong>Print Anywhere, Any Time</strong></p>\r\n<p style=\"text-align: center;\">The HP OfficeJet Pro 9022e is a comprehensively built printer that scans, prints and copies documents and pictures effortlessly through your preferred cloud storage solution, such as Google Drive. Other features include Smart Tasks, which allows you to complete document scanning straight from your phone or tablet. With print speeds of up to 24ppm in mono and up to 20ppm in colour, the HP OfficeJet Pro 9022e will not leave you waiting for your next print out. Automatic two-sided printing, copying and scanning functionality is also available on this model.</p>\r\n<p style=\"text-align: center;\"><strong>Keeping Your Documents Safe</strong></p>\r\n<p style=\"text-align: center;\">The HP OfficeJet Pro 9022e offers a range of security-minded solutions to prevent you from losing your printing documents. HP has implemented self-healing Wi-Fi, so even if your internet connection drops out, your print job won&rsquo;t. It also boasts a wide range of security essentials to help maintain control and privacy while using your printer.</p>\r\n<p style=\"text-align: center;\"><strong>6 months of Instant Ink Included with HP+*</strong></p>\r\n<p class=\"imageright\" style=\"text-align: center;\">&nbsp;</p>\r\n<p style=\"text-align: center;\">After 6 months, a monthly fee will be charged automatically unless cancelled. Thanks to Instant Ink with HP+, you can save up to 70% on original HP ink. Cartridges are automatically ordered by your printer when you are running low and delivered to your door. Plans start from &pound;0.99 per month for 15 pages. *Requires Instant Ink registration within 7 days of setting up the printer.</p>\r\n</div>",
+         "price":"246.00",
+         "discount":0,
+         "created_at":"2022-01-19",
+         "modified_at":"2022-01-19",
+         "created_by":1,
+         "special":2,
+         "brochure":null,
+         "featured":true,
+         "featured_description":"<p>The HP OfficeJet Pro 9022e is a comprehensively built printer that scans, prints and copies documents and pictures effortlessly through your preferred cloud storage solution, such as Google Drive. Other features include Smart Tasks, which allows you to complete document scanning straight from your phone or tablet.</p>"
+      }
+   },
+   {
+      "model":"products.product",
+      "pk":"243e2262-9d21-4c12-88cb-d0a47ccf66a0",
+      "fields":{
+         "category":1,
+         "brand":49,
+         "sku":"CAN001",
+         "name":"A4 Colour Multifunction Inkjet Printer",
+         "model":"G2501",
+         "description":"<p class=\"container__title container__title--dark\" style=\"text-align: center;\"><strong>Canon PIXMA G2501 in More Detail</strong></p>\r\n<div class=\"container__body\">\r\n<p style=\"text-align: center;\">Offering fantastic value, intuitive set-up and physical features, and highly efficient functionality, the Canon PIXMA G2501 A4 Colour Multifunction Inkjet Printer is quickly becoming the best friend of modern home offices everywhere. An affordable option for high-demand printing, scanning, and copying, the PIXMA G2501&rsquo;s plethora of user-friendly features makes it ideal for those who are setting up a small business, or those just getting started working from home.</p>\r\n<p style=\"text-align: center;\"><strong>Low cost, high-end results</strong></p>\r\n<p style=\"text-align: center;\">Though the Canon PIXMA G2501 has been designed for cost-efficiency, the low expense certainly doesn&rsquo;t mean you have to sacrifice anything in the way of quality output. The pigment black ink and colour dyes developed by Canon ensure exceptionally crisp text in document printing and sharp results for images and graphics. Like many other modern Canon models, the PIXMA G2501 also comes with the company&rsquo;s own My Image Garden editing software, allowing users to edit and sort photographs with ease. For a business that regularly deals with images and graphics, this added efficiency can make a huge difference to day-to-day tasks.</p>\r\n<p style=\"text-align: center;\"><strong>Efficiency and ease of use</strong></p>\r\n<p style=\"text-align: center;\">The Canon PIXMA G2501 Multifunction Printer has been designed with efficiency and ease of use at the forefront. Its front-facing ink tanks are easy to refill and have front-facing levels to ensure you&rsquo;re never caught unawares by empty cartridges. The fantastic print yields of 7,000 colour pages and 6,000 black* ensures you can keep a cap on your printing costs and go a long time without worrying about paper orders.</p>\r\n<p style=\"text-align: center;\">Canon&rsquo;s ultra-reliable printing components ensure a system that has no problem with high-volume printing tasks, and recent developments in their own FINE print technology head leaves no way for air to penetrate the ink tubes and cause annoying technical hiccups or long-lasting damage. With a highly intuitive interface for printing, scanning, and copying, everyone will find it easy to hit the ground running with this excellent machine.</p>\r\n</div>",
+         "price":"234.00",
+         "discount":0,
+         "created_at":"2022-01-19",
+         "modified_at":"2022-01-19",
+         "created_by":1,
+         "special":3,
+         "brochure":null,
+         "featured":true,
+         "featured_description":"<p>Canon PIXMA G2501 has been designed for cost-efficiency, the low expense certainly doesn&rsquo;t mean you have to sacrifice anything in the way of quality output.</p>"
+      }
+   },
+   {
+      "model":"products.product",
+      "pk":"679d1833-a1b5-4120-87ee-2afcedd50cf6",
+      "fields":{
+         "category":2,
+         "brand":4,
+         "sku":"ET-470",
+         "name":"Multifunction Inkjet Printer",
+         "model":"EcoTank ET-4700B",
+         "description":"<h2 class=\"container__title container__title--dark\" style=\"text-align: center;\">Epson EcoTank ET-4700B in More Detail</h2>\r\n<div class=\"container__body\">\r\n<p style=\"text-align: center;\">Enjoy cartridge free printing with the next generation of Epson's innovative Eco Tank printers. With 4 in 1 functionality and fast Ethernet capabilities, the EcoTank ET-4700 is the smart choice for the small or home office.</p>\r\n<span style=\"text-align: center;\">Built for business</span>\r\n<p>Ultra low-cost Eco Tank printing lets you focus on business productivity with true 'fill and forget' printing. The 30 sheet ADF lets you speed through copy and scan tasks while fast print speeds of up to 33ppm mono and up to 15ppm colour put superb high impact business printing within your grasp. Onboard WiFi and WiFi Direct allow you to print documents from all your compatible smart devices via the Epson iPrint app and the 3.7cm LCD screen puts PC free printing at your fingertips.</p>\r\n<h3 style=\"text-align: center;\">Engineered for ease of use</h3>\r\nThe next generation of Eco Tank printers are easier to use than ever before. Resealable and drip free bottles can only be used with their own front-facing tank for fault-free refills. There are no cartridges or toners to replace and the front facing tanks make it easy to monitor ink levels so you know when it's time for a refill. With an ultra-high ink capacity and the ability to print up to 7,500 mono pages* and 4,500 colour pages* between refills, you'll make savings of up to 90% on your ink costs with no loss of Epson print quality at resolutions up to 5,760 x 1,440 dpi.\r\n<h3 style=\"text-align: center;\">Quality results</h3>\r\n<p>The ET-4700 delivers the kind of quality results that are ideal for any project, from large format contracts to reports with full-colour graphics. The Micro Piezo printhead delivers quality and reliability with a 1-year guarantee. With everything in the box for seamless setup and installation, this Eco Tank printer is a productivity powerhouse for the smaller office.</p>\r\n</div>",
+         "price":"309.99",
+         "discount":0,
+         "created_at":"2021-12-19",
+         "modified_at":"2021-12-19",
+         "created_by":1,
+         "special":3,
+         "brochure":"https://www.printerland.co.uk/pdf/Epson/ecotank-et-4700-datasheet.pdf",
+         "featured":true,
+         "featured_description":"<p>Enjoy cartridge free printing with the next generation of Epson's innovative Eco Tank printers. With 4 in 1 functionality and fast Ethernet capabilities, the EcoTank ET-4700 is the smart choice for the small or home office. Ultra low-cost Eco Tank printing lets you focus on business productivity with true 'fill and forget' printing.</p>"
+      }
+   },
+   {
+      "model":"products.product",
+      "pk":"8f6656a5-67c3-498b-ab10-b87b66564a79",
+      "fields":{
+         "category":1,
+         "brand":1,
+         "sku":"DCP-L3510CDW",
+         "name":"A4 Colour Multifunction LED Laser Printer",
+         "model":"DCP-L3510CDW",
+         "description":"<h2 class=\"container__title container__title--dark\" style=\"text-align: center;\">Brother DCP-L3510CDW in More Detail</h2>\r\n<div class=\"container__body\">\r\n<p style=\"text-align: center;\">The DCP-L3510CDW from Brother is the ideal compact 3-in-1 for the home or small office. Powerful and productive this efficient printer is up and running straight out of the box with high yield starter toner cartridges and easy to set up wireless and mobile connectivity.</p>\r\n<h2 style=\"text-align: center;\"><span >Save time and money</span></h2>\r\n<p style=\"text-align: center;\"><span>Built for speed and efficiency the DCP-L3510CDW delivers print output speeds of up to 18ppm in bot</span>h colour and black &amp; white. The 250 sheet paper tray lets you work for longer without user interventions and the high yield supplies mean you'll need to change your cartridges less often. Enjoy competitive costs per page for colour and monoprint with out of the box productivity, quality and reliability for smoother business operation.</p>\r\n<h2 style=\"text-align: center;\">Smart connectivity</h2>\r\n<p style=\"text-align: center;\">With Apple AirPrint and Mopria on board you can print from any iOS or Android smartphone. The Brother iPrint&amp;Scan app adds compatibility for windows phone plus a range of print from and scan to options that support mobile working with ease. Control setup and access via the easy to use control panel for smart in office and on the go connectivity in a snap.</p>\r\n<h2 style=\"text-align: center;\">Built for business</h2>\r\n<p style=\"text-align: center;\">Your DCP-L3510CDW printer, with 1,000 sheet colour and mono toner cartridges*, lets you add high impact colour to your business documents with low costs per print. Colours are vivid and accurate and mono text crisp, clean and legible. Designed to save you time and money, this desk friendly printer has a range of business functions including booklet and poster printing, multicopying with stack and sort, and a range of scan functions including scan to OCR and scan to network folder. Fleet management tools make unattended setup a snap while the quiet mode of under 45dB makes this printer the quietest in class and perfect for uninterrupted desktop working.</p>\r\n</div>",
+         "price":"212.00",
+         "discount":0,
+         "created_at":"2021-12-19",
+         "modified_at":"2021-12-27",
+         "created_by":1,
+         "special":3,
+         "brochure":"https://www.printerland.co.uk/pdf/Brother/DCP-L3510CDW%20datasheet.pdf",
+         "featured":true,
+         "featured_description":"<p>Built for speed and efficiency the DCP-L3510CDW delivers print output speeds of up to 18ppm in both colour and black &amp; white. The 250 sheet paper tray lets you work for longer without user interventions and the high yield supplies mean you'll need to change your cartridges less often.&nbsp;</p>"
+      }
+   },
+   {
+      "model":"products.product",
+      "pk":"9765521f-1f87-4a75-a894-e50e539841cc",
+      "fields":{
+         "category":1,
+         "brand":5,
+         "sku":"107W",
+         "name":"A4 Mono Laser Printer",
+         "model":"107W",
+         "description":"<h2 class=\"container__title container__title--dark\" style=\"text-align: center;\">HP Laser 107w in More Detail</h2>\r\n<div class=\"container__body\" style=\"text-align: center;\">\r\n<p>The 400MHz processor and the maximum memory allowance of 64MB RAM are the basic standout features of the HP 107w A4 Mono Laser Printer. Printers are no longer the preserve of the office; they are used in a wide range of locations, from schools all the way to the home offices. The traditional employment and occupational systems are changing, and more people are taking their work home. If you are looking for a simple, affordable laser printer for home use, then this is it.</p>\r\n<br />\r\n<h3>Effortlessly compatible</h3>\r\n<p>It has either USB or wireless interfaces and is compatible with both the Mac and Windows operating systems. It is also compatible with AirPrint and offers mobile and cloud printing options, which are a complete necessity for the modern professional. It is important to note though the mobile and cloud print mentioned here are offered through Apple AirPrint, HP Mobile Apps, Mopria Print, and Wi-Fi Direct Printing.</p>\r\n<h3>High performance</h3>\r\n<p>In terms of performance, the printer features a 150 sheet input tray, with a maximum paper weight of 163gsm. The sizes it can handle is also varied; the HP 107w A4 Mono Laser Printer can handle media sizes including A4, A5, A5(LEF), Envelope (DL, C5), B5 (ISO), B5 (JIS), Oficio, 76 x 127 to 216 x 356 mm. The types also vary from plain to colour, thick, pre-printed, labels, archive, cotton, cardstock, envelope and recycled. It is a relatively high-speed laser printer that can deliver the first page in as fast as 8.3 seconds.</p>\r\n<br />\r\n<h3>Incredibly durable</h3>\r\n<p>This printer is a mono laser printer though, a lightweight one weighing about 4.1kg, with a width of 331mm, 350mm depth and 248 mm height. The HP 107w A4 Mono Laser Printer comes with an introductory black toner cartridge which can print up to 500 pages*, for the relative longevity you require. This machine is ideal for the small office or home needs, where there is no need for heavy-duty colour printing or large scale copy jobs.</p>\r\n</div>\r\n<p style=\"text-align: center;\">.</p>",
+         "price":"99.00",
+         "discount":0,
+         "created_at":"2021-12-19",
+         "modified_at":"2021-12-19",
+         "created_by":1,
+         "special":3,
+         "brochure":"https://www.printerland.co.uk/pdf/HP/4aa7-5493eee.pdf",
+         "featured":true,
+         "featured_description":"<p>High performance In terms of performance, the printer features a 150 sheet input tray, with a maximum paper weight of 163gsm. The sizes it can handle is also varied; the HP 107w A4 Mono Laser Printer can handle media sizes including A4, A5, A5(LEF), Envelope (DL, C5), B5 (ISO), B5 (JIS), Oficio, 76 x 127 to 216 x 356 mm.</p>"
+      }
+   },
+   {
+      "model":"products.productreviews",
+      "pk":1,
+      "fields":{
+         "product":"9765521f-1f87-4a75-a894-e50e539841cc",
+         "user":1,
+         "review_title":"Excellent product",
+         "review_text":"Speedy delivery - ahead of schedule. Product well packaged. Easy to set up. Quality printer.",
+         "review_image":"",
+         "review_score":5,
+         "date_posted":"2022-01-01T14:05:50.881Z"
+      }
+   },
+   {
+      "model":"products.productreviews",
+      "pk":2,
+      "fields":{
+         "product":"9765521f-1f87-4a75-a894-e50e539841cc",
+         "user":1,
+         "review_title":"Excellent product",
+         "review_text":"Speedy delivery - ahead of schedule. Product well packaged. Easy to set up. Quality printer.",
+         "review_image":"",
+         "review_score":2,
+         "date_posted":"2022-01-04T14:05:50.881Z"
+      }
+   },
+   {
+      "model":"products.productreviews",
+      "pk":3,
+      "fields":{
+         "product":"9765521f-1f87-4a75-a894-e50e539841cc",
+         "user":4,
+         "review_title":"Excellent product",
+         "review_text":"Speedy delivery - ahead of schedule. Product well packaged. Easy to set up. Quality printer.",
+         "review_image":"",
+         "review_score":4,
+         "date_posted":"2021-12-20T14:05:50.881Z"
+      }
+   },
+   {
+      "model":"products.productreviews",
+      "pk":4,
+      "fields":{
+         "product":"9765521f-1f87-4a75-a894-e50e539841cc",
+         "user":1,
+         "review_title":"Great printer",
+         "review_text":"Great quality",
+         "review_image":"",
+         "review_score":5,
+         "date_posted":"2022-01-04T15:56:26.945Z"
+      }
+   },
+   {
+      "model":"products.productreviews",
+      "pk":5,
+      "fields":{
+         "product":"1d9519ee-b18a-46f7-b78c-8cf23152100a",
+         "user":4,
+         "review_title":"exellent machine",
+         "review_text":"Great qulity, super fast printing, cheap supplies.",
+         "review_image":"",
+         "review_score":5,
+         "date_posted":"2022-01-19T21:00:03.925Z"
+      }
+   },
+   {
+      "model":"products.productimages",
+      "pk":48,
+      "fields":{
+         "product":"679d1833-a1b5-4120-87ee-2afcedd50cf6",
+         "image_url":"https://ms4-shop.s3.amazonaws.com/media/Epson-WF-4820-Front-RP-Large.jpg",
+         "image":"Epson-WF-4820-Front-RP-Large_7xDKFt5.jpg"
+      }
+   },
+   {
+      "model":"products.productimages",
+      "pk":50,
+      "fields":{
+         "product":"9765521f-1f87-4a75-a894-e50e539841cc",
+         "image_url":"https://ms4-shop.s3.amazonaws.com/media/107W_front_1.webp",
+         "image":"107W_front_1.webp"
+      }
+   },
+   {
+      "model":"products.productimages",
+      "pk":51,
+      "fields":{
+         "product":"9765521f-1f87-4a75-a894-e50e539841cc",
+         "image_url":"https://ms4-shop.s3.amazonaws.com/media/107W_front_2.webp",
+         "image":"107W_front_2.webp"
+      }
+   },
+   {
+      "model":"products.productimages",
+      "pk":52,
+      "fields":{
+         "product":"9765521f-1f87-4a75-a894-e50e539841cc",
+         "image_url":"https://ms4-shop.s3.amazonaws.com/media/107W_back.webp",
+         "image":"107W_back_2shdKSg.webp"
+      }
+   },
+   {
+      "model":"products.productimages",
+      "pk":53,
+      "fields":{
+         "product":"8f6656a5-67c3-498b-ab10-b87b66564a79",
+         "image_url":"https://ms4-shop.s3.amazonaws.com/media/Brother-DCP-L3510CDW-Front-Large.jpg",
+         "image":"Brother-DCP-L3510CDW-Front-Large_zQQLPLn.jpg"
+      }
+   },
+   {
+      "model":"products.productimages",
+      "pk":56,
+      "fields":{
+         "product":"243e2262-9d21-4c12-88cb-d0a47ccf66a0",
+         "image_url":"https://ms4-shop.s3.amazonaws.com/media/Canon-G2501-Front-Large.jpg",
+         "image":"Canon-G2501-Front-Large.jpg"
+      }
+   },
+   {
+      "model":"products.productimages",
+      "pk":57,
+      "fields":{
+         "product":"1b6622c4-3fde-4afe-b3bd-673a038454b6",
+         "image_url":"https://ms4-shop.s3.amazonaws.com/media/Xerox-C235-Front-Main-Large.jpg",
+         "image":"Xerox-C235-Front-Main-Large.jpg"
+      }
+   },
+   {
+      "model":"products.productimages",
+      "pk":58,
+      "fields":{
+         "product":"1b6622c4-3fde-4afe-b3bd-673a038454b6",
+         "image_url":"https://ms4-shop.s3.amazonaws.com/media/Xerox-C235-Top-Large.jpg",
+         "image":"Xerox-C235-Top-Large.jpg"
+      }
+   },
+   {
+      "model":"products.productimages",
+      "pk":60,
+      "fields":{
+         "product":"1d9519ee-b18a-46f7-b78c-8cf23152100a",
+         "image_url":"https://ms4-shop.s3.amazonaws.com/media/HP-OfficeJet-Pro-9022e-Front-New-Large.jpg",
+         "image":"HP-OfficeJet-Pro-9022e-Front-New-Large.jpg"
+      }
+   },
+   {
+      "model":"products.productimages",
+      "pk":61,
+      "fields":{
+         "product":"1d9519ee-b18a-46f7-b78c-8cf23152100a",
+         "image_url":"https://ms4-shop.s3.amazonaws.com/media/HP-OfficeJetPro-9022-Front-Large.jpg",
+         "image":"HP-OfficeJetPro-9022-Front-Large.jpg"
+      }
+   },
+   {
+      "model":"products.productimages",
+      "pk":62,
+      "fields":{
+         "product":"1d9519ee-b18a-46f7-b78c-8cf23152100a",
+         "image_url":"https://ms4-shop.s3.amazonaws.com/media/HP-OfficeJetPro-9020-Top-Large.jpg",
+         "image":"HP-OfficeJetPro-9020-Top-Large_BBWMcdv.jpg"
+      }
+   },
+   {
+      "model":"products.productspecifications",
+      "pk":10,
+      "fields":{
+         "product":"679d1833-a1b5-4120-87ee-2afcedd50cf6",
+         "name":"Speed Monochrome",
+         "description":"Up to 33ppm Mono Print"
+      }
+   },
+   {
+      "model":"products.productspecifications",
+      "pk":11,
+      "fields":{
+         "product":"679d1833-a1b5-4120-87ee-2afcedd50cf6",
+         "name":"Printer Resolution",
+         "description":"Up to 5,760 x 1,440 dpi Print"
+      }
+   },
+   {
+      "model":"products.productspecifications",
+      "pk":12,
+      "fields":{
+         "product":"679d1833-a1b5-4120-87ee-2afcedd50cf6",
+         "name":"Speed Colour",
+         "description":"Up to 15ppm Colour Print"
+      }
+   },
+   {
+      "model":"products.productspecifications",
+      "pk":15,
+      "fields":{
+         "product":"9765521f-1f87-4a75-a894-e50e539841cc",
+         "name":"Speed Monochrome",
+         "description":"Up to 21ppm Mono Print"
+      }
+   },
+   {
+      "model":"products.productspecifications",
+      "pk":16,
+      "fields":{
+         "product":"9765521f-1f87-4a75-a894-e50e539841cc",
+         "name":"Printer Resolution",
+         "description":"Up to 1,200 x 1,200 dpi Print"
+      }
+   },
+   {
+      "model":"products.productspecifications",
+      "pk":17,
+      "fields":{
+         "product":"9765521f-1f87-4a75-a894-e50e539841cc",
+         "name":"Double Sided Printing",
+         "description":"Manual Double Sided Printing"
+      }
+   },
+   {
+      "model":"products.productspecifications",
+      "pk":18,
+      "fields":{
+         "product":"9765521f-1f87-4a75-a894-e50e539841cc",
+         "name":"Maximum Print Area",
+         "description":"216 x 356 mm"
+      }
+   },
+   {
+      "model":"products.productspecifications",
+      "pk":19,
+      "fields":{
+         "product":"8f6656a5-67c3-498b-ab10-b87b66564a79",
+         "name":"Printer Resolution",
+         "description":"2500px"
+      }
+   },
+   {
+      "model":"products.productspecifications",
+      "pk":20,
+      "fields":{
+         "product":"8f6656a5-67c3-498b-ab10-b87b66564a79",
+         "name":"Scan Resolution",
+         "description":"2400x2400px"
+      }
+   },
+   {
+      "model":"products.productspecifications",
+      "pk":21,
+      "fields":{
+         "product":"1b6622c4-3fde-4afe-b3bd-673a038454b6",
+         "name":"Communications",
+         "description":"USB, Network, Wireless & Wi-Fi Direct"
+      }
+   },
+   {
+      "model":"products.productspecifications",
+      "pk":22,
+      "fields":{
+         "product":"1b6622c4-3fde-4afe-b3bd-673a038454b6",
+         "name":"Printer Resolution",
+         "description":"Up to 600 x 600 dpi Print"
+      }
+   },
+   {
+      "model":"products.productspecifications",
+      "pk":23,
+      "fields":{
+         "product":"1b6622c4-3fde-4afe-b3bd-673a038454b6",
+         "name":"Printer Speed",
+         "description":"Up to 22ppm Mono Print"
+      }
+   },
+   {
+      "model":"products.productspecifications",
+      "pk":24,
+      "fields":{
+         "product":"243e2262-9d21-4c12-88cb-d0a47ccf66a0",
+         "name":"Speed",
+         "description":"Up to 13ppm Mono Print"
+      }
+   },
+   {
+      "model":"products.productspecifications",
+      "pk":25,
+      "fields":{
+         "product":"243e2262-9d21-4c12-88cb-d0a47ccf66a0",
+         "name":"Resolution",
+         "description":"Up to 4,800 x 1,200 dpi Print"
+      }
+   },
+   {
+      "model":"products.productspecifications",
+      "pk":26,
+      "fields":{
+         "product":"243e2262-9d21-4c12-88cb-d0a47ccf66a0",
+         "name":"Double Sided Printing",
+         "description":"Automatic Double Sided Printing"
+      }
+   },
+   {
+      "model":"products.productspecifications",
+      "pk":27,
+      "fields":{
+         "product":"243e2262-9d21-4c12-88cb-d0a47ccf66a0",
+         "name":"Connection",
+         "description":"USB, Network & Wireless"
+      }
+   },
+   {
+      "model":"products.cartridges",
+      "pk":"0f6678cb-ba3c-408e-a7d1-e2594bee660c",
+      "fields":{
+         "category":2,
+         "brand":5,
+         "sku":null,
+         "name":"Ink and Paper Value Pack CMY (700 Pages)",
+         "model":"HP963",
+         "description":"<p>HP 963 Ink and Paper Value Pack CMY (700 Pages)</p>",
+         "price":"50.00",
+         "discount":0,
+         "created_at":"2022-01-19",
+         "modified_at":"2022-01-19",
+         "created_by":1,
+         "image_url":"https://ms4-shop.s3.amazonaws.com/media/HP-963-Black-Promo-Large.jpg",
+         "image":"HP-963-Black-Promo-Large_hSfvknn.jpg",
+         "cartridge_product":true,
+         "compatible_printer":[
+            "1d9519ee-b18a-46f7-b78c-8cf23152100a"
+         ]
+      }
+   },
+   {
+      "model":"products.cartridges",
+      "pk":"65d3a934-047d-4eda-ba36-189cde39e09c",
+      "fields":{
+         "category":2,
+         "brand":5,
+         "sku":"HP003",
+         "name":"Ink and Paper Value Pack CMY (1700 Pages)",
+         "model":"HP963XL",
+         "description":"<p>HP 963XL Ink and Paper Value Pack CMY (1700 Pages)</p>",
+         "price":"150.00",
+         "discount":0,
+         "created_at":"2022-01-19",
+         "modified_at":"2022-01-19",
+         "created_by":1,
+         "image_url":"https://ms4-shop.s3.amazonaws.com/media/HP-963XL-CMYK-Promo-Large.jpg",
+         "image":"HP-963XL-CMYK-Promo-Large.jpg",
+         "cartridge_product":true,
+         "compatible_printer":[
+            "1d9519ee-b18a-46f7-b78c-8cf23152100a"
+         ]
+      }
+   },
+   {
+      "model":"products.cartridges",
+      "pk":"76d01792-8853-4e62-bd6f-01d9140dc97f",
+      "fields":{
+         "category":2,
+         "brand":4,
+         "sku":"104",
+         "name":"Bottle Value Pack CMY",
+         "model":"104",
+         "description":"<p id=\"productTitle\" class=\"fw\">Genuine Epson C13T00P640 104 Ink Bottle Value Pack CMY (7.5K Pages) K (4.5K Pages)</p>",
+         "price":"36.00",
+         "discount":0,
+         "created_at":"2021-12-19",
+         "modified_at":"2022-01-19",
+         "created_by":1,
+         "image_url":"https://ms4-shop.s3.amazonaws.com/media/Epson-C13T00P640-Front-Large_j8IpIlA.jpg",
+         "image":"Epson-C13T00P640-Front-Large_j8IpIlA.jpg",
+         "cartridge_product":true,
+         "compatible_printer":[
+            "679d1833-a1b5-4120-87ee-2afcedd50cf6",
+            "8f6656a5-67c3-498b-ab10-b87b66564a79"
+         ]
+      }
+   },
+   {
+      "model":"products.cartridges",
+      "pk":"785276b9-ad88-4e83-bc94-1a4ecd16ec63",
+      "fields":{
+         "category":1,
+         "brand":5,
+         "sku":"HP001",
+         "name":"Black Toner Cartridge",
+         "model":"106A",
+         "description":"<p>HP 106A Black Toner Cartridge (1,000 Pages)</p>",
+         "price":"120.00",
+         "discount":0,
+         "created_at":"2022-01-19",
+         "modified_at":"2022-01-19",
+         "created_by":1,
+         "image_url":"https://ms4-shop.s3.amazonaws.com/media/HP-106A-Black-Large.jpg",
+         "image":"HP-106A-Black-Large.jpg",
+         "cartridge_product":true,
+         "compatible_printer":[
+            "9765521f-1f87-4a75-a894-e50e539841cc"
+         ]
+      }
+   },
+   {
+      "model":"products.cartridges",
+      "pk":"7f268566-9187-4c85-88fc-d5a4b9402418",
+      "fields":{
+         "category":1,
+         "brand":49,
+         "sku":"CAN002",
+         "name":"Bottle Bundle Pack CMYK",
+         "model":"GI-590",
+         "description":"<p>Genuine Canon GI-590 Ink Bottle Bundle Pack CMY (7,000 Pages) K (6,000 Pages) for Canon PIXMA G1510, PIXMA G2510, PIXMA G3510, PIXMA G4510 Printers.</p>",
+         "price":"35.00",
+         "discount":0,
+         "created_at":"2022-01-19",
+         "modified_at":"2022-01-19",
+         "created_by":1,
+         "image_url":"/media/Canon-G4510-Ink-Bundle-Large.jpg",
+         "image":"Canon-G4510-Ink-Bundle-Large.jpg",
+         "cartridge_product":true,
+         "compatible_printer":[
+            "243e2262-9d21-4c12-88cb-d0a47ccf66a0"
+         ]
+      }
+   },
+   {
+      "model":"products.cartridges",
+      "pk":"aa1fc39f-940b-4af5-8863-2ec6c27d0fbb",
+      "fields":{
+         "category":1,
+         "brand":3,
+         "sku":"C235V_DNIU_CTR",
+         "name":"Toner Cartridge (2,500 Pages)",
+         "model":"006R04394",
+         "description":"<p>Xerox High Capacity Yellow Toner Cartridge (2,500 Pages)</p>",
+         "price":"75.00",
+         "discount":0,
+         "created_at":"2022-01-11",
+         "modified_at":"2022-01-19",
+         "created_by":1,
+         "image_url":"https://ms4-shop.s3.amazonaws.com/media/Xerox-C230-C235-HC-Yellow-Toner-Large_Mucwv7s.jpg",
+         "image":"Xerox-C230-C235-HC-Yellow-Toner-Large_Mucwv7s.jpg",
+         "cartridge_product":true,
+         "compatible_printer":[
+            "1b6622c4-3fde-4afe-b3bd-673a038454b6"
+         ]
+      }
+   },
+
+  {
+    "model":"auth.user",
+    "fields": {
+      "id": 1,
+      "password": "pbkdf2_sha256$260000$qJaTPhcXeRw2w4k7ojMPTG$RebJQi9WvNMRqIrqOw6dKcqtZZjFhzcEnZfgpbKkD/I=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "newuser",
+      "first_name": "",
+      "last_name": "",
+      "email": "fajena5732@wolfpat.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2006-10-25T14:30+02:00"
+    }
+  },
+
+  {
+    "model":"auth.user",
+    "fields": {
+      "id": 2,
+      "password": "pbkdf2_sha256$260000$qJaTPhcXeRw2w4k7ojMPTG$RebJQi9WvNMRqIrqOw6dKcqtZZjFhzcEnZfgpbKkD/I=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "newuser2",
+      "first_name": "",
+      "last_name": "",
+      "email": "fajena5732@wolfpat.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2021-12-18 22:07:15.280268+00:00"
+    }
+  },
+
+  {
+    "model":"auth.user",
+    "fields": {
+      "id": 3,
+      "password": "pbkdf2_sha256$260000$qJaTPhcXeRw2w4k7ojMPTG$RebJQi9WvNMRqIrqOw6dKcqtZZjFhzcEnZfgpbKkD/I=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "newuser3",
+      "first_name": "",
+      "last_name": "",
+      "email": "fajena5732@wolfpat.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2021-12-18 22:07:15.280268+00:00"
+    }
+  },
+  {
+    "model":"auth.user",
+    "fields": {
+      "id": 4,
+      "password": "pbkdf2_sha256$260000$qJaTPhcXeRw2w4k7ojMPTG$RebJQi9WvNMRqIrqOw6dKcqtZZjFhzcEnZfgpbKkD/I=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "newuser4",
+      "first_name": "",
+      "last_name": "",
+      "email": "fajena5732@wolfpat.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2021-12-18 22:07:15.280268+00:00"
+    }
+  },
+
+   {
+      "model":"profiles.userprofile",
+      "pk":1,
+      "fields":{
+         "user":1,
+         "default_full_name":"Alexander Grib",
+         "default_phone_number":"+447756242793",
+         "default_street_address1":"Flat 30, 1 Purbeck Gardens",
+         "default_street_address2":"London",
+         "default_town_or_city":"London",
+         "default_county":"London",
+         "default_postcode":"SE26 5FE",
+         "default_country":"GB"
+      }
+   },
+   {
+      "model":"profiles.userprofile",
+      "pk":2,
+      "fields":{
+         "user":2,
+         "default_full_name":"",
+         "default_phone_number":null,
+         "default_street_address1":null,
+         "default_street_address2":null,
+         "default_town_or_city":null,
+         "default_county":null,
+         "default_postcode":null,
+         "default_country":null
+      }
+   },
+   {
+      "model":"profiles.userprofile",
+      "pk":3,
+      "fields":{
+         "user":3,
+         "default_full_name":"",
+         "default_phone_number":null,
+         "default_street_address1":null,
+         "default_street_address2":null,
+         "default_town_or_city":null,
+         "default_county":null,
+         "default_postcode":null,
+         "default_country":null
+      }
+   },
+   {
+      "model":"profiles.userprofile",
+      "pk":4,
+      "fields":{
+         "user":4,
+         "default_full_name":"('Alex',)",
+         "default_phone_number":"987219379",
+         "default_street_address1":"skdhfsdlh",
+         "default_street_address2":"kldhfdkjshf",
+         "default_town_or_city":"dlkghfhkg",
+         "default_county":null,
+         "default_postcode":"3294097",
+         "default_country":"KI"
+      }
+   },
+   {
+      "model":"checkout.order",
+      "pk":31,
+      "fields":{
+         "order_number":"8944726674D14497823622C97185DCB5",
+         "user_profile":1,
+         "full_name":"Alexander Grib",
+         "email":"alex@alex.ru",
+         "phone_number":"+447756242793",
+         "country":"GB",
+         "postcode":"SE26 5FE",
+         "town_or_city":"London",
+         "street_address1":"Flat 30, 1 Purbeck Gardens",
+         "street_address2":"London",
+         "county":"London",
+         "date":"2021-12-21T17:52:14.503Z",
+         "delivery_cost":"0.00",
+         "order_total":"309.99",
+         "grand_total":"309.99",
+         "original_bag":"{\"679d1833-a1b5-4120-87ee-2afcedd50cf6\": 1}",
+         "stripe_pid":"pi_3K9CVJEwhpsgXpQd0q2qtjvd"
+      }
+   },
+   {
+      "model":"checkout.order",
+      "pk":32,
+      "fields":{
+         "order_number":"D4F850F3A75E477C9F8C667319C98CA2",
+         "user_profile":null,
+         "full_name":"Alexander Grib",
+         "email":"alexgrib@hotmail.com",
+         "phone_number":"+447756242793",
+         "country":"GB",
+         "postcode":"SE26 5FE",
+         "town_or_city":"London",
+         "street_address1":"Flat 30, 1 Purbeck Gardens",
+         "street_address2":"London",
+         "county":"London",
+         "date":"2021-12-21T17:53:55.873Z",
+         "delivery_cost":"0.00",
+         "order_total":"309.99",
+         "grand_total":"309.99",
+         "original_bag":"{\"679d1833-a1b5-4120-87ee-2afcedd50cf6\": 1}",
+         "stripe_pid":"pi_3K9CWxEwhpsgXpQd0UT0tR5r"
+      }
+   },
+   {
+      "model":"checkout.order",
+      "pk":33,
+      "fields":{
+         "order_number":"47ACBB5C261A4EC1ACB69F8E66BFA963",
+         "user_profile":1,
+         "full_name":"Alexander Grib",
+         "email":"alex@alex.ru",
+         "phone_number":"+447756242793",
+         "country":"GB",
+         "postcode":"SE26 5FE",
+         "town_or_city":"London",
+         "street_address1":"Flat 30, 1 Purbeck Gardens",
+         "street_address2":"London",
+         "county":"London",
+         "date":"2021-12-23T18:39:13.568Z",
+         "delivery_cost":"0.00",
+         "order_total":"212.00",
+         "grand_total":"212.00",
+         "original_bag":"{\"8f6656a5-67c3-498b-ab10-b87b66564a79\": 1}",
+         "stripe_pid":"pi_3K9wBrEwhpsgXpQd0HYmi7uI"
+      }
+   },
+   {
+      "model":"checkout.order",
+      "pk":34,
+      "fields":{
+         "order_number":"DEAFB65105A54DFD85833A8F4AAA4CED",
+         "user_profile":1,
+         "full_name":"Alexander Grib",
+         "email":"alex@alex.ru",
+         "phone_number":"+447756242793",
+         "country":"GB",
+         "postcode":"SE26 5FE",
+         "town_or_city":"London",
+         "street_address1":"Flat 30, 1 Purbeck Gardens",
+         "street_address2":"London",
+         "county":"London",
+         "date":"2022-01-04T15:30:13.790Z",
+         "delivery_cost":"0.00",
+         "order_total":"99.00",
+         "grand_total":"99.00",
+         "original_bag":"{\"9765521f-1f87-4a75-a894-e50e539841cc\": 1}",
+         "stripe_pid":"pi_3KEExPEwhpsgXpQd0O5wLXQT"
+      }
+   },
+   {
+      "model":"checkout.order",
+      "pk":35,
+      "fields":{
+         "order_number":"EDA85E7B8A9847CAA1E0BA7241DB13A0",
+         "user_profile":1,
+         "full_name":"Alexander Grib",
+         "email":"alex@alex.ru",
+         "phone_number":"+447756242793",
+         "country":"GB",
+         "postcode":"SE26 5FE",
+         "town_or_city":"London",
+         "street_address1":"Flat 30, 1 Purbeck Gardens",
+         "street_address2":"London",
+         "county":"London",
+         "date":"2022-01-14T18:26:19.570Z",
+         "delivery_cost":"0.00",
+         "order_total":"75.00",
+         "grand_total":"75.00",
+         "original_bag":"{\"aa1fc39f-940b-4af5-8863-2ec6c27d0fbb\": {\"cartridge\": {\"aa1fc39f-940b-4af5-8863-2ec6c27d0fbb\": 1}}}",
+         "stripe_pid":"pi_3KHuTOEwhpsgXpQd0szxLHB7"
+      }
+   },
+   {
+      "model":"checkout.order",
+      "pk":36,
+      "fields":{
+         "order_number":"3284FC5E04CB4C409225B2528E657ACC",
+         "user_profile":null,
+         "full_name":"���� ������",
+         "email":"dfgd@sf.ds",
+         "phone_number":"999999999",
+         "country":"GB",
+         "postcode":"se23 2dd",
+         "town_or_city":"sdfsdfdsf",
+         "street_address1":"fdgfdg sfsdfsd",
+         "street_address2":"London",
+         "county":"London",
+         "date":"2022-01-14T18:34:39.152Z",
+         "delivery_cost":"0.00",
+         "order_total":"99.00",
+         "grand_total":"99.00",
+         "original_bag":"{\"9765521f-1f87-4a75-a894-e50e539841cc\": 1}",
+         "stripe_pid":"pi_3KHubUEwhpsgXpQd1luCLjdJ"
+      }
+   },
+   {
+      "model":"checkout.order",
+      "pk":37,
+      "fields":{
+         "order_number":"5D99DBC00EB34056AF00C939CDBF28EB",
+         "user_profile":1,
+         "full_name":"Alexander Grib",
+         "email":"alex@alex.ru",
+         "phone_number":"+447756242793",
+         "country":"GB",
+         "postcode":"SE26 5FE",
+         "town_or_city":"London",
+         "street_address1":"Flat 30, 1 Purbeck Gardens",
+         "street_address2":"London",
+         "county":"London",
+         "date":"2022-01-18T19:45:08.917Z",
+         "delivery_cost":"0.00",
+         "order_total":"248.00",
+         "grand_total":"248.00",
+         "original_bag":"{\"76d01792-8853-4e62-bd6f-01d9140dc97f\": {\"cartridge\": {\"76d01792-8853-4e62-bd6f-01d9140dc97f\": 1}}, \"8f6656a5-67c3-498b-ab10-b87b66564a79\": 1}",
+         "stripe_pid":"pi_3KJNblEwhpsgXpQd09LNj2kJ"
+      }
+   },
+   {
+      "model":"checkout.order",
+      "pk":38,
+      "fields":{
+         "order_number":"B4C7189D8B024FC484AF95A97BB3FB3C",
+         "user_profile":4,
+         "full_name":"Alex",
+         "email":"pioneerko@hotmail.com",
+         "phone_number":"987219379",
+         "country":"KI",
+         "postcode":"3294097",
+         "town_or_city":"dlkghfhkg",
+         "street_address1":"skdhfsdlh",
+         "street_address2":"kldhfdkjshf",
+         "county":null,
+         "date":"2022-01-19T20:59:03.732Z",
+         "delivery_cost":"0.00",
+         "order_total":"246.00",
+         "grand_total":"246.00",
+         "original_bag":"{\"1d9519ee-b18a-46f7-b78c-8cf23152100a\": 1}",
+         "stripe_pid":"pi_3KJlEfEwhpsgXpQd0gSt7oOl"
+      }
+   },
+   {
+      "model":"checkout.order",
+      "pk":39,
+      "fields":{
+         "order_number":"8083435BE4924E29ACF971E6CE220AF5",
+         "user_profile":1,
+         "full_name":"Alexander Grib",
+         "email":"alex@alex.ru",
+         "phone_number":"+447756242793",
+         "country":"GB",
+         "postcode":"SE26 5FE",
+         "town_or_city":"London",
+         "street_address1":"Flat 30, 1 Purbeck Gardens",
+         "street_address2":"London",
+         "county":"London",
+         "date":"2022-01-20T19:59:17.712Z",
+         "delivery_cost":"3.50",
+         "order_total":"35.00",
+         "grand_total":"38.50",
+         "original_bag":"{\"7f268566-9187-4c85-88fc-d5a4b9402418\": {\"cartridge\": {\"7f268566-9187-4c85-88fc-d5a4b9402418\": 1}}}",
+         "stripe_pid":"pi_3KK6mdEwhpsgXpQd05cBfkau"
+      }
+   },
+   {
+      "model":"checkout.order",
+      "pk":40,
+      "fields":{
+         "order_number":"358776CEE2EE42A6A4BE5FC88E0BFC1A",
+         "user_profile":1,
+         "full_name":"Alexander Grib",
+         "email":"alex@alex.ru",
+         "phone_number":"+447756242793",
+         "country":"GB",
+         "postcode":"SE26 5FE",
+         "town_or_city":"London",
+         "street_address1":"Flat 30, 1 Purbeck Gardens",
+         "street_address2":"London",
+         "county":"London",
+         "date":"2022-01-20T20:00:23.528Z",
+         "delivery_cost":"0.00",
+         "order_total":"246.00",
+         "grand_total":"246.00",
+         "original_bag":"{\"1d9519ee-b18a-46f7-b78c-8cf23152100a\": 1}",
+         "stripe_pid":"pi_3KK6nkEwhpsgXpQd0XsKZzG7"
+      }
+   },
+   {
+      "model":"checkout.order",
+      "pk":41,
+      "fields":{
+         "order_number":"DC4BCC0E5098408FBC686EBA16782C54",
+         "user_profile":1,
+         "full_name":"Alexander Grib",
+         "email":"alex@alex.ru",
+         "phone_number":"+447756242793",
+         "country":"GB",
+         "postcode":"SE26 5FE",
+         "town_or_city":"London",
+         "street_address1":"Flat 30, 1 Purbeck Gardens",
+         "street_address2":"London",
+         "county":"London",
+         "date":"2022-01-20T20:05:27.875Z",
+         "delivery_cost":"0.00",
+         "order_total":"225.00",
+         "grand_total":"225.00",
+         "original_bag":"{\"1b6622c4-3fde-4afe-b3bd-673a038454b6\": 1}",
+         "stripe_pid":"pi_3KK6sgEwhpsgXpQd0rzeOWuV"
+      }
+   },
+   {
+      "model":"checkout.order",
+      "pk":42,
+      "fields":{
+         "order_number":"5F2CB67BDF284AAABB6E48A693D9F0F7",
+         "user_profile":1,
+         "full_name":"Alexander Grib",
+         "email":"alex@alex.ru",
+         "phone_number":"+447756242793",
+         "country":"GB",
+         "postcode":"SE26 5FE",
+         "town_or_city":"London",
+         "street_address1":"Flat 30, 1 Purbeck Gardens",
+         "street_address2":"London",
+         "county":"London",
+         "date":"2022-01-20T20:06:58.628Z",
+         "delivery_cost":"0.00",
+         "order_total":"309.99",
+         "grand_total":"309.99",
+         "original_bag":"{\"679d1833-a1b5-4120-87ee-2afcedd50cf6\": 1}",
+         "stripe_pid":"pi_3KK6u8EwhpsgXpQd1uMpa7tw"
+      }
+   },
+   {
+      "model":"checkout.orderlineitem",
+      "pk":30,
+      "fields":{
+         "order":31,
+         "product":"679d1833-a1b5-4120-87ee-2afcedd50cf6",
+         "cartridge":null,
+         "quantity":1,
+         "lineitem_total":"309.99"
+      }
+   },
+   {
+      "model":"checkout.orderlineitem",
+      "pk":31,
+      "fields":{
+         "order":32,
+         "product":"679d1833-a1b5-4120-87ee-2afcedd50cf6",
+         "cartridge":null,
+         "quantity":1,
+         "lineitem_total":"309.99"
+      }
+   },
+   {
+      "model":"checkout.orderlineitem",
+      "pk":32,
+      "fields":{
+         "order":33,
+         "product":"8f6656a5-67c3-498b-ab10-b87b66564a79",
+         "cartridge":null,
+         "quantity":1,
+         "lineitem_total":"212.00"
+      }
+   },
+   {
+      "model":"checkout.orderlineitem",
+      "pk":33,
+      "fields":{
+         "order":34,
+         "product":"9765521f-1f87-4a75-a894-e50e539841cc",
+         "cartridge":null,
+         "quantity":1,
+         "lineitem_total":"99.00"
+      }
+   },
+   {
+      "model":"checkout.orderlineitem",
+      "pk":34,
+      "fields":{
+         "order":35,
+         "product":null,
+         "cartridge":"aa1fc39f-940b-4af5-8863-2ec6c27d0fbb",
+         "quantity":1,
+         "lineitem_total":"75.00"
+      }
+   },
+   {
+      "model":"checkout.orderlineitem",
+      "pk":35,
+      "fields":{
+         "order":36,
+         "product":"9765521f-1f87-4a75-a894-e50e539841cc",
+         "cartridge":null,
+         "quantity":1,
+         "lineitem_total":"99.00"
+      }
+   },
+   {
+      "model":"checkout.orderlineitem",
+      "pk":36,
+      "fields":{
+         "order":37,
+         "product":null,
+         "cartridge":"76d01792-8853-4e62-bd6f-01d9140dc97f",
+         "quantity":1,
+         "lineitem_total":"36.00"
+      }
+   },
+   {
+      "model":"checkout.orderlineitem",
+      "pk":37,
+      "fields":{
+         "order":37,
+         "product":"8f6656a5-67c3-498b-ab10-b87b66564a79",
+         "cartridge":null,
+         "quantity":1,
+         "lineitem_total":"212.00"
+      }
+   },
+   {
+      "model":"checkout.orderlineitem",
+      "pk":38,
+      "fields":{
+         "order":38,
+         "product":"1d9519ee-b18a-46f7-b78c-8cf23152100a",
+         "cartridge":null,
+         "quantity":1,
+         "lineitem_total":"246.00"
+      }
+   },
+   {
+      "model":"checkout.orderlineitem",
+      "pk":39,
+      "fields":{
+         "order":39,
+         "product":null,
+         "cartridge":"7f268566-9187-4c85-88fc-d5a4b9402418",
+         "quantity":1,
+         "lineitem_total":"35.00"
+      }
+   },
+   {
+      "model":"checkout.orderlineitem",
+      "pk":40,
+      "fields":{
+         "order":40,
+         "product":"1d9519ee-b18a-46f7-b78c-8cf23152100a",
+         "cartridge":null,
+         "quantity":1,
+         "lineitem_total":"246.00"
+      }
+   },
+   {
+      "model":"checkout.orderlineitem",
+      "pk":41,
+      "fields":{
+         "order":41,
+         "product":"1b6622c4-3fde-4afe-b3bd-673a038454b6",
+         "cartridge":null,
+         "quantity":1,
+         "lineitem_total":"225.00"
+      }
+   },
+   {
+      "model":"checkout.orderlineitem",
+      "pk":42,
+      "fields":{
+         "order":42,
+         "product":"679d1833-a1b5-4120-87ee-2afcedd50cf6",
+         "cartridge":null,
+         "quantity":1,
+         "lineitem_total":"309.99"
+      }
+   }
+]
