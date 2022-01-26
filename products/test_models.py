@@ -17,21 +17,21 @@ class TestProductModels(TestCase):
         """
         Test that the product name is retrieved correctly
         """
-        product = Product.objects.get(pk='1b6622c4-3fde-4afe-b3bd-673a038454b6')
+        product = Product.objects.get(
+            pk='1b6622c4-3fde-4afe-b3bd-673a038454b6')
         self.assertEqual(product.model, 'C235')
         self.assertNotEqual(product.name, 'Test name')
-
 
     def test_product_sku(self):
         """
         Test that the product description is retrieved correctly
         """
-        product = Product.objects.get(pk='1b6622c4-3fde-4afe-b3bd-673a038454b6')
+        product = Product.objects.get(
+            pk='1b6622c4-3fde-4afe-b3bd-673a038454b6')
         self.assertEqual(
             product.sku, "D235V_DNIUK"
         )
         self.assertNotEqual(product.sku, 'test if not equal')
-
 
 
 class TestCategoryModels(TestCase):
@@ -40,7 +40,7 @@ class TestCategoryModels(TestCase):
     """
 
     fixtures = [
-         'fixtures.json',
+        'fixtures.json',
     ]
 
     def test_category_name(self):
