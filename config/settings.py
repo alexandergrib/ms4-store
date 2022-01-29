@@ -136,15 +136,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
 DATABASES = {
-
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': os.environ.get('PG_NAME'),
@@ -152,16 +144,7 @@ DATABASES = {
         'PASSWORD': os.environ.get('PG_PASSWORD'),
         'HOST': os.environ.get('PG_SERVER'),
         'PORT': os.environ.get('PG_PORT'),
-
     },
-    # 'test_db': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME':  ':memory:',
-    # 'TEST': {
-    #     'MIRROR': 'default',
-    # },
-    # }
-
 }
 
 # Covers regular testing and django-coverage

@@ -73,7 +73,6 @@ class BaseProduct(models.Model):
 class Product(BaseProduct):
     class Meta:
         verbose_name_plural = 'Products'
-        #     ordering
 
     id = models.UUIDField(primary_key=True,
                           default=uuid.uuid4,

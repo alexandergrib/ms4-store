@@ -1,4 +1,8 @@
-# Most of the testing code was used from https://github.com/Abibubble/ms4-lead-shot-hazard/ with adaptation to suit my project
+"""
+ Most of the testing code was used from
+ https://github.com/Abibubble/ms4-lead-shot-hazard/ with adaptation to
+ suit my project
+"""
 from django.test import TestCase
 from django.conf import settings
 
@@ -31,7 +35,7 @@ class TestOrderModels(TestCase):  # pragma: no cover
 
     def test_checkout_details(self):
         """
-        Test that the checkout fields auto-fill from the user's information
+        Test that the checkout fields autofill from the user's information
         """
         order = Order.objects.get(id=1)
         self.assertEqual(order.full_name, 'tester test')

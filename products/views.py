@@ -7,8 +7,8 @@ from django.db.models import Q
 
 from config import settings
 from profiles.models import UserProfile
-from .forms import ProductForm, CategoryForm, BrandForm, ProductSpecsForm, \
-    CartrigesForm, RatingForm
+from .forms import (ProductForm, CategoryForm, BrandForm,
+                    ProductSpecsForm, CartrigesForm, RatingForm)
 from .models import (Product,
                      Category,
                      Cartridges,
@@ -103,7 +103,9 @@ def product_detail(request, product_id):
 
         if can_rate_query.exists():
             #user purchased product and can rate
-            review_filtered = reviews.filter(user__id__icontains=request.user.id).filter(product__id__icontains=product_id)
+            review_filtered = reviews.filter(
+                user__id__icontains=request.user.id).filter(
+                product__id__icontains=product_id)
             if review_filtered.exists():
                 #  if rated already
                 can_rate = False
@@ -302,7 +304,6 @@ def add_cartridge(request, product_id):
             if form.cleaned_data['image']:
                 image = request.FILES.get('image')
                 cartridge_form = form.save(commit=False)
-                # cartridge_form.compatible_printer = product_id
                 cartridge_form.image_url = settings.MEDIA_URL + image.name
                 cartridge_form.save()
             else:
@@ -327,7 +328,6 @@ def add_cartridge(request, product_id):
 @login_required
 def add_review(request, product_id):
     """ Add a product review """
-
     product = get_object_or_404(Product, pk=product_id)
     user = UserProfile.objects.get(user=request.user)
     user_review = ProductReviews.objects.filter(product=product, user=user)
@@ -394,7 +394,10 @@ def edit_product(request, product_id):
                 'Failed to update product. Please ensure the form is valid.')
     else:
         form = ProductForm(instance=product)
-        messages.info(request, f'You are editing {product.brand.friendly_brand_name} {product.model} {product.name}')
+        messages.info(
+            request, f'You are editing \
+            {product.brand.friendly_brand_name} \
+            {product.model} {product.name}')
 
     template = 'products/edit_product.html'
     context = {
@@ -428,7 +431,9 @@ def edit_cartridge(request, product_id):
                 form.save()
     else:
         form = CartrigesForm(instance=cartridge)
-        messages.info(request, f'You are editing {cartridge.brand.friendly_brand_name} {cartridge.model} {cartridge.name}')
+        messages.info(request, f'You are editing \
+        {cartridge.brand.friendly_brand_name} \
+        {cartridge.model} {cartridge.name}')
 
     template = 'products/edit_cartridge.html'
     context = {
@@ -442,7 +447,6 @@ def edit_cartridge(request, product_id):
 @login_required
 def edit_review(request, review_id):
     """ Save edited product review """
-
     review = get_object_or_404(ProductReviews, pk=review_id)
     if request.user.is_superuser or request.user == review.user.user:
         if request.method == 'POST':
@@ -471,7 +475,7 @@ def edit_review(request, review_id):
         return redirect(reverse('product_detail', args=[review.product.id]))
 
 
-# --------------------Delete functions
+# --------------------Delete functions-------------------
 
 
 @login_required

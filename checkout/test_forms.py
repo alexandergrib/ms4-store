@@ -1,4 +1,8 @@
-# Most of the testing code was used from https://github.com/Abibubble/ms4-lead-shot-hazard/ with adaptation to suit my project
+"""
+ Most of the testing code was used from
+ https://github.com/Abibubble/ms4-lead-shot-hazard/ with adaptation to
+ suit my project
+"""
 from django.test import TestCase
 from .forms import OrderForm
 

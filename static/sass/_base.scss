@@ -6,7 +6,6 @@ html {
 }
 
 body {
-    //overflow: hidden;
     height: calc(100vh - 188px);
     color: $base-color;
     font-family: "Lato", sans-serif !important;
@@ -344,14 +343,4 @@ a.category-badge > span.badge:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.form-select {
-    border-radius: 0 !important;
-}
-
-select {
-    option {
-        border-radius: 0 !important;
-    }
 }

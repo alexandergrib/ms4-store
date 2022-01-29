@@ -1,4 +1,8 @@
-# Most of the testing code was used from https://github.com/Abibubble/ms4-lead-shot-hazard/ with adaptation to suit my project
+"""
+ Most of the testing code was used from
+ https://github.com/Abibubble/ms4-lead-shot-hazard/ with adaptation to
+ suit my project
+"""
 from django.test import TestCase
 
 from django.shortcuts import reverse, get_object_or_404
@@ -51,7 +55,8 @@ class TestCheckoutViews(TestCase):
 
         self.empty_bag = {}
 
-        self.filled_bag = {'1b6622c4-3fde-4afe-b3bd-673a038454b6': 1, '8f6656a5-67c3-498b-ab10-b87b66564a79': 1}
+        self.filled_bag = {'1b6622c4-3fde-4afe-b3bd-673a038454b6': 1,
+                           '8f6656a5-67c3-498b-ab10-b87b66564a79': 1}
 
         self.bad_bag = {'200': 1}
 
@@ -99,7 +104,8 @@ class TestCheckoutViews(TestCase):
         """
         Test that an error message is shown when Stripe key is missing
         """
-        bag = {'8f6656a5-67c3-498b-ab10-b87b66564a79': 1, '1b6622c4-3fde-4afe-b3bd-673a038454b6': 1}
+        bag = {'8f6656a5-67c3-498b-ab10-b87b66564a79': 1,
+               '1b6622c4-3fde-4afe-b3bd-673a038454b6': 1}
         session = self.client.session
         session['bag'] = bag
         session.save()

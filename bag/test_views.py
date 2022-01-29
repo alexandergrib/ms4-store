@@ -1,4 +1,8 @@
-# Most of the testing code was used from https://github.com/Abibubble/ms4-lead-shot-hazard/ with adaptation to suit my project
+"""
+ Most of the testing code was used from
+ https://github.com/Abibubble/ms4-lead-shot-hazard/ with adaptation to
+ suit my project
+"""
 from django.test import TestCase
 
 from django.urls import reverse, resolve
@@ -15,7 +19,6 @@ class TestBagViews(TestCase):
 
     fixtures = [
         'fixtures.json',
-
     ]
 
     def setUp(self):
@@ -37,7 +40,8 @@ class TestBagViews(TestCase):
 
         self.empty_bag = {}
 
-        self.filled_bag = {'1b6622c4-3fde-4afe-b3bd-673a038454b6': 1, '8f6656a5-67c3-498b-ab10-b87b66564a79': 1}
+        self.filled_bag = {'1b6622c4-3fde-4afe-b3bd-673a038454b6': 1,
+                           '8f6656a5-67c3-498b-ab10-b87b66564a79': 1}
 
         self.bad_bag = {'200': 1}
 
@@ -65,7 +69,8 @@ class TestBagViews(TestCase):
         """
         Test that the add_to_bag function adds products to the bag
         """
-        product = Product.objects.get(pk='1b6622c4-3fde-4afe-b3bd-673a038454b6')
+        product = Product.objects.get(
+            pk='1b6622c4-3fde-4afe-b3bd-673a038454b6')
         url = reverse('adjust_bag', args=['itemId'])
         self.assertEqual(resolve(url).func, adjust_bag)
         quantity = 1
@@ -79,7 +84,8 @@ class TestBagViews(TestCase):
         """
         url = reverse('adjust_bag', args=['itemId'])
         self.assertEqual(resolve(url).func, adjust_bag)
-        product = Product.objects.get(pk='1b6622c4-3fde-4afe-b3bd-673a038454b6')
+        product = Product.objects.get(
+            pk='1b6622c4-3fde-4afe-b3bd-673a038454b6')
         quantity = 3
         bag_total = product.price * quantity
         self.assertEqual(bag_total, 675.00)
@@ -89,7 +95,7 @@ class TestBagViews(TestCase):
 
     def test_remove_from_bag_url(self):
         """
-        Test that the remove_from_bag view remobves a product from the bag
+        Test that the remove_from_bag view removes a product from the bag
         """
         url = reverse('remove_from_bag', args=['itemId'])
         self.assertEqual(resolve(url).func, remove_from_bag)
@@ -118,14 +124,17 @@ class TestBagViews(TestCase):
         session['bag'] = self.filled_bag
         session.save()
         post_data = {
-            'product': Product.objects.get(pk='1b6622c4-3fde-4afe-b3bd-673a038454b6'),
+            'product': Product.objects.get(
+                pk='1b6622c4-3fde-4afe-b3bd-673a038454b6'),
             'quantity': 3,
             'redirect_url': '/products/1b6622c4-3fde-4afe-b3bd-673a038454b6/'
         }
-        response = self.client.post('/bag/add/1b6622c4-3fde-4afe-b3bd-673a038454b6/', post_data)
+        response = self.client.post(
+            '/bag/add/1b6622c4-3fde-4afe-b3bd-673a038454b6/', post_data)
         self.assertEqual(response.status_code, 302)
         updated_bag = self.client.session.get('bag')
-        self.assertEqual(updated_bag['1b6622c4-3fde-4afe-b3bd-673a038454b6'], 4)
+        self.assertEqual(updated_bag[
+                             '1b6622c4-3fde-4afe-b3bd-673a038454b6'], 4)
 
     def test_adjust_bag_view(self):
         """
@@ -136,13 +145,16 @@ class TestBagViews(TestCase):
         session['bag'] = self.filled_bag
         session.save()
         post_data = {
-            'bag_item': get_object_or_404(Product, pk='1b6622c4-3fde-4afe-b3bd-673a038454b6'),
+            'bag_item': get_object_or_404(
+                Product, pk='1b6622c4-3fde-4afe-b3bd-673a038454b6'),
             'quantity': int(self.quantity + 1),
         }
-        response = self.client.post('/bag/adjust/1b6622c4-3fde-4afe-b3bd-673a038454b6/', post_data)
+        response = self.client.post(
+            '/bag/adjust/1b6622c4-3fde-4afe-b3bd-673a038454b6/', post_data)
         self.assertEqual(response.status_code, 302)
         updated_bag = self.client.session.get('bag')
-        self.assertEqual(updated_bag['1b6622c4-3fde-4afe-b3bd-673a038454b6'], 2)
+        self.assertEqual(
+            updated_bag['1b6622c4-3fde-4afe-b3bd-673a038454b6'], 2)
 
     def test_adjust_bag_view_removes_item_when_quantity_is_less_than_1(self):
         """
@@ -153,10 +165,12 @@ class TestBagViews(TestCase):
         session['bag'] = self.filled_bag
         session.save()
         post_data = {
-            'bag_item': get_object_or_404(Product, pk='1b6622c4-3fde-4afe-b3bd-673a038454b6'),
+            'bag_item': get_object_or_404(
+                Product, pk='1b6622c4-3fde-4afe-b3bd-673a038454b6'),
             'quantity': int(self.quantity - 1),
         }
-        response = self.client.post('/bag/adjust/1b6622c4-3fde-4afe-b3bd-673a038454b6/', post_data)
+        response = self.client.post(
+            '/bag/adjust/1b6622c4-3fde-4afe-b3bd-673a038454b6/', post_data)
         self.assertEqual(response.status_code, 302)
         updated_bag = self.client.session.get('bag')
         self.assertEqual(len(updated_bag), 1)
@@ -169,7 +183,8 @@ class TestBagViews(TestCase):
         session = self.client.session
         session['bag'] = self.filled_bag
         session.save()
-        response = self.client.post('/bag/remove/1b6622c4-3fde-4afe-b3bd-673a038454b6/')
+        response = self.client.post(
+            '/bag/remove/1b6622c4-3fde-4afe-b3bd-673a038454b6/')
         self.assertEqual(response.status_code, 200)
         updated_bag = self.client.session.get('bag')
         self.assertEqual(len(updated_bag), 1)

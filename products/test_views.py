@@ -1,7 +1,10 @@
-# Most of the testing code was used from https://github.com/Abibubble/ms4-lead-shot-hazard/ with adaptation to suit my project
+"""
+ Most of the testing code was used from
+ https://github.com/Abibubble/ms4-lead-shot-hazard/ with adaptation to
+ suit my project
+"""
 
 from django.test import TestCase
-
 from django.shortcuts import reverse
 from django.contrib.messages import get_messages
 from django.contrib.auth.models import User
@@ -180,7 +183,8 @@ class TestProductViewsAddData(TestCase):
         self.client.login(
             username='testuser', email='test@test.com',
             password='te12345st')
-        response = self.client.get('/products/add/cartridge/243e2262-9d21-4c12-88cb-d0a47ccf66a0')
+        response = self.client.get(
+            '/products/add/cartridge/243e2262-9d21-4c12-88cb-d0a47ccf66a0')
         messages = list(get_messages(response.wsgi_request))
         self.assertEqual(len(messages), 1)
         self.assertEqual(messages[0].tags, 'error')
@@ -229,7 +233,8 @@ class TestProductViewsAddData(TestCase):
             username='testuser', email='test@test.com', password='te12345st')
         products = Cartridges.objects.all()
         for product in products:
-            response = self.client.get(f'/products/edit/cartridge/{product.pk}/')
+            response = self.client.get(
+                f'/products/edit/cartridge/{product.pk}/')
             messages = list(get_messages(response.wsgi_request))
             self.assertEqual(messages[0].tags, 'error')
             self.assertEqual(
@@ -263,7 +268,8 @@ class TestProductViewsAddData(TestCase):
             password='password')
         products = Cartridges.objects.all()
         for product in products:
-            response = self.client.get(f'/products/edit/cartridge/{product.pk}/')
+            response = self.client.get(
+                f'/products/edit/cartridge/{product.pk}/')
             self.assertEqual(response.status_code, 200)
 
     def test_delete_product_for_regular_users_view(self):
@@ -293,7 +299,8 @@ class TestProductViewsAddData(TestCase):
             username='testuser', email='test@test.com', password='te12345st')
         products = Cartridges.objects.all()
         for product in products:
-            response = self.client.get(f'/products/delete/cartridge/{product.pk}/')
+            response = self.client.get(
+                f'/products/delete/cartridge/{product.pk}/')
             messages = list(get_messages(response.wsgi_request))
             self.assertEqual(messages[0].tags, 'error')
             self.assertEqual(
@@ -327,5 +334,6 @@ class TestProductViewsAddData(TestCase):
             password='password')
         products = Cartridges.objects.all()
         for product in products:
-            response = self.client.get(f'/products/delete/cartridge/{product.pk}/')
+            response = self.client.get(
+                f'/products/delete/cartridge/{product.pk}/')
             self.assertEqual(response.status_code, 302)
