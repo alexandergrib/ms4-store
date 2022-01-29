@@ -6,9 +6,9 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/alexandergrib/ms4-store)
 ![GitHub language count](https://img.shields.io/github/languages/count/alexandergrib/ms4-store)
 ![Font Awesome version](https://img.shields.io/badge/Font%20Awesome-v5.15.1-blue)
-![Travis CI Build](https://secure.travis-ci.org/abibubble/ms4-lead-shot-hazard.png)
+![Travis CI Build](https://app.travis-ci.com/alexandergrib/ms4-store.svg)
 
-[//]: # (![Testing coverage]&#40;https://img.shields.io/badge/coverage-92%25-brightgreen&#41;)
+![Testing coverage](https://img.shields.io/badge/coverage-72%25-brightgreen)
 ![GitHub forks](https://img.shields.io/github/forks/alexandergrib/ms4-store?style=social)
 
 [Here is a link to the final project](https://ms4-store.herokuapp.com/)
@@ -176,6 +176,10 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 
 - Windows 11 affecting styles of the dropdown menu's, forcing them to have rounded corners ![img](./readme_media/dropdown_menu_issue.png)
     * I was unable to fix this issue. This issue only occurs on Windows 11. 
+
+- When running django tests there is few errors shown ![img](./readme_media/tests_errors.png)
+  - To fix this error I have to export STRIPE_PUBLIC_KEY and STRIPE_SECRET_KEY to make accessible in the terminal once they set, tests pass with no issues.
+
 
 ---
 
