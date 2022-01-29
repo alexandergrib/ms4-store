@@ -168,17 +168,19 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 -   A large amount of testing was done to ensure that all pages were linking correctly
 -   Friends and family members were asked to review the site and documentation to point out any bugs and/or user experience issues.
 
-### Known Bugs
-
--   
-
 ### Known Issues
 
 - Windows 11 affecting styles of the dropdown menu's, forcing them to have rounded corners ![img](./readme_media/dropdown_menu_issue.png)
     * I was unable to fix this issue. This issue only occurs on Windows 11. 
 
-- When running django tests there is few errors shown ![img](./readme_media/tests_errors.png)
+- When running django tests there is few errors shown: ![img](./readme_media/tests_errors.png)
   - To fix this error I have to export STRIPE_PUBLIC_KEY and STRIPE_SECRET_KEY to make accessible in the terminal once they set, tests pass with no issues.
+
+
+### Problems encountered
+
+- When checkout with selected update profile user 'Full name' was saved a tuple like so: ```('User Name',)``` instead of ```User Name```
+  - Problem was in the code where extra comma was added: ![Extra comma](./readme_media/bug_with_name.png)
 
 
 ---
