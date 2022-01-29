@@ -204,7 +204,7 @@
 {% block postloadjs %}
 
     <script src="{% static 'js/main.js' %}"></script>
-    <script type="text/javascript">
+    <script>
         var toastElList = [].slice.call(document.querySelectorAll('.toast'))
         var toastList = toastElList.map(function (toastEl) {
             return new bootstrap.Toast(toastEl)
@@ -214,7 +214,7 @@
     </script>
 
 
-    <script type="text/javascript">
+    <script>
         // Update quantity on click
         $('.update-link').click(function (e) {
             var form = $(this).prev('.update-form');
@@ -238,7 +238,7 @@
         })
     </script>
 
-    <script type="text/javascript">
+    <script>
         basketPosition = window.scrollX + document.querySelector('#shopping-bag').getBoundingClientRect().left
         if (basketPosition === 0) {
             basketPosition = window.scrollX + document.querySelector('#shopping-bag2').getBoundingClientRect().left
