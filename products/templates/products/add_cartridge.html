@@ -2,7 +2,6 @@
     <form method="POST" action="{% url 'add_cartridge' product_id=product.id %}" class="form mb-2" enctype="multipart/form-data">
         {% csrf_token %}
             {% for field in form %}
-{#                {{ field | as_crispy_field }}#}
                 {% if field.name == 'compatible_printer' %}
                      <div id="div_id_category" class="mb-3">
                             <label for="id_compatible_printer" class="form-label requiredField">Compatible printer {% for x, y in form.fields.compatible_printer.choices %}{% if x == compatible_printer.id %}<strong>{{ y }}</strong>{% endif %}{% endfor %}</label>

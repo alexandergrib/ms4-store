@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
 
-
 {% block content %}
     <div class="overlay"></div>
     <div class="container">
@@ -25,16 +24,12 @@
                             {{ field }}
                         {% endif %}
                     {% endfor %}
-                    {#                    <label for="product_spec">Prodct specs</label><input type="text" name="product_spec" maxlength="254" class="border-black rounded-0 textinput textInput form-control" id="product_spec">#}
-{#                    <button id="add-another">add another spec</button>#}
                     <div class="text-right">
                         <a class="btn btn-outline-black rounded-0" href="{% url 'products' %}">Cancel</a>
                         <button class="btn btn-black rounded-0" type="submit">Add Product</button>
                     </div>
                 </form>
             </div>
-
-
         </div>
     </div>
 {% endblock %}
@@ -66,10 +61,3 @@
 
       <script src="{% static 'js/tinyMceSettings.js' %}"></script>
 {% endblock %}
-
-{#<div id="div_id_product_specs_2" class="mb-3">#}
-{#    <label for="id_product_specs_2" class="form-label">#}
-{#        Product specs 2#}
-{#    </label>#}
-{#    <input type="text" name="product_specs_2" class="textinput textInput form-control" id="id_product_specs_2">#}
-{#</div>#}

@@ -2,7 +2,6 @@
     font-size: 1.3rem;
 }
 
-
 /* ------------------------------------------ homepage Carousel styles */
 .MultiCarousel {
     float: left;
@@ -99,7 +98,7 @@
     bottom: 10%;
 }
 
-/* --------------------------------------------Product detail---Bootstrap carousel*/
+/* ------------------------Product detail---Bootstrap carousel*/
 .carousel-indicators {
     position: relative;
 }

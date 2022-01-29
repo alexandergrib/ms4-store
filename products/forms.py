@@ -52,13 +52,6 @@ class ProductForm(forms.ModelForm):
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'border-black rounded-0'
 
-        # create 3 new fields for product specs
-        # for index in range(int(3)):
-        #     # generate extra fields in the number specified via extra_fields
-        #     self.fields['product_specs_{index}'.format(index=index)] = \
-        #         forms.CharField(required=False)
-        # self.fields["product_specs"] = forms.CharField(required=False)
-
 
 class CategoryForm(forms.ModelForm):
     class Meta:
@@ -95,7 +88,7 @@ class RatingForm(forms.ModelForm):
     class Meta:
         exclude = ('user', 'product', 'date_posted', 'review_image')
         model = ProductReviews
-        fields = '__all__'  # ['review_title', 'review_text', 'review_score']
+        fields = '__all__'
         labels = {
             'review_score': 'Select Your Rating',
         }
