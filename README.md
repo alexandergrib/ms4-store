@@ -34,16 +34,16 @@ This site was built using HTML, CSS, Bootstrap, JavaScript, jQuery, Python, Djan
  - As a site owner, I want to be able to add new, edit or remove existing categories and brands.
 
 ## First Time Visitor Goals
- - As a Shopper, I want to be able to view a list of products, so that I can select some to purchase.
- - As a Shopper, I want to be able to view individual product details, product Image, the price, the product description and the compatible cartridges.
- - As a Shopper, I want to look for testimonials to understand what other users think of the site and the service it renders.
+ - As a First Time Visitor, I want to be able to view a list of products, so that I can select some to purchase.
+ - As a First Time Visitor, I want to be able to view individual product details, product Image, the price, the product description and the compatible cartridges.
+ - As a First Time Visitor, I want to look for testimonials to understand what other users think of the site and the service it renders.
  - As a First Time Visitor, I want to sign up to the site to enable me full access to it's service and also to receive email newsletter and latest updates.
 
 ## Returning Visitor Goals
 
   - As a Returning Visitor, I want to see new products and deals.
   - As a Returning Visitor, I want to find the best way to get in contact with the site owner with any questions I may have.
-  - As a Frequent User, I want to be able to log in to the site view my profile and add items to wishlist.
+  - As a Returning Visitor, I want to be able to log in to the site view my profile and add items to wishlist.
 
 ## Frequent User Goals
  - As a Frequent User, I want to browse the site to see if there are any changes, new deals and/or clearance items.
@@ -111,7 +111,8 @@ I started planning the database after I have done my wireframes to justify which
     - Stripe was used to accept and authorise payment for any item purchased on the site.
 11. [AWS:](https://s3.console.aws.amazon.com/)
     - Amazon S3 was used to manage and save media and collectstatic file in Its cloud service.        
-
+12. [TinyMce](https://www.tiny.cloud/)
+    - To create rich text editor for the text field for user to be able to create pretty text.
 
 ---
 
@@ -120,45 +121,63 @@ I started planning the database after I have done my wireframes to justify which
 
 The W3C Markup Validator and W3C CSS Validator Services were used to validate every page of the project to ensure there were no syntax errors in the project.
 
--   [W3C Markup Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) - [Results](https://github.com/)
--   [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) - [Results](https://github.com/)
--   [Lighthouse](https://https://developers.google.com/web/tools/lighthouse) - [Results](https://github.com/)
+-   [W3C Markup Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) - [Results](./readme_media/w3_html_check.png)
+-   [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) - [Results](./readme_media/w3_css_check.png)
+-   [Lighthouse](https://https://developers.google.com/web/tools/lighthouse) - [Results](./readme_media/lighthouse.png)
 
 ### Testing User Stories from User Experience (UX) Section
 
 -   #### First Time Visitor Goals
 
-    1. As a Shopper, I want to be able to view a list of products, so that I can select an item to purchase.
+1. As a Shopper, I want to be able to view a list of products, so that I can select some to purchase.
 
-      1. Upon entering the site. The homepage navigation bar have links to list of products and categories, user have the option to view all products or search for a specific product. ![](media/ms4screenshot1.jpeg)
+     1. Upon entering the site. The homepage navigation bar have links to list of products and categories, user have the option to view all products or search for a specific product. ![](./readme_media/homepage_screenshot.png)
 
-    2. As a Site User, I want to be able to register for an account and have a personalised user profile.
+    
+2. As a Shopper, I want to be able to view individual product details, product Image, the price, the product description and the compatible cartridges.
+   1. By clicking on the featured product from the home page, or by viewing all products and selecting one uses can view detailed information about product <br> ![](./readme_media/product_detail_page.png)
+   
+3. As a Shopper, I want to look for testimonials to understand what other users think of the site and the service it renders.
+   1. By browsing all products or viewing detailed information about product user can view product rating which can be added by any registered user who has purchased this product![](./readme_media/reviews.png)
+   2. By navigating on to the review page user can read detailed review if other users who left the review decided to leave detailed comment.<br> ![](readme_media/detailed_review.png)
+   3. Logged in users or administrators can edit or delete review. <br>![](./readme_media/edit_delete_review.png) 
 
-      1. The Site User can register to view their personal order history and order confirmations, and save their payment information by clicking on My Area icon on the homepage top-right as shown on the screenshot above.
+4. As a Site User, I want to be able to register for an account and have a personalised user profile.
 
-    3. As a First Time Visitor, I want to locate the site social media links to see past and present post about the site service.
+   1. The Site User can register to view their personal order history and order confirmations, and save their payment information by clicking on My Account icon on the homepage top-right as shown on the screenshot. <br> ![](./readme_media/user_profile.png)
+
+5. As a First Time Visitor, I want to locate the site contact details in case I may need help about the site service.
        
-      1. The social media links is on the footer on every page of the site. !
+     1. The contact detail links is on the footer on every page of the site. ! <br> ![](./readme_media/footer.png)
+   
 
 -   #### Returning User Goals
 
-    1. As a Returning User, I want to see information about new products.
+1. As a Returning User, I want to see information about new products.
 
-      1. Returning user can find contents about new products on the home page or click on New Arrivals link on the navbar. ![](media/ms4screenshot3.jpeg) 
+   1. Returning user can find new or featured products on the home page or click on New Arrivals link on the navbar. <br> ![](./readme_media/featured_section.png) 
     
-    2. As a Returning Visitor, I want to find the best way to get in contact with customer service with any questions I may have.
+2. As a Returning Visitor, I want to find the best way to get in contact with the site owner with any questions I may have.
 
-      1. Returning Visitor can contact customer service through contact us link on the footer of the site.
+   1. Returning Visitor can contact customer service through contact links on the footer of the site.
+       
+3. As a Returning User, I want to be able to log in to the site view my profile.
+   1. User can view profile in My account section of the Navbar
+
 
 -   #### Frequent User Goals
 
-    1. As a Frequent User, I want to see updates about any change, sales, or new products on the site.
+1. As a Frequent User, I want to browse the site to see if there are any changes, new deals and/or clearance items.
 
-      1. Frequent User can easily find this updates and contents on the home page. !
+   1. Frequent User can easily find this updates and contents on the home page. !
 
-    2. As a Frequent User, I want to check to see if there are any new blog posts.
+2. As a Frequent User, I want to see information about the most new arrivals and sales.
 
-      1. The social media links is on the footer with links to the site blog and social post.
+   1. The Special offers section is on the Navbar with links to the site New arrivals, deals and clearance.
+   
+3. As a Frequent User, I want to be able to sort products by price, category, or brand
+   1. Option for sorting products located under all products view <br> ![](./readme_media/sorting.png)
+   2. Users can select product quicly by selecting brand of the product in the footer. <br> ![](./readme_media/product_brands_footer.png)
 
 
 ### Further Testing
@@ -168,10 +187,17 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 -   A large amount of testing was done to ensure that all pages were linking correctly
 -   Friends and family members were asked to review the site and documentation to point out any bugs and/or user experience issues.
 
+### Code Testing
+
+Detailed functional code testing can be viewed here [TESTING](https://github.com/alexandergrib/ms4-store/tree/main/readme_media/docs/testing.md)
+
+---
+
 ### Known Issues
 
 - Windows 11 affecting styles of the dropdown menu's, forcing them to have rounded corners ![img](./readme_media/dropdown_menu_issue.png)
-    * I was unable to fix this issue. This issue only occurs on Windows 11. 
+    * I was unable to fix this issue as this issue only occurs on Windows 11 and affected by windows itself. 
+    * I tried many things in css to change this view but nothing seemed to work.
 
 - When running django tests there is few errors shown: ![img](./readme_media/tests_errors.png)
   - To fix this error I have to export STRIPE_PUBLIC_KEY and STRIPE_SECRET_KEY to make accessible in the terminal once they set, tests pass with no issues.
@@ -189,9 +215,9 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 
 ### Code
 
--   Codes were copied and modified from the Full Stack Frameworks with Django, Boutique Ado Project.
+-   Code were copied and modified from the Full Stack Frameworks with Django, Boutique Ado Project and Hello Django Testing.
 
--   Bootstrap5 template was used throughout the project mainly to make site responsive using the [bootsrap 5](https://getbootstrap.com/)
+-   Bootstrap5 template was used throughout the project mainly to make site responsive using the [bootstrap 5](https://getbootstrap.com/)
 
 ### Content
 
@@ -204,4 +230,6 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 ### Acknowledgements
 
 - Student Care and Tutor at Code Institute for their support.
+- Deployment steps adapted to suit my project from [here](https://raw.githubusercontent.com/Abibubble/ms4-lead-shot-hazard)
+- Some code testing was adapted to suit my project from [here](https://raw.githubusercontent.com/Abibubble/ms4-lead-shot-hazard)
 
