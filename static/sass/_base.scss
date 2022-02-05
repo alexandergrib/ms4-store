@@ -255,7 +255,7 @@ a.category-badge > span.badge:hover {
     -ms-user-select: none;
     user-select: none;
     background-color: #000;
-    border: 1px solid #000;
+    border: 1px solid #001;
     padding: .375rem .75rem;
     font-size: 1rem;
     line-height: 1.5;
@@ -269,7 +269,7 @@ a.category-badge > span.badge:hover {
 .allauth-form-inner-content input[type='submit']:hover {
 	color: #fff;
     background-color: #222;
-    border-color: #222;
+    border-color: #222223;
 }
 
 .allauth-form-inner-content a {
@@ -301,7 +301,7 @@ a.category-badge > span.badge:hover {
 
 .custom-checkbox .custom-control-input:checked~.custom-control-label::before {
     background-color: #dc3545;
-    border-color: #dc3545;
+    border-color: #dc3544;
     border-radius: 0;
 }
 .card-body a{
