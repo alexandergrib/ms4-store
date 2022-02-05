@@ -37,7 +37,7 @@ Automated Unit Testing was done using [Django’s testing tools](https://docs.dj
 
 #### Coverage Report
 
-![bag app coverage](./readme_media/bag_app_coverage.png)
+![bag app coverage](../bag_app_coverage.png)
 
 ---
 
@@ -75,7 +75,7 @@ Automated Unit Testing was done using [Django’s testing tools](https://docs.dj
 
 #### Coverage Report
 
-![checkout app coverage](./readme_media/checkout_app_report.png)
+![checkout app coverage](../checkout_app_report.png)
 
 ---
 
@@ -91,7 +91,7 @@ Automated Unit Testing was done using [Django’s testing tools](https://docs.dj
 
 #### Coverage Report
 
-![home app coverage](./readme_media/home_app_coverage.png)
+![home app coverage](../home_app_coverage.png)
 
 ---
 
@@ -129,7 +129,7 @@ Automated Unit Testing was done using [Django’s testing tools](https://docs.dj
 
 #### Coverage Report
 
-![products app coverage](./readme_media/products_app_coverage.png)
+![products app coverage](../products_app_coverage.png)
 
 ---
 
@@ -155,12 +155,12 @@ Automated Unit Testing was done using [Django’s testing tools](https://docs.dj
 
 #### Coverage Report
 
-![profiles app coverage](./readme_media/profiles_app_coverage.png)
+![profiles app coverage](../profiles_app_coverage.png)
 
 
 ### Total Coverage Report
 
-![all apps combined coverage](./readme_media/full_coverage.png)
+![all apps combined coverage](../full_coverage.png)
 
 
 ---
@@ -169,7 +169,7 @@ Automated Unit Testing was done using [Django’s testing tools](https://docs.dj
 
 ![Travis CI Build](https://app.travis-ci.com/alexandergrib/ms4-store.svg)
 
-[Click here to view the Travis CI full build report](./readme_media/travis_build_history.png)
+[Click here to view the Travis CI full build report](../travis_build_history.png)
 
 [Back to the top](#testing-steps)
 
