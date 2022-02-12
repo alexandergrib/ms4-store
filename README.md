@@ -20,44 +20,36 @@ This site was built using HTML, CSS, Bootstrap, JavaScript, jQuery, Python, Djan
 ---
 # Contents
 
-* [User Experience](#User Experience)
-  - [Initial Discussion](##Initial Discussion)
-  - [Site Owner's Goals](##Site Owner's Goals)
-  - [First Time Visitor Goals](##First Time Visitor Goals)
-  - [Returning Visitor Goals](##Returning Visitor Goals)
-  - [Frequent User Goals](##Frequent User Goals)
+- [SHOP EASY](#shop-easy)
+- [User Experience](#user-experience)
+  * [Initial Discussion](#initial-discussion)
+  * [Site Owner's Goals](#site-owners-goals)
+  * [First Time Visitor Goals](#first-time-visitor-goals)
+  * [Returning Visitor Goals](#returning-visitor-goals)
+  * [Frequent User Goals](#frequent-user-goals)
+- [UI](#ui)
+- [Wireframes](#wireframes)
+- [Database Schema](#database-schema)
+- [Database Model](#database-model)
+- [Deployment](#deployment)
+- [Technologies Used](#technologies-used)
+  * [Languages Used](#languages-used)
+  * [Frameworks, Libraries & Programs Used](#frameworks-libraries--programs-used)
+- [Testing](#testing)
+  * [Testing User Stories from User Experience (UX) Section](#testing-user-stories-from-user-experience-ux-section)
+    + [First Time Visitor Goals](#first-time-visitor-goals-1)
+    + [Returning User Goals](#returning-user-goals)
+    + [Frequent User Goals](#frequent-user-goals-1)
+  * [Further Testing](#further-testing)
+  * [Code Testing](#code-testing)
+  - [Known Issues](#known-issues)
+- [Problems encountered](#problems-encountered)
+- [Credits](#credits)
+  * [Code](#code)
+  * [Content](#content)
+  * [Media](#media)
+- [Acknowledgements](#acknowledgements)
 
-* [UI](#UI)
-* [Wireframes](#Wireframes)
-* [Database Schema](#Database Schema)
-* [Database Model](#Database Model)
-
-* [Deployment](#Deployment)
-
-* [Technologies Used](#Technologies Used)
-  - [Languages Used](##Languages Used)
-  - [Frameworks, Libraries & Programs Used](##Frameworks,)
-
-
-
-* [Testing](#Testing)
-  - [Testing User Stories from User Experience (UX) Section](##Testing User Stories)
-    - [First Time Visitor Goals](###First Time Visitor Goals)
-    - [Returning User Goals](###Returning User Goals)
-    - [Frequent User Goals](###Frequent User Goals)
-  - [Further Testing](##Further Testing)
-  - [Code Testing](##Code Testing)
-
-
-* [Known Issues](#Known Issues)
-* [Problems encountered](#Problems encountered)
-
-* [Credits](#Credits)
-  - [Code](##Code)
-  - [Content](##Content)
-  - [Media](##Media)
-
-* [Acknowledgements](#Acknowledgements)
 
 ---
 
@@ -259,7 +251,9 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 - When adding new cartridge without selecting image it works fine.
   - As a temporary workaround, after saving new cartridge go to admin dashboard and reassign cartridge to the related printer. 
   - **SOLVED** Found bug in saving form where i was calling  ```image.save()``` instead of main form ```form.save()```
-
+- W3 validator gave me warning:
+- ![The type attribute is unnecessary for JavaScript resources.](./readme_media/javascript_type_warning.png)
+- To **solve** it i removed all ```type=text/javascript``` from ```<script>``` tags
 ---
 
 # Credits

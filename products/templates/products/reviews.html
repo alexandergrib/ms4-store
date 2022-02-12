@@ -14,7 +14,7 @@
         <div class="col-xs-10 offset-xs-1 col-sm-4 col-lg-4 offset-lg-1 text-center px-lg-5">
             <div class="image-container mt-5">
                 {% if product.product_image.all.0.image %}
-                    <div id="myCarousel" class="carousel carousel-multi-item slide carousel-dark" align="center"
+                    <div id="myCarousel" class="carousel carousel-multi-item slide carousel-dark" style="margin-left: 10%;"
                          data-bs-interval="false">
                         <!-- Wrapper for slides -->
                         <div class="carousel-inner">
@@ -30,7 +30,7 @@
                         </div>
                     </div>
                 {% else %}
-                    <div id="myCarousel" class="carousel carousel-dark" align="center">
+                    <div id="myCarousel" class="carousel carousel-dark" style="margin-left: 10%;">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
                                 <img src="{{ MEDIA_URL }}200x200.webp"
@@ -101,11 +101,11 @@
                         </div>
                         {% if request.user == review.user.user or request.user.is_superuser %}
                             <div class="row">
-                                <div class="col-1">
+                                <div class="col-2">
                                     <a href="{% url 'edit_review' review.pk %}" class="btn btn-outline-green">EDIT</a>
                                 </div>
-                                <div class="col-1">
-                                    <a class="btn btn-outline-black" data-bs-toggle="modal"
+                                <div class="col-2">
+                                    <a class="btn btn-outline-red" data-bs-toggle="modal"
                                        data-bs-target="#delete-review-modal">
                                         Delete
                                     </a>
@@ -129,7 +129,7 @@
                                                     <button type="button" class="btn btn-outline-black rounded-0"
                                                             data-bs-dismiss="modal">Cancel
                                                     </button>
-                                                    <a class="btn btn-black rounded-0"
+                                                    <a class="btn btn-outline-red rounded-0"
                                                        href="{% url 'delete_review' review.pk %}">Delete</a>
                                                 </div>
                                             </div>
