@@ -250,12 +250,15 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 - When running django tests there is few errors shown: ![img](./readme_media/tests_errors.png)
   - To fix this error I have to export STRIPE_PUBLIC_KEY and STRIPE_SECRET_KEY to make accessible in the terminal once they set, tests pass with no issues.
 
-
 # Problems encountered
 
 - When checkout with selected update profile user 'Full name' was saved a tuple like so: ```('User Name',)``` instead of ```User Name```
-  - Problem was in the code where extra comma was added: ![Extra comma](./readme_media/bug_with_name.png)
+  - **SOLVED** Problem was in the code where extra comma was added: ![Extra comma](./readme_media/bug_with_name.png)
 
+- When adding new cartridge with image uploaded and without selecting any related printer(even if it already highlighted in the box) cartridge wont get assigned to that printer.
+- When adding new cartridge without selecting image it works fine.
+  - As a temporary workaround, after saving new cartridge go to admin dashboard and reassign cartridge to the related printer. 
+  - **SOLVED** Found bug in saving form where i was calling  ```image.save()``` instead of main form ```form.save()```
 
 ---
 

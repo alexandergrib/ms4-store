@@ -133,7 +133,7 @@
                             <div class="col">
                                 <p class="mt-3 h3">Key Features</p>
                                 {% if request.user.is_superuser %}
-                                    <a href="{% url 'all_specs' product_id=product.id %}">Add or Edit features</a>
+                                    <a href="{% url 'all_specs' product_id=product.id %}">Add features</a>
                                 {% endif %}
 
                                 <ul class="list-unstyled">
