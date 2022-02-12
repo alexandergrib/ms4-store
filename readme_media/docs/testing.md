@@ -51,7 +51,7 @@ Automated Unit Testing was done using [Django’s testing tools](https://docs.dj
 - Test that country is required
 - Test that town_or_city is required
 - Test that street_address1 is required
-- Test that the form fields are correct in the meta class
+- Test that the form fields are correct in the Meta class
 
 #### Checkout Models
 
@@ -69,7 +69,7 @@ Automated Unit Testing was done using [Django’s testing tools](https://docs.dj
 - Test that an error displays when there is nothing in the shopping bag
 - Test that an error displays when the Stripe key isn't set
 - Test the get in the checkout view
-- Test that the user's details are auto-filled if the user is logged in and has saved information
+- Test that the user's details are autofilled if the user is logged in and has saved information
 
 
 
@@ -105,7 +105,7 @@ Automated Unit Testing was done using [Django’s testing tools](https://docs.dj
 - Test the category name
 - Test the category friendly_name
 
-### Products Views
+### Product Views
 
 - Test that the Products page URL exists
 - Test that the Products page URL is accessible by name
@@ -120,11 +120,11 @@ Automated Unit Testing was done using [Django’s testing tools](https://docs.dj
 - Test the product search functionality
 - Test the product search error message shows correctly
 - Test that a regular user cannot access the add a product page
-- Test that the add a product page displays for a superuser
+- Test that add a product page displays for a superuser
 - Test that a regular user cannot access the edit a product page
 - Test that the edit a product page displays for a superuser
-- Test that a regular user cannot access the delete a product view
-- Test that the delete a product view works for a superuser
+- Test that a regular user cannot access 'delete' product view
+- Test that delete a product view works for a superuser
 
 
 #### Coverage Report
@@ -133,21 +133,21 @@ Automated Unit Testing was done using [Django’s testing tools](https://docs.dj
 
 ---
 
-#### Profiles
+#### Profile
 
-##### Profiles Forms
+##### Profile Forms
 
 - Test that the user profile form fields aren't required
-- Test the meta class of the user profile form
+- Test the Meta class of the user profile form
 
-##### Profiles Models
+##### Profile Models
 
 * Test the getting user profile model
 
-##### Profiles Views
+##### Profile Views
 
-- Test that the Profiles page URL exists
-- Test that the Profiles page URL is accessible by name
+- Test that the Profiles' page URL exists
+- Test that the Profiles' page URL is accessible by name
 - Test that a logged-in user can view the profile
 - Test that the profile information gets saved correctly
 - Test that the order history displays when requested
@@ -162,6 +162,7 @@ Automated Unit Testing was done using [Django’s testing tools](https://docs.dj
 
 ![all apps combined coverage](../full_coverage.png)
 
+Whole project coverage looks good at 74%, but I have some functions missing at the moment, as im running close to the deadline, and I don't have enough time left to cover all possible cases. 
 
 ---
 
@@ -221,20 +222,20 @@ Icon key:
 - 🔐 Dropdown menu have extra options for the Category management and Brand management, my account have quick access to category, brand and product management.
 
 
-#### Products Testing
+#### Product Testing
 
-- 💻 All products dropdown menu all products link, takes user to the products page
-- 💻 All products dropdown menu By brand link, takes user to the products page with products filtered by brand
-- 💻 All products dropdown menu By price link, takes user to the products page with products filtered by price ascending order
-- 💻 All products dropdown menu By category link, takes user to the products page with products filtered by category
-<br>
-<br>
-- 💻 All products page, filter dropdown menu > Price(Low to High), Price(High to Low), takes user to the products page with products filtered by price
-- 💻 All products page, filter dropdown menu > Model(A to Z), Price(Z to A), takes user to the products page with products filtered by Model
-- 💻 All products page, filter dropdown menu > Category(A to Z), Category(Z to A), takes user to the products page with products filtered by Category
-- 💻 All products page, filter dropdown menu > Brand(A to Z), Brand(Z to A), takes user to the products page with products filtered by Brand
-<br>
-<br>
+- 💻 All product dropdown menu all products link, takes user to the products page
+- 💻 All product dropdown menu By brand link, takes user to the products page with products filtered by brand
+- 💻 All product dropdown menu By price link, takes user to the products page with products filtered by price ascending order
+- 💻 All product dropdown menu By category link, takes user to the products page with products filtered by category
+
+
+- 💻 All product page, filter dropdown menu > Price(Low to High), Price(High to Low), takes user to the products page with products filtered by price
+- 💻 All product page, filter dropdown menu > Model(A to Z), Price(Z to A), takes user to the products page with products filtered by Model
+- 💻 All product page, filter dropdown menu > Category(A to Z), Category(Z to A), takes user to the products page with products filtered by Category
+- 💻 All product page, filter dropdown menu > Brand(A to Z), Brand(Z to A), takes user to the products page with products filtered by Brand
+
+
 - 💻 Products Home link displayed after filters been applied and by clicking this link takes user to the all products page
 - 💻 By clicking on the 'label icon' under any of the product will filter products by their category
 - 💻 Clicking on the product image or 'VIEW' button will take user to the product detail page
@@ -336,7 +337,6 @@ All items in this category is only available to the 🔐
 - Ensure all modals appear in front of all others content on the screen.
 - When hovered over the navbar links turn a grey color.
 
-
 ---
 
 ### User Access
@@ -344,6 +344,7 @@ All items in this category is only available to the 🔐
 #### Logged Out Users
 
 💻 Navigation bar dropdown shows Log In, Register.
+
 #### Logged In Users
 - 🔑 Navigation bar dropdown shows Profile, Log Out
 - 🔑 If product have been purchased and has not been reviewed by current user yet, review link should be displayed on the product detail page
