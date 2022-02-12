@@ -79,7 +79,7 @@ class ProductBrandAdmin(admin.ModelAdmin):
 
 
 class CartridgesAdmin(admin.ModelAdmin):
-    ordering = ('brand',)
+    ordering = ('-id',)
 
 
 admin.site.register(Product, ProductAdmin)

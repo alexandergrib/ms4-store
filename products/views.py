@@ -297,15 +297,14 @@ def add_cartridge(request, product_id):
 
     if request.method == 'POST':
         form = CartrigesForm(request.POST, request.FILES)
-        print(form)
+
         if form.is_valid():
             user = form.save(commit=False)
             user.created_by = UserProfile.objects.get(user=request.user)
             if form.cleaned_data['image']:
                 image = request.FILES.get('image')
-                cartridge_form = form.save(commit=False)
-                cartridge_form.image_url = settings.MEDIA_URL + image.name
-                cartridge_form.save()
+                user.image_url = settings.MEDIA_URL + image.name
+                form.save()
             else:
                 form.save()
             messages.success(request, 'Successfully added new cartridge!')
@@ -429,6 +428,8 @@ def edit_cartridge(request, product_id):
                     cartridge_form.save()
             else:
                 form.save()
+            return redirect(reverse('product_detail', args=[product_id]))
+
     else:
         form = CartrigesForm(instance=cartridge)
         messages.info(request, f'You are editing \
@@ -552,12 +553,16 @@ def delete_cartridge(request, product_id):
 
     try:
         cartridge = get_object_or_404(Cartridges, pk=product_id)
+        printer = []
+        for i in cartridge.compatible_printer.all():
+            printer.append(i)
     except Http404:
         messages.success(request, f'No cartridge with id {product_id} found')
         return redirect('products')
     cartridge.delete()
     messages.success(request, f'Cartridge {cartridge.model} deleted!')
-    return redirect('products')
+    # redirect back to the main printer
+    return redirect(reverse('product_detail', args=[printer[0].id]))
 
 
 @login_required

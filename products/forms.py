@@ -28,7 +28,7 @@ class ProductForm(forms.ModelForm):
     class Meta:
         model = Product
         fields = '__all__'
-        exclude = ('created_by',)
+        exclude = ('created_by', 'featured_description')
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -81,7 +81,11 @@ class CartrigesForm(forms.ModelForm):
     class Meta:
         model = Cartridges
         fields = '__all__'
-        exclude = ('created_by',)
+        exclude = ('created_by', 'image_url')
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['discount'].initial = 0
 
 
 class RatingForm(forms.ModelForm):
