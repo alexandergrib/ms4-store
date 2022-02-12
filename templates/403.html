@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_meta %}
+    <!-- Metas -->
+    <meta name="description" content="403 shop easy online boutique where you can find you office printers and supplies for them.">
+    <meta name="keywords" content="shop, easy, printers, cartridges, office supplies, russia, toner, refill">
+    <link rel="canonical" href="https://ms4-store.herokuapp.com/">
+    <!-- Facebook, LinkedIn, Google -->
+    <meta property="og:title" name="title" content="Shop Easy 403" />
+    <meta property="og:description" content="403 shop easy online boutique where you can find you office printers and supplies for them." />
+    <meta property="og:url" content="https://ms4-store.herokuapp.com/" />
+    <!-- Twitter -->
+    <meta name="twitter:title" content="Shop Easy 403">
+    <meta name="twitter:description" content="403 shop easy online boutique where you can find you office printers and supplies for them.">
+{% endblock %}
+
+{% block extra_title %}
+    500
+{% endblock %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <section class="container justify-content-center">
+        <div class="row">
+            <div class="col">
+                <hr>
+                <h1 class="mb-4 text-center">Error 403</h1>
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+
+
+            <div class="col-12 col-md-6 offset-md-3 text-center">
+                <h2 class="mt-2 mb-4 text-danger">Oh no!</h2>
+                <p class="text-danger mb-2">I'm afraid you don't have access to this page!</p>
+                <a href="/" class="btn btn-black">Click here to head back to safety!</a>
+                <h2 class="logo-font text-black my-0"><a href="/">Shop easy</a></h2>
+            </div>
+        </div>
+                <a href="/" class="btn btn-black">Click here to head back to safety!</a>
+                    <h2 class="logo-font text-black my-0"><a href="/">Shop easy</a></h2>
+
+
+    </section>
+{% endblock %}
