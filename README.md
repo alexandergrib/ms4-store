@@ -127,7 +127,7 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 
 ### Testing User Stories from User Experience (UX) Section
 
--   #### First Time Visitor Goals
+#### First Time Visitor Goals
 
 1. As a Shopper, I want to be able to view a list of products, so that I can select some to purchase.
 
@@ -151,7 +151,7 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
      1. The contact detail links is on the footer on every page of the site. ! <br> ![](./readme_media/footer.png)
    
 
--   #### Returning User Goals
+#### Returning User Goals
 
 1. As a Returning User, I want to see information about new products.
 
@@ -165,7 +165,7 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
    1. User can view profile in My account section of the Navbar
 
 
--   #### Frequent User Goals
+#### Frequent User Goals
 
 1. As a Frequent User, I want to browse the site to see if there are any changes, new deals and/or clearance items.
 
@@ -189,7 +189,7 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 
 ### Code Testing
 
-Detailed functional code testing can be viewed here [TESTING](https://github.com/alexandergrib/ms4-store/tree/main/readme_media/docs/testing.md)
+## **_Detailed functional code testing can be viewed here [TESTING](https://github.com/alexandergrib/ms4-store/tree/main/readme_media/docs/testing.md)_**
 
 ---
 
