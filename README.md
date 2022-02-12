@@ -259,7 +259,9 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 - When adding new cartridge without selecting image it works fine.
   - As a temporary workaround, after saving new cartridge go to admin dashboard and reassign cartridge to the related printer. 
   - **SOLVED** Found bug in saving form where i was calling  ```image.save()``` instead of main form ```form.save()```
-
+- W3 validator gave me warning:
+- ![The type attribute is unnecessary for JavaScript resources.](./readme_media/javascript_type_warning.png)
+- To **solve** it i removed all ```type=text/javascript``` from ```<script>``` tags
 ---
 
 # Credits

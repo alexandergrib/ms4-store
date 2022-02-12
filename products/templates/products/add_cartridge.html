@@ -3,7 +3,7 @@
         {% csrf_token %}
             {% for field in form %}
                 {% if field.name == 'compatible_printer' %}
-                     <div id="div_id_category" class="mb-3">
+                     <div id="div_id_compatible_printer" class="mb-3">
                             <label for="id_compatible_printer" class="form-label requiredField">Compatible printer {% for x, y in form.fields.compatible_printer.choices %}{% if x == compatible_printer.id %}<strong>{{ y }}</strong>{% endif %}{% endfor %}</label>
                             <select id="id_compatible_printer" name="compatible_printer" class="selectmultiple form-select" multiple>
                                 {% for x, y in form.fields.compatible_printer.choices %}

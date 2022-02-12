@@ -336,6 +336,10 @@ a.category-badge > span.badge:hover {
   justify-content: center;
 }
 
+#myCarousel {
+  margin: auto;
+}
+
 .active > img {
   opacity: 1 !important;
 }
@@ -470,6 +474,13 @@ a.category-badge > span.badge:hover {
   color: black !important;
   /* use important to override link colors for <a> elements */
   border: 1px solid green;
+}
+
+.btn-outline-red {
+  background: #ff0000;
+  color: white !important;
+  /* use important to override link colors for <a> elements */
+  border: 1px solid #ff0001;
 }
 
 /* -------------------------------- Media Queries */

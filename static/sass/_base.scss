@@ -345,10 +345,9 @@ a.category-badge > span.badge:hover {
     justify-content: center;
 }
 
-
-//.active:has(> img) {
-//  opacity: 1;
-//}
+#myCarousel {
+    margin: auto;
+}
 .active > img {
   opacity: 1 !important;
 }
