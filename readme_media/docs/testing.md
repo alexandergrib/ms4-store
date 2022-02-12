@@ -190,6 +190,8 @@ Whole project coverage looks good at 74%, but I have some functions missing at t
 
 ### Website was tested on various browsers and devices
 
+Website was tested on following devices to check usability and responsiveness
+
 1. Google  Chrome
    1. Everything worked as expected
 2. Mozilla Firefox

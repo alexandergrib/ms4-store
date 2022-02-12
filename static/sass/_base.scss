@@ -351,3 +351,19 @@ a.category-badge > span.badge:hover {
 .active > img {
   opacity: 1 !important;
 }
+
+.cookie-banner {
+    position: fixed;
+    width: 250px;
+    right: 5px;
+    bottom: 5px;
+    background-color: #000;
+    color: white;
+    border-radius: 15px;
+    text-align: center;
+    z-index: 9999999;
+    button {
+        width: 125px;
+        margin: auto auto 5px;
+    }
+}
