@@ -1,6 +1,6 @@
 # Deployment Steps
 
-[Click here to return to the main README file](README.md)
+[Click here to return to the main README file](https://github.com/alexandergrib/ms4-store/blob/main/README.md)
 
 ---
 
@@ -67,10 +67,6 @@
 | AWS_ACCESS_KEY_ID     | ## YOUR AWS_ACCESS_KEY_ID ##     |
 | SONGKICK_API_KEY      | ## YOUR SONGKICK_API_KEY ##      |
 | USE_AWS               | True                             |
-
-
-
-
 
 
 

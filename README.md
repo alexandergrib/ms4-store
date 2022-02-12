@@ -8,7 +8,7 @@
 ![Font Awesome version](https://img.shields.io/badge/Font%20Awesome-v5.15.1-blue)
 ![Travis CI Build](https://app.travis-ci.com/alexandergrib/ms4-store.svg)
 
-![Testing coverage](https://img.shields.io/badge/coverage-72%25-brightgreen)
+![Testing coverage](https://img.shields.io/badge/coverage-74%25-brightgreen)
 ![GitHub forks](https://img.shields.io/github/forks/alexandergrib/ms4-store?style=social)
 
 [Here is a link to the final project](https://ms4-store.herokuapp.com/)
@@ -16,6 +16,48 @@
 This site is a printer and cartridges e-commerce site for my fried who owns small business in Russia. Website eventually would bee translated in to russian. This site is fully responsive on all modern screen sizes, and it allows the admin to easily add, edit or delete products that he have to sell.
 
 This site was built using HTML, CSS, Bootstrap, JavaScript, jQuery, Python, Django, and it uses a SQL database through PostgreSQL.
+
+---
+# Contents
+
+* [User Experience](#User Experience)
+  - [Initial Discussion](##Initial Discussion)
+  - [Site Owner's Goals](##Site Owner's Goals)
+  - [First Time Visitor Goals](##First Time Visitor Goals)
+  - [Returning Visitor Goals](##Returning Visitor Goals)
+  - [Frequent User Goals](##Frequent User Goals)
+
+* [UI](#UI)
+* [Wireframes](#Wireframes)
+* [Database Schema](#Database Schema)
+* [Database Model](#Database Model)
+
+* [Deployment](#Deployment)
+
+* [Technologies Used](#Technologies Used)
+  - [Languages Used](##Languages Used)
+  - [Frameworks, Libraries & Programs Used](##Frameworks,)
+
+
+
+* [Testing](#Testing)
+  - [Testing User Stories from User Experience (UX) Section](##Testing User Stories)
+    - [First Time Visitor Goals](###First Time Visitor Goals)
+    - [Returning User Goals](###Returning User Goals)
+    - [Frequent User Goals](###Frequent User Goals)
+  - [Further Testing](##Further Testing)
+  - [Code Testing](##Code Testing)
+
+
+* [Known Issues](#Known Issues)
+* [Problems encountered](#Problems encountered)
+
+* [Credits](#Credits)
+  - [Code](##Code)
+  - [Content](##Content)
+  - [Media](##Media)
+
+* [Acknowledgements](#Acknowledgements)
 
 ---
 
@@ -63,7 +105,8 @@ This site was built using HTML, CSS, Bootstrap, JavaScript, jQuery, Python, Djan
 
 # Wireframes
 Wireframes are my initial design, so you may notice that the final website design does not contain everything that was planned at the start of the project. Some missing features are possible future improvements for the project. They may be implemented at a later stage.
- - [Wireframes.pdf](./readme_media/wireframes.pdf)
+Wireframes for the desktop and tablet uses same layout, while on mobile screen layout is rearranged.
+ - [Wireframes_desktop_tablet.pdf](./readme_media/wireframes.pdf)
  - [Wireframe-mobile](./readme_media/mobile.png)
 
 # Database Schema
@@ -77,7 +120,12 @@ I started planning the database after I have done my wireframes to justify which
 
 
 ---
+# Deployment
 
+Detailed deployment can be found [here](https://github.com/alexandergrib/ms4-store/blob/main/readme_media/docs/deployment.md)
+
+
+---
 # Technologies Used
 
 ## Languages Used
@@ -117,7 +165,7 @@ I started planning the database after I have done my wireframes to justify which
 ---
 
 
-## Testing
+# Testing
 
 The W3C Markup Validator and W3C CSS Validator Services were used to validate every page of the project to ensure there were no syntax errors in the project.
 
@@ -125,9 +173,9 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 -   [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) - [Results](./readme_media/w3_css_check.png)
 -   [Lighthouse](https://https://developers.google.com/web/tools/lighthouse) - [Results](./readme_media/lighthouse.png)
 
-### Testing User Stories from User Experience (UX) Section
+## Testing User Stories from User Experience (UX) Section
 
-#### First Time Visitor Goals
+### First Time Visitor Goals
 
 1. As a Shopper, I want to be able to view a list of products, so that I can select some to purchase.
 
@@ -151,7 +199,7 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
      1. The contact detail links is on the footer on every page of the site. ! <br> ![](./readme_media/footer.png)
    
 
-#### Returning User Goals
+### Returning User Goals
 
 1. As a Returning User, I want to see information about new products.
 
@@ -165,7 +213,7 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
    1. User can view profile in My account section of the Navbar
 
 
-#### Frequent User Goals
+### Frequent User Goals
 
 1. As a Frequent User, I want to browse the site to see if there are any changes, new deals and/or clearance items.
 
@@ -180,20 +228,20 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
    2. Users can select product quicly by selecting brand of the product in the footer. <br> ![](./readme_media/product_brands_footer.png)
 
 
-### Further Testing
+## Further Testing
 
 -   The Website was tested on Google Chrome, Mozilla Firefox, Microsoft Edge and Safari browsers.
 -   The website was viewed on a variety of devices such as Desktop, Laptop, iPhone SE, iPhone 11, One+ 9 Pro, and iPadPro.
 -   A large amount of testing was done to ensure that all pages were linking correctly
 -   Friends and family members were asked to review the site and documentation to point out any bugs and/or user experience issues.
 
-### Code Testing
+## Code Testing
 
 ## **_Detailed functional code testing can be viewed here [TESTING](https://github.com/alexandergrib/ms4-store/tree/main/readme_media/docs/testing.md)_**
 
 ---
 
-### Known Issues
+# Known Issues
 
 - Windows 11 affecting styles of the dropdown menu's, forcing them to have rounded corners ![img](./readme_media/dropdown_menu_issue.png)
     * I was unable to fix this issue as this issue only occurs on Windows 11 and affected by windows itself. 
@@ -203,7 +251,7 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
   - To fix this error I have to export STRIPE_PUBLIC_KEY and STRIPE_SECRET_KEY to make accessible in the terminal once they set, tests pass with no issues.
 
 
-### Problems encountered
+# Problems encountered
 
 - When checkout with selected update profile user 'Full name' was saved a tuple like so: ```('User Name',)``` instead of ```User Name```
   - Problem was in the code where extra comma was added: ![Extra comma](./readme_media/bug_with_name.png)
@@ -211,23 +259,23 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 
 ---
 
-## Credits
+# Credits
 
-### Code
+## Code
 
 -   Code were copied and modified from the Full Stack Frameworks with Django, Boutique Ado Project and Hello Django Testing.
 
 -   Bootstrap5 template was used throughout the project mainly to make site responsive using the [bootstrap 5](https://getbootstrap.com/)
 
-### Content
+## Content
 
 -   All content was written by the developer.
 
-### Media
+## Media
 
 -   All Images belong to the copyright owner.
 
-### Acknowledgements
+# Acknowledgements
 
 - Student Care and Tutor at Code Institute for their support.
 - Deployment steps adapted to suit my project from [here](https://raw.githubusercontent.com/Abibubble/ms4-lead-shot-hazard)
