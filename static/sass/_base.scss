@@ -344,3 +344,11 @@ a.category-badge > span.badge:hover {
     align-items: center;
     justify-content: center;
 }
+
+
+//.active:has(> img) {
+//  opacity: 1;
+//}
+.active > img {
+  opacity: 1 !important;
+}

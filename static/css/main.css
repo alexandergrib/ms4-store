@@ -336,6 +336,10 @@ a.category-badge > span.badge:hover {
   justify-content: center;
 }
 
+.active > img {
+  opacity: 1 !important;
+}
+
 .nav-header {
   border-bottom: 1px solid grey;
   position: relative;

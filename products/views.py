@@ -428,6 +428,8 @@ def edit_cartridge(request, product_id):
                     cartridge_form.save()
             else:
                 form.save()
+            return redirect(reverse('product_detail', args=[product_id]))
+
     else:
         form = CartrigesForm(instance=cartridge)
         messages.info(request, f'You are editing \
@@ -551,12 +553,16 @@ def delete_cartridge(request, product_id):
 
     try:
         cartridge = get_object_or_404(Cartridges, pk=product_id)
+        printer = []
+        for i in cartridge.compatible_printer.all():
+            printer.append(i)
     except Http404:
         messages.success(request, f'No cartridge with id {product_id} found')
         return redirect('products')
     cartridge.delete()
     messages.success(request, f'Cartridge {cartridge.model} deleted!')
-    return redirect('products')
+    # redirect back to the main printer
+    return redirect(reverse('product_detail', args=[printer[0].id]))
 
 
 @login_required
