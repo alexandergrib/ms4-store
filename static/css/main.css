@@ -344,19 +344,21 @@ a.category-badge > span.badge:hover {
   opacity: 1 !important;
 }
 
-.cookie-banner {
+.cookie-banner_inner {
   position: fixed;
   width: 250px;
-  right: 5px;
-  bottom: 5px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   background-color: #000;
   color: white;
   border-radius: 15px;
   text-align: center;
   z-index: 9999999;
 }
-.cookie-banner button {
+.cookie-banner_inner span {
   width: 125px;
+  border-radius: 10px;
   margin: auto auto 5px;
 }
 
