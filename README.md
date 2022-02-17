@@ -242,6 +242,13 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 - When running django tests there is few errors shown: ![img](./readme_media/tests_errors.png)
   - To fix this error I have to export STRIPE_PUBLIC_KEY and STRIPE_SECRET_KEY to make accessible in the terminal once they set, tests pass with no issues.
 
+- Functionality for searching cartridges not implemented
+  - Will be done ASAP after assessment completed.
+
+- Page pagination needed for the products page.
+  - pagination is less important for the MVP and would be implemented in the future.
+  
+
 # Problems encountered
 
 - When checkout with selected update profile user 'Full name' was saved a tuple like so: ```('User Name',)``` instead of ```User Name```
