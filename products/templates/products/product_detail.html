@@ -16,19 +16,19 @@
                         <div id="myCarousel" class="carousel carousel-multi-item slide carousel-dark"
                              data-bs-interval="false">
                             <!-- Wrapper for slides -->
-                            <div class="carousel-inner" style="margin-left: 10%;">
+                            <div class="carousel-inner">
                                 {% for image in product.product_image.all %}
                                     {% if forloop.first %}
                                         <div class="carousel-item active">
                                             <img src="{{ image.image_url }}"
                                                  alt="{{ product.friendly_brand_name }} {{ product.model }} {{ product.name }}"
-                                                 style="width:80%;">
+                                                 >
                                         </div>
                                     {% else %}
                                         <div class="carousel-item">
                                             <img src="{{ image.image_url }}"
                                                  alt="{{ product.friendly_brand_name }} {{ product.model }} {{ product.name }}"
-                                                 style="width:80%;">
+                                                >
                                         </div>
                                     {% endif %}
                                 {% endfor %}
@@ -263,7 +263,7 @@
                     {% endif %}
                 </div>
                 <div class="row">
-                    <div class="col-8 offset-2">
+                    <div class="col-sm-12 col-md-8 offset-md-2">
 
                         {% if product.cartridges.all %}
                             {% for cartridge in product.cartridges.all %}
