@@ -350,4 +350,28 @@ a.category-badge > span.badge:hover {
 }
 .active > img {
   opacity: 1 !important;
+    width: 100%;
+}
+
+.carousel-item {
+    width: 80%;
+    margin-left: 10%;
+}
+
+.cookie-banner_inner {
+    position: fixed;
+    width: 250px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #000;
+    color: white;
+    border-radius: 15px;
+    text-align: center;
+    z-index: 9999999;
+    span {
+        width: 125px;
+        border-radius: 10px;
+        margin: auto auto 5px;
+    }
 }
