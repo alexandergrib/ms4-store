@@ -26,7 +26,7 @@ def bag_contents(request):
                 'quantity': item_data,
                 'product': product,
             })
-        else:
+        else:  # pragma: no cover
             product = get_object_or_404(Cartridges, pk=item_id)
             for cartridge, quantity in item_data['cartridge'].items():
                 total += quantity * product.price
