@@ -71,7 +71,6 @@ class TestProductViews(TestCase):
         self.assertEqual(product.category, category)
         self.assertContains(response, product.category)
 
-
     def test_product_detail(self):
         """
         Test that a product detail can be retrieved
@@ -168,12 +167,7 @@ class TestProductViewsAddData(TestCase):
         self.client.login(
             username='testuser', email='test@test.com', password='te12345st')
         response = self.client.get('/products/add/')
-        messages = list(get_messages(response.wsgi_request))
-        self.assertEqual(len(messages), 1)
-        self.assertEqual(messages[0].tags, 'error')
-        self.assertEqual(
-            str(messages[0]), 'Sorry, only store owners can do that.')
-        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.status_code, 403)
 
     def test_add_cartridge_for_regular_users_view(self):
         """
@@ -185,12 +179,7 @@ class TestProductViewsAddData(TestCase):
             password='te12345st')
         response = self.client.get(
             '/products/add/cartridge/243e2262-9d21-4c12-88cb-d0a47ccf66a0')
-        messages = list(get_messages(response.wsgi_request))
-        self.assertEqual(len(messages), 1)
-        self.assertEqual(messages[0].tags, 'error')
-        self.assertEqual(
-            str(messages[0]), 'Sorry, only store owners can do that.')
-        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.status_code, 403)
 
     def test_the_add_product_page_works_for_superuser(self):
         """
@@ -217,11 +206,7 @@ class TestProductViewsAddData(TestCase):
         products = Product.objects.all()
         for product in products:
             response = self.client.get(f'/products/edit/product/{product.pk}/')
-            messages = list(get_messages(response.wsgi_request))
-            self.assertEqual(messages[0].tags, 'error')
-            self.assertEqual(
-                str(messages[0]), 'Sorry, only store owners can do that.')
-            self.assertEqual(response.status_code, 302)
+            self.assertEqual(response.status_code, 403)
 
     def test_edit_cartridge_for_regular_users_view(self):
         """
@@ -235,11 +220,7 @@ class TestProductViewsAddData(TestCase):
         for product in products:
             response = self.client.get(
                 f'/products/edit/cartridge/{product.pk}/')
-            messages = list(get_messages(response.wsgi_request))
-            self.assertEqual(messages[0].tags, 'error')
-            self.assertEqual(
-                str(messages[0]), 'Sorry, only store owners can do that.')
-            self.assertEqual(response.status_code, 302)
+            self.assertEqual(response.status_code, 403)
 
     def test_the_edit_product_page_works_for_superuser(self):
         """
@@ -283,11 +264,7 @@ class TestProductViewsAddData(TestCase):
         products = Product.objects.all()
         for product in products:
             response = self.client.get(f'/products/delete/{product.pk}/')
-            messages = list(get_messages(response.wsgi_request))
-            self.assertEqual(messages[0].tags, 'error')
-            self.assertEqual(
-                str(messages[0]), 'Sorry, only store owners can do that.')
-            self.assertEqual(response.status_code, 302)
+            self.assertEqual(response.status_code, 403)
 
     def test_delete_cartridge_for_regular_users_view(self):
         """
@@ -301,11 +278,7 @@ class TestProductViewsAddData(TestCase):
         for product in products:
             response = self.client.get(
                 f'/products/delete/cartridge/{product.pk}/')
-            messages = list(get_messages(response.wsgi_request))
-            self.assertEqual(messages[0].tags, 'error')
-            self.assertEqual(
-                str(messages[0]), 'Sorry, only store owners can do that.')
-            self.assertEqual(response.status_code, 302)
+            self.assertEqual(response.status_code, 403)
 
     def test_the_delete_product_page_works_for_superuser(self):
         """
