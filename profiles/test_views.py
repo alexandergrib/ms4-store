@@ -79,10 +79,10 @@ class TestProfileViews(TestCase):
         self.client.login(
             username="testuser", email="test@test.com", password="te12345st")
         Order.objects.create(
-            order_number='679d1833-a1b5-4120-87ee-2afcedd50c66'
+            order_number='CAB9CDC560054DCE94B358D113E4A2B6'
         )
-        order_number = '679d1833-a1b5-4120-87ee-2afcedd50c66'
+        order = Order.objects.get(order_number='CAB9CDC560054DCE94B358D113E4A2B6')
         response = self.client.get(
-            f'/profile/order_history/{order_number}/')
+            f'/profile/order_history/{order.order_number}')
         self.assertTemplateUsed(
             response, template_name="checkout/checkout_success.html")
