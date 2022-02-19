@@ -50,7 +50,7 @@ MANIFEST
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
-
+.coverage
 
 # IPython
 profile_default/
