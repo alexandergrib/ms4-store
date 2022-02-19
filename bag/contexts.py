@@ -5,8 +5,6 @@ from django.shortcuts import get_object_or_404
 
 from products.models import ProductBrand, Category, Product, Cartridges
 
-delivery = 0
-free_delivery_delta = 0
 
 
 def bag_contents(request):
@@ -44,8 +42,8 @@ def bag_contents(request):
         delivery = total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE / 100)
         free_delivery_delta = settings.FREE_DELIVERY_THRESHOLD - total
 
-
-
+    delivery = 0
+    free_delivery_delta = 0
     grand_total = delivery + total
 
     context = {

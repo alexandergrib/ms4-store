@@ -64,7 +64,7 @@ class Order(models.Model):
             self.order_number = self._generate_order_number()
         super().save(*args, **kwargs)
 
-    def __str__(self):
+    def __str__(self):  # pragma: no cover
         return self.order_number
 
 
@@ -102,7 +102,7 @@ class OrderLineItem(models.Model):
             self.lineitem_total = self.product.price * self.quantity
         super().save(*args, **kwargs)
 
-    def __str__(self):
+    def __str__(self):  # pragma: no cover
         if not self.product:
             sku = self.cartridge.sku
         else:
