@@ -383,8 +383,7 @@ def add_review(request, product_id):
 def edit_product(request, product_id):
     """ Edit a product in the store """
     if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only store owners can do that.')
-        return redirect(reverse('home'))
+        raise PermissionDenied()
 
     product = get_object_or_404(Product, pk=product_id)
     product_images = ProductImages.objects.filter(product=product.id)
@@ -424,8 +423,7 @@ def edit_product(request, product_id):
 @login_required
 def edit_cartridge(request, product_id):
     if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only store owners can do that.')
-        return redirect(reverse('home'))
+        raise PermissionDenied()
 
     cartridge = get_object_or_404(Cartridges, pk=product_id)
     if request.method == 'POST':
@@ -496,8 +494,7 @@ def edit_review(request, review_id):
 def delete_product(request, product_id):
     """ Delete product from the store """
     if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only store owners can do that.')
-        return redirect(reverse('home'))
+        raise PermissionDenied()
 
     product = get_object_or_404(Product, pk=product_id)
     product.delete()
@@ -509,8 +506,7 @@ def delete_product(request, product_id):
 def delete_brand(request, brand_id):
     """ Delete Brand from the DB """
     if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only store owners can do that.')
-        return redirect(reverse('home'))
+        raise PermissionDenied()
 
     brand = get_object_or_404(ProductBrand, pk=brand_id)
     brand.delete()
@@ -522,8 +518,7 @@ def delete_brand(request, brand_id):
 def delete_category(request, category_id):
     """ Delete category from the DB """
     if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only store owners can do that.')
-        return redirect(reverse('home'))
+        raise PermissionDenied()
 
     category = get_object_or_404(Category, pk=category_id)
     category.delete()
@@ -535,8 +530,7 @@ def delete_category(request, category_id):
 def delete_image(request, image_id):
     """ Delete image from the DB """
     if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only store owners can do that.')
-        return redirect(reverse('home'))
+        raise PermissionDenied()
 
     image = get_object_or_404(ProductImages, pk=image_id)
     image.delete()
@@ -548,8 +542,7 @@ def delete_image(request, image_id):
 def delete_spec(request, spec_id):
     """ Delete Brand from the DB """
     if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only store owners can do that.')
-        return redirect(reverse('home'))
+        raise PermissionDenied()
 
     spec = get_object_or_404(ProductSpecifications, pk=spec_id)
     spec.delete()
@@ -561,8 +554,7 @@ def delete_spec(request, spec_id):
 def delete_cartridge(request, product_id):
     """ Delete Brand from the DB """
     if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only store owners can do that.')
-        return redirect(reverse('home'))
+        raise PermissionDenied()
 
     try:
         cartridge = get_object_or_404(Cartridges, pk=product_id)
