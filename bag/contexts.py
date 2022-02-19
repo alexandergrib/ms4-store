@@ -6,6 +6,7 @@ from django.shortcuts import get_object_or_404
 from products.models import ProductBrand, Category, Product, Cartridges
 
 
+
 def bag_contents(request):
     bag_items = []
     total = 0
@@ -25,7 +26,7 @@ def bag_contents(request):
                 'quantity': item_data,
                 'product': product,
             })
-        else:
+        else:  # pragma: no cover
             product = get_object_or_404(Cartridges, pk=item_id)
             for cartridge, quantity in item_data['cartridge'].items():
                 total += quantity * product.price
@@ -40,10 +41,9 @@ def bag_contents(request):
     if total < settings.FREE_DELIVERY_THRESHOLD:
         delivery = total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE / 100)
         free_delivery_delta = settings.FREE_DELIVERY_THRESHOLD - total
-    else:
-        delivery = 0
-        free_delivery_delta = 0
 
+    delivery = 0
+    free_delivery_delta = 0
     grand_total = delivery + total
 
     context = {

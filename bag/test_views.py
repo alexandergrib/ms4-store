@@ -8,7 +8,7 @@ from django.test import TestCase
 from django.urls import reverse, resolve
 from django.shortcuts import get_object_or_404
 
-from products.models import Product, Category
+from products.models import Product, Category, Cartridges
 from .views import view_bag, add_to_bag, adjust_bag, remove_from_bag
 
 
@@ -71,6 +71,18 @@ class TestBagViews(TestCase):
         """
         product = Product.objects.get(
             pk='1b6622c4-3fde-4afe-b3bd-673a038454b6')
+        url = reverse('adjust_bag', args=['itemId'])
+        self.assertEqual(resolve(url).func, adjust_bag)
+        quantity = 1
+        bag = [product.pk]
+        self.assertEqual(len(bag), quantity)
+
+    def test_add_cartridge_to_bag_adds_product_to_bag(self):
+        """
+        Test that the add_to_bag function adds products to the bag
+        """
+        product = Cartridges.objects.get(
+            pk='65d3a934-047d-4eda-ba36-189cde39e09c')
         url = reverse('adjust_bag', args=['itemId'])
         self.assertEqual(resolve(url).func, adjust_bag)
         quantity = 1

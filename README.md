@@ -282,6 +282,6 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 # Acknowledgements
 
 - Student Care and Tutor at Code Institute for their support.
-- Deployment steps adapted to suit my project from [here](https://raw.githubusercontent.com/Abibubble/ms4-lead-shot-hazard)
-- Some code testing was adapted to suit my project from [here](https://raw.githubusercontent.com/Abibubble/ms4-lead-shot-hazard)
+- Deployment steps adapted to suit my project from [here](https://github.com/Abibubble/ms4-lead-shot-hazard)
+- Some code testing was adapted to suit my project from [here](https://github.com/Abibubble/ms4-lead-shot-hazard)
 
