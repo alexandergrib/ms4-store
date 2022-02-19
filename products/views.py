@@ -4,7 +4,7 @@ from django.http import Http404
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
-
+from django.core.exceptions import PermissionDenied
 from config import settings
 from profiles.models import UserProfile
 from .forms import (ProductForm, CategoryForm, BrandForm,
@@ -101,7 +101,7 @@ def product_detail(request, product_id):
             product__id=product_id)
 
         if can_rate_query.exists():
-            #user purchased product and can rate
+            # user purchased product and can rate
             review_filtered = reviews.filter(
                 user__id__icontains=request.user.id).filter(
                 product__id__icontains=product_id)
@@ -125,6 +125,10 @@ def product_detail(request, product_id):
 
 @login_required
 def all_categories(request):
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        raise PermissionDenied()
+
     categories = Category.objects.all()
     form = CategoryForm()
     context = {
@@ -136,6 +140,10 @@ def all_categories(request):
 
 @login_required
 def all_brands(request):
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        raise PermissionDenied()
+        # return redirect(reverse('products'))
     brands = ProductBrand.objects.all()
     form = BrandForm()
     context = {
@@ -147,6 +155,9 @@ def all_brands(request):
 
 @login_required
 def all_specs(request, product_id):
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        raise PermissionDenied()
     product = get_object_or_404(Product, pk=product_id)
     specs = ProductSpecifications.objects.filter(product__id__exact=product_id)
     form = ProductSpecsForm()
@@ -172,9 +183,7 @@ def all_reviews(request, product_id):
 def add_brand(request):
     """Add new product category"""
     if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only store owners can do that.')
-        return redirect(reverse('home'))
-
+        raise PermissionDenied()
     if request.method == 'POST':
         form = BrandForm(request.POST)
         if form.is_valid():
@@ -200,8 +209,7 @@ def add_brand(request):
 def add_category(request):
     """Add new product category"""
     if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only store owners can do that.')
-        return redirect(reverse('home'))
+        raise PermissionDenied()
     if request.method == 'POST':
         form = CategoryForm(request.POST)
         if form.is_valid():
@@ -227,8 +235,7 @@ def add_category(request):
 def add_product(request):
     """ Add a product to the store """
     if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only store owners can do that.')
-        return redirect(reverse('home'))
+        raise PermissionDenied()
 
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
@@ -263,8 +270,7 @@ def add_product(request):
 def add_specs(request, product_id):
     """Add new product category"""
     if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only store owners can do that.')
-        return redirect(reverse('home'))
+        raise PermissionDenied()
 
     if request.method == 'POST':
         form = ProductSpecsForm(request.POST)
@@ -291,8 +297,7 @@ def add_specs(request, product_id):
 def add_cartridge(request, product_id):
     """Add new product category"""
     if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only store owners can do that.')
-        return redirect(reverse('home'))
+        raise PermissionDenied()
 
     if request.method == 'POST':
         form = CartrigesForm(request.POST, request.FILES)
@@ -330,6 +335,15 @@ def add_review(request, product_id):
     user = UserProfile.objects.get(user=request.user)
     user_review = ProductReviews.objects.filter(product=product, user=user)
     review_form = RatingForm(request.POST)
+    # check if user ordered this item
+    order = OrderLineItem.objects.filter(
+        Q(product__id=product_id,
+          order__user_profile_id=user.id) |
+        Q(cartridge__id=product_id,
+          order__user_profile_id=user.id)
+    )
+    if not order:
+        raise PermissionDenied()
 
     if request.method == 'POST':
         if user_review:
@@ -455,7 +469,7 @@ def edit_review(request, review_id):
                 review_form.save()
                 messages.info(request, 'Your review has been updated!')
                 return redirect(reverse('product_detail',
-                                args=[review.product.id]))
+                                        args=[review.product.id]))
             else:
                 messages.error(request, 'Failed to update the review. \
                                         Please ensure the form is valid.')
