@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_title %}Category Management{% endblock %}
+
 {% block content %}
     <div class="overlay"></div>
     <div class="container">
@@ -8,7 +10,6 @@
             <div class="col-12 col-md-6 order-md-first">
                 <p class="text-muted mt-3 text-md-left">
                     <span class="small"><a href="{% url 'products' %}">Products Home</a> | Category Management</span>
-
                 </p>
             </div>
         </div>
@@ -20,7 +21,6 @@
                 <hr>
             </div>
         </div>
-
         <div class="row">
             <div class="col-12 col-md-6">
                 <form method="POST" action="{% url 'add_category' %}" class="form mb-2" enctype="multipart/form-data">
@@ -32,15 +32,12 @@
                             {{ field }}
                         {% endif %}
                     {% endfor %}
-
                     <div class="text-right">
                         <a class="btn btn-outline-black rounded-0" href="{% url 'add_product' %}">Cancel</a>
                         <button class="btn btn-black rounded-0" type="submit">Add Category</button>
                     </div>
                 </form>
             </div>
-
-
         </div>
     </div>
 {% endblock %}

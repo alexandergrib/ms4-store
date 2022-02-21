@@ -2,6 +2,8 @@
 {% load static %}
 {% load bag_tools %}
 
+{% block extra_title %}Bag{% endblock %}
+
 {% block content %}
     <div class="overlay"></div>
     <div class="container mb-2">
@@ -15,7 +17,6 @@
         </div>
         <div class="row">
             <div class="col">
-
                 <h2 class="logo-font mb-4 mt-4">Shopping Bag</h2>
                 <hr>
             </div>
@@ -35,7 +36,6 @@
                                 <th scope="col">Subtotal</th>
                             </tr>
                             </thead>
-
                             {% for item in bag_items %}
                                 <tr>
                                     <td class="p-3 w-25">

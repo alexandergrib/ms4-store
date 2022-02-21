@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_title %}Edit product{% endblock %}
+
 {% block content %}
     <div class="overlay"></div>
     <div class="container">
@@ -8,7 +10,6 @@
             <div class="col-12 col-md-6 order-md-first">
                 <p class="text-muted mt-3 text-md-left">
                     <span class="small"><a href="/">Home</a> | <a href="{% url 'products' %}">Products</a> | <a href="{% url 'product_detail' product.id %}"> {{ product.brand }} {{ product.model }}t</a></span>
-
                 </p>
             </div>
         </div>
@@ -20,7 +21,6 @@
                 <hr>
             </div>
         </div>
-
         <div class="row">
             <div class="col-12 col-md-6">
                 <form method="POST" action="{% url 'edit_product' product.id %}" class="form mb-2"
@@ -41,7 +41,6 @@
                                     <img src="{{ image.image_url }}" alt="image" width="100" height="100">
                                     <a href="{% url 'delete_image' image_id=image.id %} ">remove</a>
                                 {% endfor %}
-
                             </li>
                         </ul>
                     {% endif %}
@@ -51,7 +50,6 @@
                         <button class="btn btn-black rounded-0" type="submit">Update Product</button>
                     </div>
                 </form>
-
             </div>
         </div>
     </div>

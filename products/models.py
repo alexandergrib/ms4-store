@@ -10,7 +10,6 @@ from tinymce import models as tinymce_models
 class Category(models.Model):
     class Meta:
         verbose_name_plural = 'Categories'
-
     name = models.CharField(max_length=254)
     friendly_name = models.CharField(max_length=254)
 
@@ -24,7 +23,6 @@ class Category(models.Model):
 class Special(models.Model):
     class Meta:
         verbose_name_plural = 'Specials'
-
     name = models.CharField(max_length=254)
     friendly_name = models.CharField(max_length=254)
 
@@ -73,7 +71,6 @@ class BaseProduct(models.Model):
 class Product(BaseProduct):
     class Meta:
         verbose_name_plural = 'Products'
-
     id = models.UUIDField(primary_key=True,
                           default=uuid.uuid4,
                           editable=False, unique=True)
@@ -98,7 +95,6 @@ class ProductReviews(models.Model):
     class Meta:
         verbose_name_plural = 'Product Reviews'
         #     ordering
-
     REVIEW_CHOICES = [
         (1, 'Poor'),
         (2, 'Average'),
@@ -128,8 +124,6 @@ class ProductReviews(models.Model):
 class ProductImages(models.Model):
     class Meta:
         verbose_name_plural = 'Product Images'
-    #     ordering
-
     product = models.ForeignKey(Product, null=True, blank=True,
                                 on_delete=models.SET_NULL,
                                 related_name="product_image")
@@ -142,7 +136,6 @@ class ProductSpecifications(models.Model):
 
     class Meta:
         verbose_name_plural = 'Product Specifications'
-
     product = models.ForeignKey(Product,
                                 null=True,
                                 blank=True,
@@ -157,7 +150,6 @@ class Cartridges(BaseProduct):
 
     class Meta:
         verbose_name_plural = 'Cartridges'
-
     id = models.UUIDField(primary_key=True,
                           default=uuid.uuid4,
                           editable=False, unique=True)

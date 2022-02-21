@@ -6,7 +6,6 @@ from django.shortcuts import get_object_or_404
 from products.models import ProductBrand, Category, Product, Cartridges
 
 
-
 def bag_contents(request):
     bag_items = []
     total = 0
@@ -14,6 +13,9 @@ def bag_contents(request):
     brands = ProductBrand.objects.all()
     categories = Category.objects.all()
     bag = request.session.get('bag', {})
+    delivery = 0
+    free_delivery_delta = 0
+    grand_total = delivery + total
 
     for item_id, item_data in bag.items():
         if isinstance(item_data, int):
@@ -41,10 +43,6 @@ def bag_contents(request):
     if total < settings.FREE_DELIVERY_THRESHOLD:
         delivery = total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE / 100)
         free_delivery_delta = settings.FREE_DELIVERY_THRESHOLD - total
-
-    delivery = 0
-    free_delivery_delta = 0
-    grand_total = delivery + total
 
     context = {
         'bag_items': bag_items,

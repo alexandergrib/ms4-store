@@ -368,6 +368,10 @@ a.category-badge > span.badge:hover {
   margin: auto auto 5px;
 }
 
+footer {
+  background-color: #45526e;
+}
+
 .nav-header {
   border-bottom: 1px solid grey;
   position: relative;
@@ -453,7 +457,6 @@ a.category-badge > span.badge:hover {
 .btn-outline-black {
   background: white;
   color: black !important;
-  /* use important to override link colors for <a> elements */
   border: 1px solid black;
 }
 
@@ -496,14 +499,12 @@ a.category-badge > span.badge:hover {
 .btn-outline-green {
   background: white;
   color: black !important;
-  /* use important to override link colors for <a> elements */
   border: 1px solid green;
 }
 
 .btn-outline-red {
   background: #ff0000;
   color: white !important;
-  /* use important to override link colors for <a> elements */
   border: 1px solid #ff0001;
 }
 
