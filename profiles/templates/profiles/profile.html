@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="{% static 'profiles/css/profile.css' %}">
 {% endblock %}
 
+{% block extra_title %}Profile{% endblock %}
 
 {% block content %}
     <div class="overlay"></div>
@@ -69,7 +70,7 @@
                                             {% endfor %}
                                         </ul>
                                     </td>
-                                    <td>${{ order.grand_total }}</td>
+                                    <td>£{{ order.grand_total }}</td>
                                 </tr>
                             {% endfor %}
                         </tbody>

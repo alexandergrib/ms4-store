@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="{% static 'home/css/carousel.css' %}">
 {% endblock %}
 
+{% block extra_title %}Product detail{% endblock %}
+
 {% block content %}
     <div class="overlay"></div>
     <div class="container-fluid">
@@ -272,7 +274,6 @@
                 </div>
                 <div class="row">
                     <div class="col-sm-12 col-md-8 offset-md-2">
-
                         {% if product.cartridges.all %}
                             {% for cartridge in product.cartridges.all %}
                                 <div class="table-responsive rounded">
@@ -316,7 +317,6 @@
                                                                name="quantity" value="1"
                                                                data-item_id="{{ cartridge.id }}"
                                                                id="id_qty_{{ cartridge.id }}">
-
                                                         <input type="submit" class="btn btn-success text-uppercase"
                                                                value="Add to Bag">
                                                         <input type="hidden" name="redirect_url"

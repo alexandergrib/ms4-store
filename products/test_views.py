@@ -151,7 +151,6 @@ class TestProductViewsAddData(TestCase):
 
     fixtures = [
         'fixtures.json',
-
     ]
 
     @classmethod

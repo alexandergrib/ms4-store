@@ -262,7 +262,6 @@ def add_product(request):
     context = {
         'form': form,
     }
-
     return render(request, template, context)
 
 
@@ -289,7 +288,6 @@ def add_specs(request, product_id):
     context = {
         'form': form,
     }
-
     return render(request, template, context)
 
 
@@ -324,7 +322,6 @@ def add_cartridge(request, product_id):
     context = {
         'form': form,
     }
-
     return render(request, template, context)
 
 
@@ -372,7 +369,6 @@ def add_review(request, product_id):
         'form': review_form,
         'product': product,
     }
-
     return render(request, template, context)
 
 
@@ -416,7 +412,6 @@ def edit_product(request, product_id):
         'product': product,
         'product_images': product_images
     }
-
     return render(request, template, context)
 
 

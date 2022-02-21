@@ -1,60 +1,81 @@
 <div class="collapse navbar-collapse" id="main-nav">
     <ul class="navbar-nav w-auto mx-auto">
         <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="all-products-link" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="logo-font font-weight-bold nav-link text-black mr-5"
+               href="#" id="all-products-link"
+               data-bs-toggle="dropdown"
+               aria-haspopup="true"
+               aria-expanded="false">
                 All Products
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
-                <a href="{%  url 'products' %}?sort=price&direction=asc" class="dropdown-item">By Price</a>
-                <a href="{%  url 'products' %}?sort=brand&direction=asc" class="dropdown-item ">By Brand</a>
-                <a href="{%  url 'products' %}?sort=category&direction=asc" class="dropdown-item ">By Category</a>
+                <a href="{% url 'products' %}?sort=price&direction=asc" class="dropdown-item">By Price</a>
+                <a href="{% url 'products' %}?sort=brand&direction=asc" class="dropdown-item ">By Brand</a>
+                <a href="{% url 'products' %}?sort=category&direction=asc" class="dropdown-item ">By Category</a>
                 <a href="{% url 'products' %}" class="dropdown-item">All Products</a>
             </div>
         </li>
         <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="printers-link" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="logo-font font-weight-bold nav-link text-black mr-5"
+               href="#" id="printers-link"
+               data-bs-toggle="dropdown"
+               aria-haspopup="true"
+               aria-expanded="false">
                 Category
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="printers-link">
                 {% if categories %}
                     {% for category in categories %}
-                        <a href="{%  url 'products' %}?category={{ category.name }}" class="dropdown-item">{{ category.friendly_name }}</a>
+                        <a href="{% url 'products' %}?category={{ category.name }}"
+                           class="dropdown-item">{{ category.friendly_name }}</a>
                     {% endfor %}
                 {% endif %}
-                <a href="{%  url 'products' %}" class="dropdown-item">All Printers</a>
+                <a href="{% url 'products' %}" class="dropdown-item">All Printers</a>
 
                 {% if request.user.is_superuser %}
                     <hr>
-                       <a href="{% url 'all_categories' %}" class="dropdown-item">Category Management</a>
+                    <a href="{% url 'all_categories' %}" class="dropdown-item">Category Management</a>
                 {% endif %}
             </div>
         </li>
         <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="cartridges-link" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="logo-font font-weight-bold nav-link text-black mr-5"
+               href="#"
+               id="cartridges-link"
+               data-bs-toggle="dropdown"
+               aria-haspopup="true"
+               aria-expanded="false">
                 Brands
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="cartridges-link">
                 {% if brands %}
                     {% for brand in brands %}
-                        <a href="{%  url 'products' %}?brand={{ brand.brand_name }}" class="dropdown-item">{{ brand.friendly_brand_name }}</a>
+                        <a href="{% url 'products' %}?brand={{ brand.brand_name }}"
+                           class="dropdown-item">{{ brand.friendly_brand_name }}</a>
                     {% endfor %}
                 {% endif %}
-                <a href="{%  url 'products' %}" class="dropdown-item">All brands</a>
+                <a href="{% url 'products' %}" class="dropdown-item">All brands</a>
                 {% if request.user.is_superuser %}
                     <hr>
-                       <a href="{% url 'all_brands' %}" class="dropdown-item">Brand Management</a>
-                    {% endif %}
+                    <a href="{% url 'all_brands' %}" class="dropdown-item">Brand Management</a>
+                {% endif %}
             </div>
         </li>
         <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-black" href="#" id="specials-link" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="logo-font font-weight-bold nav-link text-black"
+               href="#"
+               id="specials-link"
+               data-bs-toggle="dropdown"
+               aria-haspopup="true"
+               aria-expanded="false">
                 Special Offers
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="specials-link">
-                <a href="{%  url 'products' %}?special=new_arrivals" class="dropdown-item">New Arrivals</a>
-                <a href="{%  url 'products' %}?special=deals" class="dropdown-item">Deals</a>
-                <a href="{%  url 'products' %}?special=clearance" class="dropdown-item">Clearance</a>
-                <a href="{%  url 'products' %}?special=new_arrivals,deals,clearance" class="dropdown-item">All Specials</a>
+                <a href="{% url 'products' %}?special=new_arrivals" class="dropdown-item">New Arrivals</a>
+                <a href="{% url 'products' %}?special=deals" class="dropdown-item">Deals</a>
+                <a href="{% url 'products' %}?special=clearance" class="dropdown-item">Clearance</a>
+                <a href="{% url 'products' %}?special=new_arrivals,deals,clearance" class="dropdown-item">All
+                    Specials</a>
             </div>
         </li>
     </ul>
