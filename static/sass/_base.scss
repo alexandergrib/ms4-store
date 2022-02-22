@@ -30,9 +30,7 @@ nav li {
 .search-label {
     width: 90%;
 }
-.search-label-icon{
-    margin-top: -2px;
-}
+
 .row {
     margin-left: 0;
     margin-right: 0;
@@ -77,6 +75,9 @@ nav li {
     cursor: pointer;
 }
 
+.text-bold {
+    font-weight: 600;
+}
 
 .h1 {
     font-size: $base-font-size + 1.2rem; //26px
@@ -121,6 +122,10 @@ nav li {
 
 .bg-black {
     background: #000 !important;
+}
+
+.bg-red {
+    background: #c95151f5 !important;
 }
 
 .home-inner-category-image {

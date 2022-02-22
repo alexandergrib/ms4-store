@@ -30,10 +30,6 @@ nav li {
   width: 90%;
 }
 
-.search-label-icon {
-  margin-top: -2px;
-}
-
 .row {
   margin-left: 0;
   margin-right: 0;
@@ -78,6 +74,10 @@ nav li {
   cursor: pointer;
 }
 
+.text-bold {
+  font-weight: 600;
+}
+
 .h1 {
   font-size: 2.6rem;
 }
@@ -120,6 +120,10 @@ nav li {
 
 .bg-black {
   background: #000 !important;
+}
+
+.bg-red {
+  background: #c95151f5 !important;
 }
 
 .home-inner-category-image {
@@ -433,8 +437,17 @@ footer {
   width: 1.5rem;
 }
 
-.logo-font {
+.main-logo_font, .logo-font, .banner-font {
   text-transform: uppercase;
+  font-size: 3rem;
+}
+
+.banner-font {
+  font-size: 1.7rem;
+}
+
+.logo-font {
+  font-size: 2.1rem;
 }
 
 .main-logo-link {
