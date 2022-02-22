@@ -218,6 +218,10 @@
                                         <input type="submit" class="btn btn-success text-uppercase mt-5"
                                                value="Add to Bag">
                                     </div>
+                                    {% if from_page != 'product' %}
+                                        <input type="hidden" name="cartridge"
+                                                               value="{{ product.id }}">
+                                    {% endif %}
                                     <input type="hidden" name="redirect_url" value="{{ request.path }}">
                                 </div>
                             </form>
