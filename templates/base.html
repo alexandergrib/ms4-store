@@ -246,7 +246,7 @@
             const itemId = $(this).attr('id').split('remove_')[1];
             const url = `/bag/remove/${itemId}/`;
             if (this.dataset.parent === 'cartridge') {
-                var data = {'csrfmiddlewaretoken': csrfToken, 'cartridge': 1};
+                var data = {'csrfmiddlewaretoken': csrfToken, 'cartridge': itemId};
             } else {
                 var data = {'csrfmiddlewaretoken': csrfToken};
             }

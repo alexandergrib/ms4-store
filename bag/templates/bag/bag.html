@@ -7,7 +7,7 @@
 {% block content %}
     <div class="overlay"></div>
     <div class="container mb-2">
-           <div class="row">
+        <div class="row">
             <div class="col-sm-12 col-md-8">
                 <p class="text-muted mt-3 text-md-left">
                     <span class="small"><a href="/">Home</a> | <a
@@ -100,8 +100,16 @@
                                             </div>
                                         </form>
                                         <a class="update-link text-info"><small>Update</small></a>
-                                        <a class="remove-item text-danger float-end"
-                                           id="remove_{{ item.item_id }}"><small>Remove</small></a>
+
+                                            <a class="remove-item text-danger float-end"
+                                                {% if item.product.cartridge_product %}
+                                                    data-parent="cartridge"
+                                                {% endif %}
+                                                id="remove_{{ item.item_id }}">
+
+                                                <small>Remove</small>
+                                            </a>
+
                                     </td>
                                     <td class="py-3">
                                         <p class="my-0">£{{ item.product.price | calc_subtotal:item.quantity }}</p>
