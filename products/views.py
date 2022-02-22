@@ -473,7 +473,8 @@ def edit_review(request, review_id):
         context = {
             'form': review_form,
             'review': review,
-            'product_id': review.product.id
+            'product_id': review.product.id,
+            'product': review.product
         }
         return render(request, template, context)
     else:
