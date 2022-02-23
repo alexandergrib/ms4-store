@@ -39,10 +39,60 @@
         <h5>Brands List</h5>
             <ul>
                 {% for brand in brands %}
-                    <li class="list-unstyled mt-3 mb-3">{{ brand.friendly_brand_name }} <a href="{% url 'delete_brand' brand_id=brand.id %}">delete</a></li>
+                    <li class="list-unstyled mt-3 mb-3">
+                        {{ brand.friendly_brand_name }}
+                        <a href="#" data-bs-toggle="modal" data-bs-brand_id="{{brand.id}}" data-bs-target="#delete-modal">delete</a>
+                    </li>
                 {% endfor %}
             </ul>
         </div>
     </div>
     </div>
+
+
+<!-- Delete confirmation  modal  -->
+<div class="modal fade" id="delete-modal" tabindex="-1" role="dialog"
+         aria-labelledby="deleteModal" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-black logo-font" id="deleteModal">
+                        Delete brand</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal"
+                            aria-label="Close">
+                        <span aria-hidden="true"><i class="fas fa-times"></i></span>
+                    </button>
+                </div>
+                <div class="modal-body text-black text-left">
+                    <p>Are you sure you want to permanently delete this brand?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-black rounded-0"
+                            data-bs-dismiss="modal">Cancel
+                    </button>
+                    <a class="btn btn-outline-red rounded-0"
+                       href="#">Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    <script>
+        let deleteModal = document.getElementById('delete-modal')
+        deleteModal.addEventListener('show.bs.modal', function (event) {
+            // Button that triggered the modal
+            let button = event.relatedTarget;
+            // Extract info from data-bs-* attributes
+            let modal_id = button.getAttribute('data-bs-brand_id');
+
+            // Update the modal's link content.
+            let modalFooter = deleteModal.querySelector('.modal-footer a');
+            //below hardcoded url is not ideal how to do it but as a temporary measure I will leave it as it is
+            modalFooter.href =  `https://ms4-store.herokuapp.com/products/delete/brand/${modal_id}/`;
+        })
+    </script>
 {% endblock %}
