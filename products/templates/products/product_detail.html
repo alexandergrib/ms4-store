@@ -213,9 +213,9 @@
                                     <span class="icon">
                                         <i class="fas fa-chevron-left"></i>
                                     </span>
-                                            <span class="text-uppercase">Keep Shopping</span>
+                                            <span class="text-uppercase h6">Keep Shopping</span>
                                         </a>
-                                        <input type="submit" class="btn btn-success text-uppercase mt-5"
+                                        <input type="submit" class="btn btn-success text-uppercase mt-5 h7"
                                                value="Add to Bag">
                                     </div>
                                     {% if from_page != 'product' %}
@@ -231,12 +231,12 @@
                     <div class="row pt-5">
                         {% if from_page == "product" %}
                             <div class="col-6">
-                                <a href="#consumables" class="btn btn-info w-100">Looking for cartridges?</a>
+                                <a href="#consumables" class="btn btn-info w-100 h7">Looking for cartridges?</a>
                             </div>
                         {% endif %}
                         <div class="col-6">
                             {% if product.brochure %}
-                                <a href="{{ product.brochure }}" class="btn btn-info w-100" target="_blank">View
+                                <a href="{{ product.brochure }}" class="btn btn-info w-100 h7" target="_blank">View
                                     brochure</a>                                &nbsp;
                             {% endif %}
                         </div>
@@ -338,16 +338,16 @@
                                                     <span class="icon">
                                                         <i class="fas fa-chevron-left"></i>
                                                     </span>
-                                <span class="text-uppercase">Keep Shopping</span>
+                                <span class="text-uppercase h7">Keep Shopping</span>
                             </a>
                         {% else %}
-                            <p class="text-center mt-4">No consumables added yet</p>
+                            <p class="text-center mt-4 h7">No consumables added yet</p>
                             <a href="{% url 'products' %}"
                                class="btn btn-outline-black rounded-0 mt-5 mb-3 text-end">
                                                     <span class="icon">
                                                         <i class="fas fa-chevron-left"></i>
                                                     </span>
-                                <span class="text-uppercase">Keep Shopping</span>
+                                <span class="text-uppercase h7">Keep Shopping</span>
                             </a>
                         {% endif %}
                     </div>

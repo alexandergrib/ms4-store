@@ -28,6 +28,7 @@ nav li {
 
 .search-label {
   width: 90%;
+  margin-top: 2px;
 }
 
 .row {
@@ -100,6 +101,10 @@ nav li {
 
 .h6 {
   font-size: 1.6rem;
+}
+
+.h7 {
+  font-size: 1.4rem;
 }
 
 .display-block {
@@ -354,6 +359,10 @@ a.category-badge > span.badge:hover {
   margin-left: 10%;
 }
 
+.quantity-update-form {
+  width: 110px;
+}
+
 .cookie-banner_inner {
   position: fixed;
   width: 250px;
@@ -519,6 +528,11 @@ footer {
   background: #ff0000;
   color: white !important;
   border: 1px solid #ff0001;
+}
+
+.increment-qty, .decrement-qty {
+  height: 30px;
+  width: 30px;
 }
 
 /* -------------------------------- Media Queries */
