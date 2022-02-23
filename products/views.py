@@ -34,6 +34,10 @@ def all_products(request):
                 products = products.annotate(lower_name=Lower('model'))
             if sortkey == 'category':
                 sortkey = 'category__name'
+            if sortkey == 'brand':
+                sortkey = 'brand__brand_name'
+            if sortkey == 'model':
+                sortkey = 'model'
 
             if 'direction' in request.GET:
                 direction = request.GET['direction']
@@ -473,7 +477,8 @@ def edit_review(request, review_id):
         context = {
             'form': review_form,
             'review': review,
-            'product_id': review.product.id
+            'product_id': review.product.id,
+            'product': review.product
         }
         return render(request, template, context)
     else:

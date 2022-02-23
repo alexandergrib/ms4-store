@@ -261,6 +261,8 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 - W3 validator gave me warning:
 - ![The type attribute is unnecessary for JavaScript resources.](./readme_media/javascript_type_warning.png)
 - To **solve** it i removed all ```type=text/javascript``` from ```<script>``` tags
+- ``Duplicate ID delete-review-modal``. was found by markup validator
+  - Had to rewrite bootstrap modal to handle multiple buttons pointing to the same modal. Solution found in [Bootstrap documentation](https://getbootstrap.com/docs/5.0/components/modal/#varying-modal-content)
 ---
 
 # Credits

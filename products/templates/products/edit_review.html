@@ -7,14 +7,16 @@
 <div class="overlay"></div>
 <div class="container">
     <div class="row">
-            <div class="col-12 col-md-6 order-md-first">
-                <p class="text-muted mt-3 text-md-left">
-                    <span class="small"><a href="/">Home</a></span>
-                </p>
-            </div>
+        <div class="col-sm-12 col-md-8 offset-md-2">
+            <p class="text-muted mt-3 text-md-left">
+                <span class="small"><a href="/">Home</a> | <a href="{% url 'products' %}">Products</a> |</span> <a
+                        href="{% url 'product_detail' product_id %}"
+                        class="">{{ product.brand }} {{ product.model }}</a><span class="h5"> | Edit review</span>
+            </p>
         </div>
+     </div>
     <div class="row">
-        <div class="col-12 col-md-6">
+        <div class="col-sm-12 col-md-8 offset-md-2">
             <hr>
             <h2 class="logo-font mb-4">Reviews</h2>
             <h5 class="text-muted">Edit Your Review</h5>
@@ -22,7 +24,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-12 col-md-6">
+        <div class="col-sm-12 col-md-8 offset-md-2">
             <form method="POST" action="{% url 'edit_review' review.pk %}" class="form mb-2"
                 enctype="multipart/form-data">
                 {% csrf_token %}
