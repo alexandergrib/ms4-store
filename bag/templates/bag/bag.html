@@ -99,17 +99,17 @@
                                                 </div>
                                             </div>
                                         </form>
-                                        <a class="update-link text-info"><small>Update</small></a>
+                                        <p>
+                                            <a class="update-link text-info"><small>Update</small></a>
 
                                             <a class="remove-item text-danger float-end"
-                                                {% if item.product.cartridge_product %}
-                                                    data-parent="cartridge"
-                                                {% endif %}
-                                                id="remove_{{ item.item_id }}">
-
+                                                    {% if item.product.cartridge_product %}
+                                               data-parent="cartridge"
+                                                    {% endif %}
+                                               id="remove_{{ item.item_id }}">
                                                 <small>Remove</small>
                                             </a>
-
+                                        </p>
                                     </td>
                                     <td class="py-3">
                                         <p class="my-0">£{{ item.product.price | calc_subtotal:item.quantity }}</p>

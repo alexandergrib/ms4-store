@@ -79,6 +79,10 @@ nav li {
   font-weight: 600;
 }
 
+.text-special {
+  color: #D04116 !important;
+}
+
 .h1 {
   font-size: 2.6rem;
 }
@@ -360,7 +364,7 @@ a.category-badge > span.badge:hover {
 }
 
 .quantity-update-form {
-  width: 110px;
+  min-width: 110px;
 }
 
 .cookie-banner_inner {
@@ -415,7 +419,7 @@ footer {
 
 .homepage {
   height: 400px;
-  background: #FCFAEB url("/media/robot.webp") no-repeat 90% 50%;
+  background: #FCFAEB url("/media/robot.webp") no-repeat 70% 50%;
   background-size: contain;
 }
 
