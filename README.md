@@ -1,6 +1,7 @@
 
 # SHOP EASY
 
+![responsive](./readme_media/responsive_image.jpg)
 
 ![GitHub contributors](https://img.shields.io/github/contributors/alexandergrib/ms4-store)
 ![GitHub last commit](https://img.shields.io/github/last-commit/alexandergrib/ms4-store)
@@ -11,7 +12,7 @@
 ![Testing coverage](https://img.shields.io/badge/coverage-74%25-brightgreen)
 ![GitHub forks](https://img.shields.io/github/forks/alexandergrib/ms4-store?style=social)
 
-[Here is a link to the final project](https://ms4-store.herokuapp.com/)
+# [Link to the final project](https://ms4-store.herokuapp.com/)
 
 This site is a printer and cartridges e-commerce site for my fried who owns small business in Russia. Website eventually would bee translated in to russian. This site is fully responsive on all modern screen sizes, and it allows the admin to easily add, edit or delete products that he have to sell.
 
@@ -200,20 +201,24 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 2. As a Returning Visitor, I want to find the best way to get in contact with the site owner with any questions I may have.
 
    1. Returning Visitor can contact customer service through contact links on the footer of the site.
+   ![](./readme_media/contact_details_footer.png)
        
 3. As a Returning User, I want to be able to log in to the site view my profile.
-   1. User can view profile in My account section of the Navbar
+   1. User can view profile in My account section of the Navbar <br>
+   ![](./readme_media/profile.png)
 
 
 ### Frequent User Goals
 
 1. As a Frequent User, I want to browse the site to see if there are any changes, new deals and/or clearance items.
 
-   1. Frequent User can easily find this updates and contents on the home page. !
-
+   1. Frequent User can easily find this updates and contents on the home page. 
+   ![](./readme_media/featured_homepage.png)
 2. As a Frequent User, I want to see information about the most new arrivals and sales.
 
    1. The Special offers section is on the Navbar with links to the site New arrivals, deals and clearance.
+   <br>
+   ![](./readme_media/clearance_section.png)
    
 3. As a Frequent User, I want to be able to sort products by price, category, or brand
    1. Option for sorting products located under all products view <br> ![](./readme_media/sorting.png)
