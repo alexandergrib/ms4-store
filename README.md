@@ -270,7 +270,7 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
   - Had to rewrite bootstrap modal to handle multiple buttons pointing to the same modal. Solution found in [Bootstrap documentation](https://getbootstrap.com/docs/5.0/components/modal/#varying-modal-content)
 - Search bar icon get shifted down on some pages
    ![](readme_media/search_icon_shift.png)
-  - In progress of finding what causes it
+  - Fixed it by declaring .form-control and .btn styles to have font size set to 1.4 rem
 
 ---
 
