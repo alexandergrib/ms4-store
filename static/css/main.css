@@ -165,6 +165,10 @@ a.category-badge > span.badge:hover {
 }
 
 /* ------------------------------- bootstrap toasts */
+.toast {
+  font-size: 1.2rem;
+}
+
 .message-container {
   position: fixed;
   top: 100px;
