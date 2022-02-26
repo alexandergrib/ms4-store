@@ -29,8 +29,6 @@ nav li {
 
 .search-label {
     width: 90%;
-    margin-top: 2px;
-
 }
 
 .row {
@@ -78,6 +76,10 @@ nav li {
 
 .text-bold {
     font-weight: 600;
+}
+
+.text-special {
+    color: #D04116 !important;
 }
 
 .h1 {
@@ -163,6 +165,10 @@ a.category-badge > span.badge:hover {
 
 
 /* ------------------------------- bootstrap toasts */
+
+.toast {
+    font-size: 1.2rem;
+}
 
 .message-container {
     position: fixed;
@@ -368,7 +374,7 @@ a.category-badge > span.badge:hover {
 }
 
 .quantity-update-form {
-    width: 110px;
+    min-width: 110px;
 }
 
 .cookie-banner_inner {

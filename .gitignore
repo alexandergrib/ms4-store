@@ -76,3 +76,4 @@ venv.bak/
 /stripe/
 
 /.vscode/
+!/templates/base.html
