@@ -115,10 +115,10 @@ Automated Unit Testing was done using [Django’s testing tools](https://docs.dj
 
 ### Product Views
 
-- Test that the Products page URL exists
-- Test that the Products page URL is accessible by name
-- Test that the Products page uses the correct template
-- Test the products page view
+- Test that the products' page URL exists
+- Test that the products' page URL is accessible by name
+- Test that the products' page uses the correct template
+- Test the products' page view
 
 ### Test the categories view
 
@@ -154,8 +154,8 @@ Automated Unit Testing was done using [Django’s testing tools](https://docs.dj
 
 ##### Profile Views
 
-- Test that the Profiles' page URL exists
-- Test that the Profiles' page URL is accessible by name
+- Test that the profiles' page URL exists
+- Test that the profiles' page URL is accessible by name
 - Test that a logged-in user can view the profile
 - Test that the profile information gets saved correctly
 - Test that the order history displays when requested
@@ -170,7 +170,7 @@ Automated Unit Testing was done using [Django’s testing tools](https://docs.dj
 
 ![all apps combined coverage](../full_coverage.png)
 
-Whole project coverage looks good at 74%, but I have some functions missing at the moment, as im running close to the deadline, and I don't have enough time left to cover all possible cases. 
+Whole project coverage looks good at 74%, but I have some functions missing at the moment, as I'm running close to the deadline, and I don't have enough time left to cover all possible cases. 
 
 ---
 
@@ -285,7 +285,7 @@ Icon key:
 
 - 💻 Will requre to fill in their contact and address details to check out product
 - 💻 Will be displayed links to register or login
-- 🔑 If their details was saved previously they will auto filled in the form
+- 🔑 If their details was saved previously they will auto-filled in the form
 - 🔑 Selecting "Save this delivery information to my profile" will update profile details upon checkout
 - 💻 When checkout button pressed loading overlay will be displayed while server process data
 
@@ -311,14 +311,14 @@ All items in this category is only available to the 🔐
 
 - 'Add Another' Link under Category and Brand will take superuser to the add new Category/Brand page
 - 'Description' and 'Featured description' Fields contain rich text editors
-- Button 'Add product' will create new product if all *required fields are filled otherwise will display an error
+- Button 'Add product' will create new product if all required fields are filled otherwise will display an error
 
 #### Edit / Delete Product Testing
 
 All items in this category is only available to the 🔐
 
 - Product form fields are populated
-- Button 'update product' will update current product if all *required fields are filled otherwise will display an error
+- Button 'update product' will update current product if all required fields are filled otherwise will display an error
 
 
 

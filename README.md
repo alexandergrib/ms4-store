@@ -14,7 +14,7 @@
 
 # [Link to the final project](https://ms4-store.herokuapp.com/)
 
-This site is a printer and cartridges e-commerce site for my fried who owns small business in Russia. Website eventually would bee translated in to russian. This site is fully responsive on all modern screen sizes, and it allows the admin to easily add, edit or delete products that he have to sell.
+This site is a printer and cartridges e-commerce site for my fried who owns small business. This site fully responsive on all modern screen sizes, and it allows the admin to easily add, edit or delete products that he have to sell.
 
 This site was built using HTML, CSS, Bootstrap, JavaScript, jQuery, Python, Django, and it uses a SQL database through PostgreSQL.
 
@@ -58,31 +58,32 @@ This site was built using HTML, CSS, Bootstrap, JavaScript, jQuery, Python, Djan
 
 ## Initial Discussion
 
-* I wanted to create a website linked to a database, which allows users to log in, search for, and find printers and cartridges for them.
-* Currently, I have a basic one-page website, and I think it's a time to upgrade to bring more customers in, and be able to manage products more easily
-* I wanted to be able to add, edit and delete items of products for sale.
+* I wanted to create a website linked to a database, which allows users to log in, search for and find printers and cartridges for them.
+* Currently, I have a basic one-page website and I think it's a time to upgrade to bring more customers in and be able to manage my inventory products more easily
+* I wanted to be able to add, edit and delete inventory of products for sale.
 
 ## Site Owner's Goals
  - As a site owner, I want to be able to add new or edit existing products.
  - As a site owner, I want to be able to remove existing products.
- - As a site owner, I want to be able to add new/existing products to "special offers/sale".
+ - As a site owner, I want to be able to add new/existing products to "special offers/sale", "featured products".
  - As a site owner, I want to be able to add new, edit or remove existing categories and brands.
 
 ## First Time Visitor Goals
  - As a First Time Visitor, I want to be able to view a list of products, so that I can select some to purchase.
  - As a First Time Visitor, I want to be able to view individual product details, product Image, the price, the product description and the compatible cartridges.
  - As a First Time Visitor, I want to look for testimonials to understand what other users think of the site and the service it renders.
- - As a First Time Visitor, I want to sign up to the site to enable me full access to it's service and also to receive email newsletter and latest updates.
+ - As a First Time Visitor, I want to sign up to the site to enable myself for full access to it's service and also to receive email newsletter and latest updates.
+ - As a First Time Visitor, I want to be able to view order confirmation and save my contact details in my registered Profile
 
 ## Returning Visitor Goals
 
   - As a Returning Visitor, I want to see new products and deals.
   - As a Returning Visitor, I want to find the best way to get in contact with the site owner with any questions I may have.
-  - As a Returning Visitor, I want to be able to log in to the site view my profile and add items to wishlist.
+  - As a Returning Visitor, I want to be able to log in to the site view my profile and view past orders.
 
 ## Frequent User Goals
  - As a Frequent User, I want to browse the site to see if there are any changes, new deals and/or clearance items.
- - As a Frequent User, I want to see information about the most new arrivals and sales.
+ - As a Frequent User, I want to see information about new arrivals and sales.
  - As a Frequent User, I want to be able to sort products by price, category, or brand
 
 
@@ -151,7 +152,7 @@ Detailed deployment can be found [here](https://github.com/alexandergrib/ms4-sto
 10. [Stripe:](https://stripe.com/)
     - Stripe was used to accept and authorise payment for any item purchased on the site.
 11. [AWS:](https://s3.console.aws.amazon.com/)
-    - Amazon S3 was used to manage and save media and collectstatic file in Its cloud service.        
+    - Amazon S3 was used to manage and save media and static files in Its cloud service.        
 12. [TinyMce](https://www.tiny.cloud/)
     - To create rich text editor for the text field for user to be able to create pretty text.
 
@@ -185,7 +186,7 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 
 4. As a Site User, I want to be able to register for an account and have a personalised user profile.
 
-   1. The Site User can register to view their personal order history and order confirmations, and save their payment information by clicking on My Account icon on the homepage top-right as shown on the screenshot. <br> ![](./readme_media/user_profile.png)
+   1. The Site User can register to view their personal order history and order confirmations, and save their contact details by clicking on My Account icon on the homepage top-right as shown on the screenshot. <br> ![](./readme_media/user_profile.png)
 
 5. As a First Time Visitor, I want to locate the site contact details in case I may need help about the site service.
        
@@ -244,7 +245,7 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
     * I was unable to fix this issue as this issue only occurs on Windows 11 and affected by windows itself. 
     * I tried many things in css to change this view but nothing seemed to work.
 
-- When running django tests there is few errors shown: ![img](./readme_media/tests_errors.png)
+- When running django tests there are few errors shown: ![img](./readme_media/tests_errors.png)
   - To fix this error I have to export STRIPE_PUBLIC_KEY and STRIPE_SECRET_KEY to make accessible in the terminal once they set, tests pass with no issues.
 
 - Functionality for searching cartridges not implemented
@@ -259,10 +260,10 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 - When checkout with selected update profile user 'Full name' was saved a tuple like so: ```('User Name',)``` instead of ```User Name```
   - **SOLVED** Problem was in the code where extra comma was added: ![Extra comma](./readme_media/bug_with_name.png)
 
-- When adding new cartridge with image uploaded and without selecting any related printer(even if it already highlighted in the box) cartridge wont get assigned to that printer.
+- When adding new cartridge with image uploaded and without selecting any related printer(even if it already highlighted in the box) cartridge won't get assigned to that printer.
 - When adding new cartridge without selecting image it works fine.
   - As a temporary workaround, after saving new cartridge go to admin dashboard and reassign cartridge to the related printer. 
-  - **SOLVED** Found bug in saving form where i was calling  ```image.save()``` instead of main form ```form.save()```
+  - **SOLVED** Found bug in saving form where I was calling  ```image.save()``` instead of main form ```form.save()```
 - W3 validator gave me warning:
 - ![The type attribute is unnecessary for JavaScript resources.](./readme_media/javascript_type_warning.png)
 - To **solve** it i removed all ```type=text/javascript``` from ```<script>``` tags
@@ -270,7 +271,7 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
   - Had to rewrite bootstrap modal to handle multiple buttons pointing to the same modal. Solution found in [Bootstrap documentation](https://getbootstrap.com/docs/5.0/components/modal/#varying-modal-content)
 - Search bar icon get shifted down on some pages
    ![](readme_media/search_icon_shift.png)
-  - In progress of finding what causes it
+  - Fixed it by declaring .form-control and .btn styles to have font size set to 1.4 rem
 
 ---
 
