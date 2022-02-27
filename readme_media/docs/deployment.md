@@ -156,13 +156,13 @@ This site was deployed to Heroku by following these steps:
 
 ### S3 Bucket
 
-1. Create a new bucket, give it a name, and choose the region closest to you.
-2. Go to '**Properties**', turn on static website hosting, and fill in `index.html` and `error.html` where it suggests.
+1. Create a new bucket, give it a name and choose the region closest to you.
+2. Go to '**Properties**', turn on static website hosting and fill in `index.html` and `error.html` where it suggests.
 3. Go to '**Permissions**', and add the code block underneath this section into your CORS config to link Heroku and your S3 bucket.
 4. Still in '**Permissions**', go to '**Bucket Policy**', '**Edit**', '**Policy Generator**'.
 5. In '**Select Type of Policy**' choose '**S3 Bucket Policy**'.
 6. In '**Add Statements**', select '**Effect**' of `Allow`, enter `*` into '**Principal**', in '**Actions**' choose `GetObject`, enter your ARN from your main S3 Bucket page, and click '**Add Statement**'.
-7. Then click '**Generate**', and copy and paste your generated policy into the Bucket Policy area.
+7. Then click '**Generate**' and copy and paste your generated policy into the Bucket Policy area.
 8. Add `/*` at the end of the '**Resource**' line, and save.
 9. Still in '**Permissions**', go to the '**Access Control List**', and select `List` next to '**Everyone**'.
 
@@ -192,7 +192,7 @@ This site was deployed to Heroku by following these steps:
 5. Go to '**User Groups**', '**Find New Group**', '**Permissions**', '**Add Permissions**', '**Attach Policies**', find the policy you created in steps 3 and 4, and click '**Add Permissions**'.
 6. Go to '**Users**', provide a name, and tick the checkbox beside '**Access key - Programmatic access**'.
 7. Click '**Next**', select the group you created in step 1, and click through to the end.
-8. Finally, click '**Create User**', and download the CSV file, which will contain your `AWS_SECRET_ACCESS_KEY` and your `AWS_ACCESS_KEY_ID`. This is the only time that this CSV file will be available, so it's very important to download it at this stage.
+8. Finally, click '**Create User**' and download the CSV file, which will contain your `AWS_SECRET_ACCESS_KEY` and your `AWS_ACCESS_KEY_ID`. This is the only time that this CSV file will be available, so it's very important to download it at this stage.
 
 ```python
 "Resource": [
@@ -244,7 +244,7 @@ This site was deployed to Heroku by following these steps:
     * Here you can either Clone or Download the repository.
     * Open Git Bash.
     * Change the current working directory to the new location, where you want the cloned directory to be.
-    * Type `git clone`, and then paste the URL that was copied in Step 4.
+    * Type `git clone` and then paste the URL that was copied in Step 4.
     * Press Enter, and your local clone will be created.
     * Run `git remote rm origin` in your terminal to remove the link to this repo.
 2. Install Python's required packages
