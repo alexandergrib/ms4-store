@@ -1,0 +1,65 @@
+@import 'variables';
+
+ .extra-margin-top {
+     margin-top: 30px;
+ }
+
+.homepage {
+    height: 400px;
+    background: #FCFAEB url('https://cdn.gradko.ovh/ms4/media/robot.webp') no-repeat 70% 50%;
+    background-size: contain;
+}
+
+.home-inner-category {
+    img {
+        height: 100px;
+        width: 100px;
+        opacity: 0.6;
+    }
+    a:hover {
+        font-size: 1.2rem;
+        background-color: unset;
+        font-weight: 600;
+
+        img {
+            opacity: 1;
+        }
+    }
+}
+.home-categories {
+    .category-icon {
+        float: right;
+    }
+}
+/*from Bulma*/
+.icon {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+.main-logo_font {
+    text-transform: uppercase;
+    font-size: 3rem;
+}
+
+.banner-font {
+    @extend .main-logo_font;
+    font-size: 1.7rem;
+}
+
+.logo-font {
+    @extend .main-logo_font;
+    font-size: 2.1rem;
+}
+
+.main-logo-link {
+    width: fit-content;
+}
+
+.shop-now-button {
+    background: black;
+    color: white;
+    min-width: 140px;
+}

@@ -1,0 +1,403 @@
+@import 'variables';
+
+html {
+    height: 100%;
+    font-size: 62.5%;// resets to 10px
+}
+
+body {
+    height: calc(100vh - 188px);
+    color: $base-color;
+    font-family: "Lato", sans-serif !important;
+    font-size: 1.6rem;
+}
+
+nav li {
+    list-style: none outside none;
+}
+
+.hide {
+    display: none;
+}
+
+.dropdown-menu {
+    font-size: 1.4rem;
+}
+.body-container {
+        min-height: 75vh;
+    }
+
+.search-label {
+    width: 90%;
+}
+
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.url-style:link,
+.url-style:visited,
+.url-style:active {
+    text-decoration: none;
+    color: $base-color;
+    cursor: pointer;
+}
+
+.url-style:hover,
+.url-style:focus {
+    background-color: $background-color;
+}
+
+.url-style_classic:link,
+.url-style_classic:visited,
+.url-style_classic:active,{
+    text-decoration: none;
+    color: $base-color;
+    cursor: pointer;
+}
+.url-style_classic:hover,
+.url-style_classic:focus {
+    color: #007bff;
+}
+
+.url-style_danger:link,
+.url-style_danger:visited,
+.url-style_danger:active,{
+    text-decoration: none;
+    color: $base-color;
+}
+
+.url-style_danger:hover,
+.url-style_danger:focus {
+    color: $danger-color;
+    cursor: pointer;
+}
+
+.text-bold {
+    font-weight: 600;
+}
+
+.text-special {
+    color: #D04116 !important;
+}
+
+.h1 {
+    font-size: $base-font-size + 1.2rem; //26px
+}
+
+.h2 {
+    font-size: $base-font-size + 1.0rem; //24px
+}
+
+.h3 {
+    font-size: $base-font-size + 0.8rem; //22px
+}
+
+.h4 {
+    font-size: $base-font-size + 0.6rem; //20px
+}
+
+.h5 {
+    font-size: $base-font-size + 0.4rem;  //18px
+}
+
+.h6 {
+    font-size: $base-font-size + 0.2rem; //16px
+}
+.h7 {
+    font-size: $base-font-size; //14px
+}
+
+.display-block {
+    display: block;
+}
+
+.text-black {
+    color: #000 !important;
+}
+
+
+.border-black {
+    border: 1px solid black !important;
+}
+
+.border-silver {
+    border: 1px solid rgba(243, 243, 243, 0.56) !important;
+}
+
+.bg-black {
+    background: #000 !important;
+}
+
+.bg-red {
+    background: #c95151f5 !important;
+}
+
+.home-inner-category-image {
+    width: 100%;
+    margin: auto;
+    display: block;
+}
+
+.overlay {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    background: white;
+    z-index: -1;
+}
+
+a.category-badge > span.badge {
+    color: #212529 !important;
+}
+
+a.category-badge > span.badge:hover {
+    background: #212529 !important;
+    color: #fff !important;
+}
+
+.product-images {
+    width: 70px;
+}
+
+
+/* ------------------------------- bootstrap toasts */
+
+.toast {
+    font-size: 1.2rem;
+}
+
+.message-container {
+    position: fixed;
+    top: 100px;
+    left: 650px;
+    z-index: 99999999999;
+}
+
+.custom-toast {
+    overflow: visible;
+}
+
+.toast-capper {
+    height: 2px;
+}
+
+/* from CSS-tricks.com: https://css-tricks.com/snippets/css/css-triangle/ */
+.arrow-up {
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-bottom: 10px solid black;
+    position: absolute;
+    top: -10px;
+    right: 25px;
+}
+
+/* Convenience classes - colors copied from Bootstrap */
+.arrow-primary {
+    border-bottom-color: #007bff !important;
+}
+
+.arrow-secondary {
+    border-bottom-color: #6c757d !important;
+}
+
+.arrow-success {
+    border-bottom-color: #28a745 !important;
+}
+
+.arrow-danger {
+    border-bottom-color: #dc3545 !important;
+}
+
+.arrow-warning {
+    border-bottom-color: #ffc107 !important;
+}
+
+.arrow-info {
+    border-bottom-color: #17a2b8 !important;
+}
+
+.arrow-light {
+    border-bottom-color: #f8f9fa !important;
+}
+
+.arrow-dark {
+    border-bottom-color: #343a40 !important;
+}
+
+.bag-notification-wrapper {
+    height: 100px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.form-control, .btn {
+    font-size: 1.4rem;
+}
+
+/* Allauth form formatting */
+
+.allauth-form-inner-content p {
+    margin-top: 1.5rem; /* mt-4 */
+    color: #6c757d; /* text-secondary */
+}
+
+.allauth-form-inner-content input {
+    border-color: #000;
+    border-radius: 0;
+}
+
+.allauth-form-inner-content label:not([for='id_remember']) {
+    display: none;
+}
+
+.allauth-form-inner-content input::placeholder {
+    color: #aab7c4;
+}
+
+.allauth-form-inner-content button,
+.allauth-form-inner-content input[type='submit'] {
+	/* btn */
+	display: inline-block;
+    font-weight: 400;
+    color: #fff;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: #000;
+    border: 1px solid #001;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0;
+
+    /* standard bootstrap btn transitions */
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.allauth-form-inner-content button:hover,
+.allauth-form-inner-content input[type='submit']:hover {
+	color: #fff;
+    background-color: #222;
+    border-color: #222223;
+}
+
+.allauth-form-inner-content a {
+	color: #17a2b8; /* text-info */
+}
+
+
+/* Product Form */
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-file input[type="file"] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.custom-checkbox .custom-control-label::before {
+    border-radius: 0;
+    border-color: #dc3545;
+}
+
+.custom-checkbox .custom-control-input:checked~.custom-control-label::before {
+    background-color: #dc3545;
+    border-color: #dc3544;
+    border-radius: 0;
+}
+.card-body a{
+ text-decoration: none !important;
+    color: #555 !important;
+}
+.card-body a:hover{
+    text-decoration: none;
+    cursor: pointer;
+
+}
+
+
+.cartridge-form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+
+.add-cartridge {
+    cursor: pointer;
+}
+
+.empty-block {
+    height: 50px;
+}
+
+
+.card-body__center-images {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+
+
+.product_name {
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#myCarousel {
+    margin: auto;
+}
+.active > img {
+  opacity: 1 !important;
+    width: 100%;
+}
+
+.carousel-item {
+    width: 80%;
+    margin-left: 10%;
+}
+
+.quantity-update-form {
+    min-width: 110px;
+}
+
+.cookie-banner_inner {
+    position: fixed;
+    width: 250px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #000;
+    color: white;
+    border-radius: 15px;
+    text-align: center;
+    z-index: 9999999;
+    span {
+        width: 125px;
+        border-radius: 10px;
+        margin: auto auto 5px;
+    }
+}
+
+footer {
+    background-color: #45526e;
+}

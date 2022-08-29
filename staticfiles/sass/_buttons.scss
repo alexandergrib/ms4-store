@@ -1,0 +1,67 @@
+@import 'variables';
+
+.btn-outline-green:hover,
+.btn-outline-green:active,
+.btn-outline-green:focus {
+    background: #009927;
+    color: white !important;
+}
+
+.btn-outline-black {
+    background: white;
+    color: black !important;
+    border: 1px solid black;
+}
+
+.btn-outline-black:hover,
+.btn-outline-black:active,
+.btn-outline-black:focus {
+    background: black;
+    color: white !important;
+}
+
+.shop-now-button:hover,
+.shop-now-button:active,
+.shop-now-button:focus,
+.btn-black:hover,
+.btn-black:active,
+.btn-black:focus {
+    background: #222;
+    color: white;
+}
+
+
+.btt-button {
+    height: 42px;
+    width: 42px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+
+.btt-link,
+.update-link,
+.remove-item {
+    cursor: pointer;
+}
+
+.btn-black {
+    background: black;
+    color: white;
+}
+
+.btn-outline-green {
+    background: white;
+    color: black !important;
+    border: 1px solid green;
+}
+.btn-outline-red {
+    background: #ff0000;
+    color: white !important;
+    border: 1px solid #ff0001;
+}
+
+.increment-qty, .decrement-qty {
+    height: 30px;
+    width: 30px;
+}
