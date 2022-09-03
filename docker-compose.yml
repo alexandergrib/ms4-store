@@ -8,7 +8,10 @@ services:
       dockerfile: Dockerfile
     stdin_open: true # docker run -i
     tty: true        # docker run -t
-    command: gunicorn config.wsgi:application --bind 0.0.0.0:8005
+    command:  >
+      sh -c  "python manage.py makemigrations &&
+              python manage.py migrate && 
+              gunicorn config.wsgi:application --bind 0.0.0.0:8005"
     volumes:
       - static_volume:/home/ms4_shop/web/staticfiles
       - media_volume:/home/ms4_shop/web/media

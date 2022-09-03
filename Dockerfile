@@ -81,7 +81,8 @@ RUN pip install --no-cache /wheels/*
 # copy project
 COPY . $APP_HOME
 COPY ./media $APP_HOME/media
-COPY ./static $APP_HOME/staticfiles
+#COPY ./static $APP_HOME/staticfiles
+COPY ./staticfiles $APP_HOME/staticfiles
 
 # chown all the files to the app user
 RUN chown -R webuser:webuser $APP_HOME
@@ -93,6 +94,8 @@ USER webuser
 RUN ["chmod", "+x", "/home/ms4_shop/web/entrypoint.sh"]
 
 
-RUN python manage.py collectstatic --no-input --clear
-RUN python manage.py makemigrations
-RUN python manage.py migrate
+#RUN python manage.py collectstatic --no-input --clear
+
+#RUN python manage.py makemigrations
+
+#RUN python manage.py migrate
