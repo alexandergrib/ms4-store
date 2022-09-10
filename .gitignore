@@ -66,7 +66,7 @@ __pypackages__/
 
 # Environments
 .env
-.env.prd.db
+.env.prod.db
 .venv
 env/
 venv/
